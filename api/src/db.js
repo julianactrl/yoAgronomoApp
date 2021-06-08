@@ -37,16 +37,10 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 
 
-// Aca vendrian laconst { Image } = sequelize.models;s relaciones
-// Product.hasMany(Reviews);
-
-
 // User.hasMany(Order);
 // Order.belongsTo(User);
 
 
-// User.hasMany(Review);
-// Review.belongsTo(User);
 
 
 module.exports = {
