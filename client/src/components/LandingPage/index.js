@@ -10,7 +10,6 @@ const LandingPage = () => {
             Hola
             <LoginUser />
             <GoogleBtn />
-
         </div>
     )
 }
