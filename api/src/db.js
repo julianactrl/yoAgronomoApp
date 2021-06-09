@@ -37,8 +37,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 
 
-// User.hasMany(Order);
-// Order.belongsTo(User);
+// User.hasMany(Empresas);
+// Empresas.belongsTo(User);
 
 
 
