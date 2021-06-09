@@ -37,7 +37,7 @@ const { User,Empresa } = sequelize.models;
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 User.hasMany(Empresa,{through: 'User_Empresa'});
-Empresa.belongsToMany(User,{through: 'User_Empresa'});
+Empresa.belongsTo(User,{through: 'User_Empresa'});
 
 
 // User.hasMany(Empresas);
