@@ -16,7 +16,7 @@ const { Empresa } = require('../db')
     res.json('fue  creada con exito')
   });
 
-module.exports = router;
+  module.exports = router;
 
 
 //   router.get('/empresa/:id', async (req, res) => {
@@ -25,15 +25,5 @@ module.exports = router;
 // if(!empresa) return res.status(404).json({})
 // return res.json(empresa);
 //  })
-
- 
-//   router.delete('/empresa', async (req, res) => {
-//     const username = req.params.userName;
-
-//       if(userIndex === -1) return res.status(404).json({})
-
-//     User.splice(userIndex, 1);
-//     res.json(user);
-//   })
 
 // module.exports = router;
