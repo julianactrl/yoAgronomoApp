@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
   // defino el modelo
-  const User = sequelize.define('user', {
+sequelize.define('user', {
     email: {
       type: DataTypes.STRING,
       allowNull: true,
