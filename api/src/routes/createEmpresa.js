@@ -16,14 +16,12 @@ const { Empresa } = require('../db')
     res.json('fue  creada con exito')
   });
 
+  
+
+
+
+
   module.exports = router;
 
 
-//   router.get('/empresa/:id', async (req, res) => {
-// const empresa = getEmpresa(req.param.id);
 
-// if(!empresa) return res.status(404).json({})
-// return res.json(empresa);
-//  })
-
-// module.exports = router;
