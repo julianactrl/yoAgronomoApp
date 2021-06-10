@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       Yo Agronomo
-      
       <Routes />
     </div>
   );
