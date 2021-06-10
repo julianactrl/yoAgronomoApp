@@ -1,6 +1,7 @@
 import React from 'react';
-import LoginUser from './../../components/LoginUser'
+import LoginUser from '../LoginUser'
 import styles from './styles.module.css'
+import GoogleBtn from '../GoogleBtn/index.jsx'
 
 const LandingPage = () => {
 
@@ -8,6 +9,7 @@ const LandingPage = () => {
         <div className={styles.hola}>
             Hola
             <LoginUser />
+            <GoogleBtn />
         </div>
     )
 }
