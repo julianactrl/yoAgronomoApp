@@ -10,9 +10,6 @@ const [input, setInput] = useState({
         name: '',
         hectáreas: '',
         ubicación: '',
-        tarea1: '',
-        tarea2: '',
-        tarea3: '',
         image: ''
 })
 
@@ -74,33 +71,7 @@ useEffect(()=>{
                 placeholder='Ubicación'
                 name='ubicación'/>
             </div>
-            <div>
-                <label>Tarea 1: </label>
-                <input
-                type='text'
-                onChange={handleInputChange} 
-                value={input['tarea1']}
-                placeholder='Tarea a realizar...'
-                name='tarea1'/>
-            </div>
-            <div>
-                <label>Tarea 2: </label>
-                <input
-                type='text'
-                onChange={handleInputChange} 
-                value={input['tarea2']}
-                placeholder='Tarea a realizar...'
-                name='tarea2'/>
-            </div>
-            <div>
-                <label>Tarea 3: </label>
-                <input
-                type='text'
-                onChange={handleInputChange} 
-                value={input['tarea3']}
-                placeholder='Tarea a realizar...'
-                name='tarea3'/>
-            </div>
+           
             <div>
                 <label>Imagen: </label>
                 <input
@@ -110,7 +81,8 @@ useEffect(()=>{
                 paceholder='insert URL'
                 name='image'/>
             </div>
-            <button type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
+                <br></br>
+            <button className={styles.alineado} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
             </form>
             </div>
         </div>

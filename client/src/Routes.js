@@ -11,7 +11,7 @@ export default function Routes() {
       <LandingPage />
       </Route>
       
-      <Route exact path='/empresa/:id'>
+      <Route exact path='/empresa'>
       <DetailEmpresa />
       </Route>
       <Route exact path='/newempresa'>
