@@ -1,14 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-// <<<<<<< WeatherComponent
-// import LandingPage from './views/LandingPage'
-// import Weather from './components/Weather/Weather'
-// =======
-// import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa';
-// import NewEmpresa from './components/NewEmpresa/NewEmpresa'
-// import LandingPage from './components/LandingPage'
-// import News from './components/News/News';
-// >>>>>>> dev
+import LandingPage from './components/LandingPage/index.js';
+import Weather from './components/Weather/Weather.jsx';
+import NewEmpresa from './components/NewEmpresa/NewEmpresa.js';
+import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa.js';
+import News from './components/News/News.js';
+
 
 export default function Routes() {
   return (
