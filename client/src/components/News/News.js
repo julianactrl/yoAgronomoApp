@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {getNews} from '../../redux/actions/newsActions';
+import './News.css';
 
 const News = (props) => {
     // const [, set] = useState(initialState)
@@ -12,8 +13,16 @@ const News = (props) => {
     console.log(props)
     return (
         <div>
-            <h3>News: NOTICIA 1 </h3>
-            <h3>Noticia 2</h3>
+            <h3>News</h3>
+            <div className='articulo'>
+                {props.news.articles && props.news.articles.map((a) => {
+                    return(
+                        <h1>
+                            {a.title}
+                        </h1>
+                    )
+                })}
+            </div>
         </div>
     )
 }

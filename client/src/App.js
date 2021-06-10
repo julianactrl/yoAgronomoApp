@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       Yo Agronomo
-      <Weather/>
+      <Weather />
       <Routes />
     </div>
   );
