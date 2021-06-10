@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+.container-weather {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin-left: 550px;
+    margin-right: 550px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.card-weather {
+    border: 2px solid red;
+    width: 300px;
+    text-align: center;
+}
+
+.forecast {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.forecast-day {
+    border: 2px solid black;
+    height: 132px;
+    width: 290px;
+    padding: 16px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.temperatures {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}

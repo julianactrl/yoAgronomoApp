@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-//const Order_line = require('./models/Orderline');}
+
 const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME,
 } = process.env;
@@ -40,8 +40,6 @@ User.hasMany(Empresa);
 Empresa.belongsTo(User);
 
 
-// User.hasMany(Empresas);
-// Empresas.belongsTo(User);
 
 
 
