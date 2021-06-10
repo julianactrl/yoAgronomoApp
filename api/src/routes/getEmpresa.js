@@ -1,7 +1,28 @@
 const { Router } = require('express');
 const router = Router();
 const { Empresa } = require('../db')
+const { Op } = require("sequelize");
 
+router.get("/", async (req, res) => {
+  const nameEmpresa = req.query.name.toLocaleLowerCase()
+  // const {nameEmpresa} = req.params
+      try {
+        let empresaOk = await Empresa.findAll({
+          where: {
+            Nombre: {
+              [Op.iLike]: `%${nameEmpresa}%`
+            }
+          }
+        });
+        if(!empresaOk){
+        res.send('empresa no encontrada')
+        }
+  return res.json(empresaOk)
+
+      }catch(err){
+        console.log(err)
+      }
+      })
 
 router.get('/', async (req, res) => {
     try {
@@ -23,5 +44,6 @@ router.get('/', async (req, res) => {
     }
      return res.json(empresa)
   });
-  
+
+
 module.exports = router;
