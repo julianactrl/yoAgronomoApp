@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa';
 import NewEmpresa from './components/NewEmpresa/NewEmpresa'
-import LandingPage from './components/LandingPage
+import LandingPage from './components/LandingPage'
 
 export default function Routes() {
   return (
