@@ -13,6 +13,7 @@ const News = (props) => {
     return (
         <div>
             <h3>News: NOTICIA 1 </h3>
+            <h3>Noticia 2</h3>
         </div>
     )
 }
