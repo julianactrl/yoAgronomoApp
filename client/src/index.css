@@ -7,6 +7,9 @@
 }
 
 body {
+  background: url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   -webkit-font-smoothing: antialiased;
