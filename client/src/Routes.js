@@ -23,15 +23,12 @@ export default function Routes() {
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
-// <<<<<<< WeatherComponent
-//       <Route  path="/weather">
-//         <Weather />
-//       </Route>
-      
-// =======
-//       <Route exact path='/news'>
-//         <News />
-//       </Route>
+      <Route  path="/weather">
+        <Weather />
+      </Route>
+      <Route exact path='/news'>
+        <News />
+      </Route>
 
 
     </Switch>
