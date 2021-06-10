@@ -1,0 +1,58 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 937px;
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.219);
+}
+.container{
+    display: flex;
+    width: 350px;
+    height: 450px;
+    overflow: scroll;
+    border-radius: 20px;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(2px);
+}
+
+.containercardbtn{
+    display: flex;  
+    margin-top: 80px;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    scroll-snap-align: center;
+    
+}
+.container::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.imgAdd{
+    width: 30px;
+}
+.cardContAdd{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: white;
+    
+}
+.titleEmpresa{
+    font-size: 20px;
+}
+.add{
+    display: flex;
+    margin-left: 100px;
+    flex-direction: column;
+    justify-content: center;
+}
+.btnNext{
+    align-items: center;
+    object-fit: cover;
+    scroll-snap-align: center;
+}

@@ -1,0 +1,36 @@
+body{
+    background-image: url('../../assets/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    gap:50px;
+
+    
+}
+.cardCont{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    color: white;
+
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    scroll-snap-align: center;
+    border:1px solid white;
+    background: linear-gradient(#000000, #00000083, #00000083, #000000);
+}
+.img{
+    width: 250px;
+}
