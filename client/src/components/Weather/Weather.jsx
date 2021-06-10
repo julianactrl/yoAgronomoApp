@@ -6,7 +6,6 @@ import axios from 'axios'
 
 
 const Weather = (props) => {
- 
     const [loading,setLoading] = useState(true)
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
@@ -27,8 +26,6 @@ const Weather = (props) => {
             setTime(interval)
         },1000)
     },[])
-    
-    
     
     return (
         <div className="container-weather">
