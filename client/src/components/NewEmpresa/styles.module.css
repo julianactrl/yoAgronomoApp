@@ -1,0 +1,72 @@
+
+.estilosForm{
+    width: 390px;
+    margin: 0 auto;
+    background-color: rgba(240, 255, 240, 0.356);
+    padding: 30px;
+    border-radius: 8px;
+    font-size: 18px;
+}
+input{
+    border: 0;
+    outline: none;
+    padding: 5px;
+    width: 330px
+}
+label {
+    font-size: 18px;
+    display:block;
+    width:100%;
+    
+}
+
+button{
+    text-align: center;
+    align-items: center;
+    width: 330px;
+    cursor: pointer;
+}
+
+.alineado {
+    text-align: center;
+    padding: 4rem;
+    align-items: center;
+    
+}
+/* body{
+    background-color: green;
+} */
+
+
+button[type='submit']{
+    border-radius: 5px;
+    display: inline-block;
+    padding: 20px 15px;
+    text-decoration: none;
+    text-align: center;
+    background-color: #27963c;
+    color:rgb(3, 3, 3);
+    border: none;
+    font-size: 20px;
+    
+    
+    
+}
+button[type='submit']:hover{
+    background-color: rgb(3, 3, 3);
+    color: #27963c
+}
+    
+/* .caja{
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 20px;
+  
+      width:950px;
+      align-content: center;
+      margin: 0 auto;
+      justify-content: center;
+  } */
+    
+   
+
+

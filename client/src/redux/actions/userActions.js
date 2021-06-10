@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-	GET_USERS,
+    GET_USERS
 } from '../constants';
 
 // const { REACT_APP_API } = process.env;
@@ -24,3 +24,4 @@ import {
 // 			})
 // 	}
 // }
+
