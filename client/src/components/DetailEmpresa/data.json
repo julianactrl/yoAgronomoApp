@@ -1,0 +1,13 @@
+{
+"empresas":[
+        {
+            "id": 1,
+            "name": "Agropecuaria Las Cañadas",
+            "hectareas": 1500,
+            "ubicación": "Rafaela, Zona Rural",
+            "tarea1": ["Monitoreo de lotes"],
+            "tarea2": ["Diagramación de plan de siembra"],
+            "tarea3": ["Formulación de aplicaciones"]
+        }
+    ]
+}
