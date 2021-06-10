@@ -5,7 +5,7 @@ import {
 export const getWeather = (city) => {
     return function(dispatch) {
         axios
-            .get(`http://api.openweathermap.org/data/2.5/weather?q=${city},&appid=4ae2636d8dfbdc3044bede63951a019b`)
+            .get(`http://api.weatherapi.com/v1/forecast.json?key=b8da19009ae34d92b1112005211006&q=${city}&days=3&aqi=no&alerts=no`)
             .then((r) => r.data)
             .then((data) => {
                 dispatch({
