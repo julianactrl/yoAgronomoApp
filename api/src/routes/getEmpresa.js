@@ -15,4 +15,13 @@ router.get('/', async (req, res) => {
     }
  })
 
- module.exports = router;
+  router.get('/:id', async (req, res) =>{
+    const {id} = req.params
+    const empresa = await Empresa.findOne({ where: { id: id } })
+    if (!empresa) {
+        res.send('empresa no encontrada')
+    }
+     return res.json(empresa)
+  });
+  
+module.exports = router;
