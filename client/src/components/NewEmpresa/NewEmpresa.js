@@ -15,7 +15,6 @@ const [input, setInput] = useState({
 
 function handleSubmit(e) {
     e.preventDefault();
-    
     axios.post('http://localhost:3001/createEmpresa', input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
