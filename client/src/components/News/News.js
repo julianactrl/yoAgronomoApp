@@ -12,7 +12,7 @@ const News = (props) => {
     console.log(props)
     return (
         <div>
-            <h3>News: </h3>
+            <h3>News: NOTICIA 1 </h3>
         </div>
     )
 }
