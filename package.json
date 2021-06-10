@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "axios": "^0.21.1"
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "passport-http-bearer": "^1.0.1",
+    "passport-local": "^1.0.0"
   }
 }
