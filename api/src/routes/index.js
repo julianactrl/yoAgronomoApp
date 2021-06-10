@@ -1,16 +1,24 @@
 const { Router } = require('express');
 // import all routers;
+const createUser = require('./createUser')
+const createEmpresa = require('./createEmpresa')
+const deleteEmpresa = require('./deleteEmpresa')
+const getEmpresa = require('./getEmpresa')
 
-const userRouter = require('./userRouter.js');
+// const authRouter = require('./authRouter.js');
 
 
 const router = Router();
 
-// load each router on a route
-// i.e: router.use('/auth', authRouter);
-// router.use('/auth', authRouter);
+router.use('/createUser', createUser)
+router.use('/createEmpresa', createEmpresa)
+router.use('/deleteEmpresa', deleteEmpresa)
+router.use('/getEmpresa', getEmpresa)
 
-// router.use('/users', userRouter);
+
+// load each router on a route
+
+router.use('/auth', authRouter);
 
 
 module.exports = router;

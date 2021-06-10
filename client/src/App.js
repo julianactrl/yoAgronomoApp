@@ -10,6 +10,10 @@ function App() {
   return (
     <div className="App">
       Yo Agronomo
+// <<<<<<< WeatherComponent
+// =======
+//       <Weather />
+// >>>>>>> dev
       <Routes />
     </div>
   );
