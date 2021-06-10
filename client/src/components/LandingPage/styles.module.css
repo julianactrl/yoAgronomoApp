@@ -79,7 +79,6 @@
 
 .registerBtn{
         font-size: 12px;
-        margin: 7px 0 0 99px;
         color: rgb(0, 0, 0) ;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-transform: uppercase;
@@ -111,15 +110,13 @@
 
 .loginBtn{
     font-size: 12px;
-    margin: 7px 0 0 133px;
+    margin-top: 5px;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     background: #80cc28;
     padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
     border-radius: 5px;
     display: inline-block;
     border: none;
