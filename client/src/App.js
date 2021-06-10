@@ -9,11 +9,6 @@ function App() {
   console.log("EEASDASDAS",clima)
   return (
     <div className="App">
-      Yo Agronomo
-// <<<<<<< WeatherComponent
-// =======
-//       <Weather />
-// >>>>>>> dev
       <Routes />
     </div>
   );
