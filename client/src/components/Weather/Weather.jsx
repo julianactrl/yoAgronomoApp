@@ -5,33 +5,37 @@ import axios from 'axios'
 
 
 const Weather = (props) => {
-    const [weatherApp,setWeatherApp] = useState([])
-    const [name, setName] = useState("")
  
-    console.log(props)
+   const [loading,setLoading] = useState(true)
+    const dispatch = useDispatch()
+    const weather = useSelector(state => state.weatherReducer.weather)
     useEffect(() => {
-       props.getWeather("tucuman")
-       setWeatherApp(props.weather)
+        dispatch(getWeather("tucuman"))
+        if(weather !== null){
+            setLoading(false)
+        }
         
-        
-    },[])
-    console.log("EEE3333",weatherApp)
+    },[]) 
+    
     
     return (
         <div>
-            <p>Name:</p>
+           {
+            loading===true ? <h1>Cargando</h1> :
+            weather && weather.map(c => (
+                   <div>
+                       <p>{c.name}</p>
+                       <p>{c.main.temp}</p>
+                        <p>{c.main.temp_max-273}</p>
+                        <img src={c.weather[0].icon} alt="" />
+                     
+                   </div>
+               ))
+               
+           }
         </div>
     )
 }
-const mapStateToProps = (state) => {
-    return{
-        weather: state.weatherReducer.weather
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return{
-        getWeather: (city) => dispatch(getWeather(city))
-    }
-}
 
-export default connect(mapStateToProps,mapDispatchToProps)(Weather)
+
+export default Weather

@@ -9,7 +9,7 @@ const weatherReducer = (state = initialState, action) => {
         case GET_WEATHER:
             return {
                 ...state,
-                weather: action.payload
+                weather: state.weather.concat(action.payload)
             }
         default:
             return state;
