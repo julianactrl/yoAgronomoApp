@@ -1,0 +1,86 @@
+.estilosForm {
+    
+    text-align:left ;
+    align-content: center;
+    width:950px;
+    margin: 0 auto;
+    align-items: center;
+    /* padding: 10rem; */
+    justify-content: center;
+    /* margin: 50px auto;
+    float:none; */
+    margin: 50px auto
+}
+  
+.alineado {
+    padding: 0.5rem;
+    text-align: center;
+    align-items: center;
+    
+}
+    
+    
+label {
+    font-size: 18px;
+    display:block;
+    width:100%;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 20px;
+    width:100%;
+    box-sizing: border-box;
+    padding:10px;
+    align-items: center;
+    font-size: 18px;
+
+}
+
+/* input:focus{
+    border: 1px solid rgb(0, 68, 255)
+} */
+
+
+
+button[type='submit']{
+    /* margin-bottom:0 auto;
+    background-color: rgb(18, 161, 30);
+    color:rgb(3, 3, 3);
+    border: none;
+    border-radius: 3px;
+    font-size: 20px;
+    align-items: center;
+    text-align: center; */
+    border-radius: 5px;
+    display: inline-block;
+    padding: 20px 15px;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(18, 161, 30);
+    color:rgb(3, 3, 3);
+    border: none;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+button[type='submit']:hover{
+    background-color: rgb(3, 3, 3);
+    color:rgb(18, 161, 30)
+}
+    
+.caja{
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 20px;
+    /* width: 20px;
+      height: auto; */
+      width:950px;
+      align-content: center;
+      margin: 0 auto;
+      justify-content: center;
+  }
+    
+   
+
+

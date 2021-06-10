@@ -5,7 +5,8 @@ const initialState = {
 		allUsers: [],
 		isLoading: false,
 		error: null
-	}
+	},
+	
 };
 
 const userReducer = (state = initialState, action) => {

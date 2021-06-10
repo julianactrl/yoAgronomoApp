@@ -1,0 +1,38 @@
+.caja{
+    background-color: rgba(255, 255, 255, 0.37);
+    border-radius: 20px;
+    /* width: 20px;
+      height: auto; */
+      width:950px;
+      align-content: center;
+      margin: 0 auto;
+      justify-content: center;
+}
+    
+    
+
+.description{
+    text-align:center ;
+    align-content: center;
+    width:950px;
+    margin: 0 auto;
+    align-items: center;
+    /* padding: 10rem; */
+    justify-content: center;
+    /* margin: 50px auto;
+    float:none; */
+    margin: 50px auto
+}
+.name{
+    text-align: center;
+}
+body{
+    background-image: url('https://s03.s3c.es/imag/_v0/770x420/3/0/6/campo-mexicano-istock-770.jpg');
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: auto;
+    min-height: 100vh;
+    min-width: 100vh;
+    padding: 20px;
+}
