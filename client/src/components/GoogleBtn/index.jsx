@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { GoogleLogin , GoogleLogout} from 'react-google-login'
 import {respuestaGoogle, logoutExistoso, logoutRechazado} from './controller';
+import styles from '../LandingPage/styles.module.css'
 
 
 const GoogleBtn = () => {
@@ -9,6 +10,7 @@ const GoogleBtn = () => {
     return (
         <>
             {!logined ? <GoogleLogin
+                className={styles.google}
                 clientId='986641154721-5ard4gbec5m5v08eu29onvepopn4qkca.apps.googleusercontent.com'
                 buttonText='Acceder con Google'
                 onSuccess={(data)=>{respuestaGoogle(data);setLogined(true)}}
