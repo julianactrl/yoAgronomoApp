@@ -1,9 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa';
-import NewEmpresa from './components/NewEmpresa/NewEmpresa'
-import LandingPage from './components/LandingPage'
-import News from './components/News/News';
+// <<<<<<< WeatherComponent
+// import LandingPage from './views/LandingPage'
+// import Weather from './components/Weather/Weather'
+// =======
+// import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa';
+// import NewEmpresa from './components/NewEmpresa/NewEmpresa'
+// import LandingPage from './components/LandingPage'
+// import News from './components/News/News';
+// >>>>>>> dev
 
 export default function Routes() {
   return (
@@ -18,9 +23,16 @@ export default function Routes() {
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
-      <Route exact path='/news'>
-        <News />
-      </Route>
+// <<<<<<< WeatherComponent
+//       <Route  path="/weather">
+//         <Weather />
+//       </Route>
+      
+// =======
+//       <Route exact path='/news'>
+//         <News />
+//       </Route>
+
 
     </Switch>
     );
