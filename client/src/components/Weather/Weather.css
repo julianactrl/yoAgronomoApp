@@ -13,3 +13,23 @@
     width: 300px;
     text-align: center;
 }
+
+.forecast {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.forecast-day {
+    border: 2px solid black;
+    height: 132px;
+    width: 290px;
+    padding: 16px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.temperatures {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
