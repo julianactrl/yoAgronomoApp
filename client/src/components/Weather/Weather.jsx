@@ -7,16 +7,27 @@ import axios from 'axios'
 
 const Weather = (props) => {
  
-   const [loading,setLoading] = useState(true)
+    const [loading,setLoading] = useState(true)
+    const [time, setTime] = useState("")
     const dispatch = useDispatch()
     const weather = useSelector(state => state.weatherReducer.weather)
     useEffect(() => {
-        dispatch(getWeather("tucuman"))
+        dispatch(getWeather("tokyo"))
         if(weather !== null){
             setLoading(false)
         }
         
     },[]) 
+    function interval(){
+    const date = new Date()
+    return date.toLocaleTimeString()
+    }
+    useEffect(() =>{
+       let intervalo = setInterval(() => {
+            setTime(interval)
+        },1000)
+    },[])
+    
     
     
     return (
@@ -27,15 +38,22 @@ const Weather = (props) => {
                     {
                         weather && weather.map(w => (
                             <div>
-                                <h1>Ciudad:{w.location.name}</h1>
-                                <h1>{w.current.temp_c}C°</h1>
-                                <div>
+                                <div className="current-weather">
+                                    <h1>{w.location.name}</h1>
+                                    <p>{interval()}</p>
+                                    <h1>{w.current.temp_c}C°</h1>
+                                    <img src={w.current.condition.icon} alt="" />
+                                </div>
+                                <div className="forecast">
                                     {
                                         w.forecast.forecastday.map(p => (
-                                            <div>
+                                            <div className="forecast-day">
                                                 <p>{p.date}</p>
-                                                <p>Max:{p.day.maxtemp_c}c°</p>
-                                                <p>Min:{p.day.mintemp_c}c°</p>
+                                                <div className="temperatures">
+                                                    <p>Max:{p.day.maxtemp_c}c°</p>
+                                                    <p>Min:{p.day.mintemp_c}c°</p>
+                                                </div>
+                                                <img src={p.day.condition.icon} alt="" />
                                             </div>
                                             
                                         ))
