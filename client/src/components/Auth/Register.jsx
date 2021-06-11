@@ -1,44 +1,42 @@
-import React,{useState} from 'react';
-import styles from '../LandingPage/styles.module.css'
+import React,{useState,useEffect} from 'react';
+import styles from '../LandingPage/styles.module.css';
+import {useDispatch,useSelector} from 'react-redux';
+import { register } from '../../redux/actions/userActions';
+
+
 const Register = () => {
 
-    const [input,setInput] = useState({
+    const dispatch = useDispatch()
+    const user = useSelector(state => state.userReducer.user)   
+
+    const [userRegister,setUserRegister] = useState({
         email:"",
         password: "",
-        passwordRepeat:"",
-        name:"",
-        lastName:""
+        //passwordRepeat:"",
+        fullName:""
     })
 
      function handleChange(e){
-         console.log(e)
-         setInput({
+         setUserRegister({
              [e.target.id]: e.target.value
          })
      }
 
      function handleSubmit(e){
          e.preventDefault();
-         console.log(input)
+         dispatch(register(userRegister)) 
      }
         return (
             <div className={styles.containerD}>
+              <form onSubmit={handleSubmit}>
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="name">Nombre</label>
+                  <label htmlFor="fullName">Nombre</label>
                   <input
                     onChange={handleChange}
                     type="text"
-                    name="name"
-                    className={styles.loginInput}/>
-                </div>
-                <div className={styles.inputGroup}>
-                  <label htmlFor="lastName">Apellido</label>
-                  <input
-                    onChange={handleChange}
-                    type="text"
-                    name="lastName"
+                    name="fullName"
                     className={styles.loginInput}/>
                 </div>
       
@@ -59,19 +57,20 @@ const Register = () => {
                     name="password"
                     className={styles.loginInput}/>
                 </div>
-                <div className={styles.inputGroup}>
+                {/* <div className={styles.inputGroup}>
                   <label htmlFor="password">Repetir</label>
                   <input
                     onChange={handleChange}
                     type="password"
                     name="password"
                     className={styles.loginInput}/>
-                </div>
+                </div> */}
                 <button
                   type="button"
                   className={styles.registerBtn}
-                  onClick={handleSubmit}>Registrarme</button>
+                  >Registrarme</button>
               </div>
+              </form>
             </div>
           );
         }
