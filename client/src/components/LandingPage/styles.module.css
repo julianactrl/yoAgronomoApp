@@ -184,3 +184,16 @@ box-shadow: 0 0 5pt 0.5pt #161616;
 .loginBtn:active{
 background-color: rgb(8, 117, 57);
 }
+
+.goBack{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top:25px;
+    left: 25px;
+}
+
+.goBack:hover{
+    width: 28px;
+    height: 28px;
+}
