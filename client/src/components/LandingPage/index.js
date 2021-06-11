@@ -16,13 +16,13 @@ const LandingPage = () => {
             <h2>AGRONOMO</h2>
             <img className={styles.logo} src={leaf}/>
             </div>
-            <div>
+            <div className={styles.options}>
           <Link to="/index">
-            <h1>Login</h1>
+            <h1 className={styles.login}>Login</h1>
           </Link>
 
           <Link to="/index/register">
-            <h1>Registro</h1>
+            <h1 className={styles.registro}>Registro</h1>
           </Link>
         </div>
 
