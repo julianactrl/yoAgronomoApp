@@ -28,8 +28,14 @@
 
 .mainBtn{
     position: absolute;
-    bottom: 200px;
-    left: 490px;
+    top: 55%;
+    bottom: 35%;
+    left: 38.5%;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     max-width: 120px !important;
     margin: 15px 0 0 85px;
     font-size: 15px;
@@ -58,8 +64,14 @@
 
 .logo{
     position: absolute;
-    top:130px;
-    left:590px;
+    top: 23%;
+    bottom: 0%;
+    left: 47%;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     width: 90px;
     height: 90px;
 }
