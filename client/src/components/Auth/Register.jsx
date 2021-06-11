@@ -38,7 +38,7 @@ const Register = () => {
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="fullName">Nombre y Apellido</label>
+                  <label  className={styles.labels} htmlFor="fullName">Nombre y Apellido</label>
                   <input
                  
                     onChange={handleChange}
@@ -49,7 +49,7 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="email">Email</label>
+                  <label  className={styles.labels} htmlFor="email">Email</label>
                   <input 
                   onChange={handleChange}
                   type="text" 
@@ -58,7 +58,7 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="password">Contraseña</label>
+                  <label  className={styles.labels} htmlFor="password">Contraseña</label>
                   <input
                     onChange={handleChange}
                     type="password"
