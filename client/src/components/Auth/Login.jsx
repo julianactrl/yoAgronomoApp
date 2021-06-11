@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { useDispatch } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
+import { login } from '../../redux/actions/userActions';
 
 
 const Login = () => {
@@ -23,6 +24,7 @@ const Login = () => {
      function handleSubmit(e){
          e.preventDefault();
          console.log(input)
+         dispatch(login(input)) 
      }
 
     return (
