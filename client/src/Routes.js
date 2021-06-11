@@ -17,12 +17,18 @@ export default function Routes() {
       <Route path="/index">
         <LandingPage/>
       </Route>
-      <Route exact path='/empresa'>
+      {/* <Route exact path='/empresa'>
       <DetailEmpresa />
-      </Route>
+      </Route> */}
+      <Route
+        exact path="/empresa/:id"
+        render={({ match }) => <DetailEmpresa
+         id={match.params.id} />}/>
+
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
+      
       <Route  path="/weather">
         <Weather />
       </Route>

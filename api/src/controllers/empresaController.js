@@ -33,25 +33,43 @@ const getAllEmpresas = async (req, res, next) => {
   }
 };
 
-const getEmpresaById = async (res, req, next) => {
-  try {
-    const { id } = req.params;
-    const empresa = await Empresa.findOne({ where: { id: id } });
-    if (!empresa) {
-      res.send("empresa no encontrada");
-    }
-    return res.json(empresa);
-  } catch (err) {
-    res.status(500).send(next);
+// const getEmpresaById = async (res, req, next) => {
+//   try {
+//     const { id } = req.params;
+//     const empresa = await Empresa.findOne({ where: { id: id } });
+//     if (!empresa) {
+//       res.send("empresa no encontrada");
+//     }
+//     return res.json(empresa);
+//   } catch (err) {
+//     res.status(500).send(next);
+//   }
+// };
+const getEmpresaById = async (req, res) =>{
+  const {id} = req.params
+  // const empresa = await Empresa.findOne({ where: { id: id } })
+  const empresa = await Empresa.findByPk(id)
+  const empresadb ={
+    id: empresa.id,
+    name: empresa.name,
+    hectáreas: empresa.hectáreas,
+    ubicación: empresa.ubicación,
+    imagen: empresa.imagen
   }
+  if (!empresa) {
+      res.send('empresa no encontrada')
+  }
+   return res.json(empresadb)
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { nombre, superficie } = req.body;
+  const { name, hectáreas, ubicación,image} = req.body;
   try {
     await Empresa.create({
-      nombre,
-      superficie,
+      name,
+      hectáreas,
+      ubicación,
+      image
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
