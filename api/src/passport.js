@@ -27,6 +27,8 @@ passport.use(
 passport.use(
   new BearerStrategy((token, done) => {
     jwt.verify(token, AUTH_JWT_SECRET, function (err, user) {
+      console.log(token)
+
       if (err) return done(err);
       return done(null, user ? user : false);
     });
