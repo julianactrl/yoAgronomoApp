@@ -28,7 +28,7 @@ const Register = () => {
      }
         return (
             <div className={styles.containerD}>
-              <form onSubmit={handleSubmit}>
+              <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
