@@ -1,6 +1,5 @@
 const { Router } = require('express');
 // import all routers;
-const createUser = require('./createUser')
 const createEmpresa = require('./createEmpresa')
 const deleteEmpresa = require('./deleteEmpresa')
 const getEmpresa = require('./getEmpresa')
@@ -9,7 +8,6 @@ const authRouter = require('./authRouter.js');
 
 const router = Router();
 
-router.use('/createUser', createUser)
 router.use('/createEmpresa', createEmpresa)
 router.use('/deleteEmpresa', deleteEmpresa)
 router.use('/getEmpresa', getEmpresa)
