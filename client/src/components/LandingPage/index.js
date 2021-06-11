@@ -61,7 +61,7 @@ const LandingPage = () => {
         <Route exact path="/index" component={Login} />
             <GoogleBtn/>
         </div>
-        </motion.div>
+       
 
           </div>
           <div className={styles.options}>
@@ -78,7 +78,7 @@ const LandingPage = () => {
           <Route exact path="/index" component={Login} />
           <GoogleBtn/>
       </div>
-
+      </motion.div>
     )
 }
 
