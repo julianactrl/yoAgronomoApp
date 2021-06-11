@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import styles from '../LandingPage/styles.module.css'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -41,6 +42,7 @@ const Login = () => {
             </div>
             <div>
                 <button className={styles.loginBtn}>Login</button>
+                <Link to='/register'>Registrarme</Link>
             </div>
             </form>
             
