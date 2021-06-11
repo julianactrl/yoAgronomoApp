@@ -42,7 +42,6 @@ const Login = () => {
             </div>
             <div>
                 <button className={styles.loginBtn}>Login</button>
-                <Link to='/register'>Registrarme</Link>
             </div>
             </form>
             
