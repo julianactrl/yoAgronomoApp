@@ -10,13 +10,15 @@ const Weather = (props) => {
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
     const weather = useSelector(state => state.weatherReducer.weather)
+    //const ubication = useSelector(state => state.empresaReducer.)
     useEffect(() => {
-        dispatch(getWeather("buenosaires"))
+        dispatch(getWeather("cordoba"/*aqui iria la ubicacion de la empresa*/))
         if(weather !== null){
             setLoading(false)
         }
         
     },[]) 
+    //Funcion que actualiza el reloj segundo a segundo
     function interval(){
     const date = new Date()
     return date.toLocaleTimeString()
@@ -26,8 +28,9 @@ const Weather = (props) => {
             setTime(interval)
         },1000)
     },[])
+    //Funcion que trae el dia segun la fecha
     const getDayWeek = (date) => {
-        const fechaComoCadena = date; // día lunes
+        const fechaComoCadena = date; 
         const dias = [
         'Lunes',
         'Martes',
