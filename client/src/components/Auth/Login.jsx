@@ -31,7 +31,7 @@ const Login = () => {
         <div className={styles.container}>
             <form action="" onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
-                <label htmlFor="email">Email</label>
+                <label  className={styles.labels} htmlFor="email">Email</label>
                 <input 
                 className={styles.loginInput} 
                 type="email" 
@@ -39,7 +39,7 @@ const Login = () => {
                 onChange={handleChange} />
             </div>
             <div className={styles.inputGroup}>
-                <label htmlFor="password">Contraseña</label>
+                <label  className={styles.labels} htmlFor="password">Contraseña</label>
                 <input 
                 className={styles.loginInput} 
                 type="password" 
