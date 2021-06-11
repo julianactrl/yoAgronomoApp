@@ -20,7 +20,7 @@ server.get('/nombreEmpresa', getEmpresaByName)
 
 
 
-  module.exports = router;
+  module.exports = server;
 
 
 
