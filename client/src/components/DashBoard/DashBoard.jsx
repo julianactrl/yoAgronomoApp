@@ -1,40 +1,61 @@
 import React, { useState } from 'react';
-import styles from './styles.module.css'
 import Header from '../Header/Header';
 import CardsEmpresas from '../CardEmpresa/CardsEmpresas';
-import add from '../../assets/añadirr.png';
-import Slider from "react-slick";
+import add from '../../assets/añadir.png';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import styles from './styles.module.css'
+import Slider from 'react-slick'
 
 
 export default function DashBoard (){
-    
+
+    function SampleNextArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+            className={styles.nextBtn}
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+      function SamplePrevArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+          className={styles.prevBtn}
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+      
+
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
-        speed: 500,
+        speed: 300,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        width: 100,
+        classname: 'slides',
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
       };
-
-
-    return (
+      return (
         <div className={styles.main}>
-            <Header/>
-            <div className={styles.containercardbtn}>
-                <div className={styles.container}>
-                    <CardsEmpresas/>
-                    <CardsEmpresas/>
-                    <CardsEmpresas/>
+            <div className={styles.mainCont}>
+                <Header/>
+                <div className={styles.body}>
+                    <Slider {...settings}>
+                        <CardsEmpresas/>
+                        <CardsEmpresas/>
+                        <CardsEmpresas/>
+                        <CardsEmpresas/>
+                    </Slider>
                 </div>
-                    <div className={styles.add}>
-                        <div className={styles.cardContAdd}>
-                            <img src={add} className={styles.imgAdd}/>
-                        </div>
-                    </div>
-                <div className={styles.btncontainer}>
-                    <button className={styles.btn}/>
-                </div>   
             </div>
         </div>
-    )
-}
+      );
+    }

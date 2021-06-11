@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 body{
-    background-color: rgba(47, 72, 73, 0.582);
+    background-image: url('../../assets/fondo2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
 .header{
     display: flex;
+    position: relative;
     justify-content: space-between;
     background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
 }
@@ -85,7 +88,7 @@ body{
     justify-content: center;
     width: 400px;
     height: 937px;
-    background-color: rgba(0, 0, 0, 0.938);
+    background-color: #2f4f39;
     animation-duration: 0.2s;
     animation-name: slidein;
 
@@ -107,7 +110,7 @@ body{
     justify-content: flex-start;
     margin-top: 100px;
     width: 200px;
-    animation-duration: 0.2s;
+    animation-duration: 1.3s;
     animation-name: spawn;
     height: 800px;
 }
@@ -137,7 +140,7 @@ body{
     }
 
     to {
-        opacity: 100%;
+        opacity: 1;
     }
 }
 
