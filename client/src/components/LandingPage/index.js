@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route,Link } from 'react-router-dom';
 import styles from './styles.module.css'
 import Login from '../Auth/Login'
 import Register from '../Auth/Register'
@@ -15,8 +16,18 @@ const LandingPage = () => {
             <h2>AGRONOMO</h2>
             <img className={styles.logo} src={leaf}/>
             </div>
-            <Login/>
-            <Register/>
+            <div>
+          <Link to="/login">
+            <h1>Login</h1>
+          </Link>
+
+          <Link to="/register">
+            <h1>Registro</h1>
+          </Link>
+        </div>
+
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/Login" component={Login} />
             <GoogleBtn/>
         </div>
     )
