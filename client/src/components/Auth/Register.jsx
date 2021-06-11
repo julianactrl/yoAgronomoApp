@@ -17,18 +17,23 @@ const Register = () => {
     })
 
      function handleChange(e){
+         console.log(e)
          setUserRegister({
+           ...userRegister,
              [e.target.id]: e.target.value
          })
      }
 
+    
      function handleSubmit(e){
          e.preventDefault();
+         console.log(userRegister)
          dispatch(register(userRegister)) 
      }
         return (
             <div className={styles.containerD}>
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form className={styles.form}
+              onSubmit={handleSubmit} >
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
@@ -36,8 +41,9 @@ const Register = () => {
                   <input
                  
                     onChange={handleChange}
+                    id= "fullName"
                     type="text"
-                    name="fullName"
+
                     className={styles.loginInput}/>
                 </div>
       
@@ -46,7 +52,7 @@ const Register = () => {
                   <input 
                   onChange={handleChange}
                   type="text" 
-                  name="email" 
+                  id="email" 
                   className={styles.loginInput} />
                 </div>
       
@@ -55,7 +61,7 @@ const Register = () => {
                   <input
                     onChange={handleChange}
                     type="password"
-                    name="password"
+                    id="password"
                     className={styles.loginInput}/>
                 </div>
                 {/* <div className={styles.inputGroup}>
@@ -67,8 +73,8 @@ const Register = () => {
                     className={styles.loginInput}/>
                 </div> */}
                 <button
-                  type="button"
-                  className={styles.registerBtn}
+                  type="submit"
+                   className={styles.registerBtn}
                   >Registrarme</button>
               </div>
               </form>

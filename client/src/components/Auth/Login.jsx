@@ -1,8 +1,11 @@
 import React,{useState} from 'react';
+import { useDispatch } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
-import { Link } from 'react-router-dom';
+
 
 const Login = () => {
+
+    const dispatch = useDispatch()   
 
     const [input,setInput] = useState({
         email:"",
@@ -12,6 +15,7 @@ const Login = () => {
      function handleChange(e){
          console.log(e)
          setInput({
+             ...input,
              [e.target.id]: e.target.value
          })
      }
@@ -41,7 +45,9 @@ const Login = () => {
                 onChange={handleChange} />
             </div>
             <div>
-                <button className={styles.loginBtn}>Login</button>
+                <button 
+                type= "submit"
+                className={styles.loginBtn}>Login</button>
             </div>
             </form>
             
