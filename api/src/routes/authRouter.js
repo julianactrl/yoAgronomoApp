@@ -6,7 +6,7 @@ const { login, register, myProfile } = require("../controllers/authController");
 
 //-------------------------Route Users--------------------------//
 
-server.post("/login", login);
+server.post("/login",  login);
 server.post("/register",  register);
 server.get('/myProfile', myProfile)
 

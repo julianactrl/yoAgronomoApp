@@ -32,6 +32,7 @@ const register = async (req, res) => {
   try {
     // Creating a new User
     const user = await User.create(req.body);
+    console.log(user)
     // Receiving Data
     const { id, email, password, fullName } = user;
     if (!{ id, email, password, fullName }) return res.status(403).end();
