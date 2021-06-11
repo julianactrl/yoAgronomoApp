@@ -12,8 +12,7 @@ const LandingPage = () => {
     return (
         <div className={styles.div}>
             <div className={styles.title}>
-            <h1>YO</h1>
-            <h2>AGRONOMO</h2>
+            <h2><strong>YO</strong>AGRONOMO</h2>
             <img className={styles.logo} src={leaf}/>
             </div>
             <div className={styles.options}>
