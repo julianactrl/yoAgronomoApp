@@ -1,4 +1,4 @@
-import GET_NEWS from '../constants/index';
+import {GET_NEWS} from '../constants/index';
 
 const initialState = {
 	news: []
