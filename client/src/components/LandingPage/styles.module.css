@@ -59,31 +59,30 @@
 .login{
     text-decoration: none !important;
     border-radius: 5px;
-    background-color: #80cc28;
     color: black;
     padding: 8px;
-    max-width: 68px;
-    font-size: 25px;
+    width: 75px;
+    text-align: center;
+    font-size: 20px;
     position: absolute;
-    top:135px;
-    left: 182px;
+    top:143px;
+    left: 232px;
 }
 
 .registro{
     text-decoration: none !important;
     border-radius: 5px;
-    background-color: #80cc28;
     color: black;
     padding: 8px;
-    max-width: 97px;
-    font-size: 25px;
+    max-width: 79px;
+    font-size: 20px;
     position: absolute;
-    top:135px;
-    left: 282px;
+    top:143px;
+    left: 326px;
     
 }
 .login:hover{
-    background-color: #27963c;
+    background-color: #80cc28;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -93,7 +92,7 @@
 }
 
 .registro:hover{
-    background-color: #27963c;
+    background-color: #80cc28;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -116,14 +115,14 @@
 }
 .registerBtn{
         max-width: 120px !important;
-        margin: 10px 0 0 55px;
-        font-size: 12px;
+        margin: 15px 0 0 58px;
+        font-size: 12px !important;
         color: rgb(0, 0, 0) ;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-transform: uppercase;
         text-decoration: none;
-        background: #80cc28;
-        padding: 10px;
+        background: #80cc28 !important;
+        padding: 10px !important;
         border-radius: 5px;
         display: inline-block;
         border: none;
@@ -131,7 +130,8 @@
 }
 .registerBtn:hover {
     cursor: pointer;
-    background: #27963c;
+    background: #27963c !important;
+    color:black !important;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -145,15 +145,15 @@
 }
 
 .loginBtn{
-    max-width: 200px;
-    font-size: 12px;
-    margin: 15px 0 10px 14px;
+    max-width: 120px !important;
+    font-size: 12px !important;
+    margin: 15px 0 10px 60px;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
-    background: #80cc28;
-    padding: 10px;
+    background: #80cc28 !important;
+    padding: 10px !important;
     border-radius: 5px;
     display: inline-block;
     border: none;
@@ -162,7 +162,8 @@
 .loginBtn:hover {
 cursor: pointer;
 font-size: 13px;
-background: #27963c;
+color: black !important;
+background: #27963c !important;
 letter-spacing: 1px;
 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
