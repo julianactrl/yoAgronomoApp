@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch,Link } from "react-router-dom";
 import LandingPage from './components/LandingPage/index.js';
 import Weather from './components/Weather/Weather.jsx';
 import NewEmpresa from './components/NewEmpresa/NewEmpresa.js';
@@ -12,9 +12,8 @@ import News from './components/News/News.js';
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/"><LandingPage /></Route>
-      <Route  path = "/register">
-        <Register/>
+      <Route path="/">
+        <LandingPage/>
       </Route>
       <Route exact path='/empresa'>
       <DetailEmpresa />
