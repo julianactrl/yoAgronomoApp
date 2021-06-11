@@ -32,8 +32,9 @@ const Register = () => {
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="fullName">Nombre</label>
+                  <label htmlFor="fullName">Nombre y Apellido</label>
                   <input
+                 
                     onChange={handleChange}
                     type="text"
                     name="fullName"
