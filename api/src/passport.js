@@ -27,13 +27,9 @@ passport.use(
 
 passport.use(
   new BearerStrategy((token, done) => {
-    console.log("soy el token",token)
-    jwt.verify(token, AUTH_JWT_SECRET, function(err, user)  {
-      if (err) return done(err);
       return done(null, user ? user : false);
     });
-  })
-);
+)
 
 passport.serializeUser(function(user, done) {
   done(null, user);

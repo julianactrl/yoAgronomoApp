@@ -14,17 +14,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 200px 0 0 180px;
+    margin: 200px 0 0 160px;
     font-weight: 600;
     background-color: rgba(255, 240, 240, 0.568);
     border-radius: 8px;
     padding: 20px;
-    max-width: 260px;
+    max-width: 290px;
+    height: 200px;
     
 }
 
 .loginInput{
     display: flex;
+    margin: 5px 0 0 30px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -35,20 +37,21 @@
 }
 
 
-.logo{
+.title  .logo{
+    margin: 47px 0 0 7px;
     width:50px;
     height: 50px;
 }
 
 .title{
+    color: white;
     font-size: 28px;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: bold;
     position: absolute;
     top: 180px;
     right: 110px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
 
 }
 .title h2{
@@ -56,34 +59,42 @@
     font-weight: lighter !important;
 }
 
+
 .login{
+    background-color: #0000001a;
     text-decoration: none !important;
-    border-radius: 5px;
-    background-color: #80cc28;
+    border-radius: 3px;
     color: black;
-    padding: 8px;
-    max-width: 68px;
-    font-size: 25px;
+    padding: 8px 8px 16px 106px;
+    max-width: 79px;
+    font-size: 20px;
     position: absolute;
-    top:135px;
-    left: 182px;
+    top:133px;
+    left: 162px;
+    
 }
 
 .registro{
+    background-color: #0000001a;
     text-decoration: none !important;
-    border-radius: 5px;
-    background-color: #80cc28;
+    border-radius: 3px;
     color: black;
-    padding: 8px;
-    max-width: 97px;
-    font-size: 25px;
+    padding: 8px 8px 16px 75px;
+    max-width: 79px;
+    font-size: 20px;
     position: absolute;
-    top:135px;
-    left: 282px;
+    top:133px;
+    left: 330px;
     
 }
+
+.labels{
+    font-size: 14px;
+    margin: 5px 0 0 35px;
+}
+
 .login:hover{
-    background-color: #27963c;
+    background-color: #80cc28;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -93,7 +104,7 @@
 }
 
 .registro:hover{
-    background-color: #27963c;
+    background-color: #80cc28;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -103,27 +114,26 @@
 }
 
 .registro:active{
-    background-color: #80cc28;
+    background-color: #b1c49b;
 }
 
 .login:active{
-    background-color: #80cc28;
+    background-color: #b1c49b;
 }
 
 .google{
     max-width: 200px;
-    margin: 10px 0 0 220px;
+    margin: 10px 0 0 225px;
 }
 .registerBtn{
         max-width: 120px !important;
-        margin: 10px 0 0 55px;
-        font-size: 12px;
+        margin: 15px 0 0 85px;
+        font-size: 12px !important;
         color: rgb(0, 0, 0) ;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-transform: uppercase;
         text-decoration: none;
-        background: #80cc28;
-        padding: 10px;
+        background: #80cc28 !important;
+        padding: 10px !important;
         border-radius: 5px;
         display: inline-block;
         border: none;
@@ -131,7 +141,8 @@
 }
 .registerBtn:hover {
     cursor: pointer;
-    background: #27963c;
+    background: #27963c !important;
+    color:black !important;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -145,15 +156,15 @@
 }
 
 .loginBtn{
-    max-width: 200px;
-    font-size: 12px;
-    margin: 15px 0 10px 14px;
+    max-width: 120px !important;
+    font-size: 12px !important;
+    margin: 20px 0 10px 83px;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
-    background: #80cc28;
-    padding: 10px;
+    background: #80cc28 !important;
+    padding: 10px !important;
     border-radius: 5px;
     display: inline-block;
     border: none;
@@ -162,7 +173,8 @@
 .loginBtn:hover {
 cursor: pointer;
 font-size: 13px;
-background: #27963c;
+color: black !important;
+background: #27963c !important;
 letter-spacing: 1px;
 -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -173,4 +185,17 @@ box-shadow: 0 0 5pt 0.5pt #161616;
 
 .loginBtn:active{
 background-color: rgb(8, 117, 57);
+}
+
+.goBack{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top:25px;
+    left: 25px;
+}
+
+.goBack:hover{
+    width: 28px;
+    height: 28px;
 }
