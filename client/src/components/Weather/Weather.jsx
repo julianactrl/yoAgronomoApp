@@ -10,13 +10,15 @@ const Weather = (props) => {
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
     const weather = useSelector(state => state.weatherReducer.weather)
+    //const ubication = useSelector(state => state.empresaReducer.)
     useEffect(() => {
-        dispatch(getWeather("tokyo"))
+        dispatch(getWeather("cordoba"/*aqui iria la ubicacion de la empresa*/))
         if(weather !== null){
             setLoading(false)
         }
         
     },[]) 
+    //Funcion que actualiza el reloj segundo a segundo
     function interval(){
     const date = new Date()
     return date.toLocaleTimeString()
@@ -26,8 +28,25 @@ const Weather = (props) => {
             setTime(interval)
         },1000)
     },[])
+    //Funcion que trae el dia segun la fecha
+    const getDayWeek = (date) => {
+        const fechaComoCadena = date; 
+        const dias = [
+        'Lunes',
+        'Martes',
+        'Miércoles',
+        'Jueves',
+        'Viernes',
+        'Sábado',
+        "Domingo"
+        ];
+    const numeroDia = new Date(fechaComoCadena).getDay();
+    const nombreDia = dias[numeroDia];
+    return nombreDia
+    }
     
     return (
+        <div className="body-weather">
         <div className="container-weather">
            {
             loading===true ? <h1>Cargando</h1> :
@@ -37,15 +56,27 @@ const Weather = (props) => {
                             <div>
                                 <div className="current-weather">
                                     <h1>{w.location.name}</h1>
-                                    <p>{interval()}</p>
+                                    <img className="live" src="https://static.wixstatic.com/media/e9a517_aab454c7f49544358e05ab4b293a15db~mv2.gif" alt="" />
+                                    <h4>{interval()}</h4>
                                     <h1>{w.current.temp_c}C°</h1>
+                                    <div className="wind_humidity">
+                                        <p>Vel. del Viento:{w.current.wind_kph}km/h</p>
+                                        <p>Humedad: {w.current.humidity}%</p>
+                                    </div>
+                                    <div className="wind_dir">
+                                        <p>Direccion del viento: {w.current.wind_dir}°</p>
+                                        <p>Indice UV: {w.current.uv}uv</p>
+                                    </div>
                                     <img src={w.current.condition.icon} alt="" />
                                 </div>
+                                <p className="forecast-extended">
+                                    Prónostico Extendido
+                                </p>
                                 <div className="forecast">
                                     {
                                         w.forecast.forecastday.map(p => (
                                             <div className="forecast-day">
-                                                <p>{p.date}</p>
+                                                <p className="day-week">{getDayWeek(p.date)}</p>
                                                 <div className="temperatures">
                                                     <p>Max:{p.day.maxtemp_c}c°</p>
                                                     <p>Min:{p.day.mintemp_c}c°</p>
@@ -62,6 +93,7 @@ const Weather = (props) => {
                 </div>
                
            }
+        </div>
         </div>
     )
 }

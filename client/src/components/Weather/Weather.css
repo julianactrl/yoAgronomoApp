@@ -1,18 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+.body-weather{
+    background-image:
+    linear-gradient(to bottom, rgba(97, 97, 97, 0.52), rgba(0, 0, 0, 0.411)),
+    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
+    min-width: 100vw;
+    min-height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
 .container-weather {
+    margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    margin-left: 550px;
-    margin-right: 550px;
-    font-size: 25px;
-    font-weight: bold;
+    margin-left: 570px;
+    margin-right: 570px;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.623);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    height: 370px;
+    width: 350px;
+}
+.current-weather h1{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.current-weather h4{
+    margin-top: 3px;
 }
 
-.card-weather {
-    border: 2px solid red;
-    width: 300px;
-    text-align: center;
-}
 
 .forecast {
     display: flex;
@@ -20,16 +38,45 @@
 }
 
 .forecast-day {
-    border: 2px solid black;
+    background-color: rgba(75, 177, 57, 0.801);
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 10px;
     height: 132px;
     width: 290px;
     padding: 16px;
     margin: 5px;
     font-size: 15px;
 }
-
+.forecast-day p {
+    margin-top: 0;
+    margin-bottom: 0;
+    
+}
+.forecast-extended{
+    font-weight:900;
+    color: white;
+    
+}
 .temperatures {
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
+}
+.wind_humidity{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+
+}
+.wind_dir{
+    display: flex;
+    justify-content: space-between;
+    padding: 7px;
+}
+.live{
+    width: 60px;
+}
+.day-week{
+    font-weight: bold;
 }

@@ -9,6 +9,7 @@ passport.use(
   new LocalStrategy(
     { usernameField: "email", passwordField: "password", session: false },
     async (email, password, done) => {
+      console.log("!!!!!!",email, password)
       const user = await User.findOne({ where: { email: email } });
       if (!user) return done(null, false);
       if (!user.compare(password)) return done(null, false);
@@ -26,21 +27,16 @@ passport.use(
 
 passport.use(
   new BearerStrategy((token, done) => {
-    jwt.verify(token, AUTH_JWT_SECRET, function (err, user) {
-      if (err) return done(err);
       return done(null, user ? user : false);
     });
-  })
-);
+)
 
-passport.serializeUser(function (user, done) {
+passport.serializeUser(function(user, done) {
   done(null, user);
 });
 
-passport.deserializeUser(function (user, done) {
+passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
 module.exports = passport;
-
-

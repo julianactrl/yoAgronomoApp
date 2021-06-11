@@ -14,15 +14,15 @@ export function getEmpresa(id) {
     }
 }
 
-export function postEmpresa(empresa) {
+export function postEmpresa(input) {
     return function(dispatch) {
-        return axios.post(`http://localhost:3001/createEmpresa`, {
+        return axios.post(`http://localhost:3001/empresa/create`, {
             method: 'POST',
             headers: {
                 Accept:'application/json',
                 'Content-Type': 'application/json'
             },
-                body: JSON.stringify(empresa)
+                body: JSON.stringify(input)
         })
         .then((response)=> {         
             
