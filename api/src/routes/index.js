@@ -4,8 +4,7 @@ const createUser = require('./createUser')
 const createEmpresa = require('./createEmpresa')
 const deleteEmpresa = require('./deleteEmpresa')
 const getEmpresa = require('./getEmpresa')
-
-// const authRouter = require('./authRouter.js');
+const authRouter = require('./authRouter.js');
 
 
 const router = Router();

@@ -3,13 +3,6 @@ const bcrypt = require("bcrypt");
 
 module.exports = (sequelize) => {
   // defino el modelo
-sequelize.define('user', {
-//   id: {
-//     type: DataTypes.STRING,
-//     allowNull: true,
-//     unique: true,
-//     primaryKey: true
-//   },
 
   const User = sequelize.define("user", {
     email: {
@@ -62,6 +55,7 @@ sequelize.define('user', {
       allowNull: true,
     }
   })
+
   User.prototype.compare = function (password, isReset) {	//compares resetcode when isReset is true
 		if (this.password || this.reset_code) return bcrypt.compareSync(password.toString(), isReset ? this.reset_code : this.password);
 		else return false
