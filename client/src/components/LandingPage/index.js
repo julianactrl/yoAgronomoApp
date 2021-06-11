@@ -16,7 +16,6 @@ const LandingPage = () => {
             <img className={styles.logo} src={leaf}/>
             </div>
             <Login/>
-            <Register/>
             <GoogleBtn/>
         </div>
     )
