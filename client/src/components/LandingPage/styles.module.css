@@ -10,7 +10,29 @@
     overflow: hidden;
 }
 
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 200px 0 0 180px;
+    font-weight: 600;
+    background-color: rgba(255, 240, 240, 0.568);
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 260px;
+    
+}
 
+.loginInput{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 220px;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+}
 
 
 .logo{
@@ -23,7 +45,7 @@
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     position: absolute;
-    top: 230px;
+    top: 180px;
     right: 110px;
     display: flex;
     flex-direction: row;
@@ -34,7 +56,67 @@
     font-weight: lighter !important;
 }
 
+.login{
+    text-decoration: none !important;
+    border-radius: 5px;
+    background-color: #80cc28;
+    color: black;
+    padding: 8px;
+    max-width: 68px;
+    font-size: 25px;
+    position: absolute;
+    top:135px;
+    left: 182px;
+}
+
+.registro{
+    text-decoration: none !important;
+    border-radius: 5px;
+    background-color: #80cc28;
+    color: black;
+    padding: 8px;
+    max-width: 97px;
+    font-size: 25px;
+    position: absolute;
+    top:135px;
+    left: 282px;
+    
+}
+.login:hover{
+    background-color: #27963c;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.registro:hover{
+    background-color: #27963c;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.registro:active{
+    background-color: #80cc28;
+}
+
+.login:active{
+    background-color: #80cc28;
+}
+
+.google{
+    max-width: 200px;
+    margin: 10px 0 0 220px;
+}
 .registerBtn{
+        max-width: 120px !important;
+        margin: 10px 0 0 55px;
         font-size: 12px;
         color: rgb(0, 0, 0) ;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -42,8 +124,6 @@
         text-decoration: none;
         background: #80cc28;
         padding: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
         border-radius: 5px;
         display: inline-block;
         border: none;
@@ -51,7 +131,6 @@
 }
 .registerBtn:hover {
     cursor: pointer;
-    font-size: 13px;
     background: #27963c;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -66,8 +145,9 @@
 }
 
 .loginBtn{
+    max-width: 200px;
     font-size: 12px;
-    margin-top: 5px;
+    margin: 15px 0 10px 14px;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;

@@ -16,18 +16,18 @@ const LandingPage = () => {
             <h2>AGRONOMO</h2>
             <img className={styles.logo} src={leaf}/>
             </div>
-            <div>
-          <Link to="/login">
-            <h1>Login</h1>
+            <div className={styles.options}>
+          <Link to="/index">
+            <h1 className={styles.login}>Login</h1>
           </Link>
 
-          <Link to="/register">
-            <h1>Registro</h1>
+          <Link to="/index/register">
+            <h1 className={styles.registro}>Registro</h1>
           </Link>
         </div>
 
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/Login" component={Login} />
+        <Route exact path="/index/register" component={Register} />
+        <Route exact path="/index" component={Login} />
             <GoogleBtn/>
         </div>
     )
