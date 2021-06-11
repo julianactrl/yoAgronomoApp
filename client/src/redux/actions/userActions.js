@@ -1,26 +1,57 @@
 import axios from 'axios';
 import {
-	GET_USERS,
+REGISTER_USER_ERROR,REGISTER_USER_REQUEST,REGISTER_USER_SUCCESS,USER_LOGIN_REQUEST,USER_LOGIN_SUCCESS,USER_LOGIN_ERROR,USER_LOGOUT
 } from '../constants';
 
-// const { REACT_APP_API } = process.env;
+const { REACT_APP_API } = process.env;
 
-// export const getUsers = (page) => {
-// 	return function (dispatch) {
-// 		return axios.get(`${REACT_APP_API}users?page=`+ page)
-// 			.then((user) => {
-// 				dispatch(
-// 					{
-// 						type: GET_USERS,
-// 						payload: user.data
-// 					}
-// 				)
-// 			})
-// 			.catch((err) => {
-// 				dispatch({
-// 					type: GET_USERS,
-//                     id: err.response,
-// 				})
-// 			})
-// 	}
-// }
+export const register = (body) => async (dispatch) =>{
+   try{
+   dispatch({
+       type: REGISTER_USER_REQUEST
+   })
+   const config = {
+       headers:{'Content-Type':'application/json'}
+   }
+   const {data} = await axios.post('http://localhost:3001/auth/register',body)
+   dispatch({
+       type: REGISTER_USER_SUCCESS,
+       payload: data
+   })
+   alert('Registro exitoso')
+   dispatch({
+       type: USER_LOGIN_SUCCESS,
+       payload:data
+   })
+   } catch(error){
+   dispatch({
+       type:REGISTER_USER_ERROR,
+       payload: error
+   })
+   }
+}
+
+export const login = (body) => async (dispatch) =>{
+    try{
+    dispatch({
+        type: USER_LOGIN_REQUEST
+    })
+    const config = {
+        headers:{'Content-Type':'application/json'}
+    }
+    const {data} = await axios.post('http://localhost:3001/auth/login',body)
+    dispatch({
+        type: USER_LOGIN_SUCCESS,
+        payload: data
+    })
+    } catch(error){
+    dispatch({
+        type:USER_LOGIN_ERROR,
+        payload: error
+    })
+    }
+ }
+
+
+
+
