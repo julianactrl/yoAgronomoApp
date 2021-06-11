@@ -12,9 +12,9 @@ const server = express();
 
 server.name = 'API';
 server.use(cors());
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(express.urlencoded({ extended: true, limit: '50mb' }));
-server.use(express.json({ limit: '50mb' }));
+//server.use(bodyParser.urlencoded({  limit: '50mb' }));
+//server.use(express.urlencoded({  extended: true, limit: '50mb' }));
+server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
@@ -30,7 +30,7 @@ server.use(express.json());
 server.use(express.static(path.join(__dirname, 'public')));
 
 //=========================================================================//
-    //Authenticator
+//Authenticator
 //=========================================================================//
 
 server.all("*", function (req, res, next) {
