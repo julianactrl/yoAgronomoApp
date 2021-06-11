@@ -31,12 +31,6 @@ const LandingPage = () => {
       >
 
 
-      <div className={styles.div}>
-          <div className={styles.title}>
-            <h1>YO</h1>
-            <h2>AGRONOMO</h2>
-
-
         <div className={styles.div}>
           <Link to='/'>
             <img className={styles.goBack} src='https://www.seekpng.com/png/full/18-187048_left-arrow-png-free-download-flecha-hacia-arriba.png'/>  
@@ -62,22 +56,6 @@ const LandingPage = () => {
             <GoogleBtn/>
         </div>
        
-
-          </div>
-          <div className={styles.options}>
-            <Link to="/index">
-              <h1 className={styles.login}>Login</h1>
-            </Link>
-
-            <Link to="/index/register">
-              <h1 className={styles.registro}>Registro</h1>
-            </Link>
-          </div>
-
-          <Route exact path="/index/register" component={Register} />
-          <Route exact path="/index" component={Login} />
-          <GoogleBtn/>
-      </div>
       </motion.div>
     )
 }
