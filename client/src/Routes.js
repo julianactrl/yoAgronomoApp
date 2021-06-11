@@ -12,7 +12,7 @@ import News from './components/News/News.js';
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
+      <Route path="/index">
         <LandingPage/>
       </Route>
       <Route exact path='/empresa'>

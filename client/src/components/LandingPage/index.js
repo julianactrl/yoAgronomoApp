@@ -17,17 +17,17 @@ const LandingPage = () => {
             <img className={styles.logo} src={leaf}/>
             </div>
             <div>
-          <Link to="/login">
+          <Link to="/index/login">
             <h1>Login</h1>
           </Link>
 
-          <Link to="/register">
+          <Link to="/index/register">
             <h1>Registro</h1>
           </Link>
         </div>
 
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/Login" component={Login} />
+        <Route exact path="/index/register" component={Register} />
+        <Route exact path="/index/Login" component={Login} />
             <GoogleBtn/>
         </div>
     )
