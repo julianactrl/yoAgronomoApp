@@ -23,7 +23,7 @@ const Login = () => {
 
     return (
         <div className={styles.container}>
-            <form action="" onSubmit={handleSubmit} className="form">
+            <form action="" onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
                 <label htmlFor="email">Email</label>
                 <input 
