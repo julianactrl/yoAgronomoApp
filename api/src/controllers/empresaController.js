@@ -95,7 +95,6 @@ const deleteEmpresa = async (req, res, next) => {
 const updateEmpresa = async (req, res, next) => {
   try {
     const {id} = req.params;
-    const {name, hectareas, ubicacion} = req.body;
     await Empresa.update(req.body, 
       {
         where: {
