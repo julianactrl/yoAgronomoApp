@@ -10,9 +10,9 @@ const Weather = (props) => {
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
     const weather = useSelector(state => state.weatherReducer.weather)
-    //const ubication = useSelector(state => state.empresaReducer.)
+    //const ubication = useSelector(state => state.empresaReducer.empresaForId.ubicacion)
     useEffect(() => {
-        dispatch(getWeather("cordoba"/*aqui iria la ubicacion de la empresa*/))
+        dispatch(getWeather("cordoba"/*ubicacion*/))
         if(weather !== null){
             setLoading(false)
         }
