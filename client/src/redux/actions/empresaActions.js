@@ -1,5 +1,19 @@
-import {GET_EMPRESA_ID, POST_EMPRESA} from '../constants';
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA} from '../constants';
 import axios from 'axios';
+
+
+export function getAllEmpresas() {
+    return function(dispatch) {
+        return fetch(`http://localhost:3001/empresa`)
+        .then(response=>response.json())          
+            .then(json=>{
+                dispatch({          
+                type: GET_EMPRESA,
+                payload: json
+            })  
+        })
+    }
+}
 
 export function getEmpresa(id) {
     return function(dispatch) {

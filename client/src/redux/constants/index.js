@@ -9,6 +9,8 @@ export const USER_LOGIN_ERROR="USER_LOGIN_ERROR";
 export const USER_LOGOUT="USER_LOGOUT";
 
 
+
+export const GET_EMPRESA = 'GET_EMPRESA';
 export const GET_EMPRESA_ID = 'GET_EMPRESA_ID';
 export const POST_EMPRESA = 'POST_EMPRESA'
 

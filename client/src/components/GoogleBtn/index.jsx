@@ -16,13 +16,16 @@ const GoogleBtn = () => {
     // funcion que recibe los datos del usuario que se logueo con google y los manda a DB
     function respuestaGoogle(data) {
         if(data.profileObj){
-            const {email, familyName , givenName, imageUrl, name} = data.profileObj;//profileObj contiene la info del usuario
+            const {email, familyName , googleId, imageUrl, name} = data.profileObj;//profileObj contiene la info del usuario
             dispatch(register({
                 email:email,
                 password: familyName + name.length +'A@',
-                fullName:name
+                fullName:name,
+                profile_pic: imageUrl,
+                googleId: googleId
+                
             }))
-            return console.log('Acceso con googlee existoso');
+            return console.log('Acceso con googlee existoso', data.profileObj);
         }
         return console.log('Error al acceder con google');    
     }

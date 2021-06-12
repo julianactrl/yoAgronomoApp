@@ -3,8 +3,28 @@ import styles from './styles.module.css'
 
 //...  SideBar  ...
 
-export function sidebar(){
-    return(
+export function sidebar(verify){
+    if (verify === 'dashboard'){
+        return(
+            <div className={styles.sidebarcont}>
+                <div className={styles.linktextcont}>
+                    <Link className={styles.linktext}>
+                    <h2 className={styles.text}>HOME</h2>
+                    </Link>
+                    <Link className={styles.linktext}>
+                    <h2 className={styles.text}>AGENDA</h2>
+                    </Link>
+                    <Link className={styles.linktext}>
+                    <h2 className={styles.text}>PREMIUM</h2>
+                    </Link>
+                    <Link className={styles.linktext}>
+                    <h2 className={styles.text}>AGRO CONSULTAS</h2>
+                    </Link>
+                </div>    
+            </div>
+        )
+    }else{
+            return(
         <div className={styles.sidebarcont}>
             <div className={styles.linktextcont}>
                 <Link className={styles.linktext}>
@@ -35,4 +55,6 @@ export function sidebar(){
 
         </div>
     )
+    }
+
 }
