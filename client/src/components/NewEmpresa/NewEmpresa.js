@@ -18,6 +18,16 @@ function handleSubmit(e) {
     axios.post('http://localhost:3001/empresa/create', input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
+    if(!input.name) {
+        alert('debe ingresar un nombre!')
+        return
+    }
+    if(!input.ubicación) {
+        alert('debe ingresar una ubicación!')
+        return
+    }
+    e.target.reset();
+    alert('su empresa fue creada!')
         
 }
 
@@ -37,7 +47,7 @@ useEffect(()=>{
 
     return (
         
-        <div >
+        <div className={styles.div}>
         <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
         <form className={styles.estilosForm} 
@@ -81,7 +91,7 @@ useEffect(()=>{
                 name='image'/>
             </div>
                 <br></br>
-            <button className={styles.alineado} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
+            <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
             </form>
             </div>
         </div>

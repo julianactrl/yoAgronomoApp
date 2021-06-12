@@ -42,7 +42,7 @@ function DetailEmpresa ({id}) {
                      
             
                 
-            { <div>
+            { <div className={styles.div}>
             <li >
             <h1 className={styles.name}>{empresa.name}</h1>
             <div className={styles.caja}>
