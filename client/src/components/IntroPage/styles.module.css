@@ -3,7 +3,7 @@
     linear-gradient(to bottom, rgba(20, 20, 20, 0.52), rgba(58, 124, 80, 0.664)),
     url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 130vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -74,4 +74,99 @@
     justify-content: center;
     width: 90px;
     height: 90px;
+}
+
+.slider {
+    position: absolute;
+    top:410px;
+    left:9.4%;
+	width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 55vh;
+    padding: 0;
+	background: transparent;
+    overflow: hidden;
+}
+
+  
+ 
+  .wrapper {
+    position: relative;
+    width: 320px;
+    height: 131px;
+  }
+  
+  .title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 18px;
+    width: 205px;
+    background: #7fcc2867;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 500;
+    visibility: hidden;
+    opacity: 0;
+  
+    transition: opacity .4s, visibility .4s;
+  }
+  
+  .wrapper:hover .title {
+    visibility: visible;
+    opacity: 1;
+  }
+
+.slider ul {
+    padding: 0; 
+    display: flex;
+    width: 100%;
+    height: 100px;
+}
+
+.slider li {
+    list-style: none;
+    width: 100%;
+	margin: 0;
+    display: flex;
+}
+
+.slider img {
+    border: #7fcc2867;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 8px;
+    width: 200px;
+    height: 150px; 
+    object-fit: cover;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.8);
+}
+
+.slider img:hover{
+    border: #80cc28;
+    border-style: solid;
+    border-width: thick;
+}
+
+
+.slider ul {
+    animation: cambio 55s infinite ;
+    animation-direction: unset;
+    animation-timing-function:linear;
+}
+
+@keyframes cambio {
+    0% {margin-left:0;}
+    10% {margin-left:0;}
+
+    15% {margin-left:-89.5%;}
+    25% {margin-left:-89.5%;}
+
+    30% {margin-left:-179%;}
+    40% {margin-left:-179%;}
+
 }
