@@ -65,7 +65,7 @@ const register = async (req, res) => {
   } catch (error) {
     if (error.message === "Invalid password")
       return res.status(400).json({ message: "Invalid password" });
-    if (error.erros[0]?.message === "email must be unique"){
+    if (error.erros[0].message === "email must be unique"){
       return res.status(400).json({ message: "email must be unique" });}
     return res.status(500).json({ message: "Internal Server Error" });
   }
