@@ -4,7 +4,24 @@ import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
 
 
+export function validate(input) {
+    let errors = {};
+    if (!input.email) {
+      errors.email = 'Email is required';
+    } else if (/\S+@\S+\.\S+/.test(input.mail)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!input.password) {
+        errors.password = 'Password is required';
+      } else if (!/(?=.*[0-9])/.test(input.password)) {
+        errors.password = 'Password is invalid';
+      }
+  
+    return errors;
+  };
+
 const Login = () => {
+
 
     const dispatch = useDispatch()   
 
@@ -13,13 +30,18 @@ const Login = () => {
         password: ""
     })
 
-     function handleChange(e){
-         console.log(e)
-         setInput({
-             ...input,
-             [e.target.id]: e.target.value
-         })
-     }
+    const [errors, setErrors] = React.useState({});
+    const handleChange = function(e) {
+      setInput({
+        ...input,
+        [e.target.id]: e.target.value
+      });
+      setErrors(validate({
+        ...input,
+        [e.target.id]: e.target.value
+      }));
+    }
+  
 
      function handleSubmit(e){
          e.preventDefault();
@@ -37,6 +59,10 @@ const Login = () => {
                 type="email" 
                 id="email" 
                 onChange={handleChange} />
+                {errors.email && (
+      <p className={styles.error}>{errors.email}</p>
+    )} 
+     <br/>
             </div>
             <div className={styles.inputGroup}>
                 <label  className={styles.labels} htmlFor="password">Contraseña</label>
@@ -45,6 +71,9 @@ const Login = () => {
                 type="password" 
                 id="password" 
                 onChange={handleChange} />
+                 {errors.password && (
+      <p className={styles.error}>{errors.password}</p>
+    )} 
             </div>
             <div>
                 <button 
