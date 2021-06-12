@@ -38,6 +38,7 @@ const GoogleBtn = () => {
                 cookiePolicy={'single_host_origin'}
             />:
             <GoogleLogout
+                className={styles.google}
                 clientId='986641154721-5ard4gbec5m5v08eu29onvepopn4qkca.apps.googleusercontent.com'
                 buttonText='Logout'
                 onLogoutSuccess={()=>{logoutExistoso();setLogined(false)}}

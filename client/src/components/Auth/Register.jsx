@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import styles from '../LandingPage/styles.module.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { register } from '../../redux/actions/userActions';
+import {Link} from 'react-router-dom'
 
 
 const Register = () => {
@@ -28,7 +29,7 @@ const Register = () => {
      function handleSubmit(e){
          e.preventDefault();
          console.log(userRegister)
-         dispatch(register(userRegister)) 
+         dispatch(register(userRegister))  
      }
         return (
             <div className={styles.containerD}>
@@ -37,7 +38,7 @@ const Register = () => {
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="fullName">Nombre y Apellido</label>
+                  <label  className={styles.labels} htmlFor="fullName">Nombre y Apellido</label>
                   <input
                  
                     onChange={handleChange}
@@ -48,7 +49,7 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="email">Email</label>
+                  <label  className={styles.labels} htmlFor="email">Email</label>
                   <input 
                   onChange={handleChange}
                   type="text" 
@@ -57,7 +58,7 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label htmlFor="password">Contraseña</label>
+                  <label  className={styles.labels} htmlFor="password">Contraseña</label>
                   <input
                     onChange={handleChange}
                     type="password"
@@ -71,7 +72,7 @@ const Register = () => {
                     type="password"
                     name="password"
                     className={styles.loginInput}/>
-                </div> */}
+                </div> */} 
                 <button
                   type="submit"
                    className={styles.registerBtn}
