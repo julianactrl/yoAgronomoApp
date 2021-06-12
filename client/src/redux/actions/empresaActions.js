@@ -31,3 +31,14 @@ export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
         }).catch(e => dispatch(e))
     }
 }
+
+export const updateEmpresa = ({id, body}) => {
+    return (dispatch) => {
+        dispatch({type: UPDATE_EMPRESA, id, body});
+        axios({
+            method: 'put',
+            url: `http://localhost:3001/empresa/${id}`,
+            data: body,
+        }).catch(e => dispatch(e))
+    }
+}
