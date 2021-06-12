@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 .main{
     background-image:
     linear-gradient(to bottom, rgba(20, 20, 20, 0.52), rgba(58, 124, 80, 0.664)),
     url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
     min-width: 100vw;
-    min-height: 130vh;
+    min-height: 100vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -26,7 +27,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-@media(min-width:1300px) {
+/* @media(min-width:1300px) {
     .mainBtn{
         position: absolute;
         top: 55%;
@@ -50,6 +51,62 @@
         border: none;
         transition: all 0.2s ease 0s;
     }   
+} */
+@media(min-width:1536px) {
+    .mainBtn{
+        position: absolute;
+        top: 58%;
+        bottom: 37%;
+        left: 86.5vh;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        max-width: 120px !important;
+        margin: 0 0 0 85px;
+        font-size: 15px;
+        color: rgb(0, 0, 0) ;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: #80cc28 !important;
+        padding: 0 15px !important;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        transition: all 0.2s ease 0s;
+    } 
+    .slider img:hover{
+        border: #a1a1a1;
+        border-style: solid;
+        border-width: thick;
+    }  
+    .slider {
+        position: absolute;
+        top:70%;
+        left:0;
+        width: 98%;
+        margin: 0;
+        margin-left: 10px;
+        overflow: hidden;
+        height: 25vh;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+    }
+    .logo{
+        position: absolute;
+        top: 30%;
+        bottom: 0%;
+        left: 47.5%;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+    }
 }
 
 @media(max-width:1300px) {
@@ -75,7 +132,7 @@
         display: inline-block;
         border: none;
         transition: all 0.2s ease 0s;
-    }   
+    } 
 }
 
 .mainBtn:hover{
@@ -90,7 +147,7 @@
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
 
-.logo{
+/* .logo{
     position: absolute;
     top: 23%;
     bottom: 0%;
@@ -102,12 +159,12 @@
     justify-content: center;
     width: 90px;
     height: 90px;
-}
+} */
 
-.slider {
+/* .slider {
     position: absolute;
-    top:410px;
-    left:9.4%;
+    top:420px;
+    left:10%;
 	width: 100%;
     margin: 0 auto;
     overflow: hidden;
@@ -115,7 +172,7 @@
     padding: 0;
 	background: transparent;
     overflow: hidden;
-}
+} */
 
   
  
@@ -127,16 +184,19 @@
   
   .title {
     position: absolute;
-    top: 0;
+    top: -12%;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: -2%;
     font-size: 18px;
     width: 205px;
+    height: 96px;
+    padding-top: 60px;
+    border-radius: 5px;
     background: #7fcc2867;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-family: sans-serif;
+    color: rgb(245, 244, 244);
+    text-align:center;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     visibility: hidden;
     opacity: 0;
@@ -146,6 +206,8 @@
   
   .wrapper:hover .title {
     visibility: visible;
+    background-color:rgba(0, 0, 0, 0.938);
+    border: none;
     opacity: 1;
   }
 
@@ -164,7 +226,7 @@
 }
 
 .slider img {
-    border: #7fcc2867;
+    border: #41443eea;
     border-style: solid;
     border-width: 3px;
     border-radius: 8px;
@@ -174,11 +236,11 @@
 	box-shadow: 0 5px 10px rgba(0,0,0,0.8);
 }
 
-.slider img:hover{
+/* .slider img:hover{
     border: #80cc28;
     border-style: solid;
     border-width: thick;
-}
+} */
 
 
 .slider ul {
@@ -191,10 +253,10 @@
     0% {margin-left:0;}
     10% {margin-left:0;}
 
-    15% {margin-left:-89.5%;}
-    25% {margin-left:-89.5%;}
+    15% {margin-left:-59.5%;}
+    25% {margin-left:-59.5%;}
 
-    30% {margin-left:-179%;}
-    40% {margin-left:-179%;}
+    30% {margin-left:-119%;}
+    40% {margin-left:-119%;}
 
 }
