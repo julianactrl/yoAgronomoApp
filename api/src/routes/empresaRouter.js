@@ -5,7 +5,9 @@ const {
   deleteEmpresa,
   getAllEmpresas,
   getEmpresaById,
-  getEmpresaByName
+  getEmpresaByName,
+  updateEmpresa
+
 } = require('../controllers/empresaController');
 
 
@@ -15,6 +17,7 @@ server.delete('/delete/:id', deleteEmpresa)
 server.get('/', getAllEmpresas)
 server.get('/:id', getEmpresaById)
 server.get('/nombreEmpresa', getEmpresaByName)
+server.put('/:id', updateEmpresa)
   
 
 
