@@ -4,7 +4,7 @@ import avatar from '../../assets/avatar.png'
 import logo from '../../assets/logo.png'
 import {sidebar} from './HeaderController'
 
-export default function Header (){
+export default function Header (verify){
 
     const [open, setOpen] = useState(false);
     const [btnlogo, setbtnLogo] = useState(false);
@@ -20,7 +20,7 @@ export default function Header (){
         <div className={styles.header}>
             <div className={styles.headertitle}>
                 {
-                    open?sidebar():null
+                    open?sidebar(verify):null
                 }          
                 <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo}/>     
             </div>

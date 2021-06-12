@@ -11,10 +11,11 @@
 }
 .cardCont{
     display: flex;
-    background-image: url('../../assets/abstract.png');
-    background-position: bottom;
+    background-image: url('../../assets/cicle.png');
+    background-position:center;
+    background-repeat: no-repeat;
     background-clip:padding-box;
-    background-size: 850px;
+    background-size: 1000px;
     padding: 20px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -25,13 +26,20 @@
     border-radius: 10px;
     align-items: center;
     object-fit: cover;
-    background-color: #2f4f39;
+    background-color: #78dbab83;
     border:2px solid rgba(0, 0, 0, 0.609);
     box-shadow: 0px 0px 30px black;
 }
+.cardCont:hover{
+    transition: 0.6s;
+    background-size: 900px;
+    border:2px solid rgba(5, 105, 0, 0.815);
+    background-color: #92ebc0be;
+    box-shadow: 5px 5px 40px black;
+}
 .img{
     position: relative;
-    bottom: 30px;
+    bottom: 0px;
     box-shadow: 0 0 10px rgba(0, 36, 0, 0.746);
     border-radius: 10px;
     width: 350px;

@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 body{
-    background-image: url('../../assets/fondo2.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+
     font-family: 'Roboto', sans-serif;
 }
 .header{
     display: flex;
-    position: relative;
+    position: absolute;
+    width: 100%;
     justify-content: space-between;
     background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
 }
