@@ -58,7 +58,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
+    profile_pic:{
+      type: DataTypes.STRING
+    }
   });
+  
 
   User.prototype.compare = (password, isReset) => {
     //compares resetcode when isReset is true
