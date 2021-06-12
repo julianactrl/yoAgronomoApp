@@ -76,20 +76,20 @@ const register = async (req, res) => {
 
 //==========================================================================//
 const login = async (req, res, next) => {
-  // passport.authenticate("local", (err, user, next) => {
-  //   if (err) return next(err);
-  //   else if (!user) return res.sendStatus(401);
-  //   else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
-  // })(req, res, next);
-
-  passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err); }
-    if (!user) { return res.redirect('/login'); }
-    req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      return res.redirect(jwt.sign('/auth/' + user.fullName, AUTH_JWT_SECRET));
-    });
+  passport.authenticate("local", (err, user, next) => {
+    if (err) return next(err);
+    else if (!user) return res.sendStatus(401);
+    else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
   })(req, res, next);
+
+  // passport.authenticate('local', function(err, user, info) {
+  //   if (err) { return next(err); }
+  //   if (!user) { return res.redirect('/login'); }
+  //   req.logIn(user, function(err) {
+  //     if (err) { return next(err); }
+  //     return res.redirect(jwt.sign('/auth/' + user.fullName, AUTH_JWT_SECRET));
+  //   });
+  // })(req, res, next);
 };
 
 
