@@ -4,6 +4,7 @@ import { logoutExistoso, logoutRechazado} from './controller';
 import styles from '../LandingPage/styles.module.css'
 import { register } from '../../redux/actions/userActions';
 import {useDispatch,useSelector} from 'react-redux';
+import { Redirect } from 'react-router';
 
 
 const GoogleBtn = () => {
@@ -14,12 +15,16 @@ const GoogleBtn = () => {
 
     // funcion que recibe los datos del usuario que se logueo con google y los manda a DB
     function respuestaGoogle(data) {
-        const {email, familyName , givenName, imageUrl, name} = data.profileObj;//profileObj contiene la info del usuario
-        dispatch(register({
-        email:email,
-        password: familyName + name.length +'A@',
-        fullName:name
-        }))
+        if(data.profileObj){
+            const {email, familyName , givenName, imageUrl, name} = data.profileObj;//profileObj contiene la info del usuario
+            dispatch(register({
+                email:email,
+                password: familyName + name.length +'A@',
+                fullName:name
+            }))
+            return console.log('Acceso con googlee existoso');
+        }
+        return console.log('Error al acceder con google');    
     }
 
     return (
@@ -38,7 +43,7 @@ const GoogleBtn = () => {
                 onLogoutSuccess={()=>{logoutExistoso();setLogined(false)}}
                 onFailure={logoutRechazado}
                 cookiePolicy={'single_host_origin'}
-            />}
+            /> && <Redirect to='/home' />}
         </>
     )
 }
