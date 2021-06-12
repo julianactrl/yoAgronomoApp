@@ -52,8 +52,8 @@ const getEmpresaById = async (req, res) =>{
   const empresadb ={
     id: empresa.id,
     name: empresa.name,
-    hectáreas: empresa.hectáreas,
-    ubicación: empresa.ubicación,
+    hectareas: empresa.hectareas,
+    ubicacion: empresa.ubicacion,
     imagen: empresa.imagen
   }
   if (!empresa) {
@@ -63,12 +63,12 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { name, hectáreas, ubicación,image} = req.body;
+  const { name, hectareas, ubicacion,image} = req.body;
   try {
     await Empresa.create({
       name,
-      hectáreas,
-      ubicación,
+      hectareas,
+      ubicacion,
       image
     });
     res.status(200).json("fue  creada con exito");

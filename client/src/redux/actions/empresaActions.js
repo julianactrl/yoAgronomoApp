@@ -14,23 +14,20 @@ export function getEmpresa(id) {
     }
 }
 
-export function postEmpresa(input) {
-    return function(dispatch) {
-        return axios.post(`http://localhost:3001/empresa/create`, {
-            method: 'POST',
-            headers: {
-                Accept:'application/json',
-                'Content-Type': 'application/json'
+
+export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
+
+    return (dispatch) => {
+        dispatch({ type: POST_EMPRESA });
+        axios({
+            method: 'post',
+            url: `http://localhost:3001/empresa/create`,
+            data: {
+                name,
+                hectareas,
+                ubicacion,
+                image
             },
-                body: JSON.stringify(input)
-        })
-        .then((response)=> {         
-            
-                dispatch({          
-                type: POST_EMPRESA,
-                payload: response.data,
-            })
-            
-        })
+        }).catch(e => dispatch(e))
     }
 }
