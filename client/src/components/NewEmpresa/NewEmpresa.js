@@ -5,39 +5,36 @@ import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
 
 function NewEmpresa () {
-
 const [input, setInput] = useState({
         name: '',
-        hectáreas: '',
-        ubicación: '',
+        hectareas: '',
+        ubicacion: '',
         image: ''
 })
-
-function handleSubmit(e) {
-    e.preventDefault();
-    axios.post('http://localhost:3001/empresa/create', input)
-        .then(response => console.log(response.data)) 
-        .catch(error  => console.log(error))
-        
-}
-
 function handleInputChange(e) {
     setInput({
         ...input,                        
          [e.target.name]: e.target.value  
         });
 }
-
-const dispatch = useDispatch();
-
-useEffect(()=>{
-     dispatch(postEmpresa(input));
- }, [])
-
-
-    return (
+function handleSubmit(e) {
+    e.preventDefault();
+    if(!input.name) {
+        alert('Debe ingresar un nombre!')
+        return
+    }
+    if(!input.ubicacion) {
+        alert('Debe ingresar una ubicación!')
+        return
+    }
+    dispatch(postEmpresa(input));
+    e.target.reset();
+    alert('Su empresa fue creada!')
         
-        <div >
+}
+const dispatch = useDispatch();
+    return (
+        <div className={styles.div}>
         <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
         <form className={styles.estilosForm} 
@@ -57,18 +54,18 @@ useEffect(()=>{
                 <input
                 type='text'
                 onChange={handleInputChange} 
-                value={input['hectáreas']}
+                value={input['hectareas']}
                 placeholder='Hectáreas totales...'
-                name='hectáreas'/>
+                name='hectareas'/>
             </div>
             <div>
                 <label>Ubicación: </label>
                 <input
                 type='text'
                 onChange={handleInputChange} 
-                value={input['ubicación']}
+                value={input['ubicacion']}
                 placeholder='Ubicación'
-                name='ubicación'/>
+                name='ubicacion'/>
             </div>
            
             <div>
@@ -81,7 +78,7 @@ useEffect(()=>{
                 name='image'/>
             </div>
                 <br></br>
-            <button className={styles.alineado} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
+            <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
             </form>
             </div>
         </div>
