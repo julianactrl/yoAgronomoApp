@@ -46,7 +46,12 @@ export default function DashBoard (){
       return (
         <div className={styles.main}>
             <div className={styles.mainCont}>
-                <Header/>
+                <div className={styles.div1}></div>
+                <div className={styles.div2}></div>
+                <div className={styles.div3}></div>
+                <h1 className={styles.title}>Mis Empresas</h1>
+                {Header('dashboard')}
+                <button className={styles.btnNews}/>  
                 <div className={styles.body}>
                     <Slider {...settings}>
                         <CardsEmpresas/>
