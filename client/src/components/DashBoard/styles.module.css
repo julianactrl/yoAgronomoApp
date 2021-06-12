@@ -1,0 +1,97 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 937px;
+    backdrop-filter: blur(2px);
+    background: linear-gradient(#0000006b, #044e1d77, #054b1c6b, #000000b6);
+}
+
+.body{
+    position: relative;
+    left: 600px;
+    width: 800px;
+    height: 570px;
+    top: 100px;
+    /* border-radius: 20px;
+    background-color: #2f4f39;
+    border:3px solid rgba(0, 0, 0, 0.383);
+    box-shadow: 0 0 10px black;
+    backdrop-filter: contrast(80%) */
+
+}
+
+.imgAdd{
+    width: 60px;
+}
+.cardContAdd{
+    display: flex;
+    position: relative;
+    bottom: 200px;
+    right: 100px;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border:2px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 0 5px white;
+    background-color: rgba(75, 75, 75, 0.678);
+    
+}
+.titleEmpresa{
+    font-size: 20px;
+}
+.add{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* ////////////////////////////////////////////////////////////////// */
+
+.nextBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 440px;
+    transform: rotate(-90deg);
+
+    height: 60px;
+    border-radius: 60px;
+    
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 510.5px;
+    left: 300px;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
+}

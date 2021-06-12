@@ -41,6 +41,7 @@ const News = (props) => {
     console.log(loading)
     return (
         <div className='newsContainer'>
+            <h1>News</h1>
                 {loading ? 
                 <div className='containerLoading'>
                     <img src="https://media4.giphy.com/media/kHgUVJysYKJjzJf1XY/source.gif" alt="LoadingGif" className='loadingGif' /> 

@@ -9,10 +9,10 @@ module.exports = (sequelize) => {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            hectáreas: {
+            hectareas: {
                 type: DataTypes.STRING,
             },
-            ubicación: {
+            ubicacion: {
                 type: DataTypes.STRING,
             }
         })
