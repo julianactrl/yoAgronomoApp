@@ -5,6 +5,22 @@ import { register } from '../../redux/actions/userActions';
 import {Link} from 'react-router-dom'
 
 
+export function validate(input) {
+  let errors = {};
+  if (!input.email) {
+    errors.email = 'Se requiere un Email';
+  } else if (/\S+@\S+\.\S+/.test(input.mail)) {
+    errors.email = 'Email is invalid';
+  }
+  if (!input.password) {
+      errors.password = 'Se requiere una contraseña';
+    } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(input.password)) {
+      errors.password = 'La contraseña debe contener al menos un caracter especial,una mayúscula y un número.';
+    }
+
+  return errors;
+};
+
 const Register = () => {
 
     const dispatch = useDispatch()
@@ -17,13 +33,17 @@ const Register = () => {
         fullName:""
     })
 
-     function handleChange(e){
-         console.log(e)
-         setUserRegister({
-           ...userRegister,
-             [e.target.id]: e.target.value
-         })
-     }
+    const [errors, setErrors] = React.useState({});
+    const handleChange = function(e) {
+      setUserRegister({
+        ...userRegister,
+        [e.target.id]: e.target.value
+      });
+      setErrors(validate({
+        ...userRegister,
+        [e.target.id]: e.target.value
+      }));
+    }
 
     
      function handleSubmit(e){
@@ -55,6 +75,10 @@ const Register = () => {
                   type="text" 
                   id="email" 
                   className={styles.loginInput} />
+                  {errors.email && (
+      <p className={styles.error}>{errors.email}</p>
+    )} 
+  
                 </div>
       
                 <div className={styles.inputGroup}>
@@ -64,6 +88,9 @@ const Register = () => {
                     type="password"
                     id="password"
                     className={styles.loginInput}/>
+                    {errors.password && (
+      <p className={styles.error}>{errors.password}</p>
+    )} 
                 </div>
                 {/* <div className={styles.inputGroup}>
                   <label htmlFor="password">Repetir</label>

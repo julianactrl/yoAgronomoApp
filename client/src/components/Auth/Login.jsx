@@ -13,9 +13,7 @@ export function validate(input) {
     }
     if (!input.password) {
         errors.password = 'Password is required';
-      } else if (!/(?=.*[0-9])/.test(input.password)) {
-        errors.password = 'Password is invalid';
-      }
+      } 
   
     return errors;
   };
