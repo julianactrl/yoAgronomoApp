@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function getAllEmpresas() {
     return function(dispatch) {
-        return fetch('http://localhost:3001/empresa')
+        return fetch(`http://localhost:3001/empresa`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -36,6 +36,22 @@ export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
         axios({
             method: 'post',
             url: `http://localhost:3001/empresa/create`,
+            data: {
+                name,
+                hectareas,
+                ubicacion,
+                image
+            },
+        }).catch(e => dispatch(e))
+    }
+}
+export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
+
+    return (dispatch) => {
+        dispatch({ type: UPDATE_EMPRESA });
+        axios({
+            method: 'put',
+            url: `http://localhost:3001/empresa/create/${id}`,
             data: {
                 name,
                 hectareas,
