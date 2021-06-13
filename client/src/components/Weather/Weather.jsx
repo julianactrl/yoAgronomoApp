@@ -60,7 +60,7 @@ const Weather = (props) => {
                                     <h4>{interval()}</h4>
                                     <h1>{w.current.temp_c}C°</h1>
                                     <div className="wind_humidity">
-                                        <p>Vel. del Viento:{w.current.wind_kph}km/h</p>
+                                        <p>Vel. del Viento: {w.current.wind_kph}km/h</p>
                                         <p>Humedad: {w.current.humidity}%</p>
                                     </div>
                                     <div className="wind_dir">
