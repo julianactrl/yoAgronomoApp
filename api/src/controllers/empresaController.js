@@ -52,8 +52,8 @@ const getEmpresaById = async (req, res) =>{
   const empresadb ={
     id: empresa.id,
     name: empresa.name,
-    hectáreas: empresa.hectáreas,
-    ubicación: empresa.ubicación,
+    hectareas: empresa.hectareas,
+    ubicacion: empresa.ubicacion,
     imagen: empresa.imagen
   }
   if (!empresa) {
@@ -63,13 +63,13 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { name, hectáreas, ubicación,image} = req.body;
+  const { name, hectareas, ubicacion, imagen} = req.body;
   try {
     await Empresa.create({
       name,
-      hectáreas,
-      ubicación,
-      image
+      hectareas,
+      ubicacion,
+      imagen
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
@@ -92,10 +92,28 @@ const deleteEmpresa = async (req, res, next) => {
   }
 };
 
+const updateEmpresa = async (req, res, next) => {
+  try {
+    const {id} = req.params;
+    await Empresa.update(req.body, 
+      {
+        where: {
+          id,
+        },
+
+    });
+    res.status(200).json({message: "empresa modificada" });
+  } catch (e) {
+    res.status(400).send(next)
+    
+  }
+}
+
 module.exports = {
   createEmpresa,
   deleteEmpresa,
   getEmpresaByName,
   getEmpresaById,
   getAllEmpresas,
+  updateEmpresa,
 };

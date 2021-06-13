@@ -1,5 +1,19 @@
-import {GET_EMPRESA_ID, POST_EMPRESA} from '../constants';
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA} from '../constants';
 import axios from 'axios';
+
+
+export function getAllEmpresas() {
+    return function(dispatch) {
+        return fetch(`http://localhost:3001/empresa`)
+        .then(response=>response.json())          
+            .then(json=>{
+                dispatch({          
+                type: GET_EMPRESA,
+                payload: json
+            })  
+        })
+    }
+}
 
 export function getEmpresa(id) {
     return function(dispatch) {
@@ -14,23 +28,20 @@ export function getEmpresa(id) {
     }
 }
 
-export function postEmpresa(input) {
-    return function(dispatch) {
-        return axios.post(`http://localhost:3001/empresa/create`, {
-            method: 'POST',
-            headers: {
-                Accept:'application/json',
-                'Content-Type': 'application/json'
+
+export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
+
+    return (dispatch) => {
+        dispatch({ type: POST_EMPRESA });
+        axios({
+            method: 'post',
+            url: `http://localhost:3001/empresa/create`,
+            data: {
+                name,
+                hectareas,
+                ubicacion,
+                image
             },
-                body: JSON.stringify(input)
-        })
-        .then((response)=> {         
-            
-                dispatch({          
-                type: POST_EMPRESA,
-                payload: response.data,
-            })
-            
-        })
+        }).catch(e => dispatch(e))
     }
 }
