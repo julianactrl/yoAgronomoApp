@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import styles from './styles.module.css'
 import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
+import { motion } from 'framer-motion';
 
 function NewEmpresa () {
 const [input, setInput] = useState({
@@ -34,6 +35,23 @@ function handleSubmit(e) {
 }
 const dispatch = useDispatch();
     return (
+        <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+        hidden: {
+            scale: .8,
+            opacity: -1
+        },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition:{
+                delay: .002
+            }
+        }
+        }}
+        >
         <div className={styles.div}>
         <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
@@ -82,6 +100,7 @@ const dispatch = useDispatch();
             </form>
             </div>
         </div>
+        </motion.div>
     )
 }
 
