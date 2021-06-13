@@ -14,6 +14,9 @@ module.exports = (sequelize) => {
             },
             ubicacion: {
                 type: DataTypes.STRING,
+            },
+            imagen: {
+                type: DataTypes.STRING,
             }
         })
 }

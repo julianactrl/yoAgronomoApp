@@ -4,7 +4,9 @@ import {useParams} from 'react-router-dom'
 import {getEmpresa} from '../../redux/actions/empresaActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
-import data from './data.json'
+import data from './data.json';
+import {Link} from 'react-router-dom';
+import campo from './campo.jpg'
 
 
 function DetailEmpresa ({id}) {
@@ -46,6 +48,12 @@ function DetailEmpresa ({id}) {
             { <div className={styles.div}>
             <li >
             <h1 className={styles.name}>{empresa.name}</h1>
+            <div className={styles.name}>
+            <Link to={`/update/${empresa.id}`}>
+            <button className={styles.buttonEmpresa}>Modificar</button>
+            </Link>
+            {/* <button className={styles.buttonEmpresa}>Eliminar</button> */}
+            </div>
             <div className={styles.caja}>
             <div className={styles.description}>
             <h3>📏 Hectáreas totales: {empresa.hectareas}</h3>
@@ -75,11 +83,17 @@ function DetailEmpresa ({id}) {
             <div className={styles.items}>
             <h3>Formulación de aplicaciones</h3>
             </div>
+           
             </div>
             </div>
             </div>
             </div>
             </li>
+            <div className={styles.imagenEmpresa}>
+            <br></br>
+           <br></br>
+                <img width={500} height={350} src={empresa.imagen} alt={campo}/>
+            </div>
             </div> }
         
     

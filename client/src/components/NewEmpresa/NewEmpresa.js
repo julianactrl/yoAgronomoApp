@@ -11,7 +11,7 @@ const [input, setInput] = useState({
         name: '',
         hectareas: '',
         ubicacion: '',
-        image: ''
+        imagen: ''
 })
 function handleInputChange(e) {
     setInput({
@@ -93,9 +93,9 @@ const dispatch = useDispatch();
                 <input
                 type='text'
                 onChange={handleInputChange} 
-                value={input['image']}
-                paceholder='insert URL'
-                name='image'/>
+                value={input['imagen']}
+                placeholder='insert URL'
+                name='imagen'/>
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>
