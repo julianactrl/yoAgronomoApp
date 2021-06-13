@@ -11,6 +11,8 @@ import {
 
 const { REACT_APP_API } = process.env;
 
+
+
 export const register = (body) => async (dispatch) => {
   try {
     dispatch({
@@ -53,7 +55,8 @@ export const login = (email, password) => async (dispatch) => {
     const { data } = await axios.post(
       "http://localhost:3001/auth/login",
       { email, password },
-      config
+      config,
+	  
     );
     dispatch({
       type: USER_LOGIN_SUCCESS,

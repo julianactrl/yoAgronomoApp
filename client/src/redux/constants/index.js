@@ -20,3 +20,12 @@ export const GET_WEATHER = "GET_WEATHER"
 export const GET_NEWS = 'GET_NEWS';
 
 
+export function BEARER() {
+	if (JSON.parse(localStorage.getItem('jwt'))) {
+		return {
+			headers: {
+				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+			}
+		}
+	} else return null;
+}
