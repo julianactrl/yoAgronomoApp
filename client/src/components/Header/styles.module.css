@@ -59,6 +59,10 @@
     transform:rotateY(0deg); 
 
 }
+.logo:hover{
+    transition: 0.2s;
+    transform: rotate(20deg);
+}
 
 .logoAct{
     display: flex;
@@ -89,6 +93,8 @@
     background-color: #2f4f39;
     animation-duration: 0.2s;
     animation-name: slidein;
+    animation-fill-mode: backwards;
+    animation-direction: alternate;
 
 }
 

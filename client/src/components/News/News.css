@@ -4,55 +4,89 @@
 }
 
 .containerDivArt{
-    height: 31.25rem;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 19vh;
-    padding-top: 10px;
-    padding-bottom: 30px;
-    background-color: rgb(245, 245, 245, .5);
-    border: 1px solid black;
-    border-radius: 20px;
+    position: static;
+    height: 700px;
+    width: 1600px;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.212);
     /* transform: translateY(20%); */
 }
 .newsContainer{
-    position: relative;
-    height: 100vh;
-    background-image:
-    linear-gradient(to bottom, rgba(97, 97, 97, 0.52), rgba(0, 0, 0, 0.411)),
-    url('https://media.discordapp.net/attachments/837405292135841842/853009546401546261/fondo2.jpg?width=1202&height=676');
-    min-width: 100vw;
-    min-height: 100vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+
+.subContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 800px;
+    width: 1800px;
+    animation-name: aparecer;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+}
+.subContainerAct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 800px;
+    width: 1800px;
+    animation-name: aparecer;
+    animation-duration: 2s;
+    animation-iteration-count: initial;
+}
+@keyframes aparecer {
+    from {
+        height:0;
+        width:0px;
+        opacity: 0;
+    }
+
+    to {
+        height: 600px;
+        width: 1600px;
+       opacity: 1;
+    }
+}
+
 .articleTitle{
-    font-size: 30px;
+    font-size: 25px;
+    font-variant-position: sub ;
     margin-left: 15px;
     width: 490px;
     font-weight: bolder;
     font-family: "Segoe UI";
 }
 .articlesContainer{
-    height: 31.25rem;
-    padding: 10px 0;
-    margin: 0 -1px;
-    border-left: 1px solid grey;
+    position: relative;
+    top:30px;
+    padding: 20px ;
+    width: 450px;
     display: flex;
     flex-direction: column;
+    justify-content: top;
     align-items: center;
     text-align:left;
-    /* justify-content: center; */
+    height: 450px;
+    background-color: rgba(0, 255, 255, 0.013);
+}
+
+.cardNew{
+    position: relative;
+    left: 20px;
+    bottom: 20px;
+
 }
 .linkArt{
     text-decoration: none;
     color: black;
 }
-.slick-center:hover{
-    background-color: grey;
-}
+
 .titleNews{
     color: whitesmoke;
     margin: 0;
@@ -66,9 +100,54 @@
     align-items: center;
 }
 .loadingGif{
-    margin-top: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 300px;
+}
+.nextBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 850px;
+    top: 66px;
+    transform: rotate(-90deg);
+
+    height: 60px;
+    border-radius: 60px;
+    
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 620px;
+    left: 650px;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
 }
