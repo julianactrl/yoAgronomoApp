@@ -89,7 +89,7 @@ export default function DashBoard (){
                         </div>
                       </Link>
                       {
-                        CardsEmpresas(allEmpresas)
+                        allEmpresas.map((empresa)=> <CardsEmpresas empresa={empresa}/>)
                       }
                     </Slider>
                 </div>

@@ -6,34 +6,16 @@ import { getAllEmpresas } from '../../redux/actions/empresaActions';
 
 
 
-export default function CardsEmpresas (empresas){
-        const example = {
-            title: 'Example',
-            img: image1,
-            hectareas: 200
-        }
-        function render(){
-            empresas.map(e=>{
-                const {name, hectareas} =  e
-                return(
-                <div className={styles.main}>
-                    <div className={styles.cardCont}>
-                        <img src={empresas.img} className={styles.img}/>
-                        <h1 className={styles.titleEmpresa}>{name}</h1>
-                        <h3 className={styles.titleEmpresa}>{hectareas}</h3>
-                    </div>
-                </div>
-                )
-            })
-
-            
-        }
-
+export default function CardsEmpresas ({empresa}){
         return (
             <>
-                {
-                    empresas?render():null
-                }
+            <div className={styles.main}>
+                    <div className={styles.cardCont}>
+                        <img src={image1} className={styles.img}/>
+                        <h1 className={styles.titleEmpresa}>{empresa.name}</h1>
+                        <h3 className={styles.titleEmpresa}>{empresa.hectareas}</h3>
+                    </div>
+            </div>
             </>
 
         )  
