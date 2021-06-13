@@ -103,11 +103,27 @@
 }
 
 @media(max-width:1300px) {
+
+    .logo{
+        position: absolute;
+        top: 20%;
+        bottom: 0%;
+        left: 47%;
+        right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+    }
+
+
     .mainBtn{
         position: absolute;
         top: 55%;
         bottom: 35%;
-        left: 91vh;
+        left: 89vh;
         right: 0;
         display: flex;
         flex-wrap: wrap;
@@ -126,6 +142,31 @@
         border: none;
         transition: all 0.2s ease 0s;
     } 
+
+    .slider {
+        position: absolute;
+        top:420px;
+        left:7.5%;
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        height: 55vh;
+        padding: 0;
+        background: transparent;
+        overflow: hidden;
+    }
+    @keyframes cambio {
+        0% {margin-left:0;}
+        10% {margin-left:0;}
+    
+        15% {margin-left:-59.5%;}
+        25% {margin-left:-59.5%;}
+    
+        30% {margin-left:-119%;}
+        40% {margin-left:-119%;}
+    
+    }
+
 }
 
 .mainBtn:hover{
