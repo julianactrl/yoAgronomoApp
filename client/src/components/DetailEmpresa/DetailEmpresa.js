@@ -42,13 +42,13 @@ function DetailEmpresa ({id}) {
                      
             
                 
-            { <div>
+            { <div className={styles.div}>
             <li >
             <h1 className={styles.name}>{empresa.name}</h1>
             <div className={styles.caja}>
             <div className={styles.description}>
-            <h3>📏 Hectáreas totales: {empresa.hectáreas}</h3>
-            <h3>📍 Ubicación: {empresa.ubicación}</h3>
+            <h3>📏 Hectáreas totales: {empresa.hectareas}</h3>
+            <h3>📍 Ubicación: {empresa.ubicacion}</h3>
             <h2>📝 Tareas a realizar:</h2>
             <div className={styles.tareas}>
             <div className={styles.items}>

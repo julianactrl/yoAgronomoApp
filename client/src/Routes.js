@@ -1,4 +1,5 @@
 import React from "react";
+import DashBoard from "./components/DashBoard/DashBoard";
 import { Route, Switch,Link } from "react-router-dom";
 import LandingPage from './components/LandingPage/index.js';
 import Weather from './components/Weather/Weather.jsx';
@@ -28,6 +29,10 @@ export default function Routes() {
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
+
+      <Route exact path="/home">
+        <DashBoard />
+      </Route>
       
       <Route  path="/weather">
         <Weather />
@@ -35,7 +40,6 @@ export default function Routes() {
       <Route exact path='/news'>
         <News />
       </Route>
-
 
     </Switch>
     );

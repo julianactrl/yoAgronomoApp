@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+
+.header{
+    display: flex;
+    position: absolute;
+    /* border: 3px solid white; */
+    width: 100%;
+    height: 25%;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
+}
+
+.perfilbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+    width: 70px;
+    height: 70px;
+    border: 4px solid #2f4f39;
+    box-shadow: 0 0 7px black;
+    border-radius: 100%;
+    background-color: rgba(35, 119, 25, 0.198);
+    margin-right: 100px;
+    margin-top: 20px;
+}
+.perfilbtn:hover{
+    transition: 0.3s;
+    background-size:48px;
+    box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
+    background-color: rgba(68, 255, 68, 0.376);
+
+
+}
+.perfilimg{
+    display: flex;
+    width: 60px;
+    border-radius: 60px;
+}
+
+.logo{
+    display: flex;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 10px;    
+    transition: 0.2s;
+    animation-duration: 0.2s;
+    animation-name: logoanimation;
+    animation-timing-function: ease;
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform:rotateY(0deg); 
+
+}
+.logo:hover{
+    transition: 0.2s;
+    transform: rotate(20deg);
+}
+
+.logoAct{
+    display: flex;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+    animation-duration: 0.2s;
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform:rotateY(150deg); 
+}
+
+
+.sidebarcont{
+    transition: width 2000ms ease;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+    height: 937px;
+    background-color: #2f4f39;
+    animation-duration: 0.2s;
+    animation-name: slidein;
+    animation-fill-mode: backwards;
+    animation-direction: alternate;
+
+}
+
+
+@keyframes slidein {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 400px;
+    }
+}
+.linktextcont{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 100px;
+    width: 200px;
+    animation-duration: 1.3s;
+    animation-name: spawn;
+    height: 800px;
+}
+.linktext{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 18px;
+    width: 400px;
+    height: 200px;
+    color: white;
+    text-decoration: none;
+}
+.linktext:hover{
+    transition: 0.2s;
+    background-color: rgba(14, 39, 0, 0.801);
+    border:1px solid rgba(255, 255, 255, 0.376);
+}
+.text{
+    display: flex;
+    margin-left: 50px;
+
+}
+@keyframes spawn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+

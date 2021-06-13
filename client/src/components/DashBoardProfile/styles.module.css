@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.perfilDeploy{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    background-color: #2f4f39;
+    border-radius: 0px 0px 0px 10px;
+    height: 220px;
+    width: 380px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    animation-duration: 0.2s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from {
+        width: 0;
+        height: 100px;
+    }
+
+    to {
+        width: 380px;
+        height: 220px;
+    }
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
+}
+
+.perfilbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 30px;
+    width:90px;
+    height: 90px;
+    border: 4px solid #2f4f39;
+    box-shadow: 0 0 7px black;
+    border-radius: 100%;
+    background-color: rgba(35, 119, 25, 0.198);
+    margin-right: 100px;
+    margin-top: 20px;
+    position: relative;
+}
+.perfilbtn:hover{
+    transition: 0.3s;
+    background-size:48px;
+    box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
+    background-color: rgba(68, 255, 68, 0.376);
+
+
+}
+.perfilimg{
+    cursor: pointer;
+    display: flex;
+    width: 90px;
+    border-radius: 60px;
+    position: absolute;
+}
+.perfilimg:hover{
+    box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
+}
+
+.logo{
+    display: flex;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 10px;    
+    transition: 0.2s;
+    animation-duration: 0.2s;
+    animation-name: logoanimation;
+    animation-timing-function: ease;
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform:rotateY(0deg); 
+
+}
+
+.logoAct{
+    display: flex;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+    animation-duration: 0.2s;
+    -moz-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform:rotateY(150deg); 
+}
+
+
+.title{
+    cursor: default;
+    color: white;
+    font-size: 130%;
+}
+.perfilbtncont{
+    width: 100%;
+    padding-left: 80px;
+}
+.titleLogout{
+    color: white;
+    height: 50%;
+}
+.titleLogout:hover{
+    cursor: pointer;
+    color: rgb(69, 236, 27);
+    font-size: 19px;
+}

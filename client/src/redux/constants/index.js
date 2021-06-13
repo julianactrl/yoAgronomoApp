@@ -10,6 +10,8 @@ export const USER_LOGOUT="USER_LOGOUT";
 export const DELETE_ACCOUNT = "DELETE_ACCOUNT"
 
 
+
+export const GET_EMPRESA = 'GET_EMPRESA';
 export const GET_EMPRESA_ID = 'GET_EMPRESA_ID';
 export const POST_EMPRESA = 'POST_EMPRESA'
 

@@ -79,3 +79,23 @@ export const logout = () => {
 
 
 
+export const login = (body) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_LOGIN_REQUEST,
+    });
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+    const { data } = await axios.post("http://localhost:3001/auth/login", body);
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_LOGIN_ERROR,
+      payload: error,
+    });
+  }
+};
