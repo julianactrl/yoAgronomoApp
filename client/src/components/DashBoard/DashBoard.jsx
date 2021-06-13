@@ -86,9 +86,6 @@ export default function DashBoard (){
         >
         <div className={showNews?styles.mainContNews:styles.main}>
             <div className={styles.mainCont}>
-                <div className={styles.div1}></div>
-                <div className={styles.div2}></div>
-                <div className={styles.div3}></div>
                 {Header('dashboard')}
                 <div className={showNews?styles.newsContainer:styles.newsContainerAct}>
                     {

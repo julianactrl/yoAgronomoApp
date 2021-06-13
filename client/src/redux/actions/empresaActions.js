@@ -1,4 +1,4 @@
-import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA} from '../constants';
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA} from '../constants';
 import axios from 'axios';
 
 

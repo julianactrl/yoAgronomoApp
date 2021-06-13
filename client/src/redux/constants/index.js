@@ -19,4 +19,6 @@ export const GET_WEATHER = "GET_WEATHER"
 
 export const GET_NEWS = 'GET_NEWS';
 
+export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
+
 
