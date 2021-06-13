@@ -25,11 +25,7 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
 });
-server.use(express.static(path.join(__dirname, 'public')));
 server.use(passport.initialize());
-server.use(passport.session());
-
-
 
 
 

@@ -21,7 +21,8 @@ export const register = (body) => async (dispatch) => {
     };
     const { data } = await axios.post(
       "http://localhost:3001/auth/register",
-      body
+      body,
+      config
     );
     dispatch({
       type: REGISTER_USER_SUCCESS,
@@ -32,6 +33,7 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
+	localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: REGISTER_USER_ERROR,
@@ -40,7 +42,7 @@ export const register = (body) => async (dispatch) => {
   }
 };
 
-export const login = (body) => async (dispatch) => {
+export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
@@ -48,11 +50,17 @@ export const login = (body) => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
     };
-    const { data } = await axios.post("http://localhost:3001/auth/login", body);
+    const { data } = await axios.post(
+      "http://localhost:3001/auth/login",
+      { email, password },
+      config
+    );
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
+
+    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_ERROR,
@@ -60,3 +68,12 @@ export const login = (body) => async (dispatch) => {
     });
   }
 };
+
+export const logout = () => {
+  localStorage.removeItem("userInfo");
+  document.location.href = "/index";
+  return {
+    type: USER_LOGOUT,
+  };
+};
+

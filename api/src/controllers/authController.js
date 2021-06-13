@@ -57,13 +57,12 @@ const register = async (req, res) => {
     console.log(user);
     // Receiving Data
     const { id, email,  fullName } = user;
-    if (!{ id, email,  fullName }) return res.status(403).end();
+    if (!{ id, email,fullName }) return res.status(403).end();
     // Create a Token
     const token = jwt.sign(
       {
         id,
         email,
-        
         fullName,
       },
       AUTH_JWT_SECRET,

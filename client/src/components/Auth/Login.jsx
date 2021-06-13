@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { useDispatch } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
+import {useHistory} from 'react-router-dom';
 
 
 export function validate(input) {
@@ -21,7 +22,8 @@ export function validate(input) {
 const Login = () => {
 
 
-    const dispatch = useDispatch()   
+    const dispatch = useDispatch();   
+    let history= useHistory();
 
     const [input,setInput] = useState({
         email:"",
@@ -30,6 +32,7 @@ const Login = () => {
 
     const [errors, setErrors] = useState({});
     const handleChange = function(e) {
+      e.persist();
       setInput({
         ...input,
         [e.target.id]: e.target.value
@@ -45,6 +48,7 @@ const Login = () => {
          e.preventDefault();
          console.log(input)
          dispatch(login(input)) 
+         history.push('/home')
      }
 
     return (
@@ -56,6 +60,7 @@ const Login = () => {
                 className={styles.loginInput} 
                 type="email" 
                 id="email" 
+                value={input.email}
                 onChange={handleChange} />
                 {errors.email && (
       <p className={styles.error}>{errors.email}</p>
@@ -67,6 +72,7 @@ const Login = () => {
                 className={styles.loginInput} 
                 type="password" 
                 id="password" 
+                value={input.password}
                 onChange={handleChange} />
                  {errors.password && (
       <p className={styles.error}>{errors.password}</p>
