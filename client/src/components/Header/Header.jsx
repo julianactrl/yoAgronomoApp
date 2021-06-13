@@ -3,6 +3,7 @@ import styles from './styles.module.css'
 import avatar from '../../assets/avatar.png'
 import logo from '../../assets/logo.png'
 import {sidebar} from './HeaderController'
+import DashBoardProfile from '../DashBoardProfile/DashBoardProfile.jsx'
 
 export default function Header (verify){
 
@@ -24,11 +25,9 @@ export default function Header (verify){
                 }          
                 <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo}/>     
             </div>
-            <div className={styles.perfilbtncont}>
-                <button className={styles.perfilbtn}>
-                    <img src={avatar} className={styles.perfilimg} />
-                </button>
-            </div>        
+            <div>
+                <DashBoardProfile />
+            </div>
         </div>
     )
 }
