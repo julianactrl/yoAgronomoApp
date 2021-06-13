@@ -28,7 +28,7 @@ const Login = () => {
         password: ""
     })
 
-    const [errors, setErrors] = React.useState({});
+    const [errors, setErrors] = useState({});
     const handleChange = function(e) {
       setInput({
         ...input,
