@@ -10,6 +10,7 @@ import Slider from 'react-slick'
 import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
+import {motion} from 'framer-motion';
 
 
 export default function DashBoard (){
@@ -66,6 +67,23 @@ export default function DashBoard (){
         prevArrow: <SamplePrevArrow />
       };
       return (
+        <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+        hidden: {
+            scale: .8,
+            opacity: -1
+        },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition:{
+                delay: .002
+            }
+        }
+        }}
+        >
         <div className={showNews?styles.mainContNews:styles.main}>
             <div className={styles.mainCont}>
                 <div className={styles.div1}></div>
@@ -95,5 +113,6 @@ export default function DashBoard (){
                 </div>
             </div>
         </div>
+        </motion.div>
       );
     }
