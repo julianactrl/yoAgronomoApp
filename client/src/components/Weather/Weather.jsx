@@ -3,6 +3,7 @@ import {useDispatch,useSelector,connect} from 'react-redux'
 import {getWeather} from '../../redux/actions/weatherActions'
 import '../Weather/Weather.css'
 import axios from 'axios'
+import Header from '../Header/Header';
 
 
 const Weather = (props) => {
@@ -47,6 +48,7 @@ const Weather = (props) => {
     
     return (
         <div className="body-weather">
+            <Header />
         <div className="container-weather">
            {
             loading ? <h1>Cargando</h1> :

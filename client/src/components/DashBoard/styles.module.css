@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     height: 937px;
-    background-color: rgba(152, 230, 182, 0.685);
 }
 
 .body{
@@ -95,7 +94,7 @@
     background-color: rgba(0, 0, 0, 0.096);
     border-radius: 1000px;
     border: 2px solid rgba(0, 189, 13, 0.075);
-    width: 200px;
+    width: 150px;
 } 
 .imgAdd:hover{
     transition: 1s;
@@ -114,8 +113,17 @@
     height: 450px;
 }
 .titleAdd{
+    display: none;
     font-size: 50px;
+    color: black;
 }
+.cardContAdd:hover .titleAdd{
+    display: inline;
+    font-size: 50px;
+    color: #ffffff;
+    transition: 0.9s;
+}
+
 .cardContAdd{
     display: flex;
     position: relative;
@@ -135,15 +143,15 @@
     object-fit: cover;
     width: 400px;
     height: 400px;
-    background-color: #78dbab83;
-    border:2px solid rgba(0, 0, 0, 0.609);
+    background-color: #ffffff71;
+    border:none;
     box-shadow: 0px 0px 30px black;
     
 }
 .cardContAdd:hover{
-    transition: 0.6s;
+    transition: 0.9s;
     background-size: 900px;
-    border:2px solid rgba(5, 105, 0, 0.815);
+    border:none;
     background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
 }
@@ -152,6 +160,7 @@
     left: 820px;
     top:80px;
     font-size: 60px;
+    color: #000000;
 }
 .add{
     display: flex;
