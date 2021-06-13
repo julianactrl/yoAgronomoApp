@@ -1,12 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
+.perfilDeploy{
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    background-color: #2f4f39;
+    border-radius: 0px 0px 0px 10px;
+    height: 220px;
+    width: 380px;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+    animation-duration: 0.2s;
+    animation-name: slidein;
+}
+@keyframes slidein {
+    from {
+        width: 0;
+        height: 100px;
+    }
+
+    to {
+        width: 380px;
+        height: 220px;
+    }
+}
 
 .header{
     display: flex;
-    position: absolute;
-    /* border: 3px solid white; */
     width: 100%;
-    height: 25%;
     justify-content: space-between;
     background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
 }
@@ -17,14 +39,15 @@
     align-items: center;
     justify-items: center;
     padding: 30px;
-    width: 70px;
-    height: 70px;
+    width:90px;
+    height: 90px;
     border: 4px solid #2f4f39;
     box-shadow: 0 0 7px black;
     border-radius: 100%;
     background-color: rgba(35, 119, 25, 0.198);
     margin-right: 100px;
     margin-top: 20px;
+    position: relative;
 }
 .perfilbtn:hover{
     transition: 0.3s;
@@ -35,9 +58,14 @@
 
 }
 .perfilimg{
+    cursor: pointer;
     display: flex;
-    width: 60px;
+    width: 90px;
     border-radius: 60px;
+    position: absolute;
+}
+.perfilimg:hover{
+    box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
 }
 
 .logo{
@@ -59,10 +87,6 @@
     transform:rotateY(0deg); 
 
 }
-.logo:hover{
-    transition: 0.2s;
-    transform: rotate(20deg);
-}
 
 .logoAct{
     display: flex;
@@ -82,70 +106,21 @@
 }
 
 
-.sidebarcont{
-    transition: width 2000ms ease;
-    position:absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    height: 937px;
-    background-color: #2f4f39;
-    animation-duration: 0.2s;
-    animation-name: slidein;
-    animation-fill-mode: backwards;
-    animation-direction: alternate;
-
-}
-
-
-@keyframes slidein {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 400px;
-    }
-}
-.linktextcont{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    margin-top: 100px;
-    width: 200px;
-    animation-duration: 1.3s;
-    animation-name: spawn;
-    height: 800px;
-}
-.linktext{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 18px;
-    width: 400px;
-    height: 200px;
+.title{
+    cursor: default;
     color: white;
-    text-decoration: none;
+    font-size: 130%;
 }
-.linktext:hover{
-    transition: 0.2s;
-    background-color: rgba(14, 39, 0, 0.801);
-    border:1px solid rgba(255, 255, 255, 0.376);
+.perfilbtncont{
+    width: 100%;
+    padding-left: 80px;
 }
-.text{
-    display: flex;
-    margin-left: 50px;
-
+.titleLogout{
+    color: white;
+    height: 50%;
 }
-@keyframes spawn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.titleLogout:hover{
+    cursor: pointer;
+    color: rgb(69, 236, 27);
+    font-size: 19px;
 }
-
-

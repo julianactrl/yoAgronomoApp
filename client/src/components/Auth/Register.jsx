@@ -33,7 +33,7 @@ const Register = () => {
         fullName:""
     })
 
-    const [errors, setErrors] = React.useState({});
+    const [errors, setErrors] = useState({});
     const handleChange = function(e) {
       setUserRegister({
         ...userRegister,

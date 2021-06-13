@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export function getAllEmpresas() {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/empresa`)
+        return fetch('http://localhost:3001/empresa')
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          

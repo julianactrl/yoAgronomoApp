@@ -11,6 +11,7 @@
 }
 .cardCont{
     display: flex;
+    font-style: none;
     background-image: url('../../assets/cicle.png');
     background-position:center;
     background-repeat: no-repeat;
