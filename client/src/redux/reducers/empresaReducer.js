@@ -1,7 +1,7 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA} from './../constants';
 
 const initialState = {
-    empresa: [],
+    allEmpresas: [],
     empresas: [],
     empresaForId: [],
 }
@@ -14,9 +14,10 @@ const empresaReducer = (state = initialState, action) => {
                 empresaForId: action.payload,
             };
         case GET_EMPRESA:
+            console.log(action.payload);
             return {
                 ...state,
-                empresa: action.payload,
+                allEmpresas: action.payload,
             };    
         case POST_EMPRESA:
             return {

@@ -12,6 +12,8 @@ const News = (props) => {
     // const [, set] = useState(initialState)
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])
+    const [actTopBar, setActTopBar] = useState(false);
+
     // const dispatch = useDispatch()
     // const news = useSelector(state => state.newsReducer.news)
     var settings = {
@@ -23,7 +25,10 @@ const News = (props) => {
         pauseOnHover: true,
         className: "center",
         centerMode: true,
-        centerPadding: "0"
+        centerPadding: "0",
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
+
       };
     useEffect(() => {
         const apicall = async() => {
@@ -39,30 +44,55 @@ const News = (props) => {
     console.log(data)
     // console.log(news)
     console.log(loading)
+
+    function SampleNextArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+            className='nextBtn'
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+      function SamplePrevArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+          className='prevBtn'
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
     return (
-        <div className='newsContainer'>
-            <h1>News</h1>
+        <div className={actTopBar?'newsContainerAct':'newsContainer'}>
+            <div className={actTopBar?'subContainer':'subContainerAct'}>
                 {loading ? 
                 <div className='containerLoading'>
                     <img src="https://media4.giphy.com/media/kHgUVJysYKJjzJf1XY/source.gif" alt="LoadingGif" className='loadingGif' /> 
                 </div> 
                         :
                     <div className='containerDivArt'>
-                        <Slider {...settings}>
+                        <Slider {...settings} className='slider'>
                             {data.articles.map((a) => {
                                 console.log(a.category)
                                 return (
-                                    <a href={a.sourceUrl} target='_blank' className='linkArt'>
-                                        <div className='articlesContainer'>
-                                            <h1 className='articleTitle'>{a.title}</h1>
-                                            <img src={a.imageUrl} alt="Image not found" className='imgArticle'/> 
-                                        </div>
-                                    </a> 
+                                    <div className='cardNew'>
+                                        <a href={a.sourceUrl} target='_blank' className='linkArt'>
+                                            <div className='articlesContainer'>
+                                                <h1 className='articleTitle'>{a.title}</h1>
+                                                <img src={a.imageUrl} alt="Image not found" className='imgArticle'/> 
+                                            </div>
+                                        </a> 
+                                    </div>
+
                                 )
                             })}
                         </Slider>
                     </div>
                 }
+            </div>
         </div>
     )
 }
