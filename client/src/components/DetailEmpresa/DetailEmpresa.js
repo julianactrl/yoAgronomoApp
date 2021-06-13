@@ -46,19 +46,19 @@ function DetailEmpresa ({id}) {
             
                 
             { <div className={styles.div}>
-            <li >
+            <li className={styles.liContenedor}>
             <h1 className={styles.name}>{empresa.name}</h1>
             <div className={styles.name}>
             <Link to={`/update/${empresa.id}`}>
-            <button className={styles.buttonEmpresa}>Modificar</button>
+            <button className={styles.buttonEmpresa}>✏️ Editar</button>
             </Link>
             {/* <button className={styles.buttonEmpresa}>Eliminar</button> */}
             </div>
             <div className={styles.caja}>
             <div className={styles.description}>
-            <h3>📏 Hectáreas totales: {empresa.hectareas}</h3>
-            <h3>📍 Ubicación: {empresa.ubicacion}</h3>
-            <h2>📝 Tareas a realizar:</h2>
+            <h3>📏Hectáreas totales: {empresa.hectareas}</h3>
+            <h3 className={styles.ubicacion}>📍Ubicación: {empresa.ubicacion}</h3>
+            <h2>📝Tareas a realizar:</h2>
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
@@ -87,13 +87,14 @@ function DetailEmpresa ({id}) {
             </div>
             </div>
             </div>
+           {
+               empresa.imagen ? 
+               <img width={500} height={350} src={empresa.imagen} alt='imagen del campo' className={styles.imgEmpresa}/>
+               :
+               <img width={500} height={350} src="https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg" alt="imagen default" className={styles.imgEmpresa} />
+           }
             </div>
             </li>
-            <div className={styles.imagenEmpresa}>
-            <br></br>
-           <br></br>
-                <img width={500} height={350} src={empresa.imagen} alt={campo}/>
-            </div>
             </div> }
         
     
