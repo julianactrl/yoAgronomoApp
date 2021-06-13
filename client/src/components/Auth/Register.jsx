@@ -9,8 +9,8 @@ export function validate(input) {
   let errors = {};
   if (!input.email) {
     errors.email = 'Se requiere un Email';
-  } else if (/\S+@\S+\.\S+/.test(input.mail)) {
-    errors.email = 'Email is invalid';
+  } else if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(input.mail)) {
+    errors.email = 'Mail inválido';
   }
   if (!input.password) {
       errors.password = 'Se requiere una contraseña';

@@ -7,12 +7,12 @@ import { login } from '../../redux/actions/userActions';
 export function validate(input) {
     let errors = {};
     if (!input.email) {
-      errors.email = 'Email is required';
+      errors.email = 'Se Requiere un Email';
     } else if (/\S+@\S+\.\S+/.test(input.mail)) {
-      errors.email = 'Email is invalid';
+      errors.email = 'Email inválido';
     }
     if (!input.password) {
-        errors.password = 'Password is required';
+        errors.password = 'Se requiere una contraseña';
       } 
   
     return errors;
@@ -60,7 +60,6 @@ const Login = () => {
                 {errors.email && (
       <p className={styles.error}>{errors.email}</p>
     )} 
-     <br/>
             </div>
             <div className={styles.inputGroup}>
                 <label  className={styles.labels} htmlFor="password">Contraseña</label>
