@@ -2,9 +2,7 @@ import {
   REGISTER_USER_ERROR,
   REGISTER_USER_REQUEST,
   REGISTER_USER_SUCCESS,
-  USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
-  USER_LOGIN_ERROR,
   USER_LOGOUT,
 } from "./../constants";
 
@@ -52,10 +50,15 @@ const userReducer = (state = initialState, action) => {
         isAuth: true,
       };
     }
-
+    case USER_LOGOUT:
+      return {
+        isAuthenticated: false,
+      };
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default userReducer
+
+

@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react';
 import styles from '../LandingPage/styles.module.css';
 import {useDispatch,useSelector} from 'react-redux';
 import { register } from '../../redux/actions/userActions';
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 
 
 export function validate(input) {
@@ -24,6 +24,7 @@ export function validate(input) {
 const Register = () => {
 
     const dispatch = useDispatch()
+    let history= useHistory()
     const user = useSelector(state => state.userReducer.user)   
 
     const [userRegister,setUserRegister] = useState({
@@ -33,8 +34,9 @@ const Register = () => {
         fullName:""
     })
 
-    const [errors, setErrors] = React.useState({});
+    const [errors, setErrors] = useState({});
     const handleChange = function(e) {
+      e.persist();
       setUserRegister({
         ...userRegister,
         [e.target.id]: e.target.value
@@ -49,7 +51,14 @@ const Register = () => {
      function handleSubmit(e){
          e.preventDefault();
          console.log(userRegister)
-         dispatch(register(userRegister))  
+         dispatch(register(userRegister))
+         history.push('/home')
+         setUserRegister({
+          email:"",
+          password: "",
+          //passwordRepeat:"",
+          fullName:""
+      })  
      }
         return (
             <div className={styles.containerD}>
@@ -64,6 +73,7 @@ const Register = () => {
                     onChange={handleChange}
                     id= "fullName"
                     type="text"
+                    value={userRegister.fullName}
 
                     className={styles.loginInput}/>
                 </div>
@@ -73,7 +83,8 @@ const Register = () => {
                   <input 
                   onChange={handleChange}
                   type="text" 
-                  id="email" 
+                  id="email"
+                  value={userRegister.email} 
                   className={styles.loginInput} />
                   {errors.email && (
       <p className={styles.error}>{errors.email}</p>
@@ -87,6 +98,7 @@ const Register = () => {
                     onChange={handleChange}
                     type="password"
                     id="password"
+                    value={userRegister.password}
                     className={styles.loginInput}/>
                     {errors.password && (
       <p className={styles.error}>{errors.password}</p>
