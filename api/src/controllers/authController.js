@@ -95,6 +95,15 @@ const login = async (req, res, next) => {
 
 //==========================================================================//
 
+//logout
+const logout = (req, res) => {
+  req.logout();
+  res.localStorage.removeItem('userInfo');
+  res.status(200).send('User Logged out');
+}
+
+//==========================================================================//
+
 const google = () => {
   passport.authenticate("google", {
     scope: ["profile", "email"],
@@ -129,6 +138,7 @@ const googleAuth = () => {
 
 module.exports = {
   login,
+  logout,
   register,
   myProfile,
   google,

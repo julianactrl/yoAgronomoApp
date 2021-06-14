@@ -8,11 +8,13 @@ const {
   myProfile,
   googleAuth,
   google,
+  logout,
 } = require("../controllers/authController");
 
 //-------------------------Route Users--------------------------//
 
 server.post("/login", isAuthenticated, isAdmin, login);
+server.get('/logout', logout)
 server.post("/register", register);
 server.get("/myProfile", isAuthenticated, myProfile);
 server.get("/google", google);
