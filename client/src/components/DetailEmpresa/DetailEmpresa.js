@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom'
-import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
+
+import {getEmpresa} from '../../redux/actions/empresaActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import data from './data.json';
