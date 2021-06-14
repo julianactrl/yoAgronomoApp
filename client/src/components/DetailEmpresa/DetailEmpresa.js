@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
-import {getEmpresa} from '../../redux/actions/empresaActions';
+import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import data from './data.json';
 import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
+import axios from 'axios'
+
 
 
 function DetailEmpresa ({id}) {
@@ -20,28 +22,21 @@ function DetailEmpresa ({id}) {
         
     }, []);
     
+    function deleteEmpresa(id) {
+        
+        // dispatch(deleteEmpresa(id));
+        axios.delete(`http://localhost:3001/empresa/delete/${id}`)
+        .then(response => console.log(response.data)) 
+        .catch(error  => console.log(error))
+        alert('Su empresa fue eliminada!')
+        
+            
+    }
 
     return (
         <div className={styles.background}>
             <Header />
-            {/* {
             
-                
-                    <div>
-                    <li key={empresa.id}>
-                    <h1 className={styles.name}>{empresa.name}</h1>
-                    <div className={styles.caja}>
-                    <div className={styles.description}>
-                    <h3>Hectáreas totales: {empresa.hectáreas}</h3>
-                    <h3>Ubicación: {empresa.ubicación}</h3>
-                    <h2>Tareas a realizar:</h2>
-                    
-                    </div>
-                    </div>
-                    </li>
-                    </div>
-                
-            } */}
                      
             
                 
@@ -49,10 +44,17 @@ function DetailEmpresa ({id}) {
             <li className={styles.liContenedor}>
             <h1 className={styles.name}>{empresa.name}</h1>
             <div className={styles.name}>
+                <div className={styles.items}>
+                    
             <Link to={`/update/${empresa.id}`}>
             <button className={styles.buttonEmpresa}>✏️ Editar</button>
             </Link>
-            {/* <button className={styles.buttonEmpresa}>Eliminar</button> */}
+            <div className={styles.items}>
+            <Link to={`/index`}>
+            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}>Eliminar</button> 
+            </Link>
+            </div>
+            </div>
             </div>
             <div className={styles.caja}>
             <div className={styles.description}>
@@ -95,10 +97,10 @@ function DetailEmpresa ({id}) {
            }
             </div>
             </li>
+
             </div> }
         
     
-
         </div>
     )
 }
