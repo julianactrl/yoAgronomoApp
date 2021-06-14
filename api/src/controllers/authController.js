@@ -44,14 +44,6 @@ const myProfile = async (req, res, next) => {
 
 const register = async (req, res) => {
   try {
-    // btnGoogle ---> si existe el usuario que se loguee
-    const userFinded = await User.findOne({
-      where: {
-        email: req.body.email 
-      }
-    })
-    if(userFinded && req.body.googleId) return login(req, res) // -----> hace un login si ya encontro el user (google)
-
     // Creating a new User
     const user = await User.create(req.body);
     console.log(user);
