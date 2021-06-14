@@ -19,11 +19,7 @@ function UpdateEmpresa ({id}) {
 async function handleInputChange(e) {
     e.persist();
     await setInput({
-        // ...input,  
-        name: '',
-        hectareas: empresa.hectareas,
-        ubicacion: empresa.ubicacion,
-        imagen: empresa.imagen,                      
+        ...input,                        
          [e.target.name]: e.target.value  
         });
         console.log('-------', input)
@@ -40,15 +36,6 @@ useEffect(()=> {
 
 function handleSubmit(e) {
     e.preventDefault();
-    // if(!input.name) {
-    //     alert('Debe ingresar un nombre!')
-    //     return
-    // }
-    // // if(!input.ubicacion) {
-    // //     alert('Debe ingresar una ubicación!')
-    // //     return
-    // }
-    // dispatch(updateEmpresa(input));
     axios.put(`http://localhost:3001/empresa/${id}`, input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
@@ -78,7 +65,7 @@ function handleSubmit(e) {
                 <input className={styles.inputCrear}
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
-                value={empresa.name}
+                value={input['name']}
                 placeholder={empresa.name}
                 name='name' 
                 />
