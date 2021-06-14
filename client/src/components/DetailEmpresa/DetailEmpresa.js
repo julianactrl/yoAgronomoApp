@@ -50,7 +50,7 @@ function DetailEmpresa ({id}) {
             <button className={styles.buttonEmpresa}>✏️ Editar</button>
             </Link>
             <div className={styles.items}>
-            <Link to={`/index`}>
+            <Link to={`/home`}>
             <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}>Eliminar</button> 
             </Link>
             </div>
