@@ -5,6 +5,8 @@ import {getEmpresa, updateEmpresa} from '../../redux/actions/empresaActions';
 import styles from './styles.module.css';
 import axios from 'axios';
 import Weather from '../Weather/Weather'
+import Header from '../Header/Header';
+import { useHistory } from 'react-router';
 
 function UpdateEmpresa ({id}) {
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
@@ -34,6 +36,7 @@ useEffect(()=> {
 
 
 
+const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
     axios.put(`http://localhost:3001/empresa/${id}`, input)
@@ -41,6 +44,7 @@ function handleSubmit(e) {
         .catch(error  => console.log(error))
     e.target.reset();
     alert('Su empresa fue actualizada!')
+    history.push('/home')
     console.log('+++++++++++++', input)
         
 }
@@ -48,6 +52,7 @@ function handleSubmit(e) {
 
     return (
         <div className={styles.div}>
+            <Header />
          <h2 className={styles.alineado} >Actualizar Empresa</h2>
         <div className={styles.caja}>
         <form className={styles.estilosForm} 

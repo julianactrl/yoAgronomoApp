@@ -8,7 +8,7 @@
     height: 700px;
     width: 1600px;
     border-radius: 40px;
-    background-color: rgba(0, 0, 0, 0.212);
+    background-color: rgba(255, 255, 255, 0.212);
     /* transform: translateY(20%); */
 }
 .newsContainer{
@@ -61,6 +61,7 @@
     width: 490px;
     font-weight: bolder;
     font-family: "Segoe UI";
+    height: 100px;
 }
 .articlesContainer{
     position: relative;
@@ -73,7 +74,7 @@
     align-items: center;
     text-align:left;
     height: 450px;
-    background-color: rgba(0, 255, 255, 0.013);
+    background-color: rgba(255, 0, 0, 0.013);
 }
 
 .cardNew{
@@ -113,7 +114,7 @@
     position: relative;
     width: 60px;
     left: 850px;
-    top: 66px;
+    top: 70px;
     transform: rotate(-90deg);
 
     height: 60px;
