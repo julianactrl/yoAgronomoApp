@@ -4,13 +4,14 @@ import styles from './styles.module.css'
 import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
 import { motion } from 'framer-motion';
+import Header from '../Header/Header';
 
 function NewEmpresa () {
 const [input, setInput] = useState({
         name: '',
         hectareas: '',
         ubicacion: '',
-        image: ''
+        imagen: ''
 })
 function handleInputChange(e) {
     setInput({
@@ -53,6 +54,7 @@ const dispatch = useDispatch();
         }}
         >
         <div className={styles.div}>
+            <Header />
         <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
         <form className={styles.estilosForm} 
@@ -91,9 +93,9 @@ const dispatch = useDispatch();
                 <input
                 type='text'
                 onChange={handleInputChange} 
-                value={input['image']}
-                paceholder='insert URL'
-                name='image'/>
+                value={input['imagen']}
+                placeholder='insert URL'
+                name='imagen'/>
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>

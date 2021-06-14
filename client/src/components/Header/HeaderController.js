@@ -27,7 +27,7 @@ export function sidebar(verify){
             return(
         <div className={styles.sidebarcont}>
             <div className={styles.linktextcont}>
-                <Link className={styles.linktext}>
+                <Link to='/home' className={styles.linktext}>
                 <h2 className={styles.text}>HOME</h2>
                 </Link>
                 <Link className={styles.linktext}>
@@ -42,7 +42,7 @@ export function sidebar(verify){
                 <Link className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/weather' className={styles.linktext}>
                 <h2 className={styles.text}>CLIMA</h2>
                 </Link>
                 <Link className={styles.linktext}>

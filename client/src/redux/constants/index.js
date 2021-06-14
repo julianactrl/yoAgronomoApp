@@ -13,11 +13,14 @@ export const DELETE_ACCOUNT = "DELETE_ACCOUNT"
 
 export const GET_EMPRESA = 'GET_EMPRESA';
 export const GET_EMPRESA_ID = 'GET_EMPRESA_ID';
-export const POST_EMPRESA = 'POST_EMPRESA'
+export const POST_EMPRESA = 'POST_EMPRESA';
+export const DELETE_EMPRESA = 'DELETE_EMPRESA'
 
 export const GET_WEATHER = "GET_WEATHER"
 
 export const GET_NEWS = 'GET_NEWS';
+
+export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
 
 
 export function BEARER() {

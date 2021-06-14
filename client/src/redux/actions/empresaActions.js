@@ -1,10 +1,10 @@
-import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA} from '../constants';
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
 
 
 export function getAllEmpresas() {
     return function(dispatch) {
-        return fetch('http://localhost:3001/empresa')
+        return fetch(`http://localhost:3001/empresa`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -45,3 +45,36 @@ export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
         }).catch(e => dispatch(e))
     }
 }
+export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
+
+    return (dispatch) => {
+        dispatch({ type: UPDATE_EMPRESA });
+        axios({
+            method: 'put',
+            url: `http://localhost:3001/empresa/create/${id}`,
+            data: {
+                name,
+                hectareas,
+                ubicacion,
+                image
+            },
+        }).catch(e => dispatch(e))
+    }
+}
+export const deleteEmpresa = (id) => {
+
+    return (dispatch) => {
+        dispatch({ type: DELETE_EMPRESA });
+        axios({
+            method: 'delete',
+            url: `http://localhost:3001/empresa/delete/${id}`,
+            payload: id
+        }).catch(e => dispatch(e))
+    }
+}
+// export function deleteEmpresa(id){
+//     return {
+//         type: 'DELETE_EMPRESA',
+//         payload: id
+//     }
+// }

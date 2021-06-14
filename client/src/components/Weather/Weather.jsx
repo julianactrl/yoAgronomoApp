@@ -3,6 +3,7 @@ import {useDispatch,useSelector,connect} from 'react-redux'
 import {getWeather} from '../../redux/actions/weatherActions'
 import '../Weather/Weather.css'
 import axios from 'axios'
+import Header from '../Header/Header';
 
 
 const Weather = (props) => {
@@ -10,9 +11,9 @@ const Weather = (props) => {
     const [time, setTime] = useState("")
     const dispatch = useDispatch()
     const weather = useSelector(state => state.weatherReducer.weather)
-    //const ubication = useSelector(state => state.empresaReducer.empresaForId.ubicacion)
+    const ubication = useSelector(state => state.empresaReducer.empresaForId.ubicacion)
     useEffect(() => {
-        dispatch(getWeather("cordoba"/*ubicacion*/))
+        dispatch(getWeather(ubication))
         if(weather !== null){
             setLoading(false)
         }
@@ -47,9 +48,10 @@ const Weather = (props) => {
     
     return (
         <div className="body-weather">
+            <Header />
         <div className="container-weather">
            {
-            loading===true ? <h1>Cargando</h1> :
+            loading ? <h1>Cargando</h1> :
                 <div>
                     {
                         weather && weather.map(w => (
@@ -60,7 +62,7 @@ const Weather = (props) => {
                                     <h4>{interval()}</h4>
                                     <h1>{w.current.temp_c}C°</h1>
                                     <div className="wind_humidity">
-                                        <p>Vel. del Viento:{w.current.wind_kph}km/h</p>
+                                        <p>Vel. del Viento: {w.current.wind_kph}km/h</p>
                                         <p>Humedad: {w.current.humidity}%</p>
                                     </div>
                                     <div className="wind_dir">
