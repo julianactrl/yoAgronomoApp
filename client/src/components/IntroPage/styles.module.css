@@ -244,19 +244,16 @@
 
 
 .slider ul {
-    animation: cambio 55s infinite ;
+    animation: cambio 50s infinite ;
     animation-direction: unset;
-    animation-timing-function:linear;
+    animation-timing-function:linear; 
 }
 
 @keyframes cambio {
     0% {margin-left:0;}
     10% {margin-left:0;}
 
-    15% {margin-left:-59.5%;}
-    25% {margin-left:-59.5%;}
-
-    30% {margin-left:-119%;}
-    40% {margin-left:-119%;}
+    15% {margin-left:-107.5%;}
+    25% {margin-left:-107.5%;}
 
 }

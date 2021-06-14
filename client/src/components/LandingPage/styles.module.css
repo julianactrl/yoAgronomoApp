@@ -146,20 +146,19 @@
     border-radius: 4px;
 }
 .loginBtn{
-    width: 10rem !important;
-    font-size: 1.2rem !important;
+    width: 230px !important;
+    font-size: 12px !important;
     margin: 5vh 0;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     background: #80cc28 !important;
-    padding: 10px 20px 10px 20px !important;
+    padding: 10px; 
     border-radius: 5px;
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    height: 4rem;
 }
 }
 
@@ -243,8 +242,8 @@
     margin-top: 3vh;
 }
 .registerBtn{
-        max-width: 120px !important;
-        margin: 3vh 0 0 14.8vh;
+        width: 230px !important;
+        margin: 3vh 0 0 0;
         font-size: 12px !important;
         color: rgb(0, 0, 0) ;
         text-transform: uppercase;

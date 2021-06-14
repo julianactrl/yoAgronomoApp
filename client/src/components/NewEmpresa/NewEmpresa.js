@@ -5,6 +5,7 @@ import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
 import { motion } from 'framer-motion';
 import Header from '../Header/Header';
+import { useHistory } from 'react-router';
 
 function NewEmpresa () {
 const [input, setInput] = useState({
@@ -19,6 +20,7 @@ function handleInputChange(e) {
          [e.target.name]: e.target.value  
         });
 }
+const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
     if(!input.name) {
@@ -29,9 +31,11 @@ function handleSubmit(e) {
         alert('Debe ingresar una ubicación!')
         return
     }
+    console.log(input.imagen)
     dispatch(postEmpresa(input));
     e.target.reset();
     alert('Su empresa fue creada!')
+    history.push('/home')
         
 }
 const dispatch = useDispatch();
@@ -66,7 +70,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
                 value={input['name']}
-                placeholder='Nombre...'
+                placeholder='Estancia YoAgronomo'
                 name='name'/>
             </div>
             <div>
@@ -75,7 +79,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={handleInputChange} 
                 value={input['hectareas']}
-                placeholder='Hectáreas totales...'
+                placeholder='600'
                 name='hectareas'/>
             </div>
             <div>
@@ -84,7 +88,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={handleInputChange} 
                 value={input['ubicacion']}
-                placeholder='Ubicación'
+                placeholder='Santa Fe'
                 name='ubicacion'/>
             </div>
            
@@ -94,7 +98,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={handleInputChange} 
                 value={input['imagen']}
-                placeholder='insert URL'
+                placeholder='Insert URL'
                 name='imagen'/>
             </div>
                 <br></br>
