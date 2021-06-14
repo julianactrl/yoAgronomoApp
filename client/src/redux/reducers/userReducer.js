@@ -52,7 +52,7 @@ const userReducer = (state = initialState, action) => {
     }
     case USER_LOGOUT:
       return {
-        isAuthenticated: false,
+        isAuth: false,
       };
     default:
       return state;

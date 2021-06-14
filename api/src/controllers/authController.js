@@ -45,12 +45,12 @@ const myProfile = async (req, res, next) => {
 const register = async (req, res) => {
   try {
     // btnGoogle ---> si existe el usuario que se loguee
-    const userFinded = await User.findOne({
-      where: {
-        email: req.body.email 
-      }
-    })
-    if(userFinded && req.body.googleId) return login(req, res) // -----> hace un login si ya encontro el user (google)
+    // const userFinded = await User.findOne({
+    //   where: {
+    //     email: req.body.email 
+    //   }
+    // })
+    // if(userFinded && req.body.googleId) return login(req, res) // -----> hace un login si ya encontro el user (google)
 
     // Creating a new User
     const user = await User.create(req.body);
@@ -84,19 +84,10 @@ const register = async (req, res) => {
 //==========================================================================//
 const login = async (req, res, next) => {
   passport.authenticate("local", (err, user, next) => {
-    if (err) return next(err);
-    else if (!user) return res.sendStatus(401);
+    if (err) next(err);
+    else if (!user) return res.status(401).send(next);
     else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
   })(req, res, next);
-
-  // passport.authenticate('local', function(err, user, info) {
-  //   if (err) { return next(err); }
-  //   if (!user) { return res.redirect('/login'); }
-  //   req.logIn(user, function(err) {
-  //     if (err) { return next(err); }
-  //     return res.redirect(jwt.sign('/auth/' + user.fullName, AUTH_JWT_SECRET));
-  //   });
-  // })(req, res, next);
 };
 
 
