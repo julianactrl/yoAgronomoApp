@@ -1,4 +1,4 @@
-const {Lote, Empresa} = require("../db");
+const {Lote, Empresa, ManejoDeLote} = require("../db");
 const { Op } = require("sequelize");
 
 const getAllLotes = async (req,res,next) => {
@@ -126,6 +126,65 @@ const updateLote = async(req,res,next) => {
         })
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const createManejo = async (req,res,next) => {
+    const { recOrObserv, description, image} = req.body;
+    try{
+        await ManejoDeLote.create({
+            recOrObserv,
+            description,
+            image,
+        })
+        res.status(200).json("fue creado con exito");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(next);
+    }
+  };
+
+  const updateManejo = async(req,res,next) => {
+    const { id } = req.params;
+    const { recOrObserv, description, image } = req.body;
+
+    let ManejoFind = await ManejoDeLote.findAll({
+        where: {
+            id
+        }
+    })
+    if (ManejoFind.length > 0) {
+        ManejoFind.map(async ManejoDeLote => {
+            await ManejoDeLote.update({
+                recOrObserv,
+                description,
+                image,
+            });
+        });
+        return res.json({
+            message: "Lote updated",
+        })
+    }
+}
+
+const getManejo = async (req, res) =>{
+    const {id} = req.params
+    try{
+    const Manejo = await ManejoDeLote.findByPk(id)
+    const Manejo ={
+      idrecOrObserv: Manejo.recOrObserv,
+      description: Manejo.description,
+      image: Manejo.image,
+    }
+    if (!Manejo) {
+        res.send('no tiene ningun manejo')
+    }
+     return res.json(empresadb)
+    } catch (e) {
+        res.status(404).send(next);
+      }
+  }
 
 module.exports = {
     getAllLotes,
@@ -133,5 +192,8 @@ module.exports = {
     getLoteById,
     deleteLote,
     createLote,
-    updateLote
+    updateLote,
+    createManejo,
+    updateManejo,
+    getManejo,
   }
