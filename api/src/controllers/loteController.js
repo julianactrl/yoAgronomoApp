@@ -74,18 +74,20 @@ const deleteLote = async(req, res,next)=> {
     }
 }
 const createLote = async(req,res,next) => {
-    const { name, superficie, ubicacion, imagen} = req.body;
+    const { name, superficie, ubicacion, imagen,empresaId} = req.body;
 
     try{
         let newLote = await Lote.create({
             name,
             superficie,
             ubicacion,
-            imagen
+            imagen,
+            empresaId
         }, {
-            fields: ['name', 'superficie', 'ubicacion', 'imagen']
+            fields: ['name', 'superficie', 'ubicacion', 'imagen','empresaId']
         })
         if (newLote) {
+            
             res.status(200).json({
                 message: "Lote created succesfully",
                 data: newLote
