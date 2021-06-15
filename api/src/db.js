@@ -38,6 +38,8 @@ const { User, Empresa,Lote } = sequelize.models;
 // Product.hasMany(Reviews);
 User.hasMany(Empresa);
 Empresa.belongsTo(User);
+Empresa.hasMany(Lote);
+Lote.belongsTo(Empresa);
 
 
 

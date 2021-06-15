@@ -4,7 +4,7 @@ const {
   getAllLotes,getLoteByName,getLoteById,deleteLote,createLote,updateLote
 } = require("../controllers/loteController");
 
-server.get("/", getAllLotes)
+server.get("/empresa/:id", getAllLotes)
 server.get("/:id", getLoteById)
 server.get("/name", getLoteByName)
 server.delete("/delete/:id",deleteLote)

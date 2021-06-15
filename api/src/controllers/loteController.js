@@ -1,11 +1,19 @@
-const {Lote} = require("../db");
+const {Lote, Empresa} = require("../db");
 const { Op } = require("sequelize");
 
 const getAllLotes = async (req,res,next) => {
+    const {id} = req.params
     try {
         const empresa = await Lote.count();
         if (empresa !== 0) {
-          res.status(201).json(await Lote.findAll());
+          res.status(201).json(await Lote.findAll({
+              include: {
+                  model: Empresa,
+                  where :{
+                      id
+                  }
+              }
+          }));
         }
       } catch (e) {
         res.status(404).send(next);
