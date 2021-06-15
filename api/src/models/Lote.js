@@ -1,15 +1,14 @@
-
 const {DataTypes} = require("sequelize");
 
 module.exports = (sequelize) => {
 
-        sequelize.define('empresa', {
+        sequelize.define('lote', {
       
             name: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            hectareas: {
+            superficie: {
                 type: DataTypes.STRING,
             },
             ubicacion: {

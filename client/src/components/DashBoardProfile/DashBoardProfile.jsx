@@ -18,9 +18,9 @@ export default function DashBoardProfile() {
         return (
             <div className={styles.perfilDeploy}>
                 <button className={styles.perfilbtn}>
-                    <img src={'https://lh3.googleusercontent.com/a-/AOh14GjfYdCXIbS9AahQWsfzmCmEkmZ1h0DhCSsYiDZi7g=s96-c'} className={styles.perfilimg} onClick={()=>!active?setActive(true):setActive(false)}/>
+                    <img src={'https://lh3.googleusercontent.com/ogw/ADea4I4TWEqI_V0htMjADTsJbQWWS1lS2Thbn7F5PjN7vg=s83-c-mo'} className={styles.perfilimg} onClick={()=>!active?setActive(true):setActive(false)}/>
                 </button>
-                <h3 className={styles.title}>GONZALO ARANCIBIA</h3>
+                <h3 className={styles.title}>GABRIEL PEITEADO</h3>
                 <h3 className={styles.titleLogout} onClick={handleLogout}>CERRAR SESION</h3>
             </div>  
         )
@@ -30,7 +30,7 @@ export default function DashBoardProfile() {
         
         <div className={styles.perfilbtncont}>  
             <button className={styles.perfilbtn}>
-                <img src={'https://lh3.googleusercontent.com/a-/AOh14GjfYdCXIbS9AahQWsfzmCmEkmZ1h0DhCSsYiDZi7g=s96-c'} className={styles.perfilimg} onClick={()=>{!active?setActive(true):setActive(false)}}/>
+                <img src={'https://lh3.googleusercontent.com/ogw/ADea4I4TWEqI_V0htMjADTsJbQWWS1lS2Thbn7F5PjN7vg=s83-c-mo'} className={styles.perfilimg} onClick={()=>{!active?setActive(true):setActive(false)}}/>
             </button>
             {active ?renderPerfil():null}
             

@@ -41,7 +41,7 @@ const News = (props) => {
       var startDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + (Add0(newDate.getDate() - 7))
     useEffect(() => {
         const apicall = async() => {
-            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=1d9780ccf33747c28202188431c63fb7&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB%2CTiempoArgentino&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
+            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=1d9780ccf33747c28202188431c63fb7&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
             setData(res.data)
             // await dispatch(getNews())
             if(props.news){
@@ -91,7 +91,9 @@ const News = (props) => {
                                     <div className='cardNew'>
                                         <a href={a.sourceUrl} target='_blank' className='linkArt'>
                                             <div className='articlesContainer'>
-                                                <h1 className='articleTitle'>{a.title}</h1>
+                                                <div>
+                                                    <h1 className='articleTitle'>{a.title}</h1>
+                                                </div>
                                                 <img src={a.imageUrl} alt="Image not found" className='imgArticle'/> 
                                             </div>
                                         </a> 

@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     height: 937px;
-    background-color: rgba(152, 230, 182, 0.685);
 }
 
 .body{
@@ -95,11 +94,11 @@
     background-color: rgba(0, 0, 0, 0.096);
     border-radius: 1000px;
     border: 2px solid rgba(0, 189, 13, 0.075);
-    width: 200px;
+    width: 150px;
 } 
 .imgAdd:hover{
     transition: 1s;
-    background-color: rgba(0, 255, 221, 0.671);
+    background-color: #80cc28;
     box-shadow: 0 0 10px rgb(0, 0, 0);
     border: 2px solid rgba(0, 104, 189, 0.226);
 }
@@ -114,8 +113,17 @@
     height: 450px;
 }
 .titleAdd{
+    display: none;
     font-size: 50px;
+    color: black;
 }
+.cardContAdd:hover .titleAdd{
+    display: inline;
+    font-size: 50px;
+    color: #ffffff;
+    transition: 0.9s;
+}
+
 .cardContAdd{
     display: flex;
     position: relative;
@@ -135,23 +143,35 @@
     object-fit: cover;
     width: 400px;
     height: 400px;
-    background-color: #78dbab83;
-    border:2px solid rgba(0, 0, 0, 0.609);
+    background-color: #ffffff71;
+    border:none;
     box-shadow: 0px 0px 30px black;
     
 }
 .cardContAdd:hover{
-    transition: 0.6s;
+    transition: 0.9s;
     background-size: 900px;
-    border:2px solid rgba(5, 105, 0, 0.815);
+    border:none;
     background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
 }
 .title{
     position: fixed;
-    left: 820px;
-    top:80px;
-    font-size: 60px;
+    left: 790px;
+    top:110px;
+    font-size: 55px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.newsTitle{
+    color:#ffffff;
+    position: absolute;
+    top:45.5%;
+    right: 6%;
+    font-size: 25px;
+}
+.newsTitleClosed{
+    display: none;
 }
 .add{
     display: flex;
@@ -202,9 +222,9 @@
     background-repeat: no-repeat;
     position: relative;
     width: 60px;
-    left: 460px;
+    left: 480px;
     transform: rotate(-90deg);
-
+    top: 1px;
     height: 60px;
     border-radius: 60px;
     

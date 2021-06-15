@@ -86,16 +86,13 @@ export default function DashBoard (){
         >
         <div className={showNews?styles.mainContNews:styles.main}>
             <div className={styles.mainCont}>
-                <div className={styles.div1}></div>
-                <div className={styles.div2}></div>
-                <div className={styles.div3}></div>
                 {Header('dashboard')}
                 <div className={showNews?styles.newsContainer:styles.newsContainerAct}>
                     {
                     showNews?<News/>:null
                     } 
                 </div>
-
+                <h1 className={showNews?styles.newsTitleClosed:styles.newsTitle}>NEWS</h1>
                 <button className={showNews?styles.btnNewsOpen:styles.btnNews} onClick={news}></button> 
                 <div className={showNews?styles.bodyNone:styles.body}>
                 <h1 className={styles.title}>Mis Empresas</h1>
@@ -107,7 +104,7 @@ export default function DashBoard (){
                         </div>
                       </Link>
                       {
-                        CardsEmpresas(allEmpresas)
+                        allEmpresas.map((empresa)=> <CardsEmpresas empresa={empresa}/>)
                       }
                     </Slider>
                 </div>

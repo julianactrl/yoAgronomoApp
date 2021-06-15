@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
-import {getEmpresa} from '../../redux/actions/empresaActions';
+import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
 import styles from './styles.module.css'
+import Header from '../Header/Header';
+import data from './data.json';
+import {Link} from 'react-router-dom';
+import campo from './campo.jpg'
+import axios from 'axios'
 
-import data from './data.json'
 
 
 function DetailEmpresa ({id}) {
@@ -15,40 +19,48 @@ function DetailEmpresa ({id}) {
     
     useEffect(()=> {
         dispatch(getEmpresa(id));
+        console.log(empresa.imagen)
         
     }, []);
     
+    function deleteEmpresa(id) {
+        
+        // dispatch(deleteEmpresa(id));
+        axios.delete(`http://localhost:3001/empresa/delete/${id}`)
+        .then(response => console.log(response.data)) 
+        .catch(error  => console.log(error))
+        alert('Su empresa fue eliminada!')
+        
+        
+    }
 
     return (
         <div className={styles.background}>
-            {/* {
+            <Header />
             
-                
-                    <div>
-                    <li key={empresa.id}>
-                    <h1 className={styles.name}>{empresa.name}</h1>
-                    <div className={styles.caja}>
-                    <div className={styles.description}>
-                    <h3>Hectáreas totales: {empresa.hectáreas}</h3>
-                    <h3>Ubicación: {empresa.ubicación}</h3>
-                    <h2>Tareas a realizar:</h2>
-                    
-                    </div>
-                    </div>
-                    </li>
-                    </div>
-                
-            } */}
                      
             
                 
             { <div className={styles.div}>
-            <li >
+            <li className={styles.liContenedor}>
+            <div className={styles.name}>
+                <div className={styles.items}>
             <h1 className={styles.name}>{empresa.name}</h1>
+                    
+            <Link to={`/update/${empresa.id}`}>
+            <button className={styles.buttonEmpresa}></button>
+            </Link>
+            <div className={styles.items}>
+            <Link to={`/home`}>
+            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}></button> 
+            </Link>
+            </div>
+            </div>
+            </div>
             <div className={styles.caja}>
             <div className={styles.description}>
-            <h3>📏 Hectáreas totales: {empresa.hectareas}</h3>
-            <h3>📍 Ubicación: {empresa.ubicacion}</h3>
+            <h2>📏 Hectáreas totales: {empresa.hectareas}</h2>
+            <h2 className={styles.ubicacion}>📍 Ubicación: {empresa.ubicacion}</h2>
             <h2>📝 Tareas a realizar:</h2>
             <div className={styles.tareas}>
             <div className={styles.items}>
@@ -74,15 +86,22 @@ function DetailEmpresa ({id}) {
             <div className={styles.items}>
             <h3>Formulación de aplicaciones</h3>
             </div>
+           
             </div>
             </div>
             </div>
+           {
+               empresa.imagen ? 
+               <img width={500} height={350} src={empresa.imagen} alt='imagen del campo' className={styles.imgEmpresa}/>
+               :
+               <img width={500} height={350} src="https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg" alt="imagen default" className={styles.imgEmpresa} />
+           }
             </div>
             </li>
+
             </div> }
         
     
-
         </div>
     )
 }

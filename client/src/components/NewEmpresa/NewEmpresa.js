@@ -4,13 +4,15 @@ import styles from './styles.module.css'
 import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
 import { motion } from 'framer-motion';
+import Header from '../Header/Header';
+import { useHistory } from 'react-router';
 
 function NewEmpresa () {
 const [input, setInput] = useState({
         name: '',
         hectareas: '',
         ubicacion: '',
-        image: ''
+        imagen: ''
 })
 function handleInputChange(e) {
     setInput({
@@ -18,6 +20,7 @@ function handleInputChange(e) {
          [e.target.name]: e.target.value  
         });
 }
+const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
     if(!input.name) {
@@ -28,9 +31,11 @@ function handleSubmit(e) {
         alert('Debe ingresar una ubicación!')
         return
     }
+    console.log(input.imagen)
     dispatch(postEmpresa(input));
     e.target.reset();
     alert('Su empresa fue creada!')
+    history.push('/home')
         
 }
 const dispatch = useDispatch();
@@ -53,6 +58,7 @@ const dispatch = useDispatch();
         }}
         >
         <div className={styles.div}>
+            <Header />
         <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
         <form className={styles.estilosForm} 
@@ -64,7 +70,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
                 value={input['name']}
-                placeholder='Nombre...'
+                placeholder='Estancia YoAgronomo'
                 name='name'/>
             </div>
             <div>
@@ -73,7 +79,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={handleInputChange} 
                 value={input['hectareas']}
-                placeholder='Hectáreas totales...'
+                placeholder='600'
                 name='hectareas'/>
             </div>
             <div>
@@ -82,7 +88,7 @@ const dispatch = useDispatch();
                 type='text'
                 onChange={handleInputChange} 
                 value={input['ubicacion']}
-                placeholder='Ubicación'
+                placeholder='Santa Fe'
                 name='ubicacion'/>
             </div>
            
@@ -91,9 +97,9 @@ const dispatch = useDispatch();
                 <input
                 type='text'
                 onChange={handleInputChange} 
-                value={input['image']}
-                paceholder='insert URL'
-                name='image'/>
+                value={input['imagen']}
+                placeholder='Insert URL'
+                name='imagen'/>
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Crear Empresa</button>

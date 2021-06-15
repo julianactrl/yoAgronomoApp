@@ -3,10 +3,11 @@
 .perfilDeploy{
     display: flex;
     flex-direction: column;
-    padding-left: 15px;
-    background-color: #2f4f39;
+    padding-left: 30px;
+    padding-top: 30px;
+    background-color: #afafaf;
     border-radius: 0px 0px 0px 10px;
-    height: 220px;
+    height: 250px;
     width: 380px;
     right: 0px;
     top: 0px;
@@ -38,7 +39,7 @@
     justify-content: center;
     align-items: center;
     justify-items: center;
-    padding: 30px;
+    padding: 20px;
     width:90px;
     height: 90px;
     border: 4px solid #2f4f39;
@@ -46,7 +47,7 @@
     border-radius: 100%;
     background-color: rgba(35, 119, 25, 0.198);
     margin-right: 100px;
-    margin-top: 20px;
+    margin-top: 30px;
     position: relative;
 }
 .perfilbtn:hover{
@@ -110,6 +111,7 @@
     cursor: default;
     color: white;
     font-size: 130%;
+    margin-top: 40px;
 }
 .perfilbtncont{
     width: 100%;
