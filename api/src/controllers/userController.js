@@ -1,6 +1,6 @@
 const { User, Empresa } = require("../db");
 
-const getUserAll = (req, res, next) => {
+const getUserAll = async(req, res, next) => {
   try {
     if (req.user) {
       const result = await User.findAll();
@@ -27,7 +27,7 @@ const getUserById = async (req, res, next) => {
 const editUser = (req, res, next) => {
   const { id } = req.params;
 
-  const { email, password, fullName, googleId } = req.body;
+  const { email, password, fullName, googleId, profile_pic } = req.body;
 
   User.update(
     {
@@ -35,6 +35,7 @@ const editUser = (req, res, next) => {
       password,
       fullName,
       googleId,
+      profile_pic
     },
     {
       where: {

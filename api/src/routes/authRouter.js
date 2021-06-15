@@ -13,10 +13,10 @@ const {
 
 //-------------------------Route Users--------------------------//
 
-server.post("/login", isAuthenticated, isAdmin, login);
+server.post("/login", login);
 server.get('/logout', logout)
 server.post("/register", register);
-server.get("/myProfile", isAuthenticated, myProfile);
+server.get("/myProfile",  isAuthenticated,myProfile);
 server.get("/google", google);
 server.get("/google/callback", googleAuth);
 
