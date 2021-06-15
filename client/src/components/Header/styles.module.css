@@ -90,7 +90,7 @@
     justify-content: center;
     width: 400px;
     height: 937px;
-    background-color: #00000091;
+    background-color: #ffffff71;
     animation-duration: 0.2s;
     animation-name: slidein;
     animation-fill-mode: backwards;
@@ -124,14 +124,14 @@
     align-items: center;
     font-size: 18px;
     width: 400px;
-    height: 200px;
+    height: 150px;
     color: white;
     text-decoration: none;
 }
 .linktext:hover{
     transition: 0.2s;
-    background-color: rgba(14, 39, 0, 0.801);
-    border:1px solid rgba(255, 255, 255, 0.376);
+    background-color: rgba(91, 136, 68, 0.801);
+    border:none;
 }
 .text{
     display: flex;

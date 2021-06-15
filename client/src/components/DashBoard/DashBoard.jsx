@@ -92,7 +92,7 @@ export default function DashBoard (){
                     showNews?<News/>:null
                     } 
                 </div>
-
+                <h1 className={showNews?styles.newsTitleClosed:styles.newsTitle}>NEWS</h1>
                 <button className={showNews?styles.btnNewsOpen:styles.btnNews} onClick={news}></button> 
                 <div className={showNews?styles.bodyNone:styles.body}>
                 <h1 className={styles.title}>Mis Empresas</h1>
