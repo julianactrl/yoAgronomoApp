@@ -7,9 +7,12 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_ERROR,
   USER_LOGOUT,
+  USER_LOGOUT_ERROR
 } from "../constants";
 
 const { REACT_APP_API } = process.env;
+
+
 
 export const register = (body) => async (dispatch) => {
   try {
@@ -53,7 +56,8 @@ export const login = (email, password) => async (dispatch) => {
     const { data } = await axios.post(
       "http://localhost:3001/auth/login",
       { email, password },
-      config
+      config,
+	  
     );
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -75,4 +79,18 @@ export const logout = () => {
   return {
     type: USER_LOGOUT,
   };
+//   try {
+//   const { data } = await axios.get('http://localhost:3001/auth/logout')
+//   dispatch({
+//     type: USER_LOGOUT,
+//     payload: data
+//   })
+//   document.location.href = "/index";
+// } catch(error) {
+//   dispatch({
+//     type: USER_LOGOUT_ERROR,
+//     payload: error
+
+//   })
+// }
 };

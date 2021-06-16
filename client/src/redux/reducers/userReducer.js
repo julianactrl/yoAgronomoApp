@@ -4,6 +4,7 @@ import {
   REGISTER_USER_SUCCESS,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
+  USER_LOGOUT_ERROR
 } from "./../constants";
 
 const initialState = {
@@ -52,8 +53,13 @@ const userReducer = (state = initialState, action) => {
     }
     case USER_LOGOUT:
       return {
-        isAuthenticated: false,
+        isAuth: false,
       };
+    case USER_LOGOUT_ERROR: {
+      return {
+        error: true
+      }
+    }
     default:
       return state;
   }

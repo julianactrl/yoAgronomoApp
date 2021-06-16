@@ -4,7 +4,9 @@ const BearerStrategy = require("passport-http-bearer").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const { User } = require("./db.js");
 const jwt = require("jsonwebtoken");
-const { AUTH_JWT_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, BACK } = process.env;
+const { AUTH_JWT_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, BACK } =
+  process.env;
+
 
 passport.use(
   new LocalStrategy(
@@ -12,8 +14,8 @@ passport.use(
     async (email, password, done) => {
       console.log("!!!!!!", email, password);
       const user = await User.findOne({ where: { email: email } });
-      if (!user) return done(null, false);
-      if (!user.compare(password)) return done(null, false);
+      if (!user) return done(null, false, { message: "Incorrect email." });
+      if (!user.compare(password)) return done(null, false, { message: "Incorrect password." });
       const { id, email: userEmail, fullName, is_admin, updatedAt } = user;
       return done(null, {
         id,
@@ -44,6 +46,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
   done(null, user);
 });
+
 
 //==========================================================================//
 //================GOOGLE===================================================//

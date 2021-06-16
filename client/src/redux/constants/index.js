@@ -7,6 +7,7 @@ export const USER_LOGIN_REQUEST="USER_LOGIN_REQUEST";
 export const USER_LOGIN_SUCCESS="USER_LOGIN_SUCCESS";
 export const USER_LOGIN_ERROR="USER_LOGIN_ERROR";
 export const USER_LOGOUT="USER_LOGOUT";
+export const USER_LOGOUT_ERROR = "USER_LOGOUT_ERROR";
 export const DELETE_ACCOUNT = "DELETE_ACCOUNT"
 
 
@@ -23,3 +24,12 @@ export const GET_NEWS = 'GET_NEWS';
 export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
 
 
+export function BEARER() {
+	if (JSON.parse(localStorage.getItem('jwt'))) {
+		return {
+			headers: {
+				"Authorization": `Bearer ${JSON.parse(localStorage.getItem('jwt'))}`
+			}
+		}
+	} else return null;
+}
