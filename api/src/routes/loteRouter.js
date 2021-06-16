@@ -1,7 +1,7 @@
 const server = require("express").Router();
 
 const {
-  getManejo,updateManejo,createManejo,getAllLotes,getLoteByName,getLoteById,deleteLote,createLote,updateLote
+  deleteManejo,getManejo,updateManejo,createManejo,getAllLotes,getLoteByName,getLoteById,deleteLote,createLote,updateLote
 } = require("../controllers/loteController");
 
 
@@ -14,9 +14,10 @@ server.put("/:id", updateLote);
 
 /////// MANEJO DE LOTE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-server.get("/:id/Manejo", getManejo)
-server.post("/:id/createManejo", createManejo)
-server.put('/:id/updateManejo', updateManejo)
+// server.get("/:id/manejo", getManejo)
+// server.post("/:id/createManejo", createManejo)
+// server.put('/:id/updateManejo', updateManejo)
+// server.delete("/:id/deleteManejo",deleteManejo)
 
 
 

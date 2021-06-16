@@ -163,28 +163,42 @@ const createManejo = async (req,res,next) => {
             });
         });
         return res.json({
-            message: "Lote updated",
+            message: "Manejo updated",
         })
     }
 }
 
-const getManejo = async (req, res) =>{
-    const {id} = req.params
-    try{
-    const Manejo = await ManejoDeLote.findByPk(id)
-    const Manejo ={
-      idrecOrObserv: Manejo.recOrObserv,
-      description: Manejo.description,
-      image: Manejo.image,
+const getManejo = async (req,res,next) => {
+    const { id } = req.params;
+    try {
+        const manejo = await ManejoDeLote.findOne({
+            where: {
+                id
+            }
+        })
+        res.json(manejo)
+    } catch (error) {
+        if (!manejo) {
+            return res.json({
+                messages: "Not found"
+            })
+        }
     }
-    if (!Manejo) {
-        res.send('no tiene ningun manejo')
-    }
-     return res.json(empresadb)
+}
+  const deleteManejo = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await ManejoDeLote.destroy({
+        where: {
+          id,
+        },
+      });
+      res.json({ message: "Manejo Eliminado" });
     } catch (e) {
-        res.status(404).send(next);
-      }
-  }
+      res.status(500).send(next);
+    }
+  };
+  
 
 module.exports = {
     getAllLotes,
@@ -196,4 +210,5 @@ module.exports = {
     createManejo,
     updateManejo,
     getManejo,
+    deleteManejo,
   }
