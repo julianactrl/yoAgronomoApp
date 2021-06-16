@@ -131,12 +131,13 @@ const updateLote = async(req,res,next) => {
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const createManejo = async (req,res,next) => {
-    const { recOrObserv, description, image} = req.body;
+    const { recOrObserv, description, image, loteId} = req.body;
     try{
         await ManejoDeLote.create({
             recOrObserv,
             description,
             image,
+            loteId
         })
         res.status(200).json("fue creado con exito");
     } catch (error) {
@@ -168,22 +169,41 @@ const createManejo = async (req,res,next) => {
     }
 }
 
+// const getManejo = async (req,res,next) => {
+//     const { id } = req.params;
+//     try {
+//         const manejo = await ManejoDeLote.findOne({
+//             where: {
+//                 id
+//             }
+//         })
+//         res.json(manejo)
+//     } catch (error) {
+//         if (!manejo) {
+//             return res.json({
+//                 messages: "Not found"
+//             })
+//         }
+//     }
+// }
+
 const getManejo = async (req,res,next) => {
-    const { id } = req.params;
+    const {id} = req.params
     try {
-        const manejo = await ManejoDeLote.findOne({
-            where: {
-                id
-            }
-        })
-        res.json(manejo)
-    } catch (error) {
-        if (!manejo) {
-            return res.json({
-                messages: "Not found"
-            })
+        const Manejo = await ManejoDeLote.count();
+        if (Manejo !== 0) {
+          res.status(201).json(await ManejoDeLote.findAll({
+              include: {
+                  model: Lote,
+                  where :{
+                      id
+                  }
+              }
+          }));
         }
-    }
+      } catch (e) {
+        res.status(404).send(next);
+      }
 }
   const deleteManejo = async (req, res, next) => {
     try {

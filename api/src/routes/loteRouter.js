@@ -14,10 +14,10 @@ server.put("/:id", updateLote);
 
 /////// MANEJO DE LOTE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// server.get("/:id/manejo", getManejo)
-// server.post("/:id/createManejo", createManejo)
-// server.put('/:id/updateManejo', updateManejo)
-// server.delete("/:id/deleteManejo",deleteManejo)
+server.get("/manejo/:id", getManejo)
+server.post("/:id/createManejo", createManejo)
+server.put('/updateManejo/:id', updateManejo)
+server.delete("/deleteManejo/:id",deleteManejo)
 
 
 
