@@ -169,25 +169,7 @@ const createManejo = async (req,res,next) => {
     }
 }
 
-// const getManejo = async (req,res,next) => {
-//     const { id } = req.params;
-//     try {
-//         const manejo = await ManejoDeLote.findOne({
-//             where: {
-//                 id
-//             }
-//         })
-//         res.json(manejo)
-//     } catch (error) {
-//         if (!manejo) {
-//             return res.json({
-//                 messages: "Not found"
-//             })
-//         }
-//     }
-// }
-
-const getManejo = async (req,res,next) => {
+const getAllManejo = async (req,res,next) => {
     const {id} = req.params
     try {
         const Manejo = await ManejoDeLote.count();
@@ -229,6 +211,6 @@ module.exports = {
     updateLote,
     createManejo,
     updateManejo,
-    getManejo,
+    getAllManejo,
     deleteManejo,
   }
