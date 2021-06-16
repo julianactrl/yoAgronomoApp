@@ -1,4 +1,5 @@
 import axios from "axios";
+import {firestone} from '../../'
 import {
   REGISTER_USER_ERROR,
   REGISTER_USER_REQUEST,
@@ -7,7 +8,10 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_ERROR,
   USER_LOGOUT,
-  USER_LOGOUT_ERROR
+  USER_LOGOUT_ERROR,
+  GET_USER,
+  LOADING_USER,
+  BEARER
 } from "../constants";
 
 const { REACT_APP_API } = process.env;
@@ -94,3 +98,47 @@ export const logout = () => {
 //   })
 // }
 };
+// export function getUserById(id){
+// 	return function(dispatch){
+// 		return fetch(`http://localhost:3001/user/${id}`)
+//         .then(response => response.json())
+// 		.then(json => {
+// 			dispatch({ 
+//                 type: GET_USER_ID, 
+//                 payload: data
+//             })
+// 		})
+// 	}
+// }
+
+export const getUser = () => {
+  return function(dispatch) {
+    dispatch({type: LOADING_USER})
+    return axios.get(`http://localhost:3001/auth/myProfile` , BEARER())
+    .then(async userInfo => {
+      if (userInfo.data.jwt) localStorage.setItem('jwt', JSON.stringify(userInfo.data.jwt));
+      delete userInfo.data.jwt
+        dispatch({ 
+          type: GET_USER,
+          payload:userInfo.data
+        })
+        // const cart = firestone.collection("cart");
+        // try {
+				// 	const query = await cart.where(firebase.firestore.FieldPath.documentId(),
+				// 		'==',
+				// 		user.data.id.toString()).get();
+				// 	const firebaseCart = query.docs[0]?.data();
+				// 	const localStorageCart = JSON.parse(localStorage.getItem('cart'))
+				// 	if (Object.keys(localStorageCart).length === 0) {
+				// 		if (firebaseCart) {
+				// 			localStorage.setItem('cart', JSON.stringify(firebaseCart));
+				// 		}
+				// 	} else {
+				// 		cart.doc(user.data.id.toString()).set(localStorageCart)
+				// 	}
+				// 	dispatch(setCart());
+				// } catch (err) { console.log(err) }
+			
+      })
+  }
+}
