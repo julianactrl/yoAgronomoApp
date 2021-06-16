@@ -12,6 +12,7 @@ import img6 from './imagenes/6.png';
 import img7 from './imagenes/7.png';
 import img8 from './imagenes/8.png';
 import img9 from './imagenes/9.png';
+import img10 from './imagenes/10.jpg';
 
 const IntroPage = () => {
     return (
@@ -126,6 +127,13 @@ const IntroPage = () => {
               alt=""
               src={img9}
             /> <h2 className={s.title}>Plataforma integral</h2></div> </Link>
+          </figure>
+          <figure>
+          <Link to = '/index'>
+          <div className={s.wrapper}> <img
+              alt=""
+              src={img10}
+            /> <h2 className={s.title}>Monitoreo</h2></div> </Link>
           </figure>
         </li>
        

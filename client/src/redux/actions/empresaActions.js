@@ -29,7 +29,7 @@ export function getEmpresa(id) {
 }
 
 
-export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
+export const postEmpresa = ({ name, hectareas,ubicacion,imagen }) => {
 
     return (dispatch) => {
         dispatch({ type: POST_EMPRESA });
@@ -40,7 +40,7 @@ export const postEmpresa = ({ name, hectareas,ubicacion,image }) => {
                 name,
                 hectareas,
                 ubicacion,
-                image
+                imagen
             },
         }).catch(e => dispatch(e))
     }

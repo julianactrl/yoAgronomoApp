@@ -91,7 +91,9 @@ const News = (props) => {
                                     <div className='cardNew'>
                                         <a href={a.sourceUrl} target='_blank' className='linkArt'>
                                             <div className='articlesContainer'>
-                                                <h1 className='articleTitle'>{a.title}</h1>
+                                                <div>
+                                                    <h1 className='articleTitle'>{a.title}</h1>
+                                                </div>
                                                 <img src={a.imageUrl} alt="Image not found" className='imgArticle'/> 
                                             </div>
                                         </a> 

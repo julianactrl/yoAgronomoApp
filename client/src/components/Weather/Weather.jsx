@@ -47,8 +47,10 @@ const Weather = (props) => {
     }
     
     return (
-        <div className="body-weather">
+        <>
             <Header />
+        <div className="body-weather">
+            <h1 style={{color: "white"}}>{new Date().toLocaleDateString()}</h1>
         <div className="container-weather">
            {
             loading ? <h1>Cargando</h1> :
@@ -78,10 +80,10 @@ const Weather = (props) => {
                                     {
                                         w.forecast.forecastday.map(p => (
                                             <div className="forecast-day">
-                                                <p className="day-week">{getDayWeek(p.date)}</p>
+                                                <h3 className="day-week">{getDayWeek(p.date)}</h3>
                                                 <div className="temperatures">
-                                                    <p>Max:{p.day.maxtemp_c}c°</p>
-                                                    <p>Min:{p.day.mintemp_c}c°</p>
+                                                    <p>Max: {p.day.maxtemp_c}c°</p>
+                                                    <p>Min: {p.day.mintemp_c}c°</p>
                                                 </div>
                                                 <img src={p.day.condition.icon} alt="" />
                                             </div>
@@ -97,6 +99,7 @@ const Weather = (props) => {
            }
         </div>
         </div>
+        </>
     )
 }
 

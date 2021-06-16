@@ -19,6 +19,7 @@ function DetailEmpresa ({id}) {
     
     useEffect(()=> {
         dispatch(getEmpresa(id));
+        console.log(empresa.imagen)
         
     }, []);
     
@@ -30,7 +31,7 @@ function DetailEmpresa ({id}) {
         .catch(error  => console.log(error))
         alert('Su empresa fue eliminada!')
         
-            
+        
     }
 
     return (
@@ -42,25 +43,25 @@ function DetailEmpresa ({id}) {
                 
             { <div className={styles.div}>
             <li className={styles.liContenedor}>
-            <h1 className={styles.name}>{empresa.name}</h1>
             <div className={styles.name}>
                 <div className={styles.items}>
+            <h1 className={styles.name}>{empresa.name}</h1>
                     
             <Link to={`/update/${empresa.id}`}>
-            <button className={styles.buttonEmpresa}>✏️ Editar</button>
+            <button className={styles.buttonEmpresa}></button>
             </Link>
             <div className={styles.items}>
-            <Link to={`/index`}>
-            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}>Eliminar</button> 
+            <Link to={`/home`}>
+            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}></button> 
             </Link>
             </div>
             </div>
             </div>
             <div className={styles.caja}>
             <div className={styles.description}>
-            <h3>📏Hectáreas totales: {empresa.hectareas}</h3>
-            <h3 className={styles.ubicacion}>📍Ubicación: {empresa.ubicacion}</h3>
-            <h2>📝Tareas a realizar:</h2>
+            <h2>📏 Hectáreas totales: {empresa.hectareas}</h2>
+            <h2 className={styles.ubicacion}>📍 Ubicación: {empresa.ubicacion}</h2>
+            <h2>📝 Tareas a realizar:</h2>
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
