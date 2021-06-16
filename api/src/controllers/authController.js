@@ -78,40 +78,33 @@ const register = async (req, res) => {
 }
 }
 
-
-
-
-  
-
 //==========================================================================//
 const login = async (req, res) => {
-  const { email, password } = req.body;
-
-  try {
-      const oldUser = await User.findOne({
-        where: { email: email  }});
-      if (!oldUser) return res.status(404).json({ message:  "User doesn`t exist" });
-      const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-      if (!isPasswordCorrect) return res.status(400).json({ message: 'Invalid Password' });
-      const token = jwt.sign({ email: oldUser.email }, AUTH_JWT_SECRET, { expiresIn: '1hr' });
-      res.status(201).json({ result: oldUser, token, message:  "Log in Successful" });
-  } catch (error) {
-      res.status(500).json({ message:  'Something went wrong' });
-      console.log(error);
-      res.status(500).json({message:'Something went wrong'});
-  }
-}
-  // passport.authenticate("local", (err, user) => {
-  //   if (err) {
-  //     console.log(err)
-  //   }
-  //   else if (!user) {
-  //     console.log(user)
-  //     return res.status(401)
-  //   }
-  //   else return res.send(jwt.verify(user, AUTH_JWT_SECRET));
-  // })(req, res);
-//};
+//   const { email, password } = req.body;
+//   try {
+//       const oldUser = await User.findOne({
+//         where: { email: email  }});
+//       if (!oldUser) return res.status(404).json({ message:  "User doesn`t exist" });
+//       const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
+//       if (!isPasswordCorrect) return res.status(400).json({ message: 'Invalid Password' });
+//       const token = jwt.sign({ email: oldUser.email }, AUTH_JWT_SECRET, { expiresIn: '1hr' });
+//       res.status(201).json({ result: oldUser, token, message:  "Log in Successful" });
+//   } catch (error) {
+//       console.log(error);
+//       res.status(500).json({message:'Something went wrong'});
+//   }
+// }
+  passport.authenticate("local", (err, user) => {
+    if (err) {
+      console.log(err)
+    }
+    else if (!user) {
+      console.log(user)
+      return res.status(401)
+    }
+    else return res.send(jwt.verify(user, AUTH_JWT_SECRET));
+  })(req, res);
+};
 
 
 
@@ -119,11 +112,11 @@ const login = async (req, res) => {
 //==========================================================================//
 
 //logout
-const logout = (req, res) => {
-  req.logout();
-  res.localStorage.removeItem("userInfo");
-  res.status(200).send("User Logged out");
-};
+// const logout = (req, res) => {
+  
+//   res.localStorage.removeItem("userInfo");
+//   res.status(200).send("User Logged out");
+// };
 
 //==========================================================================//
 
@@ -155,7 +148,7 @@ const googleAuth = () => {
 
 module.exports = {
   login,
-  logout,
+ // logout,
   register,
   myProfile,
   google,
