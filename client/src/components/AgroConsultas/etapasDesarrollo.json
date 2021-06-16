@@ -1,0 +1,592 @@
+{
+    
+    "Cereales": [
+             {
+             "Maiz": [
+                        {
+                        "Etapa": "VE - Emergencia",
+                        "Descripcion": "El coleoptile alcanza la superficie del suelo y se establece la plántula."
+                        },
+                        {
+                        "Etapa": "V1 - Collar de 1era hoja",
+                        "Descripcion": "La hoja inferior (corta con punta redondeada) está completamente desplegada, con collar y lígula visible."
+                        },
+                        {
+                        "Etapa": "V3 - Collar de 3er hoja",
+                        "Descripcion": "Tres hojas completamente desplegadas. El punto de crecimiento se mantiene por debajo de la superficie del suelo."
+                        },
+                        {
+                        "Etapa":"V5 - Collar de 5ta hoja",
+                         "Descripcion": "Cinco hojas completamente desplegadas. El punto de crecimiento se acerca a la superficie del suelo."
+                        },
+                         {
+                        "Etapa":"V6 - Collar de 6ta hoja",
+                        "Descripcion": "Seis hojas completamente desarrolladas. El ápice de crecimiento está por encima de la superficie del suelo."
+                        },
+                        {
+                        "Etapa":"V7 - Collar de 7ma hoja",
+                        "Descripcion": "Siete hojas completamente desplegadas."
+                        },
+                        {
+                        "Etapa":"V10 - Collar de 10ma hoja",
+                        "Descripcion": "Diez hojas completamente desarrolladas."
+                        },
+                        {
+                        "Etapa":"Vn - Collar de “n” hojas",
+                        "Descripcion": ". “n” ésima hoja completamente desplegada, con collar y lígula visible. VT - Antesis. Aparición de la panoja con liberación de polen."
+                        },
+                        {
+                        "Etapa":"VT - Antesis",
+                        "Descripcion": "Aparición de la panoja con liberación de polen."
+                         },
+                         {
+                        "Etapa":"R1 - Silking",
+                        "Descripcion": " Se produce la emergencia de los estigmas que capturan los granos de polen."
+                        },
+                        {
+                        "Etapa":"R2 - Ampolla o Blister",
+                        "Descripcion": "Los granos son de color blanco asemejándose a una ampolla."
+                         },
+                        {
+                        "Etapa":"R3 - Grano lechoso",
+                        "Descripcion": "Los granos son de color amarillo en la parte exterior con un interior líquido blanco lechoso."
+                        },
+                        {
+                        "Etapa":"R4 - Grano pastoso",
+                        "Descripcion": "El fluido en el endosperma se ha espesado hasta obtener una consistencia pastosa. La mazorca es de color blanco cuando se quitan los granos. La humedad del grano es de aproximadamente el 70%."
+                        },
+                        {
+                        "Etapa":"R5 - Grano Dentado",
+                        "Descripcion": "La mazorca es de color rojo oscuro. Comienza el secado del grano formándose, en la parte superior, una capa dura de color blanco de almidon, que continua hacia la mazorca. La humedad del grano es de aproximadamente el 55%. "
+                        },
+                        {
+                        "Etapa":"R6 - Madurez Fisiologica",
+                        "Descripcion": "Todos los granos han alcanzado máximo peso seco. Una capa de color negro o marrón se ha formado en la porciòn del grano que se une a la mazorca, lo que indica que la madurez fisiológica se ha alcanzado. El contenido de humedad del grano oscila entre el 30-35% en esta etapa."
+                        },
+                        {
+                        "imagen": "/images/maiz.png"
+                        }
+            ],
+             "Sorgo": [
+                        {
+                        "Etapa":"Estado 0 - Emergencia",
+                        "Descripcion": "El coleoptile es visible en la superficie del suelo."
+                        },
+                        {
+                        "Etapa":"Estado 1 - Lígula de la 3er hoja visible",
+                        "Descripcion": "Los collares y lígulas de tres hojas pueden ser vistos sin disección de la planta."
+                        },
+                        {
+                        "Etapa":"Estado 2 - Lígula de la 5ta hoja visible",
+                        "Descripcion": "Los collares y lígulas de cinco hojas pueden verse sin la disección de la planta."
+                        },
+                        {
+                        "Etapa":"Estado 3 - Diferenciación de meristemas",
+                        "Descripcion": "Momento del cambio del punto de crecimiento de vegetativo a reproductivo. Aproximadamente entre 7 a 10 hojas se encuentran completamente expandidas. "
+                        },
+                        {
+                        "Etapa":"Estado 4 - Hoja bandera visible",
+                        "Descripcion": "Todas las hojas excepto las últimas 3 a 4 se hayan expandidas, representando el 80% de la máxima área foliar."
+                        },
+                        {
+                        "Etapa":"Estado 5 - Estado de bota o buche",
+                        "Descripcion": "Todas las hojas se han expandido completamente proporcionando la máxima área foliar. La panoja casi alcanzó su máxima longitud, y está rodeada por la vaina de la hoja bandera."
+                        },
+                        {
+                        "Etapa":"Estado 6 - Floración",
+                        "Descripcion": "Las plantas se encuentran en algún momento de la floración, que progresa de arriba hacia abajo de la panoja. "
+                        },
+                        {
+                        "Etapa":"Estado 7 - Grano lechoso",
+                        "Descripcion": "En esta etapa el grano tiene una consistencia lechosa y el llenado del grano se produce rápidamente. Se siguen perdiendo las hojas inferiores quedando 8 a 12 hojas funcionales en esta etapa."
+                        },
+                        {
+                        "Etapa":"Estado 8 - Grano pastoso",
+                        "Descripcion": "En esta etapa aproximadamente tres cuartas partes del peso seco del grano se ha alcanzado."
+                        },
+                        {
+                        "Etapa":"Estado 9 - Madurez Fisiológica",
+                        "Descripcion": "La humedad del grano depende del híbrido y el ambiente, y varía entre un 25 y un 35%."
+                        },
+                        {
+                        "imagen": "/images/sorgo.png"
+                        }
+                        ],
+"CerealesDeSiembraOtoñal": [
+                        {
+                        "Etapa":"Etapa 0 - Germinación. Zadoks (Z)0",
+                        "Sub-Etapas": [
+                                        {
+                                            "Sub-Etapa":"Z 00",
+                                            "Descripcion":"Semilla seca."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 01",
+                                            "Descripcion":"Comienzo de imbibición."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 05",
+                                            "Descripcion":"Radícula emergida del cariopse."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 08",
+                                            "Descripcion":"Hoja en el extremo del coleoptile."
+                                        }
+                                      ]
+                        },
+                        {
+                         "Etapa":"Etapa 1 - Emergencia. Z1",
+                         "Sub-Etapas":[
+                                        {
+                                            "Sub-Etapa":"Z 10",
+                                            "Descripcion":"1era hoja verdadera atravesó el coleoptile."        
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 11",
+                                            "Descripcion":"1era hoja expandida y comienza a desenrollarse la 2da."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 12",
+                                            "Descripcion":"2da hoja expandida y comienza a desenrollarse la 3era."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 16",
+                                            "Descripcion":"6ta hoja expandida y comienza a desenrollarse la 7ma."
+                                        },
+                                        {
+                                            "Sub-Etapa":"Z 19",
+                                            "Descripcion":"Nueve o más hojas totalmente expandidas."
+                                        }
+                                        ]   
+                        },
+                        {
+                            "Etapa":"Etapa 2 - Macollaje. Z2",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 20 ",
+                                               "Descripcion":"Vástago principal (VP) solamente."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 21",
+                                               "Descripcion":"VP y un macollo."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 22 ",
+                                               "Descripcion":"VP y dos macollos."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 26",
+                                               "Descripcion":"VP y seis macollos."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 29",
+                                               "Descripcion":"VP y nueve o más macollos."
+                                           }
+                                           ]   
+                           },
+                           {
+                            "Etapa":"Etapa 3 - Alargamiento del tallo. Z3",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 30",
+                                               "Descripcion":"Erección del pseudotallo"        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 31 ",
+                                               "Descripcion":"Detección del 1er entrenudo."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 32",
+                                               "Descripcion":"Detección del 2do entrenudo"
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 36",
+                                               "Descripcion":"Detección del 6to entrenudo"
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 37 ",
+                                               "Descripcion":"Hoja bandera visible."
+                                           },
+                                           {
+                                            "Sub-Etapa":"Z 39",
+                                            "Descripcion":"Lígula de la hoja bandera visible."
+                                            }
+                                           ]   
+                           }, 
+                           {
+                            "Etapa":"Etapa 4 - Pre inflorescencia no emergida. Z4",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 41",
+                                               "Descripcion":"Hoja bandera totalmente expandida."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 42-43",
+                                               "Descripcion":"Preinflorescencia ligeramente hinchada."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 44-45",
+                                               "Descripcion":"Detección del 2do entrenudo"
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 36",
+                                               "Descripcion":"- Preinflorescencia totalmente hinchada."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 46-47",
+                                               "Descripcion":"Apertura de la vaina de la hoja bandera."
+                                           },
+                                           {
+                                            "Sub-Etapa":"Z 48-49",
+                                            "Descripcion":"- Aristas visibles."
+                                            }
+                                           ]   
+                           },  
+                           {
+                            "Etapa":"Etapa 5 - Emergencia de la inflorescencia. Z5",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 50-51",
+                                               "Descripcion":"1eras espiguillas visibles."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 52-53",
+                                               "Descripcion":"¼ de la inflorescencia emergida."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 54-55",
+                                               "Descripcion":"- ½ de la inflorescencia emergida."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 56-57",
+                                               "Descripcion":"¾ de la inflorescencia emergida."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 48-49",
+                                               "Descripcion":"Emergencia total"
+                                           }
+                                         
+                                           ]   
+                           },     
+                           {
+                            "Etapa":"Etapa 6 - Antesis. Z6",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 64-65",
+                                               "Descripcion":"1/2 antesis."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 68-69",
+                                               "Descripcion":"Antesis completa."
+                                           }
+                                        ]   
+                           },
+                           {
+                            "Etapa":"Etapa 7 - Grano lechoso. Z7",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 71-72",
+                                               "Descripcion":"Cariopse maduro."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 73-74",
+                                               "Descripcion":"Grano lechoso temprano."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 75-76",
+                                               "Descripcion":"- Grano lechoso medio."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 77-78 ",
+                                               "Descripcion":"Grano lechoso tardío."
+                                           }
+                                           
+                                           ]   
+                           },   
+                           {
+                            "Etapa":"Etapa 8 - Grano pastoso. Z8",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 83",
+                                               "Descripcion":"Temprano."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 85",
+                                               "Descripcion":"Blando (no detiene la impresión de la uña)."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 87",
+                                               "Descripcion":"Duro (detiene la impresión de la uña). Inflorescencia pierde clorofila."
+                                           }
+                                          
+                                           ]   
+                           },       
+                           {
+                            "Etapa":"Etapa 9 - Madurez. Z9",
+                            "Sub-Etapas":[
+                                           {
+                                               "Sub-Etapa":"Z 91",
+                                               "Descripcion":"- Cariopse duro (dificultoso dividir por la uña del pulgar)."        
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 92",
+                                               "Descripcion":"Cariopse duro (no puede ser mellado por la uña del pulgar)."
+                                           },
+                                           {
+                                               "Sub-Etapa":"Z 94",
+                                               "Descripcion":"Sobremadurez, colapso y muerte de la caña."
+                                           },
+                                           {
+                                                "Sub-Etapa":"Z 95",
+                                                "Descripcion":"Dormición."
+                                           },
+                                           {
+                                                "Sub-Etapa":"Z 96",
+                                                "Descripcion":"50% de germinación."
+                                           },
+                                           {
+                                                "Sub-Etapa":"Z 97",
+                                                "Descripcion":"Dormición secundaria inducida."
+                                            },
+                                            {
+                                                 "Sub-Etapa":"Z 98-99",
+                                                "Descripcion":"Perdida de dormición secundaria."
+                                            }
+                                          
+                                           ]   
+                           }                                                                  
+                        ]
+                        }
+                                        ],
+"Oleaginosas_leguminosas": [
+                        {
+             "Girasol": [
+                        {
+                            "Etapa":"VE - Emergencia",
+                            "Descripcion":"El hipocótilo y los cotiledones han emergido sobre la superficie del suelo y la primera hoja verdadera tiene menos de 4 cm de largo."
+                        },
+                        {
+                            "Etapa":"V (N)",
+                            "Descripcion":"Se determina contando el número de hojas verdaderas de longitud superior a 4 cm. ej.: V1, V2, V3, etc. Cuando las hojas se pierden, las cicatrices que dejan en el tallo (excluyendo las del nudo cotiledonal) más las hojas presentes, deben ser contadas para determinar el estado de desarrollo vegetativo."
+                        },
+                        {
+                            "Etapa":"R1",
+                            "Descripcion":"El botón floral comienza a diferenciarse. Visto desde arriba las brácteas inmaduras tienen la apariencia de una estrella de numerosas puntas."
+                        },
+                        {
+                            "Etapa":"R2",
+                            "Descripcion":"El botón floral se elonga entre 0.5 y 2cm por encima de la hoja más cercana inserta en el tallo. Las brácteas están unidas directamente a la parte de atrás de las yemas."
+                        },
+                        {
+                            "Etapa":"R3",
+                            "Descripcion":"El botón floral se elonga mas de 2cm por encima de la hoja más próxima. "
+                        },
+                        {
+                            "Etapa":"R4",
+                            "Descripcion":"- La inflorescencia comienza a abrirse. Vista desde arriba, las flores liguladas aún inmaduras son visibles. "
+                        },
+                        {
+                            "Etapa":"R5",
+                            "Descripcion":"Este estado corresponde al inicio de floración. Se divide en sub-estados dependiendo del porcentaje del área del capítulo que ha completado su floración. Ej.: R5.1, el 10 % de las flores se encuentra en antesis. "
+                        },
+                        {
+                            "Etapa":"R6",
+                            "Descripcion":"La floración es completa y las flores liguladas comienzan a marchitarse."
+                        },
+                        {
+                            "Etapa":"R7",
+                            "Descripcion":"El envés del capítulo comienza a colorearse amarillo pálido."
+                        },
+                        {
+                            "Etapa":"R8",
+                            "Descripcion":"El envés del capítulo es amarillo pero las brácteas permanecen verdes"
+                        },
+                        {
+                            "Etapa":"R9",
+                            "Descripcion":"Las brácteas se tornan amarillas y marrones. La mayor parte del envés del capítulo se ha tornado marrón. Este estado corresponde a madurez fisiológica. "
+                        },
+                        {
+                            "imagen": "/images/girasol.png"
+                        }
+                        ],
+
+                "Soja": [
+                    {
+                        "Etapa":"VE – Emergencia",
+                        "Descripcion":"Se observa el hipocótile en forma de arco, empujando al epicótile y a los cotiledones, haciéndolos emerger sobre la superficie del suelo. ."
+                    },
+                    {
+                        "Etapa":"VC - Etapa cotiledonar",
+                        "Descripcion":"El hipocótile se endereza y cesa su crecimiento. Los cotiledones se despliegan totalmente en el nudo cotiledonal (nudo 0). Hay que tener en cuenta, para considerar este estado, es que en el nudo inmediato superior (nudo 1) los bordes de las hojas unifoliadas no se toquen. A partir de aquí el resto de los estados vegetativos se los identifican con el número de nudos."
+                    },
+                    {
+                        "Etapa":"V1 - (1er nudo)",
+                        "Descripcion":"El par de hojas opuestas unifoliadas están expandida totalmente (nudo 1), y en el nudo inmediato superior se observa que los bordes de cada uno de los foliolos de la 1er hoja trifoliada no se tocan (nudo 2). "
+                    },
+                    {
+                        "Etapa":"V2 - (2do nudo)",
+                        "Descripcion":"La 1er hoja trifoliada está totalmente desplegada (nudo 2), y en el nudo 3 (inmediato superior) los bordes de cada uno de los foliolos de la 2da hoja trifoliada no se están tocando. "
+                    },
+                    {
+                        "Etapa":"V3 - (3er nudo)",
+                        "Descripcion":"La 2da hoja trifoliada está completamente desarrollada en el nudo 3 y en el nudo inmediato superior (nudo 4) los bordes de cada uno de los foliolos de la 3er hoja trifoliada no se tocan."
+                    },
+                    {
+                        "Etapa":"Vn - (“n” número de nudos)",
+                        "Descripcion":"La hoja trifoliada del nudo (n) está expandida totalmente, y en el nudo inmediato superior los bordes de cada uno de los foliolos no se tocan."
+                    },
+                    {
+                        "Etapa":"R1 - Inicio de Floración",
+                        "Descripcion":"Se observa una flor abierta en cualquier nudo del tallo principal"
+                    },
+                    {
+                        "Etapa":"R2 - Floración completa",
+                        "Descripcion":"Se observa una flor abierta en uno de los nudos superiores del tallo principal."
+                    },
+                    {
+                        "Etapa":"R3 - Inicio de formación de vainas",
+                        "Descripcion":"Una vaina de 5 milímetros de largo en uno de los 4 nudos superiores del tallo principal, y con hojas totalmente desplegadas. "
+                    },
+                    {
+                        "Etapa":"R4 - Vainas completamente desarrolladas",
+                        "Descripcion":"Una vaina de 2 cm en uno de los 4 nudos superiores del tallo principal con hojas totalmente desplegadas."
+                    },
+                    {
+                        "Etapa":"R5 - Inicio de formación de semillas",
+                        "Descripcion":"Una vaina, ubicada en uno de los 4 nudos superiores del tallo principal, contiene una semilla de 3 mm de largo. "
+                    },
+                    {
+                        "Etapa":"R6 - Semilla completamente desarrollada",
+                        "Descripcion":"Una vaina, en cualquiera de los 4 nudos superiores del tallo principal, contiene una semilla verde que llena la cavidad de dicha vaina, con hojas totalmente desplegadas.  "
+                    },
+                    {
+                        "Etapa":"R7 - Inicio de maduración",
+                        "Descripcion":"Una vaina normal en cualquier nudo del tallo principal ha alcanzado su color de madurez -madurez fisiológica"
+                    },
+                    {
+                        "Etapa":"R8 - Maduración completa",
+                        "Descripcion":"El 95 % de las vainas de la planta han alcanzado el color de madurez. Se completa el ciclo ontogénico, culminando con la maduración iniciada en la etapa anterior. "
+                    },
+                    {
+                        "imagen": "/images/soja.png"
+                    }
+
+                ],
+                        
+                "Mani": [
+                    {
+                        "Etapa":"VE - Emergencia",
+                        "Descripcion":"El hipocotilo con los cotiledones atraviesan la superficie del suelo. "
+                    },
+                    {
+                        "Etapa":"V1 - (1er nudo)",
+                        "Descripcion":"Plántula con un nudo desarrollado con su hoja tetrafoliada y foliolos horizontales."
+                    },
+                    {
+                        "Etapa":"Vn - (“n” número de nudos)",
+                        "Descripcion":"desarrollados sobre el eje principal de la planta. Considerando para ello como último nudo, al superior que presente una hoja tetrafoliada desarrollada con sus foliolos horizontales."
+                    },
+                    {
+                        "Etapa":"R1 - Inicio de Floración",
+                        "Descripcion":"Las plantas tienen o han tenido una flor abierta en cualquier nudo de la planta. "
+                    },
+                    {
+                        "Etapa":"R2 - Inicio de formación del ginóforo o un ginóforo alargado",
+                        "Descripcion":"Las plantas, al menos, tienen un clavo en proceso de elongación y sin introducirse en el suelo"
+                    },
+                    {
+                        "Etapa":"R3 - Inicio de formación de cajas ",
+                        "Descripcion":"Las plantas tienen un clavo elongado, con el extremo del ovario de un diámetro igual a dos veces del diámetro del clavo."
+                    },
+                    {
+                        "Etapa":"R4 - Caja completamente desarrollada",
+                        "Descripcion":"Se observa una primera caja que ha llegado a su máximo tamaño"
+                    },
+                    {
+                        "Etapa":"R5 - Inicio de formación de semillas",
+                        "Descripcion":"La mejor forma de determinar esta etapa es haciendo cortes transversales a las cajas, y es cuando las mismas tienen por lo menos un fruto donde, a través del corte, se puede observar el crecimiento de los cotiledones seminales."
+                    },
+                    {
+                        "Etapa":"R6 - Semillas completas",
+                        "Descripcion":"Se observa una caja cuya cavidad esta aparentemente llena por las semillas."
+                    },
+                    {
+                        "Etapa":"R7 - Inicio de maduración",
+                        "Descripcion":"Las plantas tienen por lo menos una caja madura, con la parte interna del pericarpo manchada."
+                    },
+                    {
+                        "Etapa":"R8 - Madurez de cosecha o arrancado",
+                        "Descripcion":"Cuando se alcanza el % de cajas maduras que indican el momento de arrancado, donde los frutos presentan, en el interior del pericarpo, una coloración canela o marrón y el tegumento seminal manifiesta un cambio de color hasta alcanzar el característico del cultivar."
+                    },
+                    {
+                        "imagen": "/images/mani.png"
+                    }
+                    ],
+                "Garbanzo": [
+                    {
+                        "Etapa":"V0",
+                        "Descripcion":"1er nudo -visible debajo del suelo- donde se insertan las hojas cotiledonares opuestas."
+                    },
+                    {
+                        "Etapa":"VE",
+                        "Descripcion":"Emergencia de plántula. 2do nudo con catáfilas tridentadas -visible debajo del suelo-"
+                    },
+                    {
+                        "Etapa":"V1",
+                        "Descripcion":"1er nudo -visible sobre el suelo- donde se despliega la 1er hoja multifoliada. "
+                    },
+                    {
+                        "Etapa":"V2",
+                        "Descripcion":"2do nudo -visible sobre el suelo- donde se inserta la 2da hoja multifoliada."
+                    },
+                    {
+                        "Etapa":"V3",
+                        "Descripcion":" 3er nudo -visible sobre el suelo- donde se inserta la 3er hoja multifoliada."
+                    },
+                    {
+                        "Etapa":"Vn",
+                        "Descripcion":"“n” nudos -visibles sobre el suelo- donde se insertan “n” hojas multifoliadas desarrolladas."
+                    },
+                    {
+                        "Etapa":"R1 ",
+                        "Descripcion":"Se inicia la floración y se observa una flor abierta en cualquier parte de la planta."
+                    },
+                    {
+                        "Etapa":"R2",
+                        "Descripcion":"La mayoría de las flores están abiertas."
+                    },
+                    {
+                        "Etapa":"R3",
+                        "Descripcion":"- Inicio de formación de vainas."
+                    },
+                    {
+                        "Etapa":"R4",
+                        "Descripcion":"Las vainas han alcanzado su tamaño máximo, y se las visualiza planas."
+                    },
+                    {
+                        "Etapa":"R5",
+                        "Descripcion":"Se inicia la formación de grano, que comienza a ocupar el lugar que le corresponde dentro de la cavidad de la vaina."
+                    },
+                    {
+                        "Etapa":"R5",
+                        "Descripcion":"Se inicia la formación de grano, que comienza a ocupar el lugar que le corresponde dentro de la cavidad de la vaina."
+                    },
+                    {
+                        "Etapa":"R6",
+                        "Descripcion":"Todos los granos ocupan la cavidad de la vaina, y esta comienza a redondearse."
+                    },
+                    {
+                        "Etapa":"R7",
+                        "Descripcion":"Las hojas comienzan a virar de color y el 50% de las vainas se vuelven de color amarillo."
+                    },
+                    {
+                        "Etapa":"R8",
+                        "Descripcion":"El 90 % de las vainas de la planta son de color amarillo-marrón."
+                    },
+                    {
+                        "imagen": "/images/garbanzo.png"
+                    }
+                            ]
+                        }
+                ]
+}

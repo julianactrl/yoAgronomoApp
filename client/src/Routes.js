@@ -8,6 +8,7 @@ import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa.js';
 import IntroPage from "./components/IntroPage/IntroPage.jsx";
 import News from './components/News/News.js';
 import UpdateEmpresa from './components/UpdateEmpresa/UpdateEmpresa';
+import AgroConsultas from './components/AgroConsultas/AgroConsultas'
 
 export default function Routes() {
   return (
@@ -42,6 +43,9 @@ export default function Routes() {
       </Route>
       <Route exact path='/news'>
         <News />
+      </Route>
+      <Route exact path='/agroconsultas'>
+        <AgroConsultas />
       </Route>
 
     </Switch>
