@@ -294,18 +294,84 @@
                 "5":"-Bipiridilos -> Paraquat -> Diquat"
                 },
                 "InhibidoresFotosistemaII":{
-                    "1":"Se inhibe la síntesis de glutamina (fuente de amonio en muchas enzimas)", 
-                    "2":"No selectivos", 
-                    "3":"Desecante", 
-                    "4":"Post emergente", 
-                    "5":"Sistémico (de transporte limitado)",
-                    "6":"Para barbechos o para maíz Liberty Link", 
-                    "7":"Acción de 2 a 5 días -Ácidos fosfínicos -> Glufosinato de amonio"  
+                    "1":"Se interrumpe el flujo de electrones inhibiendo la acción de la quinona. El herbicida se une a la proteína D1 a la cual se debería unir la quinona para el transporte de electrones.", 
+                    "2":"Controlan latifoliadas y algunas gramíneas", 
+                    "3":"No existe resistencia a estos grupos químicos", 
+                    "4":"Para barbecho-Triazinas -> Atrazina -Triazinonas -> Metribuzin -Ureas -> Linuron -> Diuron -Benzotiadiazinas -> Bentazón -Benzonitrilos -> Bromoxinil"
                 },
-                "InhibidoresALS":{
-                    "1":"Inhiben la enzima ALS, que participa en la biosíntesis de aminoácidos de cadena larga como la leucina, isoleucina y valina.-Sulfonilureas  -Clorimurón  -Metsulfurón  -Nicosulfurón (Controlan yuyo colorado (Nicosulfurón alepos), Post emergentes, Sistémicos, Ingresan por raíz y follaje Residualidad)-Imidazolinonas -> Imazetapir -> Imazapir  Triazolpirimidinas -> Diclosulam Pre emergente,Absorbido por raíz,Para soja (en pre siembra, pre y post emergencia) Control de latifoliadas (rama negra),->Flumetsulam Pre y post emergencia de malezas (pre emergencia del cultivo)Absorbido por raíz y follaje Para alfalfa, soja y maíz,Control de latifoliadas (yuyo colorado, quinoa, etc)"  
-                }  
+                "InhibidoresPPO":{
+                    "1":"Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas." ,
+                    "2":"-Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazi -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil" 
+                },
+                "InhibidoresSintesisCarotenoides":{
+                    "InhibidoresPDS":{
+                    "1":"Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema)." ,
+                    "2":"Pre emergentes" ,
+                    "3":"Sistémicos absorbidos por raíz",
+                    "4":"Controlan latifoliadas y algunas gramíneas",
+                    "5":"Para girasol, soja, maíz y trigo",
+                    "6":"Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican"
+                }
+            },
+            "InhibidoresPPD":{ 
+                "1":"Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides." ,
+                "3":"Controlan latifoliadas y gramíneas anuales-Isoxazolidinonas -> Clomazone-Isoxazoles -> Isoxaflutole-Triketonas -> Biciclopirona-Ciclohexanona -> Mesotrione"
+        }       
+            },
+        "InhibidoresClorofila":{
+            "InhibidoresPPO":{
+            "1":"Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas.", 
+            "2":"-Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazin -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil"
+        }
+        
+        },
+        "InhibidoresSC":{
+            "InhibidoresPDS":{
+            "1":"Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema).", 
+            "2":"Pre emergentes",
+            "3":"Sistémicos absorbidos por raíz",
+            "4":"Controlan latifoliadas y algunas gramíneas", 
+            "5":"Para girasol, soja, maíz y trigo",
+            "6":"Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican" 
+        },
+        "InhibidoresHPPD":{
+            "1":"Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides", 
+            "2":"Controlan latifoliadas y gramíneas anuales -Isoxazolidinonas ->Clomazone -Isoxazoles -> Isoxaflutole -Triketonas -> Biciclopirona -Ciclohexanona -> Mesotrione"
+        }
+        
+        }
+    },
+    "AfectanCrecimientoYdC":{
+        "InhibidoresFotosintesis":{
+            "ReguladoresCrecimientoHormonales":{
+            "1":"Interferencia en el metabolismo de los ácidos grasos", 
+            "2":"El ácido indol acético se une al TIR1 (represor que evita acumulación de AIA). Al inhibir este represor el herbicida, se induce a la producción de grandes cantidades de ABA y etileno, generando epinastias, daño de tejidos, senescencia, malformaciones, detención del crecimiento", 
+            "3":"Control de latifoliadas", 
+            "4":"En cereales de invierno se emplean en macollaje (pueden generar posterior deformación de la espiga).", 
+            "5":"En maíz entre 4 y 6 hojas.",
+            "6":"Son post emergencia de maleza.", 
+            "7":"Se absorben por follaje.", 
+            "8":"Sistémicos.-Ácidos fenóxidos -> 2,4D ->2,4DB-Ácidos benzoicos -> Dicamba -Ácidos picolínicos -> Piclor -> Fluroxipi -> Aminopyralid"
+            },
+            "InhibidoresMitosis":{
+                "1":"Inhibidores de la síntesis de microtúbulos", 
+                "2":"Se inhibe la acción de la tubulina, no se polimerizan los microtúbulos, los cromosomas no migran, no hay división celular.", 
+                "3":"Graminicidas y control de hoja ancha.", 
+                "4":"Pre emergentes.",
+                "5":"Sistémicos.",
+                "6":"Absorben por raíz.",
+                "7":"Trifluralina debe ser incorporada por fotodescomposición.-Dinitroanilinas -> Trifluralina -> Pendimentalin -Cloroacetamidas  -> Alaclor -> Metolacloro -> S-metolacloro -> Acetoclor"
+            },
+            "InhibidoresDHP":{
+                "1":"Inhiben la división celular y producción de ácido fólico." ,
+                "2":"Post emergentes" ,
+                "3":"Absorben por raíz, tallo y hoja", 
+                "4":"Control de latifoliadas y gramíneas",
+                "5":"Sistémicos.",
+                "6":"Para caña de azúcar. -Carbamatos -> Asulam "
             }
         }
     }
+    }
+    
 }]
