@@ -4,6 +4,9 @@ import styles from './styles.module.css'
 import { logout } from '../../redux/actions/userActions';
 import userReducer from '../../redux/reducers/userReducer'
 import jwt_decode from "jwt-decode";
+import { Link } from 'react-router-dom'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUserCog} from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -28,16 +31,12 @@ export default function DashBoardProfile() {
         return (
             <div className={styles.perfilDeploy}>
                 <button className={styles.perfilbtn}>
-                    <img src={'https://lh3.googleusercontent.com/ogw/ADea4I4TWEqI_V0htMjADTsJbQWWS1lS2Thbn7F5PjN7vg=s83-c-mo'} className={styles.perfilimg} onClick={()=>!active?setActive(true):setActive(false)}/>
+                    <img src={'https://icon-library.com/images/profile-icon-white/profile-icon-white-3.jpg'} className={styles.perfilimg} onClick={()=>!active?setActive(true):setActive(false)}/>
                 </button>
-                <h3 className={styles.title}>
-                {decoded.fullName} 
-                </h3>
-                <h3>Email: 
-                    {/* {currentUser.email} */}
-                    </h3>
+                <h3 className={styles.title}>{decoded.fullName}</h3>
+                <h3>{decoded.email}</h3>
                 <h3 className={styles.titleLogout} onClick={handleLogout}>CERRAR SESION</h3>
-            </div>  
+                <Link to={`/user/update/${decoded.id}`}><h3 className={styles.settings}><FontAwesomeIcon icon={faUserCog}/></h3></Link>            </div>  
         )
     }
 
@@ -47,8 +46,7 @@ export default function DashBoardProfile() {
         <div className={styles.perfilbtncont}>  
            
             {active ?renderPerfil(): <button className={styles.perfilbtn}>
-                
-                <img src={'https://lh3.googleusercontent.com/ogw/ADea4I4TWEqI_V0htMjADTsJbQWWS1lS2Thbn7F5PjN7vg=s83-c-mo'} className={styles.perfilimg} onClick={()=>{!active?setActive(true):setActive(false)}}/>
+                <img src={'https://icon-library.com/images/profile-icon-white/profile-icon-white-3.jpg'} className={styles.perfilimg} onClick={()=>{!active?setActive(true):setActive(false)}}/>
             </button>}
             
         </div>     
