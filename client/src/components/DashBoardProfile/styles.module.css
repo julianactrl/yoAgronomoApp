@@ -111,12 +111,22 @@
     color: white;
     font-size: 130%;
     margin-top: 40px;
+    margin-left: 25px;
+}
+.email{
+    cursor: default;
+    color: white;
+    font-size: 130%;
+    margin-top: 10px;
+    margin-left: 25px;
+
 }
 
 .settings{
     margin-left: 310px;
     margin-top: -40px;
     color: white;
+    
 }
 .settings:hover{
     color: rgb(69, 236, 27);
@@ -130,6 +140,7 @@
 .titleLogout{
     color: white;
     height: 50%;
+    margin-left: 25px;
 }
 .titleLogout:hover{
     cursor: pointer;
