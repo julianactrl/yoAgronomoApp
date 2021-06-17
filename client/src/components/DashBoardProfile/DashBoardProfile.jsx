@@ -34,7 +34,7 @@ export default function DashBoardProfile() {
                     <img src={'https://icon-library.com/images/profile-icon-white/profile-icon-white-3.jpg'} className={styles.perfilimg} onClick={()=>!active?setActive(true):setActive(false)}/>
                 </button>
                 <h3 className={styles.title}>{decoded.fullName}</h3>
-                <h3>{decoded.email}</h3>
+                <h3 className={styles.email}>{decoded.email}</h3>
                 <h3 className={styles.titleLogout} onClick={handleLogout}>CERRAR SESION</h3>
                 <Link to={`/user/update/${decoded.id}`}><h3 className={styles.settings}><FontAwesomeIcon icon={faUserCog}/></h3></Link>            </div>  
         )
