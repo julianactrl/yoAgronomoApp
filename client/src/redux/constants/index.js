@@ -9,6 +9,8 @@ export const USER_LOGIN_ERROR="USER_LOGIN_ERROR";
 export const USER_LOGOUT="USER_LOGOUT";
 export const USER_LOGOUT_ERROR = "USER_LOGOUT_ERROR";
 export const DELETE_ACCOUNT = "DELETE_ACCOUNT"
+export const GET_USER = "GET_USER"
+export const LOADING_USER = "LOADING_USER"
 
 
 
