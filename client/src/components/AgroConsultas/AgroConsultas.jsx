@@ -1,30 +1,30 @@
 import React, {useState,useEffect} from 'react';
-import etapasDesarrollo from './etapasDesarrollo.json';
+
 import fhi from './fhi.json';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
 import {connect} from 'react-redux'
-import etapasmaiz from './etapasmaiz.json'
-import etapassorgo from './etapassorgo.json'
+import etapasDesarrollo2 from './etapasDesarrollo2.json'
+import funguicidas from './funguicidas.json'
+
 import etapascerealesotoñal from './etapascerealesotoñal.json'
-import etapasgirasol from './etapasgirasol.json'
-import etapassoja from './etapassoja.json'
-import etapasmani from './etapasmani.json'
-import etapasgarbanzo from './etapasgarbanzo.json'
-import { getFhi } from '../../redux/actions/agroConsultasActions';
+
+
+
+import { getFhi} from '../../redux/actions/agroConsultasActions';
 
 function AgroConsultas(props){
     
   
     const [input,setInput] = useState('')
 
-    const [maiz, setMaiz] = useState(etapasmaiz.Maiz)
-    const [sorgo, setSorgo] = useState(etapassorgo.Sorgo)
-    const [otoñal, setOtoñal] = useState(etapascerealesotoñal.CerealesDeSiembraOtoñal)
-    const [girasol, setGirasol] = useState(etapasgirasol.Girasol)
-    const [soja, setSoja] = useState(etapassoja.Soja)
-    const [mani, setMani] = useState(etapasmani.Mani)
-    const [garbanzo, setGarbanzo] =useState(etapasgarbanzo.Garbanzo)
+    const [etapas, setEtapas] = useState(etapasDesarrollo2.etapas)
+    const [funguicidastate, setFunguicidas] = useState(funguicidas.funguicidas)
+
+    
+   
+    
+  
 
     const [filteredCategory, setFilteredCategory] = useState([])
 
@@ -33,27 +33,13 @@ function AgroConsultas(props){
 //         setFilteredCategory(maiz)
 //     }
 // }
-function selectMaiz(e){
-    setFilteredCategory(maiz)
+function selectEtapas(e){
+    setFilteredCategory(etapas)
 }
-function selectSorgo(e){
-    setFilteredCategory(sorgo)
+function selectFunguicidas(e){
+    setFilteredCategory(funguicidastate)
 }
-function selectOtoñal(e){
-    setFilteredCategory(otoñal)
-}
-function selectGirasol(e){
-    setFilteredCategory(girasol)
-}
-function selectSoja(e){
-    setFilteredCategory(soja)
-}
-function selectMani(e){
-    setFilteredCategory(mani)
-}
-function selectGarbanzo(e){
-    setFilteredCategory(garbanzo)
-}
+
 
 // function handleFhi(){
 //     props.getFhi()
@@ -73,6 +59,7 @@ function handleChange(e){
 
 useEffect(() => {
     props.getFhi()
+  
     return () => {
     }
   }, [])
@@ -93,27 +80,13 @@ useEffect(() => {
                 <button onClick={e => handleFhi(e)} className={styles.categoria} >
                         F.H.I
                     </button>
-                    <button onClick={(e)=>selectMaiz(e)} className={styles.categoria} >
-                        Escalas Fenológicas Maíz
+                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >
+                        Escalas Fenológicas 
                     </button>
-                    <button onClick={(e)=>selectSorgo(e)} className={styles.categoria}>
-                        Escalas Fenológicas Sorgo
+                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} >
+                        Funguicidas 
                     </button>
-                    <button onClick={(e)=>selectOtoñal(e)} className={styles.categoria} >
-                        Escalas Fenológicas Cereales de siembra Otoñal
-                    </button>
-                    <button onClick={(e)=>selectGirasol(e)} className={styles.categoria} >
-                        Escalas Fenológicas Girasol
-                    </button>
-                    <button onClick={(e)=>selectSoja(e)} className={styles.categoria} >
-                        Escalas Fenológicas Soja
-                    </button>
-                    <button onClick={(e)=>selectMani(e)} className={styles.categoria} >
-                        Escalas Fenológicas Mani
-                    </button>
-                    <button onClick={(e)=>selectGarbanzo(e)} className={styles.categoria} >
-                        Escalas Fenológicas Garbanzo
-                    </button>
+                   
                    
                     
                 </div>
@@ -124,10 +97,17 @@ useEffect(() => {
                     filteredCategory.map(e=>(
                         <div className={styles.resultados}>
                         
-                        
-                        <p>{e.Etapa}</p>
+                        {/* ESCALAS FENOLOGICAS */}
+                        <p>{e.cereal}</p>
+                        <p>{e.title}</p>
+                        <p>{e.subtitle}</p>
                         <p>{e.Descripcion}</p>
                         <img src={e.imagen}/>
+
+                        {/* FUNGUICIDAS */}
+                        <p>{e.type}</p>
+                        <p>{e.subtype}</p>
+                        <p>{e.props}</p>
                         </div>
                     ))
                 }
@@ -140,12 +120,14 @@ useEffect(() => {
 function mapStateToProps(state){
     return {
         dataAgro: state.agroConsultasReducer.fhiData,
+       
     }
 }
 
 function mapDispatchToProps(dispatch){
     return{
-        getFhi: () => dispatch(getFhi())
+        getFhi: () => dispatch(getFhi()),
+        
     }
 }
 
