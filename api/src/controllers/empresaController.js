@@ -3,7 +3,6 @@ const { Op } = require("sequelize");
 
 const getEmpresaByName = async (req, res, next) => {
   const nameEmpresa = req.query.name.toLocaleLowerCase();
-  // const {nameEmpresa} = req.params
   try {
     let empresaOk = await Empresa.findAll({
       where: {
@@ -33,21 +32,9 @@ const getAllEmpresas = async (req, res, next) => {
   }
 };
 
-// const getEmpresaById = async (res, req, next) => {
-//   try {
-//     const { id } = req.params;
-//     const empresa = await Empresa.findOne({ where: { id: id } });
-//     if (!empresa) {
-//       res.send("empresa no encontrada");
-//     }
-//     return res.json(empresa);
-//   } catch (err) {
-//     res.status(500).send(next);
-//   }
-// };
+
 const getEmpresaById = async (req, res) =>{
   const {id} = req.params
-  // const empresa = await Empresa.findOne({ where: { id: id } })
   const empresa = await Empresa.findByPk(id)
   const empresadb ={
     id: empresa.id,

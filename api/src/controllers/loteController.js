@@ -1,4 +1,4 @@
-const {Lote, Empresa} = require("../db");
+const {Lote, Empresa, ManejoDeLote} = require("../db");
 const { Op } = require("sequelize");
 
 const getAllLotes = async (req,res,next) => {
@@ -126,6 +126,81 @@ const updateLote = async(req,res,next) => {
         })
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const createManejo = async (req,res,next) => {
+    const { recOrObserv, description, image, loteId} = req.body;
+    try{
+        await ManejoDeLote.create({
+            recOrObserv,
+            description,
+            image,
+            loteId
+        })
+        res.status(200).json("fue creado con exito");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(next);
+    }
+  };
+
+  const updateManejo = async(req,res,next) => {
+    const { id } = req.params;
+    const { recOrObserv, description, image } = req.body;
+
+    let ManejoFind = await ManejoDeLote.findAll({
+        where: {
+            id
+        }
+    })
+    if (ManejoFind.length > 0) {
+        ManejoFind.map(async ManejoDeLote => {
+            await ManejoDeLote.update({
+                recOrObserv,
+                description,
+                image,
+            });
+        });
+        return res.json({
+            message: "Manejo updated",
+        })
+    }
+}
+
+const getAllManejo = async (req,res,next) => {
+    const {id} = req.params
+    try {
+        const Manejo = await ManejoDeLote.count();
+        if (Manejo !== 0) {
+          res.status(201).json(await ManejoDeLote.findAll({
+              include: {
+                  model: Lote,
+                  where :{
+                      id
+                  }
+              }
+          }));
+        }
+      } catch (e) {
+        res.status(404).send(next);
+      }
+}
+  const deleteManejo = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await ManejoDeLote.destroy({
+        where: {
+          id,
+        },
+      });
+      res.json({ message: "Manejo Eliminado" });
+    } catch (e) {
+      res.status(500).send(next);
+    }
+  };
+  
 
 module.exports = {
     getAllLotes,
@@ -133,5 +208,9 @@ module.exports = {
     getLoteById,
     deleteLote,
     createLote,
-    updateLote
+    updateLote,
+    createManejo,
+    updateManejo,
+    getAllManejo,
+    deleteManejo,
   }
