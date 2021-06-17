@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import etapasDesarrollo from './etapasDesarrollo.json';
 import fhi from './fhi.json';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
+import {connect} from 'react-redux'
 import etapasmaiz from './etapasmaiz.json'
 import etapassorgo from './etapassorgo.json'
 import etapascerealesotoñal from './etapascerealesotoñal.json'
@@ -10,10 +11,13 @@ import etapasgirasol from './etapasgirasol.json'
 import etapassoja from './etapassoja.json'
 import etapasmani from './etapasmani.json'
 import etapasgarbanzo from './etapasgarbanzo.json'
+import { getFhi } from '../../redux/actions/agroConsultasActions';
 
-function AgroConsultas(){
+function AgroConsultas(props){
     
   
+    const [input,setInput] = useState('')
+
     const [maiz, setMaiz] = useState(etapasmaiz.Maiz)
     const [sorgo, setSorgo] = useState(etapassorgo.Sorgo)
     const [otoñal, setOtoñal] = useState(etapascerealesotoñal.CerealesDeSiembraOtoñal)
@@ -51,14 +55,44 @@ function selectGarbanzo(e){
     setFilteredCategory(garbanzo)
 }
 
+// function handleFhi(){
+//     props.getFhi()
+// }
+
+const titles= props.dataAgro
+
+function handleFhi(e){
+    console.log(props.dataAgro)
+}
+
+function handleChange(e){
+    console.log(e.target.value)
+    setInput(e.target.value)
+}
+
+
+useEffect(() => {
+    props.getFhi()
+    return () => {
+    }
+  }, [])
+
     return(
         <div>
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
                 <div className={styles.categorias} id='categorias'>
+                <form className={styles.form}>
+                <input className={styles.input} type="text"
+                placeholder='Tu consulta...'
+                onChange={e=> handleChange(e)} />
+               <button className={styles.btn} type= 'submit'>Buscar</button>
+                </form>
                     
                    
-                   
+                <button onClick={e => handleFhi(e)} className={styles.categoria} >
+                        F.H.I
+                    </button>
                     <button onClick={(e)=>selectMaiz(e)} className={styles.categoria} >
                         Escalas Fenológicas Maíz
                     </button>
@@ -103,4 +137,17 @@ function selectGarbanzo(e){
     )
 }
 
-export default AgroConsultas;
+function mapStateToProps(state){
+    return {
+        dataAgro: state.agroConsultasReducer.fhiData,
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return{
+        getFhi: () => dispatch(getFhi())
+    }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(AgroConsultas);
