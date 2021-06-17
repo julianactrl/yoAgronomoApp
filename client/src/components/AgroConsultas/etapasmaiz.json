@@ -1,0 +1,71 @@
+{
+
+"Maiz":[
+    
+            {
+            "Etapa": "VE - Emergencia",
+            "Descripcion": "El coleoptile alcanza la superficie del suelo y se establece la plántula."
+            },
+            {
+            "Etapa": "V1 - Collar de 1era hoja",
+            "Descripcion": "La hoja inferior (corta con punta redondeada) está completamente desplegada, con collar y lígula visible."
+            },
+            {
+            "Etapa": "V3 - Collar de 3er hoja",
+            "Descripcion": "Tres hojas completamente desplegadas. El punto de crecimiento se mantiene por debajo de la superficie del suelo."
+            },
+            {
+            "Etapa":"V5 - Collar de 5ta hoja",
+             "Descripcion": "Cinco hojas completamente desplegadas. El punto de crecimiento se acerca a la superficie del suelo."
+            },
+             {
+            "Etapa":"V6 - Collar de 6ta hoja",
+            "Descripcion": "Seis hojas completamente desarrolladas. El ápice de crecimiento está por encima de la superficie del suelo."
+            },
+            {
+            "Etapa":"V7 - Collar de 7ma hoja",
+            "Descripcion": "Siete hojas completamente desplegadas."
+            },
+            {
+            "Etapa":"V10 - Collar de 10ma hoja",
+            "Descripcion": "Diez hojas completamente desarrolladas."
+            },
+            {
+            "Etapa":"Vn - Collar de “n” hojas",
+            "Descripcion": ". “n” ésima hoja completamente desplegada, con collar y lígula visible. VT - Antesis. Aparición de la panoja con liberación de polen."
+            },
+            {
+            "Etapa":"VT - Antesis",
+            "Descripcion": "Aparición de la panoja con liberación de polen."
+             },
+             {
+            "Etapa":"R1 - Silking",
+            "Descripcion": " Se produce la emergencia de los estigmas que capturan los granos de polen."
+            },
+            {
+            "Etapa":"R2 - Ampolla o Blister",
+            "Descripcion": "Los granos son de color blanco asemejándose a una ampolla."
+             },
+            {
+            "Etapa":"R3 - Grano lechoso",
+            "Descripcion": "Los granos son de color amarillo en la parte exterior con un interior líquido blanco lechoso."
+            },
+            {
+            "Etapa":"R4 - Grano pastoso",
+            "Descripcion": "El fluido en el endosperma se ha espesado hasta obtener una consistencia pastosa. La mazorca es de color blanco cuando se quitan los granos. La humedad del grano es de aproximadamente el 70%."
+            },
+            {
+            "Etapa":"R5 - Grano Dentado",
+            "Descripcion": "La mazorca es de color rojo oscuro. Comienza el secado del grano formándose, en la parte superior, una capa dura de color blanco de almidon, que continua hacia la mazorca. La humedad del grano es de aproximadamente el 55%. "
+            },
+            {
+            "Etapa":"R6 - Madurez Fisiologica",
+            "Descripcion": "Todos los granos han alcanzado máximo peso seco. Una capa de color negro o marrón se ha formado en la porciòn del grano que se une a la mazorca, lo que indica que la madurez fisiológica se ha alcanzado. El contenido de humedad del grano oscila entre el 30-35% en esta etapa."
+            },
+            {
+            "imagen": "/images/maiz.png"
+            }
+    ]
+    
+    
+}
