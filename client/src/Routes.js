@@ -13,6 +13,7 @@ import UpdateProfile from "./components/UpdateProfile/updateProfile";
 
 import LoteHome from "./components/LoteHome";
 import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
+import Map from './components/Map/Map.js';
 
 
 
@@ -59,6 +60,9 @@ export default function Routes() {
       </Route>
       <Route exact path='/news'>
         <News />
+      </Route>
+      <Route exact path='/map'>
+        <Map />
       </Route>
 
     </Switch>
