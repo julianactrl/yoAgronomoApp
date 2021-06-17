@@ -1,3 +1,4 @@
+
 import React from "react";
 import DashBoard from "./components/DashBoard/DashBoard";
 import { Route, Switch,Link } from "react-router-dom";
@@ -8,7 +9,9 @@ import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa.js';
 import IntroPage from "./components/IntroPage/IntroPage.jsx";
 import News from './components/News/News.js';
 import UpdateEmpresa from './components/UpdateEmpresa/UpdateEmpresa';
-import AgroConsultas from './components/AgroConsultas/AgroConsultas'
+import LoteHome from "./components/LoteHome";
+
+
 
 export default function Routes() {
   return (
@@ -37,19 +40,18 @@ export default function Routes() {
       <Route exact path="/home">
         <DashBoard />
       </Route>
-      
+
+      <Route exact path='/lote/:id'>
+        <LoteHome id={window.location.pathname.split('/')[2]} />
+      </Route>
+  
       <Route  path="/weather">
         <Weather />
       </Route>
       <Route exact path='/news'>
         <News />
       </Route>
-      <Route exact path='/agroconsultas'>
-        <AgroConsultas />
-      </Route>
 
     </Switch>
     );
   }
-
-      
