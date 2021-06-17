@@ -1,142 +1,142 @@
-[{ 
-    "Funguicidas": {
-        "InhibidoresMSA": {
-            "cupricosAzufrados": {
-                "1": "Desnaturalizan enzimas",
-                "2": "Inorgánicos",
-                "3": "Protectores de contacto",
-                "4": "Para enfermedades fúngicas y bacterianas en cultivos intensivos",
-                "5": "Pueden generar fitotoxicidad foliar",
-                "6": "No generan resistencia",
-                "7": "Oxido cuproso / Azufre elemental"
-            },
-            "Ditiocarbamatos": {
-                "1": "Inactivan enzimas y aminoácidos",
-                "2": "Orgánicos",
-                "3": "Protectores de contacto",
-                "4": "Thiram -> importante para tratamiento de semillas contra enfermedades de suelo",
-                "5": "Mancozeb -> muy utilizado como protector foliar en intensivos"
-            },
-            "Ftalamidas": {
-                "1": "Afectan a la respiración celular inhibiendo enzimas",
-                "2": "Protectores de contacto",
-                "3": "Orgánicos",
-                "4": "Captan -> protector foliar contra tizón, roya, viruela en intensivos"
-            },
-            "Fenipiridinamidas": {
-                "1": "Inhibidores de enzimas",
-                "2": "Protectores de contacto",
-                "3": "Orgánicos",
-                "4": "Fluazinan para múltiples enfermedades de papa"
-            }
-        },
-        "InhibidoresQuinasa": {
-            "Dicarboximidas": {
-                "1": "Bloquean la síntesis de ADN inhibiendo la germinación de esporas e hifas",
-                "2": "Protectores de contacto",
-                "3": "Iprodione -> curasemillas de trigo, foliar en intensivos (hongos de suelo, podredumbre y mohos)",
-                "4": "Procimedone -> contra Sclerotinia y Botrytis en girasol e intensivos"
-            },
-            "Quinolinas": {
-                "1": "Protectores de contacto",
-                "2": "Quinoxifen -> para oídio de la vid (inhibe la formación del apresorio del hongo)"
-            },
-            "Fenilpirroles": {
-                "1": "Protectores de contacto",
-                "2": "Fludioxinil -> para hongos de suelo en papa y frutales. Como tratamiento de semillas y para post cosecha."
-            }
-        },
-        "InhibidoresSDL": {
-            "AromaticosClorados": {
-                "1": "Producen una peroxidación de lípidos",
-                "2": "Protectores de contacto",
-                "3": "Dicloran/ PCNB -> contra Botrytis y Sclerotinia en cítricos, hortalizas, algodón. Como curasemillas o aplicado al suelo."
-            },
-            "Quinolinas": {
-                "1": "Protectores de contacto",
-                "2": "Quinoxifen -> para oídio de la vid (inhibe la formación del apresorio del hongo)"
-            },
-            "Fenilpirroles": {
-                "1": "Protectores de contacto",
-                "2": "Fludioxinil -> para hongos de suelo en papa y frutales. Como tratamiento de semillas y para post cosecha."
-            }
-        },
-        "InhibidoresRespiracion": {
-            "Estrobilurinas": {
-                "1": "Intervienen en el complejo III citocromo reductasa.",
-                "2": "Curativos/preventivos",
-                "3": "Acción translaminar (mesosistémicos)",
-                "4":"Aplicaciones preventivas o apenas se observan los síntomas, siempre en mezclas.",
-                "5":"Efecto reverdecedor",
-                "6":"Funcionan contra Oomycetes",
-                "7":"Azoxystrobina -> contra viruela, carbón, roya, tizón, etc. en soja, trigo y maíz",
-                "8":"Picoxystrobin / Pyraclostrobin -> contra manchas, royas, oídios en soja, trigo y maíz"
-            },
-            "Carboxamidas": {
-                "1": "Inhiben la acción de la enzima succínico – deshidrogenasa",
-                "2": "Curativos",
-                "3":"Sistemicos",
-                "4":"Como tratamiento de semillas y para aplicación foliar",
-                "5":"Carboxin  contra carbones y royas en soja, trigo y maíz"
-            }
-        },
-        "InhibidoresMitosis": {
-            "Benzimidazoles": {
+{"results":[    
+    [{"Funguicidas": [{
+        "InhibidoresMSA": [{
+            "cupricosAzufrados": [
+                "Desnaturalizan enzimas",
+                "Inorgánicos",
+                "Protectores de contacto",
+                "Para enfermedades fúngicas y bacterianas en cultivos intensivos",
+                "Pueden generar fitotoxicidad foliar",
+                "No generan resistencia",
+                "Oxido cuproso / Azufre elemental"
+            ],
+            "Ditiocarbamatos": [
+                "Inactivan enzimas y aminoácidos",
+                "Orgánicos",
+                "Protectores de contacto",
+                "Thiram -> importante para tratamiento de semillas contra enfermedades de suelo",
+                "Mancozeb -> muy utilizado como protector foliar en intensivos"
+            ],
+            "Ftalamidas": [{
+                "a": "Afectan a la respiración celular inhibiendo enzimas",
+                "b": "Protectores de contacto",
+                "c": "Orgánicos",
+                "d": "Captan -> protector foliar contra tizón, roya, viruela en intensivos"
+            }],
+            "Fenipiridinamidas": [{
+                "a": "Inhibidores de enzimas",
+                "b": "Protectores de contacto",
+                "c": "Orgánicos",
+                "d": "Fluazinan para múltiples enfermedades de papa"
+            }]
+        }],
+        "InhibidoresQuinasa": [{
+            "Dicarboximidas": [{
+                "a": "Bloquean la síntesis de ADN inhibiendo la germinación de esporas e hifas",
+                "b": "Protectores de contacto",
+                "c": "Iprodione -> curasemillas de trigo, foliar en intensivos (hongos de suelo, podredumbre y mohos)",
+                "d": "Procimedone -> contra Sclerotinia y Botrytis en girasol e intensivos"
+            }],
+            "Quinolinas": [{
+                "a": "Protectores de contacto",
+                "b": "Quinoxifen -> para oídio de la vid (inhibe la formación del apresorio del hongo)"
+            }],
+            "Fenilpirroles": [{
+                "a": "Protectores de contacto",
+                "b": "Fludioxinil -> para hongos de suelo en papa y frutales. Como tratamiento de semillas y para post cosecha."
+            }]
+        }],
+        "InhibidoresSDL": [{
+            "AromaticosClorados": [{
+                "a": "Producen una peroxidación de lípidos",
+                "b": "Protectores de contacto",
+                "c": "Dicloran/ PCNB -> contra Botrytis y Sclerotinia en cítricos, hortalizas, algodón. Como curasemillas o aplicado al suelo."
+            }],
+            "Quinolinas": [{
+                "a": "Protectores de contacto",
+                "b": "Quinoxifen -> para oídio de la vid (inhibe la formación del apresorio del hongo)"
+            }],
+            "Fenilpirroles": [{
+                "a": "Protectores de contacto",
+                "b": "Fludioxinil -> para hongos de suelo en papa y frutales. Como tratamiento de semillas y para post cosecha."
+            }]
+        }],
+        "InhibidoresRespiracion": [{
+            "Estrobilurinas": [{
+                "a": "Intervienen en el complejo III citocromo reductasa.",
+                "b": "Curativos/preventivos",
+                "c": "Acción translaminar (mesosistémicos)",
+                "d":"Aplicaciones preventivas o apenas se observan los síntomas, siempre en mezclas.",
+                "e":"Efecto reverdecedor",
+                "f":"Funcionan contra Oomycetes",
+                "g":"Azoxystrobina -> contra viruela, carbón, roya, tizón, etc. en soja, trigo y maíz",
+                "h":"Picoxystrobin / Pyraclostrobin -> contra manchas, royas, oídios en soja, trigo y maíz"
+            }],
+            "Carboxamidas": [{
+                "a": "Inhiben la acción de la enzima succínico – deshidrogenasa",
+                "b": "Curativos",
+                "c":"Sistemicos",
+                "d":"Como tratamiento de semillas y para aplicación foliar",
+                "e":"Carboxin  contra carbones y royas en soja, trigo y maíz"
+            }]
+        }],
+        "InhibidoresMitosis": [{
+            "Benzimidazoles": [{
                 "1": "Inhiben la síntesis de tubulinas",
                 "2": "Sistemicos",
                 "3": "Bajo costo, fácil generación de resistencia, amplio espectro",
                 "4":"Múltiples momentos de aplicación",
                 "5":"Carbendazim / Metiltiofanato  contra cercospora, sclerotinia, fusarium, verticilium, etc. en trigo, soja e intensivos."
-            }
-        },
-        "InhibidoresBE": {
-            "Triazoles": {
-                "1": "Inhiben la enzima 1,4 α demetilasa, provocando una disrupción en las membranas",
-                "2": "Sistemicos",
-                "3": "Curativos",
-                "4":"De rápida acción",
-                "5":"No controlan Oomycetes",
-                "6":"Ciproconazole -> curasemillas contra carbón para trigo",
-                "7":"Tebuconazole -> contra manchas, royas, tizones en trigo y soja",
-                "8":"Epoxiconazole -> contra manchas y royas en trigo y cebada",
-                "9":"Difenoconazole -> contra golpe blanco y mancha amarilla en trigo"
-            }
-        },
-        "InhibidoresMAN": {
-            "Acilalaninas": {
+            }]
+        }],
+        "InhibidoresBE": [{
+            "Triazoles": [{
+                "a": "Inhiben la enzima 1,4 α demetilasa, provocando una disrupción en las membranas",
+                "b": "Sistemicos",
+                "c": "Curativos",
+                "d":"De rápida acción",
+                "e":"No controlan Oomycetes",
+                "f":"Ciproconazole -> curasemillas contra carbón para trigo",
+                "g":"Tebuconazole -> contra manchas, royas, tizones en trigo y soja",
+                "h":"Epoxiconazole -> contra manchas y royas en trigo y cebada",
+                "i":"Difenoconazole -> contra golpe blanco y mancha amarilla en trigo"
+            }]
+        }],
+        "InhibidoresMAN": [{
+            "Acilalaninas": [{
                 "1": "Interfieren en la síntesis de ARN, inhibiendo la germinación de esporas y crecimiento del micelio",
                 "2": "Sistemicos",
                 "3": "Utilizados como curasemillas y como formulaciones para suelo",
                 "4":"Metalaxil -> contra damping off y mildiu para soja, maíz, girasol, etc."
-            },
-            "Hidroximpirimidinas":{
+            }],
+            "Hidroximpirimidinas":[{
             "1":"Inhiben la acción de la adenosin – deaminasa",
             "2":"Bupirimato -> controla mildiu en cultivos intensivos"
-            }
-        },
-        "ModoAccionDesconocido": {
-            "DerivadosGuanidina": {
+            }]
+        }],
+        "ModoAccionDesconocido": [{
+            "DerivadosGuanidina": [{
                 "1": "Interfieren en la respiración",
                 "2": "Sistemicos",
                 "3": "Curativos",
                 "4":"Dodine -> contra sarna del manzano"
-            },
-            "TriazolCarboximidas":{
+            }],
+            "TriazolCarboximidas":[{
             "1":"Inhiben la fosforilación oxidativa y la síntesis de microtúbulos",
             "2": "Sistemicos",
             "3": "Curativos",
             "4":"Ethaboxam -> para Phytophtora donde se vaya a sembrar papa"
-            },
-            "Fenilureas":{
+            }],
+            "Fenilureas":[{
                 "1":"Inhiben la mitosis",
                 "2": "Sistemicos",
                 "3": "Curativos",
                 "4":"Pencycurón -> curasemillas contra Rhizoctonia en papa"
-                }
-        }
-
-    },
-    "Insecticidas": {
+                }]
+        }]
+    }]
+    }],
+       [{"Insecticidas": {
         "InterferenciaSN": {
             "Piretroides": {
                 "1": "Actúan generando una alteración en la transmisión del impulso nervioso, haciendo más lento o impidiendo el cierre de los canales de Na+",
@@ -245,8 +245,9 @@
                 "3": "Para control de lepidópteros"
             }
         }
-    },
-    "Herbicidas":{
+    }
+    }],
+    [{"Herbicidas":{
         "AfectanMetabolismoCelular":{
             "InhibidoresSintesisAcidosGrasos":{
                 "1":"Actúan inhibiendo la Acetil-Coa carboxilasa, afectando la síntesis de lípidos y por ende, las membranas. Inhiben además la síntesis de ceras.", 
@@ -294,18 +295,84 @@
                 "5":"-Bipiridilos -> Paraquat -> Diquat"
                 },
                 "InhibidoresFotosistemaII":{
-                    "1":"Se inhibe la síntesis de glutamina (fuente de amonio en muchas enzimas)", 
-                    "2":"No selectivos", 
-                    "3":"Desecante", 
-                    "4":"Post emergente", 
-                    "5":"Sistémico (de transporte limitado)",
-                    "6":"Para barbechos o para maíz Liberty Link", 
-                    "7":"Acción de 2 a 5 días -Ácidos fosfínicos -> Glufosinato de amonio"  
+                    "1":"Se interrumpe el flujo de electrones inhibiendo la acción de la quinona. El herbicida se une a la proteína D1 a la cual se debería unir la quinona para el transporte de electrones.", 
+                    "2":"Controlan latifoliadas y algunas gramíneas", 
+                    "3":"No existe resistencia a estos grupos químicos", 
+                    "4":"Para barbecho-Triazinas -> Atrazina -Triazinonas -> Metribuzin -Ureas -> Linuron -> Diuron -Benzotiadiazinas -> Bentazón -Benzonitrilos -> Bromoxinil"
                 },
-                "InhibidoresALS":{
-                    "1":"Inhiben la enzima ALS, que participa en la biosíntesis de aminoácidos de cadena larga como la leucina, isoleucina y valina.-Sulfonilureas  -Clorimurón  -Metsulfurón  -Nicosulfurón (Controlan yuyo colorado (Nicosulfurón alepos), Post emergentes, Sistémicos, Ingresan por raíz y follaje Residualidad)-Imidazolinonas -> Imazetapir -> Imazapir  Triazolpirimidinas -> Diclosulam Pre emergente,Absorbido por raíz,Para soja (en pre siembra, pre y post emergencia) Control de latifoliadas (rama negra),->Flumetsulam Pre y post emergencia de malezas (pre emergencia del cultivo)Absorbido por raíz y follaje Para alfalfa, soja y maíz,Control de latifoliadas (yuyo colorado, quinoa, etc)"  
-                }  
+                "InhibidoresPPO":{
+                    "1":"Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas." ,
+                    "2":"-Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazi -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil" 
+                },
+                "InhibidoresSintesisCarotenoides":{
+                    "InhibidoresPDS":{
+                    "1":"Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema)." ,
+                    "2":"Pre emergentes" ,
+                    "3":"Sistémicos absorbidos por raíz",
+                    "4":"Controlan latifoliadas y algunas gramíneas",
+                    "5":"Para girasol, soja, maíz y trigo",
+                    "6":"Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican"
+                }
+            },
+            "InhibidoresPPD":{ 
+                "1":"Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides." ,
+                "3":"Controlan latifoliadas y gramíneas anuales-Isoxazolidinonas -> Clomazone-Isoxazoles -> Isoxaflutole-Triketonas -> Biciclopirona-Ciclohexanona -> Mesotrione"
+        }       
+            },
+        "InhibidoresClorofila":{
+            "InhibidoresPPO":{
+            "1":"Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas.", 
+            "2":"-Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazin -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil"
+        }
+        
+        },
+        "InhibidoresSC":{
+            "InhibidoresPDS":{
+            "1":"Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema).", 
+            "2":"Pre emergentes",
+            "3":"Sistémicos absorbidos por raíz",
+            "4":"Controlan latifoliadas y algunas gramíneas", 
+            "5":"Para girasol, soja, maíz y trigo",
+            "6":"Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican" 
+        },
+        "InhibidoresHPPD":{
+            "1":"Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides", 
+            "2":"Controlan latifoliadas y gramíneas anuales -Isoxazolidinonas ->Clomazone -Isoxazoles -> Isoxaflutole -Triketonas -> Biciclopirona -Ciclohexanona -> Mesotrione"
+        }
+        
+        }
+    },
+    "AfectanCrecimientoYdC":{
+        "InhibidoresFotosintesis":{
+            "ReguladoresCrecimientoHormonales":{
+            "1":"Interferencia en el metabolismo de los ácidos grasos", 
+            "2":"El ácido indol acético se une al TIR1 (represor que evita acumulación de AIA). Al inhibir este represor el herbicida, se induce a la producción de grandes cantidades de ABA y etileno, generando epinastias, daño de tejidos, senescencia, malformaciones, detención del crecimiento", 
+            "3":"Control de latifoliadas", 
+            "4":"En cereales de invierno se emplean en macollaje (pueden generar posterior deformación de la espiga).", 
+            "5":"En maíz entre 4 y 6 hojas.",
+            "6":"Son post emergencia de maleza.", 
+            "7":"Se absorben por follaje.", 
+            "8":"Sistémicos.-Ácidos fenóxidos -> 2,4D ->2,4DB-Ácidos benzoicos -> Dicamba -Ácidos picolínicos -> Piclor -> Fluroxipi -> Aminopyralid"
+            },
+            "InhibidoresMitosis":{
+                "1":"Inhibidores de la síntesis de microtúbulos", 
+                "2":"Se inhibe la acción de la tubulina, no se polimerizan los microtúbulos, los cromosomas no migran, no hay división celular.", 
+                "3":"Graminicidas y control de hoja ancha.", 
+                "4":"Pre emergentes.",
+                "5":"Sistémicos.",
+                "6":"Absorben por raíz.",
+                "7":"Trifluralina debe ser incorporada por fotodescomposición.-Dinitroanilinas -> Trifluralina -> Pendimentalin -Cloroacetamidas  -> Alaclor -> Metolacloro -> S-metolacloro -> Acetoclor"
+            },
+            "InhibidoresDHP":{
+                "1":"Inhiben la división celular y producción de ácido fólico." ,
+                "2":"Post emergentes" ,
+                "3":"Absorben por raíz, tallo y hoja", 
+                "4":"Control de latifoliadas y gramíneas",
+                "5":"Sistémicos.",
+                "6":"Para caña de azúcar. -Carbamatos -> Asulam "
             }
         }
     }
-}]
+    }
+    
+}]]}
