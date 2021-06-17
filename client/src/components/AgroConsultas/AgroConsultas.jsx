@@ -61,8 +61,8 @@ function selectGarbanzo(e){
 
 const titles= props.dataAgro
 
-function handleFhi(e){
-    console.log(props.dataAgro)
+function handleFhi(){
+    console.log(titles.map(e=>(e.Title)))
 }
 
 function handleChange(e){
