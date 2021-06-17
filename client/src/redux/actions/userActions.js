@@ -96,20 +96,9 @@ export const logout = () => {
 //     payload: error
 
 //   })
-// }
+
 };
-// export function getUserById(id){
-// 	return function(dispatch){
-// 		return fetch(`http://localhost:3001/user/${id}`)
-//         .then(response => response.json())
-// 		.then(json => {
-// 			dispatch({ 
-//                 type: GET_USER_ID, 
-//                 payload: data
-//             })
-// 		})
-// 	}
-// }
+
 
 export const getUser = () => {
   return function(dispatch) {
