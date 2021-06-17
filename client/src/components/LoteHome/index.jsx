@@ -1,18 +1,22 @@
 
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styles from './styles.module.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 import Header from '../Header/Header';
 import LoteCard from "./LoteCard";
+import LoteDetails from "./LoteDetails/LoteDetail";
 import add from '../../assets/añadir.png';
 import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLotes } from "../../redux/actions/loteActions";
 
+
 export default function LoteHome ({id}) {
+    const [activador, setActivador] = useState(true)
     const allLotes = useSelector(state=> state.loteReducer.allLotes)
+    const detailLote = useSelector(state=> state.loteReducer.detailLote)
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId);
     const dispatch = useDispatch()
 
@@ -21,15 +25,10 @@ export default function LoteHome ({id}) {
     useEffect(async()=>{
         await dispatch(getAllLotes(empresaId.id))
         console.log('esta es la empresa', empresaId, allLotes);
+        console.log('detalle de loteeeeeeeeeeeeeeeee',detailLote);
     },[])
 
 
-    // empresaId: 6
-    // id: 1
-    // imagen: "https://imganuncios.mitula.net/timbues_barrio_ioppolo_lotes_10_00_x_33_00_metros_con_hasta_el_40_financiacion_4470063618060034108.jpg"
-    // name: "Lote3"
-    // superficie: "700 m2"
-    // ubicacion: "Tucuman"
 
     function SampleNextArrow(props) {
         const { style, onClick } = props;
@@ -68,10 +67,10 @@ export default function LoteHome ({id}) {
     return (
         <div className={styles.contenedor}>
             <Header />
+            <button onClick={()=> dispatch({type:'GET_DETAIL_LOTE',payload:false})}>DETALLE</button>
             <div className={styles.body}>
                 <h1 className={styles.tittle}>{empresaId.name}</h1>
-                <Slider {...settings}>
-
+                {!detailLote? <Slider {...settings}>
                     {
                         allLotes.map((lote, index) => {
                            if(index % 3 == 0 && index != 0) {
@@ -104,35 +103,17 @@ export default function LoteHome ({id}) {
                            }
                         })
                     }
-
-{/* 
-                    <div className={styles.contenedorData}>
-                            <div className={styles.contenedorCards}>
-                            <div  className={styles.cardContAdd} >
-                                <h1 className={styles.titleAdd}>Agregar Lote</h1>
-                                <img src={add} alt="" className={styles.imgAdd}/>
-                            </div>
-                            <LoteCard lote={lotesAux}/>
-                            <LoteCard lote={lotesAux}/>
-                            <LoteCard lote={lotesAux}/>
-                            </div>
-                    </div>
-                    <div className={styles.contenedorData}>
-                        <div className={styles.contenedorCards}>
-                        <LoteCard lote={lotesAux} />   
-                        <LoteCard lote={lotesAux}/>
-                        <LoteCard lote={lotesAux}/>
-                        </div>
-                    </div> */}
                 </Slider>
+                :<LoteDetails lote={detailLote} />}
             </div>
         </div>
     )
 }
 
 // DATA'S LOTES
-// id
-// name
-// superficie
-// ubicacion
-// imagen
+    // empresaId: 6
+    // id: 1
+    // imagen: "https://imganuncios.mitula.net/timbues_barrio_ioppolo_lotes_10_00_x_33_00_metros_con_hasta_el_40_financiacion_4470063618060034108.jpg"
+    // name: "Lote3"
+    // superficie: "700 m2"
+    // ubicacion: "Tucuman"
