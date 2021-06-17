@@ -9,7 +9,10 @@ import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa.js';
 import IntroPage from "./components/IntroPage/IntroPage.jsx";
 import News from './components/News/News.js';
 import UpdateEmpresa from './components/UpdateEmpresa/UpdateEmpresa';
+
 import LoteHome from "./components/LoteHome";
+import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
+
 
 
 

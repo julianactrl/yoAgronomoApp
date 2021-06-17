@@ -4,6 +4,40 @@
     padding: 0;
 } */
 
+.btn{
+    width: 230px !important;
+    margin: 1vh 0 0 0;
+    font-size: 12px !important;
+    color: rgb(0, 0, 0) ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    padding: 10px !important;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.2s ease 0s;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background: #27963c !important;
+    color:black !important;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
 .main{
     max-width: 1000px;
     width: 90%;
@@ -27,6 +61,7 @@
 }
 
 .categoria{
+    
     cursor:pointer;
     text-align: center;
     padding: 20px;
@@ -34,9 +69,19 @@
     background-color:rgba(255, 255, 255, 0.37);
     font-weight: 700;
     border: 2px solid transparent;
-    transition: .3 ease all
+    transition: .3 ease all;
+    font-size: 18px;
 }
 .categoria:hover{
     background-color: green;
     color: black
+}
+
+.resultados{
+   padding: 10px;
+    background-color: rgba(0, 0, 0, 0.344);
+    color: white;
+    margin: 10px auto;
+    font-size: 18px;
+    
 }
