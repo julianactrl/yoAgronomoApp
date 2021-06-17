@@ -1,8 +1,10 @@
 import fhi from '../../components/AgroConsultas/fhi.json'
+
 import { GET_FHI} from "./../constants";
   
   const initialState = {
     fhiData: [],
+    
   };
 
   const agroConsultasReducer = (state = initialState, action) => {
@@ -12,7 +14,8 @@ import { GET_FHI} from "./../constants";
           ...state,
           fhiData: fhi.results,
         }
-    }
+      }
+      
     default:
         return state;
     }
