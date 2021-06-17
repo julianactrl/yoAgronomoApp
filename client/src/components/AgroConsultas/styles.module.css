@@ -27,6 +27,7 @@
 }
 
 .categoria{
+    
     cursor:pointer;
     text-align: center;
     padding: 20px;
@@ -34,9 +35,19 @@
     background-color:rgba(255, 255, 255, 0.37);
     font-weight: 700;
     border: 2px solid transparent;
-    transition: .3 ease all
+    transition: .3 ease all;
+    font-size: 18px;
 }
 .categoria:hover{
     background-color: green;
     color: black
+}
+
+.resultados{
+   padding: 10px;
+    background-color: rgba(0, 0, 0, 0.344);
+    color: white;
+    margin: 10px auto;
+    font-size: 18px;
+    
 }
