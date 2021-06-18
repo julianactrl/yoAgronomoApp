@@ -56,11 +56,13 @@ const Map = () => {
     console.log('hola')
     console.log('The middle is', middle)
 
+    const apiKey= process.env.REACT_APP_GOOGLE_API_KEY
+
   return (
     <div className="googleMapsCont">
       <LoadScript
         id="script-loader"
-        googleMapsApiKey="AIzaSyBDnnfB3RdezYCq3u8GHG-9jdQtg37fDtM"
+        googleMapsApiKey={apiKey}
         language="en"
         region="us"
       >

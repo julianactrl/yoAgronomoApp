@@ -1,15 +1,13 @@
 import React, {useState,useEffect} from 'react';
-
-import fhi from './fhi.json';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
-import {connect} from 'react-redux'
 import etapasDesarrollo2 from './etapasDesarrollo2.json'
 import funguicidas from './funguicidas.json'
 import insecticidas from './insecticidas.json'
 import herbicidas from './herbicidas.json'
 import allResults from './allResults.json'
-import { getFhi} from '../../redux/actions/agroConsultasActions';
+import Header from '../Header/Header'
+import { motion } from 'framer-motion';
 
 function AgroConsultas(props){
     
@@ -49,15 +47,7 @@ function selectAll(e){
     setFilteredCategory(allRes)
 }
 
-// function handleFhi(){
-//     props.getFhi()
-// }
 
-const titles= props.dataAgro
-
-function handleFhi(){
-    console.log(titles.map(e=>(e.Title)))
-}
 
 function handleChange(e){
     console.log(e.target.value)
@@ -65,18 +55,29 @@ function handleChange(e){
 }
 
 
-useEffect(() => {
-    props.getFhi()
-  
-    return () => {
-    }
-  }, [])
 
     return(
+        <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={{
+      hidden: {
+          scale: .8,
+          opacity: -1
+      },
+      visible: {
+          scale: 1,
+          opacity: 1,
+          transition:{
+              delay: .002
+          }
+      }
+      }}
+      >
         <div>
+            <Header />
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
-                <div className={styles.categorias} id='categorias'>
                 <form  className={styles.form}>
                 <input className={styles.input} type="text"
                
@@ -84,6 +85,8 @@ useEffect(() => {
                 onChange={(e)=> handleChange(e)} />
                <button className={styles.btn} type= 'submit'>Buscar</button>
                 </form>
+                <div className={styles.categorias} id='categorias'>
+                
                     
                    
                 {/* <button onClick={e => handleFhi(e)} className={styles.categoria} >
@@ -105,7 +108,7 @@ useEffect(() => {
                         Manejo Integrado 
                     </button>
                     <button onClick={(e)=>selectAll(e)} className={styles.categoria} >
-                        Toda la info 
+                        Ver Todo 
                     </button>
                    
                    
@@ -113,20 +116,20 @@ useEffect(() => {
                 </div>
             </main>
             
-            <ul>
+            <ul className={styles.contentOverflow}>
                 {   
                     filteredCategory.map(e=>(
                         <div className={styles.resultados}>
                         
                         {/* ESCALAS FENOLOGICAS */}
-                        <p>{e.cereal}</p>
+                        <p className={styles.tituloCard}>{e.cereal}</p>
                         <p>{e.title}</p>
                         <p>{e.subetapa}</p>
                         <p>{e.Descripcion}</p>
-                        <img src={e.imagen}/>
+                        <img className={styles.escalasImg} src={e.imagen}/>
 
                         {/* FUNG/HERB/INSECT */}
-                        <p>{e.type}</p>
+                        <p className={styles.tituloCard}>{e.type}</p>
                         <p>{e.subtype}</p>
                         <p>{e.subtype2}</p>
                         <p>{e.props}</p>
@@ -139,22 +142,10 @@ useEffect(() => {
             </ul>
             
         </div>
+        </motion.div>
     )
 }
 
-function mapStateToProps(state){
-    return {
-        dataAgro: state.agroConsultasReducer.fhiData,
-       
-    }
-}
-
-function mapDispatchToProps(dispatch){
-    return{
-        getFhi: () => dispatch(getFhi()),
-        
-    }
-}
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(AgroConsultas);
+export default AgroConsultas;
