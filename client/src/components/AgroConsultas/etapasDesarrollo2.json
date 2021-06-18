@@ -79,7 +79,7 @@
             "Descripcion": "Todos los granos han alcanzado máximo peso seco. Una capa de color negro o marrón se ha formado en la porciòn del grano que se une a la mazorca, lo que indica que la madurez fisiológica se ha alcanzado. El contenido de humedad del grano oscila entre el 30-35% en esta etapa."
             },
             {
-            "imagen": "/images/maiz.png"
+            "imagen": "https://i.pinimg.com/originals/09/c9/ba/09c9ba56482e422f0220774d45d2a12e.png"
             },
             {
                 "cereal": "Girasol",
@@ -138,7 +138,7 @@
             },
             {
                 "cereal": "Girasol",
-                "imagen": "/images/girasol.png"
+                "imagen": "https://www.syngenta.com.ar/sites/g/files/zhg331/f/media-wysiwyg/2020/05/17/girasol.png"
             },
             {
                 "cereal": "Garbanzo",
@@ -399,6 +399,288 @@
                 {
                     "cereal": "Sorgo",
                 "imagen": "/images/sorgo.png"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 00",
+                    "Descripcion": "Semilla seca"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 01",
+                    "Descripcion": "Comienzo de imbibición."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 05",
+                    "Descripcion": "Radícula emergida del cariopse."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 08",
+                    "Descripcion": "Hoja en el extremo del coleoptile."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 10",
+                    "Descripcion": "1era hoja verdadera atravesó el coleoptile."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 11",
+                    "Descripcion": "1era hoja expandida y comienza a desenrollarse la 2da."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 12",
+                    "Descripcion": "2da hoja expandida y comienza a desenrollarse la 3era."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 16",
+                    "Descripcion": "6ta hoja expandida y comienza a desenrollarse la 7ma."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 19",
+                    "Descripcion": "Nueve o más hojas totalmente expandidas."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 20",
+                    "Descripcion": "Vástago principal (VP) solamente."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 21",
+                    "Descripcion": "VP y un macollo."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 22",
+                    "Descripcion": "VP y dos macollos."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 26",
+                    "Descripcion": "VP y seis macollos"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 29",
+                    "Descripcion": "VP y nueve o más macollos."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 30",
+                    "Descripcion": "Erección del pseudotallo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 31",
+                    "Descripcion": "Detección del 1er entrenudo."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 32",
+                    "Descripcion": "Detección del 2do entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 36",
+                    "Descripcion": "Detección del 6to entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 37",
+                    "Descripcion": "Hoja bandera visible."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 39",
+                    "Descripcion": "Lígula de la hoja bandera visible."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 41",
+                    "Descripcion": "Hoja bandera totalmente expandida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 42-43",
+                    "Descripcion": "Preinflorescencia ligeramente hinchada."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 44-45",
+                    "Descripcion": "Detección del 2do entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 36",
+                    "Descripcion": "Preinflorescencia totalmente hinchada."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 46-47",
+                    "Descripcion": "Apertura de la vaina de la hoja bandera."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 48-49",
+                    "Descripcion": "Aristas visibles."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 50-51",
+                    "Descripcion": "1eras espiguillas visibles."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 52-53",
+                    "Descripcion": "¼ de la inflorescencia emergida."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 54-55",
+                    "Descripcion": "½ de la inflorescencia emergida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 56-57",
+                    "Descripcion": "¾ de la inflorescencia emergida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 48-49",
+                    "Descripcion": "Emergencia total"
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 6 - Antesis. Z6",
+                    "subetapa": "Z 64-65",
+                    "Descripcion": "1/2 antesis."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 6 - Antesis. Z6",
+                    "subetapa": "Z 68-69",
+                    "Descripcion": "Antesis completa."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 71-72",
+                    "Descripcion": "Cariopse maduro."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 73-74",
+                    "Descripcion": "Grano lechoso temprano."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 75-76",
+                    "Descripcion": "Grano lechoso medio."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 77-78",
+                    "Descripcion": "Grano lechoso tardío."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 83",
+                    "Descripcion": "Temprano."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 85",
+                    "Descripcion": "Blando (no detiene la impresión de la uña)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 87",
+                    "Descripcion": "Duro (detiene la impresión de la uña). Inflorescencia pierde clorofila."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 91",
+                    "Descripcion": "Cariopse duro (dificultoso dividir por la uña del pulgar)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 92",
+                    "Descripcion": "Cariopse duro (no puede ser mellado por la uña del pulgar)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 94",
+                    "Descripcion": "Sobremadurez, colapso y muerte de la caña."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 95",
+                    "Descripcion": "Dormición."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 96",
+                    "Descripcion": "50% de germinación."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 97",
+                    "Descripcion": "Dormición secundaria inducida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 98-99",
+                    "Descripcion": "Perdida de dormición secundaria."
                 }
     ]
     
