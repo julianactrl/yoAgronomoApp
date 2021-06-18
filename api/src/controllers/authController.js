@@ -66,10 +66,11 @@ const register = async (req, res) => {
 //==========================================================================//
 const login = async (req, res, next) => {
   console.log("estoy en login", req.user)
-  passport.authenticate("local", (err, user) => {
+  const { email, password } = req.body
+  passport.authenticate("local", (err, password, email) => {
     if (err) return next(err);
-		else if (!user) return res.status(401).json({message: "No sos vos soy yo"});
-		else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
+		else if (!req.body) return res.status(401).json({message: "No sos vos soy yo"});
+		else return res.send(jwt.sign(req.body, AUTH_JWT_SECRET));
   })(req, res, next);
 };
 

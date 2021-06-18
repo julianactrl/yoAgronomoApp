@@ -9,7 +9,7 @@ require("./db.js");
 
 //=====passport ====
 const passport = require("./passport");
-
+const session = require('express-session')
 
 //===================================================================
 
@@ -33,12 +33,25 @@ server.use((req, res, next) => {
 
 //=============================== middleware passport =========================
 
+server.use(
+	session({
+	  secret: "esto funciona perfect",
+	  resave: false,
+	  saveUninitialized: true,
+	})
+);
+
 server.use(passport.initialize());
+server.use(passport.session());
+server.use(function(req, res, next){
+	res.locals.user = req.user || null
+	next();
+})
+  
 
-
-server.use(process.env.FRONT, function (req, res, next) {
+server.all("*", function (req, res, next) {
 	passport.authenticate("bearer", function (err, user) {
-    console.log("ACA ESTA EL UNDEFINED >> req user", req.user)
+    	console.log("ACA ESTA EL UNDEFINED >> req user", req.user)
 		if (err) return res.status(400).json({ message: 'malformed JSON' });
 		if (user) {
 			req.user = user;

@@ -1,10 +1,7 @@
 const isAuthenticated = (req, res, next) => {
-	if (req.isAuthenticated()) {
-	  next();
-	} else {
-	  res.send(false);
-	}
-  };
+	if (req.user) next();
+	else res.sendStatus(401)
+};
 
 
 module.exports = {

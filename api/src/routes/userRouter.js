@@ -1,7 +1,6 @@
 const server = require("express").Router();
 const { 
-    isAuthenticated, 
-    isAdmin 
+    isAuthenticated
 } = require("../middleware/customMiddleware");
 
 //---------------------------------------------------------------//
