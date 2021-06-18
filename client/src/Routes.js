@@ -67,6 +67,9 @@ export default function Routes() {
       <Route exact path='/map'>
         <Map />
       </Route>
+      <Route exact path='/agroconsultas'> 
+      <AgroConsultas />
+      </Route>
 
     </Switch>
     );
