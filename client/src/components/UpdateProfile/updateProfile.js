@@ -27,10 +27,10 @@ async function handleInputChange(e) {
 
 const dispatch = useDispatch();
 
-useEffect(()=> {
-    dispatch(getUser());
+// useEffect(()=> {
+//     dispatch(getUser());
     
-}, []);
+// }, []);
 
 
 
