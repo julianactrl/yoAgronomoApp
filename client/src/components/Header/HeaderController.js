@@ -35,7 +35,6 @@ export function sidebar(verify){
                 <h2 className={styles.text}>HOME</h2>
                 </Link>
                 <Link className={styles.linktext}>
-                <Link  className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
                 <Link to={`/lote/${empresaId}`} className={styles.linktext}>
@@ -44,6 +43,7 @@ export function sidebar(verify){
                 <Link className={styles.linktext}>
                 <h2 className={styles.text}>MERCADO</h2>
                 </Link>
+                <Link  className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>
