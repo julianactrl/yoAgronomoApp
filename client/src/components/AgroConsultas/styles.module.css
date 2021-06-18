@@ -12,10 +12,19 @@
     text-align: center;
 }
 .contentOverflow{
+    border-radius: 8px;
+    width: 60%;
+    height: 60vh;
+    margin-left: 12rem;
    display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
+   background-color: #ffffff5e;
+   overflow:scroll;
+  
+   overflow-y: scroll;
+   flex-direction: column;
 }
 
 /* .contentOverflow::-webkit-scrollbar{
@@ -130,6 +139,7 @@
 
 .resultados{
    padding: 10px;
+   margin-top: 100vh;
    border-radius: 13px;
    max-width: 500px;
    min-width: 500px;
