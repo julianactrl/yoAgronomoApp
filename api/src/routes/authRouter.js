@@ -11,7 +11,7 @@ const {
 
 //-------------------------Route Users--------------------------//
 
-server.post("/login", isAuthenticated, login);
+server.post("/login", login);
 server.get("/logout", logout);
 server.post("/register", register);
 server.get("/myProfile", isAuthenticated, myProfile);
