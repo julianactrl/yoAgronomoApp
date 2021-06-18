@@ -1,8 +1,4 @@
 const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const BearerStrategy = require("passport-http-bearer").Strategy;
-//const GoogleStrategy = require("passport-google-oauth20").Strategy;
-//const FacebookStrategy = require('passport-facebook').Strategy;
 const { User } = require("../db.js");
 const jwt = require("jsonwebtoken");
 const { AUTH_JWT_SECRET, FRONT } = process.env;
@@ -59,7 +55,11 @@ const register = async (req, res) => {
     res.status(200).json({ auth: true, token });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Something went wrong" });
+    if (error.message === 'Invalid password')
+			return res.status(400).json({ message: 'Invalid password' });
+		if (error.errors[0].message === 'email must be unique')
+			return res.status(400).json({ message: 'email must be unique' });
+		return res.status(500).json({ message: 'Internal Server Error' });
   }
 };
 

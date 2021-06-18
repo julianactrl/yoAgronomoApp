@@ -13,13 +13,13 @@ const passport = require("./passport");
 
 //===================================================================
 
-server.use(cors());
+server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
 server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' })); 
 server.use(bodyParser.json({ limit: '50mb' }));
 server.use(cookieParser());
 server.use(morgan('dev'));
 server.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
+	res.header('Access-Control-Allow-Origin', process.env.FRONT); // update to match the domain you will make the request from
 	res.header('Access-Control-Allow-Credentials', 'true');
 	res.header(
 		'Access-Control-Allow-Headers',
@@ -36,9 +36,9 @@ server.use((req, res, next) => {
 server.use(passport.initialize());
 
 
-server.all("*", function (req, res, next) {
+server.use(process.env.FRONT, function (req, res, next) {
 	passport.authenticate("bearer", function (err, user) {
-    console.log("req user", req.user)
+    console.log("ACA ESTA EL UNDEFINED >> req user", req.user)
 		if (err) return res.status(400).json({ message: 'malformed JSON' });
 		if (user) {
 			req.user = user;
