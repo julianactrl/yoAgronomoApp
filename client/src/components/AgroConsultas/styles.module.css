@@ -22,7 +22,7 @@
    justify-content: center;
    background-color: #ffffff5e;
    overflow:scroll;
-   overflow-x: hidden;
+  
    overflow-y: scroll;
    flex-direction: column;
 }
