@@ -1,31 +1,28 @@
 import React, {useState,useEffect} from 'react';
-import etapasDesarrollo from './etapasDesarrollo.json';
+
 import fhi from './fhi.json';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
 import {connect} from 'react-redux'
-import etapasmaiz from './etapasmaiz.json'
-import etapassorgo from './etapassorgo.json'
-import etapascerealesotoñal from './etapascerealesotoñal.json'
-import etapasgirasol from './etapasgirasol.json'
-import etapassoja from './etapassoja.json'
-import etapasmani from './etapasmani.json'
-import etapasgarbanzo from './etapasgarbanzo.json'
-import { getFhi } from '../../redux/actions/agroConsultasActions';
+import etapasDesarrollo2 from './etapasDesarrollo2.json'
+import funguicidas from './funguicidas.json'
+import insecticidas from './insecticidas.json'
+import herbicidas from './herbicidas.json'
+import allResults from './allResults.json'
+import { getFhi} from '../../redux/actions/agroConsultasActions';
 
 function AgroConsultas(props){
     
   
     const [input,setInput] = useState('')
 
-    const [maiz, setMaiz] = useState(etapasmaiz.Maiz)
-    const [sorgo, setSorgo] = useState(etapassorgo.Sorgo)
-    const [otoñal, setOtoñal] = useState(etapascerealesotoñal.CerealesDeSiembraOtoñal)
-    const [girasol, setGirasol] = useState(etapasgirasol.Girasol)
-    const [soja, setSoja] = useState(etapassoja.Soja)
-    const [mani, setMani] = useState(etapasmani.Mani)
-    const [garbanzo, setGarbanzo] =useState(etapasgarbanzo.Garbanzo)
-
+    const [etapas, setEtapas] = useState(etapasDesarrollo2.etapas)
+    const [funguicidastate, setFunguicidas] = useState(funguicidas.funguicidas)
+    const [insect, setInsect] = useState(insecticidas.insecticidas)
+    const [herbic, setHerbic] = useState(herbicidas.herbicidas)
+    const [manejo, setManejo] = useState(manejoIntegrado.manejoIntegrado)
+    
+    const [allRes, setAllRes] = useState(allResults.all)
     const [filteredCategory, setFilteredCategory] = useState([])
 
 // function handleCategory(e){
@@ -33,26 +30,23 @@ function AgroConsultas(props){
 //         setFilteredCategory(maiz)
 //     }
 // }
-function selectMaiz(e){
-    setFilteredCategory(maiz)
+function selectEtapas(e){
+    setFilteredCategory(etapas)
 }
-function selectSorgo(e){
-    setFilteredCategory(sorgo)
+function selectFunguicidas(e){
+    setFilteredCategory(funguicidastate)
 }
-function selectOtoñal(e){
-    setFilteredCategory(otoñal)
+function selectInsecticidas(e){
+    setFilteredCategory(herbic)
 }
-function selectGirasol(e){
-    setFilteredCategory(girasol)
+function selectHerbicidas(e){
+    setFilteredCategory(insect)
 }
-function selectSoja(e){
-    setFilteredCategory(soja)
+function selectManejo(e){
+    setFilteredCategory(manejo)
 }
-function selectMani(e){
-    setFilteredCategory(mani)
-}
-function selectGarbanzo(e){
-    setFilteredCategory(garbanzo)
+function selectAll(e){
+    setFilteredCategory(allRes)
 }
 
 // function handleFhi(){
@@ -73,6 +67,7 @@ function handleChange(e){
 
 useEffect(() => {
     props.getFhi()
+  
     return () => {
     }
   }, [])
@@ -82,54 +77,64 @@ useEffect(() => {
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
                 <div className={styles.categorias} id='categorias'>
-                <form className={styles.form}>
+                <form  className={styles.form}>
                 <input className={styles.input} type="text"
+               
                 placeholder='Tu consulta...'
-                onChange={e=> handleChange(e)} />
+                onChange={(e)=> handleChange(e)} />
                <button className={styles.btn} type= 'submit'>Buscar</button>
                 </form>
                     
                    
-                <button onClick={e => handleFhi(e)} className={styles.categoria} >
+                {/* <button onClick={e => handleFhi(e)} className={styles.categoria} >
                         F.H.I
+                    </button> */}
+                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >
+                        Escalas Fenológicas 
                     </button>
-                    <button onClick={(e)=>selectMaiz(e)} className={styles.categoria} >
-                        Escalas Fenológicas Maíz
+                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} >
+                        Funguicidas 
                     </button>
-                    <button onClick={(e)=>selectSorgo(e)} className={styles.categoria}>
-                        Escalas Fenológicas Sorgo
+                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} >
+                        Insecticidas 
                     </button>
-                    <button onClick={(e)=>selectOtoñal(e)} className={styles.categoria} >
-                        Escalas Fenológicas Cereales de siembra Otoñal
+                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >
+                        Herbicidas 
                     </button>
-                    <button onClick={(e)=>selectGirasol(e)} className={styles.categoria} >
-                        Escalas Fenológicas Girasol
+                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >
+                        Manejo Integrado 
                     </button>
-                    <button onClick={(e)=>selectSoja(e)} className={styles.categoria} >
-                        Escalas Fenológicas Soja
+                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} >
+                        Toda la info 
                     </button>
-                    <button onClick={(e)=>selectMani(e)} className={styles.categoria} >
-                        Escalas Fenológicas Mani
-                    </button>
-                    <button onClick={(e)=>selectGarbanzo(e)} className={styles.categoria} >
-                        Escalas Fenológicas Garbanzo
-                    </button>
+                   
                    
                     
                 </div>
             </main>
             
             <ul>
-                {
+                {   
                     filteredCategory.map(e=>(
                         <div className={styles.resultados}>
                         
-                        
-                        <p>{e.Etapa}</p>
+                        {/* ESCALAS FENOLOGICAS */}
+                        <p>{e.cereal}</p>
+                        <p>{e.title}</p>
+                        <p>{e.subetapa}</p>
                         <p>{e.Descripcion}</p>
                         <img src={e.imagen}/>
+
+                        {/* FUNG/HERB/INSECT */}
+                        <p>{e.type}</p>
+                        <p>{e.subtype}</p>
+                        <p>{e.subtype2}</p>
+                        <p>{e.props}</p>
                         </div>
-                    ))
+                        ))
+                       
+                        
+
                 }
             </ul>
             
@@ -140,12 +145,14 @@ useEffect(() => {
 function mapStateToProps(state){
     return {
         dataAgro: state.agroConsultasReducer.fhiData,
+       
     }
 }
 
 function mapDispatchToProps(dispatch){
     return{
-        getFhi: () => dispatch(getFhi())
+        getFhi: () => dispatch(getFhi()),
+        
     }
 }
 

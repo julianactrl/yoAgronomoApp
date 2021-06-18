@@ -1,0 +1,688 @@
+{
+
+"etapas":[
+    
+            {
+                "subtitle": "subtitle",
+            "cereal": "Maiz",
+            "title": "Etapa: VE - Emergencia",
+            "Descripcion": "El coleoptile alcanza la superficie del suelo y se establece la plántula."
+            },
+            {
+                "cereal": "Maiz",
+            "title": "Etapa: V1 - Collar de 1era hoja",
+            "Descripcion": "La hoja inferior (corta con punta redondeada) está completamente desplegada, con collar y lígula visible."
+            },
+            {
+                "cereal": "Maiz",
+            "title": "Etapa: V3 - Collar de 3er hoja",
+            "Descripcion": "Tres hojas completamente desplegadas. El punto de crecimiento se mantiene por debajo de la superficie del suelo."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: V5 - Collar de 5ta hoja",
+             "Descripcion": "Cinco hojas completamente desplegadas. El punto de crecimiento se acerca a la superficie del suelo."
+            },
+             {
+                "cereal": "Maiz",
+            "title":"Etapa: V6 - Collar de 6ta hoja",
+            "Descripcion": "Seis hojas completamente desarrolladas. El ápice de crecimiento está por encima de la superficie del suelo."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: V7 - Collar de 7ma hoja",
+            "Descripcion": "Siete hojas completamente desplegadas."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: V10 - Collar de 10ma hoja",
+            "Descripcion": "Diez hojas completamente desarrolladas."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: Vn - Collar de “n” hojas",
+            "Descripcion": ". “n” ésima hoja completamente desplegada, con collar y lígula visible. VT - Antesis. Aparición de la panoja con liberación de polen."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: VT - Antesis",
+            "Descripcion": "Aparición de la panoja con liberación de polen."
+             },
+             {
+                "cereal": "Maiz",
+            "title":"Etapa: R1 - Silking",
+            "Descripcion": " Se produce la emergencia de los estigmas que capturan los granos de polen."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: R2 - Ampolla o Blister",
+            "Descripcion": "Los granos son de color blanco asemejándose a una ampolla."
+             },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: R3 - Grano lechoso",
+            "Descripcion": "Los granos son de color amarillo en la parte exterior con un interior líquido blanco lechoso."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: R4 - Grano pastoso",
+            "Descripcion": "El fluido en el endosperma se ha espesado hasta obtener una consistencia pastosa. La mazorca es de color blanco cuando se quitan los granos. La humedad del grano es de aproximadamente el 70%."
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: R5 - Grano Dentado",
+            "Descripcion": "La mazorca es de color rojo oscuro. Comienza el secado del grano formándose, en la parte superior, una capa dura de color blanco de almidon, que continua hacia la mazorca. La humedad del grano es de aproximadamente el 55%. "
+            },
+            {
+                "cereal": "Maiz",
+            "title":"Etapa: R6 - Madurez Fisiologica",
+            "Descripcion": "Todos los granos han alcanzado máximo peso seco. Una capa de color negro o marrón se ha formado en la porciòn del grano que se une a la mazorca, lo que indica que la madurez fisiológica se ha alcanzado. El contenido de humedad del grano oscila entre el 30-35% en esta etapa."
+            },
+            {
+            "imagen": "https://i.pinimg.com/originals/09/c9/ba/09c9ba56482e422f0220774d45d2a12e.png"
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: VE - Emergencia",
+                "Descripcion":"El hipocótilo y los cotiledones han emergido sobre la superficie del suelo y la primera hoja verdadera tiene menos de 4 cm de largo."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: V (N)",
+                "Descripcion":"Se determina contando el número de hojas verdaderas de longitud superior a 4 cm. ej.: V1, V2, V3, etc. Cuando las hojas se pierden, las cicatrices que dejan en el tallo (excluyendo las del nudo cotiledonal) más las hojas presentes, deben ser contadas para determinar el estado de desarrollo vegetativo."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R1",
+                "Descripcion":"El botón floral comienza a diferenciarse. Visto desde arriba las brácteas inmaduras tienen la apariencia de una estrella de numerosas puntas."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R2",
+                "Descripcion":"El botón floral se elonga entre 0.5 y 2cm por encima de la hoja más cercana inserta en el tallo. Las brácteas están unidas directamente a la parte de atrás de las yemas."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R3",
+                "Descripcion":"El botón floral se elonga mas de 2cm por encima de la hoja más próxima. "
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R4",
+                "Descripcion":"- La inflorescencia comienza a abrirse. Vista desde arriba, las flores liguladas aún inmaduras son visibles. "
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R5",
+                "Descripcion":"Este estado corresponde al inicio de floración. Se divide en sub-estados dependiendo del porcentaje del área del capítulo que ha completado su floración. Ej.: R5.1, el 10 % de las flores se encuentra en antesis. "
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R6",
+                "Descripcion":"La floración es completa y las flores liguladas comienzan a marchitarse."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R7",
+                "Descripcion":"El envés del capítulo comienza a colorearse amarillo pálido."
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R8",
+                "Descripcion":"El envés del capítulo es amarillo pero las brácteas permanecen verdes"
+            },
+            {
+                "cereal": "Girasol",
+                "title":"Etapa: R9",
+                "Descripcion":"Las brácteas se tornan amarillas y marrones. La mayor parte del envés del capítulo se ha tornado marrón. Este estado corresponde a madurez fisiológica. "
+            },
+            {
+                "cereal": "Girasol",
+                "imagen": "https://www.syngenta.com.ar/sites/g/files/zhg331/f/media-wysiwyg/2020/05/17/girasol.png"
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: V0",
+                "Descripcion":"1er nudo -visible debajo del suelo- donde se insertan las hojas cotiledonares opuestas."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: VE",
+                "Descripcion":"Emergencia de plántula. 2do nudo con catáfilas tridentadas -visible debajo del suelo-"
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: V1",
+                "Descripcion":"1er nudo -visible sobre el suelo- donde se despliega la 1er hoja multifoliada. "
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: V2",
+                "Descripcion":"2do nudo -visible sobre el suelo- donde se inserta la 2da hoja multifoliada."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: V3",
+                "Descripcion":" 3er nudo -visible sobre el suelo- donde se inserta la 3er hoja multifoliada."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: Vn",
+                "Descripcion":"“n” nudos -visibles sobre el suelo- donde se insertan “n” hojas multifoliadas desarrolladas."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R1 ",
+                "Descripcion":"Se inicia la floración y se observa una flor abierta en cualquier parte de la planta."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R2",
+                "Descripcion":"La mayoría de las flores están abiertas."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R3",
+                "Descripcion":"- Inicio de formación de vainas."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R4",
+                "Descripcion":"Las vainas han alcanzado su tamaño máximo, y se las visualiza planas."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R5",
+                "Descripcion":"Se inicia la formación de grano, que comienza a ocupar el lugar que le corresponde dentro de la cavidad de la vaina."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R6",
+                "Descripcion":"Todos los granos ocupan la cavidad de la vaina, y esta comienza a redondearse."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R7",
+                "Descripcion":"Las hojas comienzan a virar de color y el 50% de las vainas se vuelven de color amarillo."
+            },
+            {
+                "cereal": "Garbanzo",
+                "title":"Etapa: R8",
+                "Descripcion":"El 90 % de las vainas de la planta son de color amarillo-marrón."
+            },
+            {
+                "cereal": "Garbanzo",
+                "imagen": "/images/garbanzo.png"
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: VE - Emergencia",
+                "Descripcion":"El hipocotilo con los cotiledones atraviesan la superficie del suelo. "
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: V1 - (1er nudo)",
+                "Descripcion":"Plántula con un nudo desarrollado con su hoja tetrafoliada y foliolos horizontales."
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: Vn - (“n” número de nudos)",
+                "Descripcion":"desarrollados sobre el eje principal de la planta. Considerando para ello como último nudo, al superior que presente una hoja tetrafoliada desarrollada con sus foliolos horizontales."
+            },
+            {
+                "title":"Etapa: R1 - Inicio de Floración",
+                "Descripcion":"Las plantas tienen o han tenido una flor abierta en cualquier nudo de la planta. "
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R2 - Inicio de formación del ginóforo o un ginóforo alargado",
+                "Descripcion":"Las plantas, al menos, tienen un clavo en proceso de elongación y sin introducirse en el suelo"
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R3 - Inicio de formación de cajas ",
+                "Descripcion":"Las plantas tienen un clavo elongado, con el extremo del ovario de un diámetro igual a dos veces del diámetro del clavo."
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R4 - Caja completamente desarrollada",
+                "Descripcion":"Se observa una primera caja que ha llegado a su máximo tamaño"
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R5 - Inicio de formación de semillas",
+                "Descripcion":"La mejor forma de determinar esta etapa es haciendo cortes transversales a las cajas, y es cuando las mismas tienen por lo menos un fruto donde, a través del corte, se puede observar el crecimiento de los cotiledones seminales."
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R6 - Semillas completas",
+                "Descripcion":"Se observa una caja cuya cavidad esta aparentemente llena por las semillas."
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R7 - Inicio de maduración",
+                "Descripcion":"Las plantas tienen por lo menos una caja madura, con la parte interna del pericarpo manchada."
+            },
+            {
+                "cereal": "Mani",
+                "title":"Etapa: R8 - Madurez de cosecha o arrancado",
+                "Descripcion":"Cuando se alcanza el % de cajas maduras que indican el momento de arrancado, donde los frutos presentan, en el interior del pericarpo, una coloración canela o marrón y el tegumento seminal manifiesta un cambio de color hasta alcanzar el característico del cultivar."
+            },
+            {
+                "cereal": "Mani",
+                "imagen": "/images/mani.png"
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: VE – Emergencia",
+                "Descripcion":"Se observa el hipocótile en forma de arco, empujando al epicótile y a los cotiledones, haciéndolos emerger sobre la superficie del suelo. ."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: VC - Etapa cotiledonar",
+                "Descripcion":"El hipocótile se endereza y cesa su crecimiento. Los cotiledones se despliegan totalmente en el nudo cotiledonal (nudo 0). Hay que tener en cuenta, para considerar este estado, es que en el nudo inmediato superior (nudo 1) los bordes de las hojas unifoliadas no se toquen. A partir de aquí el resto de los estados vegetativos se los identifican con el número de nudos."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: V1 - (1er nudo)",
+                "Descripcion":"El par de hojas opuestas unifoliadas están expandida totalmente (nudo 1), y en el nudo inmediato superior se observa que los bordes de cada uno de los foliolos de la 1er hoja trifoliada no se tocan (nudo 2). "
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: V2 - (2do nudo)",
+                "Descripcion":"La 1er hoja trifoliada está totalmente desplegada (nudo 2), y en el nudo 3 (inmediato superior) los bordes de cada uno de los foliolos de la 2da hoja trifoliada no se están tocando. "
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: V3 - (3er nudo)",
+                "Descripcion":"La 2da hoja trifoliada está completamente desarrollada en el nudo 3 y en el nudo inmediato superior (nudo 4) los bordes de cada uno de los foliolos de la 3er hoja trifoliada no se tocan."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: Vn - (“n” número de nudos)",
+                "Descripcion":"La hoja trifoliada del nudo (n) está expandida totalmente, y en el nudo inmediato superior los bordes de cada uno de los foliolos no se tocan."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R1 - Inicio de Floración",
+                "Descripcion":"Se observa una flor abierta en cualquier nudo del tallo principal"
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R2 - Floración completa",
+                "Descripcion":"Se observa una flor abierta en uno de los nudos superiores del tallo principal."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R3 - Inicio de formación de vainas",
+                "Descripcion":"Una vaina de 5 milímetros de largo en uno de los 4 nudos superiores del tallo principal, y con hojas totalmente desplegadas. "
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R4 - Vainas completamente desarrolladas",
+                "Descripcion":"Una vaina de 2 cm en uno de los 4 nudos superiores del tallo principal con hojas totalmente desplegadas."
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R5 - Inicio de formación de semillas",
+                "Descripcion":"Una vaina, ubicada en uno de los 4 nudos superiores del tallo principal, contiene una semilla de 3 mm de largo. "
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R6 - Semilla completamente desarrollada",
+                "Descripcion":"Una vaina, en cualquiera de los 4 nudos superiores del tallo principal, contiene una semilla verde que llena la cavidad de dicha vaina, con hojas totalmente desplegadas.  "
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R7 - Inicio de maduración",
+                "Descripcion":"Una vaina normal en cualquier nudo del tallo principal ha alcanzado su color de madurez -madurez fisiológica"
+            },
+            {
+                "cereal": "Soja",
+                "title":"Etapa: R8 - Maduración completa",
+                "Descripcion":"El 95 % de las vainas de la planta han alcanzado el color de madurez. Se completa el ciclo ontogénico, culminando con la maduración iniciada en la etapa anterior. "
+            },
+            {
+                "cereal": "Soja",
+                "imagen": "/images/soja.png"
+            },
+            {
+                "cereal": "Sorgo",
+                "title":"Etapa: Estado 0 - Emergencia",
+                "Descripcion": "El coleoptile es visible en la superficie del suelo."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 1 - Lígula de la 3er hoja visible",
+                "Descripcion": "Los collares y lígulas de tres hojas pueden ser vistos sin disección de la planta."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 2 - Lígula de la 5ta hoja visible",
+                "Descripcion": "Los collares y lígulas de cinco hojas pueden verse sin la disección de la planta."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 3 - Diferenciación de meristemas",
+                "Descripcion": "Momento del cambio del punto de crecimiento de vegetativo a reproductivo. Aproximadamente entre 7 a 10 hojas se encuentran completamente expandidas. "
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 4 - Hoja bandera visible",
+                "Descripcion": "Todas las hojas excepto las últimas 3 a 4 se hayan expandidas, representando el 80% de la máxima área foliar."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 5 - Estado de bota o buche",
+                "Descripcion": "Todas las hojas se han expandido completamente proporcionando la máxima área foliar. La panoja casi alcanzó su máxima longitud, y está rodeada por la vaina de la hoja bandera."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 6 - Floración",
+                "Descripcion": "Las plantas se encuentran en algún momento de la floración, que progresa de arriba hacia abajo de la panoja. "
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 7 - Grano lechoso",
+                "Descripcion": "En esta etapa el grano tiene una consistencia lechosa y el llenado del grano se produce rápidamente. Se siguen perdiendo las hojas inferiores quedando 8 a 12 hojas funcionales en esta etapa."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 8 - Grano pastoso",
+                "Descripcion": "En esta etapa aproximadamente tres cuartas partes del peso seco del grano se ha alcanzado."
+                },
+                {
+                    "cereal": "Sorgo",
+                "title":"Etapa: Estado 9 - Madurez Fisiológica",
+                "Descripcion": "La humedad del grano depende del híbrido y el ambiente, y varía entre un 25 y un 35%."
+                },
+                {
+                    "cereal": "Sorgo",
+                "imagen": "/images/sorgo.png"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 00",
+                    "Descripcion": "Semilla seca"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 01",
+                    "Descripcion": "Comienzo de imbibición."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 05",
+                    "Descripcion": "Radícula emergida del cariopse."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+                    "subetapa": "Z 08",
+                    "Descripcion": "Hoja en el extremo del coleoptile."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 10",
+                    "Descripcion": "1era hoja verdadera atravesó el coleoptile."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 11",
+                    "Descripcion": "1era hoja expandida y comienza a desenrollarse la 2da."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 12",
+                    "Descripcion": "2da hoja expandida y comienza a desenrollarse la 3era."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 16",
+                    "Descripcion": "6ta hoja expandida y comienza a desenrollarse la 7ma."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 1 - Emergencia. Z1",
+                    "subetapa": "Z 19",
+                    "Descripcion": "Nueve o más hojas totalmente expandidas."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 20",
+                    "Descripcion": "Vástago principal (VP) solamente."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 21",
+                    "Descripcion": "VP y un macollo."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 22",
+                    "Descripcion": "VP y dos macollos."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 26",
+                    "Descripcion": "VP y seis macollos"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 2 - Macollaje. Z2",
+                    "subetapa": "Z 29",
+                    "Descripcion": "VP y nueve o más macollos."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 30",
+                    "Descripcion": "Erección del pseudotallo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 31",
+                    "Descripcion": "Detección del 1er entrenudo."
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 32",
+                    "Descripcion": "Detección del 2do entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 36",
+                    "Descripcion": "Detección del 6to entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 37",
+                    "Descripcion": "Hoja bandera visible."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 3 - Alargamiento del tallo. Z3",
+                    "subetapa": "Z 39",
+                    "Descripcion": "Lígula de la hoja bandera visible."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoñal",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 41",
+                    "Descripcion": "Hoja bandera totalmente expandida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 42-43",
+                    "Descripcion": "Preinflorescencia ligeramente hinchada."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 44-45",
+                    "Descripcion": "Detección del 2do entrenudo"
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 36",
+                    "Descripcion": "Preinflorescencia totalmente hinchada."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 46-47",
+                    "Descripcion": "Apertura de la vaina de la hoja bandera."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+                    "subetapa": "Z 48-49",
+                    "Descripcion": "Aristas visibles."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 50-51",
+                    "Descripcion": "1eras espiguillas visibles."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 52-53",
+                    "Descripcion": "¼ de la inflorescencia emergida."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 54-55",
+                    "Descripcion": "½ de la inflorescencia emergida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 56-57",
+                    "Descripcion": "¾ de la inflorescencia emergida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+                    "subetapa": "Z 48-49",
+                    "Descripcion": "Emergencia total"
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 6 - Antesis. Z6",
+                    "subetapa": "Z 64-65",
+                    "Descripcion": "1/2 antesis."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 6 - Antesis. Z6",
+                    "subetapa": "Z 68-69",
+                    "Descripcion": "Antesis completa."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 71-72",
+                    "Descripcion": "Cariopse maduro."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 73-74",
+                    "Descripcion": "Grano lechoso temprano."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 75-76",
+                    "Descripcion": "Grano lechoso medio."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 7 - Grano lechoso. Z7",
+                    "subetapa": "Z 77-78",
+                    "Descripcion": "Grano lechoso tardío."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 83",
+                    "Descripcion": "Temprano."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 85",
+                    "Descripcion": "Blando (no detiene la impresión de la uña)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 8 - Grano pastoso. Z8",
+                    "subetapa": "Z 87",
+                    "Descripcion": "Duro (detiene la impresión de la uña). Inflorescencia pierde clorofila."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 91",
+                    "Descripcion": "Cariopse duro (dificultoso dividir por la uña del pulgar)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 92",
+                    "Descripcion": "Cariopse duro (no puede ser mellado por la uña del pulgar)."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 94",
+                    "Descripcion": "Sobremadurez, colapso y muerte de la caña."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 95",
+                    "Descripcion": "Dormición."
+                },
+                                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 96",
+                    "Descripcion": "50% de germinación."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 97",
+                    "Descripcion": "Dormición secundaria inducida."
+                },
+                {
+                    "cereal": "Cereales de siembra otoña",
+                    "title": "Etapa 9 - Madurez. Z9",
+                    "subetapa": "Z 98-99",
+                    "Descripcion": "Perdida de dormición secundaria."
+                }
+    ]
+    
+    
+}
