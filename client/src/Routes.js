@@ -41,6 +41,9 @@ export default function Routes() {
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
+      <Route exact path='/agroconsultas'>
+        <AgroConsultas />
+      </Route>
 
       <Route exact path="/home">
         <DashBoard />
