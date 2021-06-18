@@ -21,7 +21,7 @@ export function sidebar(verify){
                     <Link className={styles.linktext}>
                     <h2 className={styles.text}>PREMIUM</h2>
                     </Link>
-                    <Link className={styles.linktext}>
+                    <Link to='/agroconsultas' className={styles.linktext}>
                     <h2 className={styles.text}>AGRO CONSULTAS</h2>
                     </Link>
                 </div>    
@@ -43,7 +43,7 @@ export function sidebar(verify){
                 <Link className={styles.linktext}>
                 <h2 className={styles.text}>MERCADO</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link  className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>
@@ -52,7 +52,7 @@ export function sidebar(verify){
                 <Link className={styles.linktext}>
                 <h2 className={styles.text}>PREMIUM</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/agroconsultas'className={styles.linktext}>
                 <h2 className={styles.text}>AGRO CONSULTAS</h2>
                 </Link>
             </div>
