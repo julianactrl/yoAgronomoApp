@@ -29,7 +29,7 @@
     transform: rotateY(180deg);
 }
 .loteDetails{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 10, 0, 0.767),rgba(0, 9, 2, 0.885), rgba(0, 0, 0, 0.739));
+    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right;
@@ -46,35 +46,109 @@
     background-color: rgba(0, 0, 0, 0.486);
 }
 .name{
-    position:relative;
-    bottom: 10%;
-    font-size: 60px;
+    font-size: 40px;
+    font-family: Roboto;
+    position: relative;
+    text-align: center;
+    top: 5vh;
 }
 .obsRec {
-    font-size: 20px;
     position: relative;
-    bottom: 4%;
+    bottom: 5%;
     display: flex;
-    width: 70%;
-    height: 50%;
+    width: 80%;
+    height: 47%;
+    flex-direction: row;
     justify-content: space-between;
 }
-.contAux{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.slider{
+    position: relative;
+    left: 2%;
+    width: 50%;
+    height: 110%;
 }
+
 .details{
     color: white;
     width: 50%;
-    height: 80%;
+    height: 100%;
     display: flex;
     justify-content: space-around;
     justify-items: center;
     align-items: center;
     flex-direction: column;
 }
+.divPrueba{
+    width: 300px;
+    height: 300px;
+}
+.cross{
+    position: relative;
+    left: 40%;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image: url('../../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
+
+}
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+.nextBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 50%;
+    transform: rotate(-90deg);
+    top: 2vh;
+    height: 60px;
+    border-radius: 60px;
+    
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 51.1vh;
+    left: 35%;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
+}
+/* /////////////////////////////////////////////////////////////////////////// */
 .btnDetails{
     border:none;
     position: relative;
@@ -104,20 +178,55 @@
     transition: all 0.2s ease 0s;
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
+.contAux{
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.contOverflow{
+    width: 25vh;
+    height: 25vh;
+    background-color: rgba(83, 83, 83, 0.157);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-shadow: 0 0 30px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.contOverflowText{
+    padding: 8%;
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.contOverflow::-webkit-scrollbar {
+    background: rgba(224, 224, 224, 0.185);
+    border-radius: 4px;
+}
+
 .img{
-    position: relative;
     box-shadow: 0 0 30px 0.1px rgb(27, 27, 27);
-    left: 3%;
-    width:50%;
     opacity: 0.8;
-    border-radius: 5%;
-    height: 80%;
+
 }
 /* //////////////////////////////      FORMULARIO         //////////////////////////////////////////// */
 
 
 .loteForm{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 10, 0, 0.767),rgba(0, 9, 2, 0.885), rgba(0, 0, 0, 0.739));
+    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
     /* url('../../../assets/logo\ -\ copia.png'); */
     background-repeat: no-repeat;
     background-size: contain;

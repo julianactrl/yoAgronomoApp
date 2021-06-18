@@ -67,7 +67,7 @@ export default function LoteHome ({id}) {
     return (
         <div className={styles.contenedor}>
             <Header />
-            <button onClick={()=> dispatch({type:'GET_DETAIL_LOTE',payload:false})}>DETALLE</button>
+            
             <div className={styles.body}>
                 <h1 className={styles.tittle}>{empresaId.name}</h1>
                 {!detailLote? <Slider {...settings}>
