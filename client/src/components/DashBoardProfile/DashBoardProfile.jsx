@@ -9,10 +9,14 @@ import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 export default function DashBoardProfile() {
   const [active, setActive] = useState(false);
-  const userInfo = useSelector((state) => state.userReducer.userInfo);
-  console.log("inh",userInfo)
+  const {userInfo, error, isLoading} = useSelector((state) => state.userReducer);
+  console.log("estado",userInfo)
 
-  if (userInfo) {
+  if(isLoading) {
+    alert('Loading')
+  }else if (error){
+    alert(error)
+  }else if (userInfo) {
     var decoded = jwt_decode(userInfo);
   }
 
