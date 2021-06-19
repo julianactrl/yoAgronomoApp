@@ -54,12 +54,12 @@
 }
 .obsRec {
     position: relative;
-    bottom: 5%;
     display: flex;
     width: 80%;
-    height: 47%;
+    height: 40%;
     flex-direction: row;
     justify-content: space-between;
+    
 }
 .slider{
     position: relative;
@@ -78,9 +78,85 @@
     align-items: center;
     flex-direction: column;
 }
-.divPrueba{
-    width: 300px;
-    height: 300px;
+
+.clima{
+    width: 68vh;
+}
+.contDataClima{
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+
+}
+.contClima{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height: 100%;
+}
+.imgClima{
+    position: relative;
+    right: 15%;
+    width: 100px;
+
+}
+.imgClima:hover{
+    transition:.6s;
+    transform: rotate(10deg)scale(1.5);
+}
+
+.contClimaText{
+    position: relative;
+    left: 10%;
+}
+.contLogoDelEdit{
+    position: fixed;
+    top: 10%;
+    right: 48%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+}
+.editLogo,
+.deleteLogo{
+    background-color: rgba(129, 93, 93, 0);
+    border: 2px solid rgba(129, 143, 151, 0.192);
+    border-radius: 5px;
+    width: 45px;
+}
+.editLogo:hover,
+.deleteLogo:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid rgba(0, 225, 255, 0.26);
+    background-color: rgb(189, 189, 189);
+    box-shadow: 0 0 5px white;
+}
+
+.ghostDivHidden{
+    position: absolute;
+    top: 35%;
+    width: 60vh;
+    height: 20vh;
+    transition: .3s;
+    opacity: 0;
+}
+.ghostDiv{
+    position: absolute;
+    top: 35%;
+    width: 60vh;
+    height: 20vh;
+    transition: .5s;
+    opacity: 1;
+}
+
+.dataText{
+    
+    font-size: 19px;
 }
 .cross{
     position: relative;
@@ -188,20 +264,103 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 0 30px black;
 
 }
+/* ((((((((((((((((((((((((((((((((((((BOTONES OBSERVACIONES Y TAREAS )))))))))))))))))))))))))))))))))))) */
+.contObsActivated{
+    position: relative;
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+    animation-name: agrandar;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-iteration-count: initial;
+}
+.contTareasActivated{
+    position: relative;
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+    animation-name: agrandar;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-iteration-count: initial;
+}
+
+.contObsDesactivated{
+    position: relative;
+    top: 75%;
+    display: flex;
+    box-shadow: 0 0 30px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 0.294);
+    text-align: center;
+    height: 8vh;
+    width: 45%;
+}
+.contObsDesactivated:hover,
+.contTarDesactivated:hover{
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(104, 104, 104, 0.582);
+    background-color: rgba(58, 58, 58, 0.431);
+
+}
+.contTarDesactivated{
+    position: relative;
+    top: 75%;
+    display: flex;
+    box-shadow: 0 0 30px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 0.294);
+    text-align: center;
+    height: 8vh;
+    width: 45%;    
+}
+@keyframes agrandar {
+    from{
+        top:75%;
+        height: 0;
+    }
+    to{
+        top:0;
+        height: 100%;
+    }
+    
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .contOverflow{
-    width: 25vh;
-    height: 25vh;
+    width: 90%;
+    height: 20vh;
     background-color: rgba(83, 83, 83, 0.157);
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: scroll;
-    box-shadow: 0 0 30px black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    
     
 }
 .contOverflowText{
@@ -223,7 +382,9 @@
 
 }
 /* //////////////////////////////      FORMULARIO         //////////////////////////////////////////// */
-
+.none{
+    display: none;
+}
 
 .loteForm{
     background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
@@ -252,8 +413,17 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    left: 7%;
+    width: 80%;
+    height: 80%;
 
+}
+.formPrincipio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 80%;
 }
 .form{
     display: flex;
@@ -267,6 +437,8 @@
     position: relative;
     top: 5%;
     letter-spacing: 1.5px;
+    font-family: Roboto;
+    right: 30%;
     font-size: 40px;
 }
 
@@ -342,25 +514,26 @@
     width: 20vh;
     height: 20vh;
 }
-.fileselect {          
-    background-color:#536369 ;
-    /* background-image: url('../../../assets/carpetas.png'); */
+.fileselect {    
+    background-image: url('../../../assets/adjuntarArchivo.png');      
+    background-color:#ffffff ;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
     color: white;
     display: flex;    
-    width: 50%;   
-    height: 30%;    
+    width: 100px;   
+    height: 100px;    
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0);
   }
   .fileselect:hover{
       transition: 0.3s;
-      background-size: 60%;
-      background-color: rgba(204, 204, 204, 0.911);
-      border:1px solid rgba(255, 255, 255, 0.294);
+      background-size: 90%;
+      background-color: rgba(0, 217, 255, 0.801);
+      border:1px solid rgba(0, 0, 0, 0.644);
   }
    
   .fileselect input[type="file"] {
@@ -375,13 +548,28 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      height: 100%;
   }
   .submit{
+      position: relative;
+      left: 5vh;
+      width: 10vh;
+      height: 5vh;
       background-color: rgb(43, 133, 31);
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+  }
+  .submit:hover{
+    transition: 0.3s;
+    background-color: rgb(70, 177, 56);
+    box-shadow: 0 0 10px rgb(63, 63, 63);
+    letter-spacing: .3px;
+
   }
   .textatera{
       border:none;
       background-color: rgba(0, 0, 0, 0.452);
+      box-shadow: 0 0 10px rgba(56, 56, 56, 0.596);
   }
    
    

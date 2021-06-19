@@ -69,7 +69,7 @@ export default function LoteHome ({id}) {
             <Header />
             
             <div className={styles.body}>
-                <h1 className={styles.tittle}>{empresaId.name}</h1>
+                {/* <h1 className={styles.tittle}>{empresaId.name}</h1> */}
                 {!detailLote? <Slider {...settings}>
                     {
                         allLotes.map((lote, index) => {
