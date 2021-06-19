@@ -8,7 +8,7 @@ const myProfile = async (req, res, next) => {
   try {
     const { id } = req.user;
     const result = await User.findByPk(id, {
-      attributes: ["id", "fullName", "profile_pic", "email"],
+      attributes: ["id", "fullName", "profile_pic", "email", "updatedAt"],
     });
     if (req.user.updatedAt === result.updatedAt.toISOString()) {
       return res.json(result);
@@ -35,13 +35,13 @@ const myProfile = async (req, res, next) => {
 const register = async (req, res) => {
   try {
     const user = await User.create(req.body);
-    const { id, fullName, email } = user;
+    const { id, fullName, email, updatedAt } = user;
     return res.send(
       jwt.sign(
         {
           id,
           fullName,
-          email,
+          email, updatedAt
         },
         AUTH_JWT_SECRET
       )
@@ -57,10 +57,11 @@ const register = async (req, res) => {
 
 //==========================================================================//
 const login = async (req, res, next) => {
+  
   console.log("estoy en login", req.user);
   passport.authenticate("local", (err, user) => {
     if (err) return next(err);
-    else if (!req.body)
+    else if (!user)
       return res.status(401).json({ message: "No sos vos soy yo" });
     else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
   })(req, res, next);
