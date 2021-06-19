@@ -25,9 +25,12 @@ export const GET_NEWS = 'GET_NEWS';
 
 export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
 
-export const GET_ALL_LOTES = 'GET_ALL_LOTES'
+export const GET_ALL_LOTES = 'GET_ALL_LOTES';
 
-export const GET_FHI = 'GET_FHI';
+
+
+
+
 
 
 
