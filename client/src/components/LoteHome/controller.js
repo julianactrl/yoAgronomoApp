@@ -38,6 +38,12 @@ export function renderizarLotes(allLotes,LoteCard, Slider, settings) {
                            }
                         })
                     }
+
+                        {!allLotes[0] && <div className={styles.contenedorData}>
+                        <div className={styles.contenedorCards}>
+                            <LoteCardCreate />
+                        </div>                            
+                        </div>}
                 </Slider>
 
     )
