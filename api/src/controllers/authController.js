@@ -6,28 +6,28 @@ const { AUTH_JWT_SECRET, FRONT } = process.env;
 //==========================================================================//
 const myProfile = async (req, res, next) => {
   try {
-		const { id } = req.user;
-		const result = await User.findByPk(id, {
-			attributes: ['id', 'fullName', 'profile_pic', 'email']
-		});
-		if (req.user.updatedAt === result.updatedAt.toISOString()) {
-			return res.json(result);
-		} else {
-			const { id, fullName,  profile_pic, email, } = result;
-			result.dataValues.jwt = jwt.sign(
-				{
-					id,
-					fullName,
-					profile_pic,
-					email,
-				},
-				AUTH_JWT_SECRET
-			)
-			return res.json(result)
-		}
-	} catch (error) {
-		next(error);
-	}
+    const { id } = req.user;
+    const result = await User.findByPk(id, {
+      attributes: ["id", "fullName", "profile_pic", "email"],
+    });
+    if (req.user.updatedAt === result.updatedAt.toISOString()) {
+      return res.json(result);
+    } else {
+      const { id, fullName, profile_pic, email } = result;
+      result.dataValues.jwt = jwt.sign(
+        {
+          id,
+          fullName,
+          profile_pic,
+          email,
+        },
+        AUTH_JWT_SECRET
+      );
+      return res.json(result);
+    }
+  } catch (error) {
+    next(error);
+  }
 };
 
 //==========================================================================//
@@ -35,42 +35,34 @@ const myProfile = async (req, res, next) => {
 const register = async (req, res) => {
   try {
     const user = await User.create(req.body);
-    const { id, email, fullName, password } = user;
-
-    // Receiving Data
-    if (!{ id, email, fullName, password }) return res.status(403).end();
-    // Create a Token
-    const token = jwt.sign(
-      {
-        id,
-        email,
-        fullName,
-        password,
-      },
-      AUTH_JWT_SECRET,
-      {
-        expiresIn: 60 * 60 * 24, // expires in 24 hours
-      }
+    const { id, fullName, email } = user;
+    return res.send(
+      jwt.sign(
+        {
+          id,
+          fullName,
+          email,
+        },
+        AUTH_JWT_SECRET
+      )
     );
-    res.status(200).json({ auth: true, token });
   } catch (error) {
-    console.log(error);
-    if (error.message === 'Invalid password')
-			return res.status(400).json({ message: 'Invalid password' });
-		if (error.errors[0].message === 'email must be unique')
-			return res.status(400).json({ message: 'email must be unique' });
-		return res.status(500).json({ message: 'Internal Server Error' });
+    if (error.message === "Invalid password")
+      return res.status(400).json({ message: "Invalid password" });
+    if (error.errors[0].message === "email must be unique")
+      return res.status(400).json({ message: "email must be unique" });
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
 //==========================================================================//
 const login = async (req, res, next) => {
-  console.log("estoy en login", req.user)
-  const { email, password } = req.body
-  passport.authenticate("local", (err, password, email) => {
+  console.log("estoy en login", req.user);
+  passport.authenticate("local", (err, user) => {
     if (err) return next(err);
-		else if (!req.body) return res.status(401).json({message: "No sos vos soy yo"});
-		else return res.send(jwt.sign(req.body, AUTH_JWT_SECRET));
+    else if (!req.body)
+      return res.status(401).json({ message: "No sos vos soy yo" });
+    else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
   })(req, res, next);
 };
 
