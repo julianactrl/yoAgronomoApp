@@ -1,6 +1,5 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import manejoIntegrado from './manejoIntegrado.json'
-import { connect } from 'react-redux';
 import styles from './styles.module.css'
 import etapasDesarrollo2 from './etapasDesarrollo2.json'
 import funguicidas from './funguicidas.json'
@@ -56,17 +55,28 @@ function handleChange(e){
     setInput(e.target.value)
 }
 
-// function handleSubmit(e){
-//     e.preventDefault()
-
-//     if(input){
-//         props.filterByValue()
-//     }else{
-//         alert('You must enter a valid word')
-//     }
-//     setInput('')
+// function filterAll(){
+//     allRes.filter((el)=>{
+//         setAllRes(el.title && el.title.includes(input))
+//     })
 // }
 
+
+// function handleSubmit(e){
+//      e.preventDefault()
+
+//     if(input){
+//         console.log(input)
+//          filterAll()
+//          console.log(allRes)
+//      }else{
+//          alert('You must enter a valid word')
+//      }
+//      setInput('')
+//      setAllRes(allRes)
+//       }
+
+     
 
 
 
@@ -94,7 +104,7 @@ function handleChange(e){
             <Header />
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
-                <form  className={styles.form}>
+                <form className={styles.form}>
                 <input className={styles.input} type="text"
                
                 placeholder='Tu consulta...'
@@ -135,7 +145,13 @@ function handleChange(e){
             
             <ul className={styles.contentOverflow}>
                 {   filteredCategory.length?
-                    filteredCategory.map(e=>(
+                    filteredCategory.filter((val)=> {
+                        if (input == ''){
+                            return val
+                        }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                            return val
+                        }
+                    } ).map(e=>(
                         <div className={styles.resultados}>
                              
                         
@@ -154,7 +170,13 @@ function handleChange(e){
                         </div>
                         ))
                         :
-                        allRes.map(e=>(
+                        allRes.filter((val)=> {
+                            if (input == ''){
+                                return val
+                            }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                                return val
+                            }
+                        } ).map(e=>(
                             <div className={styles.resultados}>
                               {/* ESCALAS FENOLOGICAS */}
                         <p className={styles.tituloCard}>{e.cereal}</p>
