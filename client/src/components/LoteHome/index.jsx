@@ -67,13 +67,12 @@ export default function LoteHome ({id}) {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };
-    //   console.log('aaaaaaaaaaaaaaaaaaa',renderFormCreateLote);
     return (
         <div className={styles.contenedor}>
             <Header />
-            <button onClick={()=> {dispatch({type:'GET_DETAIL_LOTE',payload:false});dispatch({type:'GET_FORM_LOTE',payload:false})}} >DETALLE</button>
-            <div className={styles.body}>
-                <h1 className={styles.tittle}>{empresaId.name}</h1>
+            { <button onClick={()=> {dispatch({type:'GET_DETAIL_LOTE',payload:false});dispatch({type:'GET_FORM_LOTE',payload:false})}} >DETALLE</button>}
+            <div className={styles.body}> 
+                {(!detailLote && !renderFormCreateLote) && <h1 className={styles.tittle}>{empresaId.name}</h1>}
                 {!detailLote && !renderFormCreateLote ? renderizarLotes(allLotes,LoteCard,Slider,settings)
                 :(renderFormCreateLote?<LoteFormCreate />: <LoteDetails lote={detailLote} />)}
                 {/* {renderFormCreateLote && <LoteFormCreate />} */}

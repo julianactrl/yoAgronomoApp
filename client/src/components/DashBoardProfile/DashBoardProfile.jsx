@@ -15,7 +15,7 @@ export default function DashBoardProfile() {
   if(isLoading) {
     alert('Loading')
   }else if (error){
-    alert(error)
+    console.log(error)
   }else if (userInfo) {
     var decoded = jwt_decode(userInfo);
   }
