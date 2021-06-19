@@ -7,6 +7,8 @@ import Slider from 'react-slick'
 import Header from '../Header/Header';
 import LoteCard from "./LoteCard";
 import LoteDetails from "./LoteDetails/LoteDetail";
+import LoteFormCreate from './LoteFormCreate/LoteFormCreate'
+import {renderizarLotes} from './controller'
 import add from '../../assets/añadir.png';
 import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
@@ -14,16 +16,18 @@ import { getAllLotes } from "../../redux/actions/loteActions";
 
 
 export default function LoteHome ({id}) {
-    const [activador, setActivador] = useState(true)
-    const allLotes = useSelector(state=> state.loteReducer.allLotes)
-    const detailLote = useSelector(state=> state.loteReducer.detailLote)
-    const empresaId = useSelector(state=>state.empresaReducer.empresaForId);
     const dispatch = useDispatch()
+    const [activador, setActivador] = useState(true)
+    const allLotes = useSelector(state=> state.loteReducer.allLotes)  // todos los lotes de la empresa
+    const detailLote = useSelector(state=> state.loteReducer.detailLote) // estado para ir al detalle
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId); // todos los datos de la empresa
+    const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
 
     console.log('este es el idddddddddddddddd',empresaId);
 
     useEffect(async()=>{
         await dispatch(getAllLotes(empresaId.id))
+        // await dispatch({type:'GET_DETAIL_LOTE',payload:false})
         console.log('esta es la empresa', empresaId, allLotes);
         console.log('detalle de loteeeeeeeeeeeeeeeee',detailLote);
     },[])
@@ -63,48 +67,16 @@ export default function LoteHome ({id}) {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };
-
+    //   console.log('aaaaaaaaaaaaaaaaaaa',renderFormCreateLote);
     return (
         <div className={styles.contenedor}>
             <Header />
-            
+            <button onClick={()=> {dispatch({type:'GET_DETAIL_LOTE',payload:false});dispatch({type:'GET_FORM_LOTE',payload:false})}} >DETALLE</button>
             <div className={styles.body}>
-                {/* <h1 className={styles.tittle}>{empresaId.name}</h1> */}
-                {!detailLote? <Slider {...settings}>
-                    {
-                        allLotes.map((lote, index) => {
-                           if(index % 3 == 0 && index != 0) {
-                               console.log('estoy en el for de % 3 papa');
-                                return (
-                                    <div className={styles.contenedorData}>
-                                        <div className={styles.contenedorCards}>
-                                            <LoteCard lote={allLotes[index]} />
-                                            {allLotes[index + 1] && <LoteCard lote={allLotes[index + 1]}/>}
-                                            {allLotes[index + 2] && <LoteCard lote={allLotes[index + 2]}/>}
-                                            {allLotes[index + 3] && <LoteCard lote={allLotes[index + 3]}/>} 
-                                        </div>
-                                    </div>
-                                    )
-                           }else if(index == 0){
-                               console.log('estoy en el for');
-                               return (
-                                <div className={styles.contenedorData}>
-                                    <div className={styles.contenedorCards}>
-                                        <div  className={styles.cardContAdd} >
-                                            <h1 className={styles.titleAdd}>Agregar Lote</h1>
-                                            <img src={add} alt="" className={styles.imgAdd}/>
-                                        </div> 
-                                        <LoteCard lote={allLotes[index]} />
-                                        {allLotes[index + 1] && <LoteCard lote={allLotes[index + 1]}/>}
-                                        {allLotes[index + 2] && <LoteCard lote={allLotes[index + 2]}/>} 
-                                    </div>                            
-                                </div>
-                                )
-                           }
-                        })
-                    }
-                </Slider>
-                :<LoteDetails lote={detailLote} />}
+                <h1 className={styles.tittle}>{empresaId.name}</h1>
+                {!detailLote && !renderFormCreateLote ? renderizarLotes(allLotes,LoteCard,Slider,settings)
+                :(renderFormCreateLote?<LoteFormCreate />: <LoteDetails lote={detailLote} />)}
+                {/* {renderFormCreateLote && <LoteFormCreate />} */}
             </div>
         </div>
     )
