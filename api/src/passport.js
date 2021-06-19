@@ -40,7 +40,7 @@ passport.use(
 		jwt.verify(token, AUTH_JWT_SECRET, async function (err, user) {
 			if (err) return done(err);
 			const response = await User.findByPk(user.id)
-			return done(null, response ? user : "false????", { scope: 'all' });      
+			return done(null, response ? user : false, { scope: 'all' });      
 		});
 	})
 );
