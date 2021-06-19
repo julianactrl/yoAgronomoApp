@@ -31,20 +31,20 @@ server.use((req, res, next) => {
 
 //=============================== middleware passport =========================
 
-server.use(
-  session({
-    secret: "esto funciona perfect",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+// server.use(
+//   session({
+//     secret: "esto funciona perfect",
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
 
 server.use(passport.initialize());
-server.use(passport.session());
-server.use(function (req, res, next) {
-  res.locals.user = req.user || null;
-  next();
-});
+// server.use(passport.session());
+// server.use(function (req, res, next) {
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 server.all("*", function (req, res, next) {
   passport.authenticate("bearer", function (err, user) {

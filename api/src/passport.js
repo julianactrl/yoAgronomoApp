@@ -7,7 +7,6 @@ const { AUTH_JWT_SECRET } = process.env;
 
 //========local strategy ====
 passport.use(
-  "local",
   new LocalStrategy(
     { usernameField: "email", passwordField: "password", session: false },
     async (email, password, done) => {
