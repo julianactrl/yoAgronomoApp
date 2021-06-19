@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import manejoIntegrado from './manejoIntegrado.json'
+import { connect } from 'react-redux';
 import styles from './styles.module.css'
 import etapasDesarrollo2 from './etapasDesarrollo2.json'
 import funguicidas from './funguicidas.json'
@@ -8,6 +9,7 @@ import herbicidas from './herbicidas.json'
 import allResults from './allResults.json'
 import Header from '../Header/Header'
 import { motion } from 'framer-motion';
+
 
 function AgroConsultas(props){
     
@@ -53,6 +55,20 @@ function handleChange(e){
     console.log(e.target.value)
     setInput(e.target.value)
 }
+
+// function handleSubmit(e){
+//     e.preventDefault()
+
+//     if(input){
+//         props.filterByValue()
+//     }else{
+//         alert('You must enter a valid word')
+//     }
+//     setInput('')
+// }
+
+
+
 
 
 
@@ -112,14 +128,16 @@ function handleChange(e){
                     </button>
                    
                    
+                   
                     
                 </div>
             </main>
             
             <ul className={styles.contentOverflow}>
-                {   
+                {   filteredCategory.length?
                     filteredCategory.map(e=>(
                         <div className={styles.resultados}>
+                             
                         
                         {/* ESCALAS FENOLOGICAS */}
                         <p className={styles.tituloCard}>{e.cereal}</p>
@@ -135,6 +153,23 @@ function handleChange(e){
                         <p>{e.props}</p>
                         </div>
                         ))
+                        :
+                        allRes.map(e=>(
+                            <div className={styles.resultados}>
+                              {/* ESCALAS FENOLOGICAS */}
+                        <p className={styles.tituloCard}>{e.cereal}</p>
+                        <p className={styles.sub}>{e.title}</p>
+                        <p>{e.subetapa}</p>
+                        <p>{e.Descripcion}</p>
+                        <img className={styles.escalasImg} src={e.imagen}/>
+
+                        {/* FUNG/HERB/INSECT */}
+                        <p className={styles.tituloCard}>{e.type}</p>
+                        <p className={styles.sub}>{e.subtype}</p>
+                        <p>{e.subtype2}</p>
+                        <p>{e.props}</p>  
+                            </div>
+                        ))
                        
                         
 
@@ -149,3 +184,5 @@ function handleChange(e){
 
 
 export default AgroConsultas;
+
+

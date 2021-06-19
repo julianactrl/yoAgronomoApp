@@ -17,6 +17,7 @@ const reducers = combineReducers({
     weatherReducer,
     newsReducer,
     loteReducer,
+  
 })
 
 const store = createStore(
