@@ -92,23 +92,23 @@ function handleChange(e){
                 {/* <button onClick={e => handleFhi(e)} className={styles.categoria} >
                         F.H.I
                     </button> */}
-                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >
-                        Escalas Fenológicas 
+                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >Escalas Fenológicas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} >
-                        Funguicidas 
+                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} > Funguicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    
                     </button>
-                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} >
-                        Insecticidas 
+                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} > Insecticidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >
-                        Herbicidas 
+                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >Herbicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                       
                     </button>
-                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >
-                        Manejo Integrado 
+                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >Manejo Integrado<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} >
-                        Ver Todo 
+                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} > Ver Todo<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+
                     </button>
                    
                    
@@ -123,14 +123,14 @@ function handleChange(e){
                         
                         {/* ESCALAS FENOLOGICAS */}
                         <p className={styles.tituloCard}>{e.cereal}</p>
-                        <p>{e.title}</p>
+                        <p className={styles.sub}>{e.title}</p>
                         <p>{e.subetapa}</p>
                         <p>{e.Descripcion}</p>
                         <img className={styles.escalasImg} src={e.imagen}/>
 
                         {/* FUNG/HERB/INSECT */}
                         <p className={styles.tituloCard}>{e.type}</p>
-                        <p>{e.subtype}</p>
+                        <p className={styles.sub}>{e.subtype}</p>
                         <p>{e.subtype2}</p>
                         <p>{e.props}</p>
                         </div>
