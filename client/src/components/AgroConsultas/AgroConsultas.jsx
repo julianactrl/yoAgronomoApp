@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
 import etapasDesarrollo2 from './etapasDesarrollo2.json'
@@ -8,6 +8,7 @@ import herbicidas from './herbicidas.json'
 import allResults from './allResults.json'
 import Header from '../Header/Header'
 import { motion } from 'framer-motion';
+
 
 function AgroConsultas(props){
     
@@ -54,6 +55,31 @@ function handleChange(e){
     setInput(e.target.value)
 }
 
+// function filterAll(){
+//     allRes.filter((el)=>{
+//         setAllRes(el.title && el.title.includes(input))
+//     })
+// }
+
+
+// function handleSubmit(e){
+//      e.preventDefault()
+
+//     if(input){
+//         console.log(input)
+//          filterAll()
+//          console.log(allRes)
+//      }else{
+//          alert('You must enter a valid word')
+//      }
+//      setInput('')
+//      setAllRes(allRes)
+//       }
+
+     
+
+
+
 
 
     return(
@@ -78,7 +104,7 @@ function handleChange(e){
             <Header />
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
-                <form  className={styles.form}>
+                <form className={styles.form}>
                 <input className={styles.input} type="text"
                
                 placeholder='Tu consulta...'
@@ -112,14 +138,22 @@ function handleChange(e){
                     </button>
                    
                    
+                   
                     
                 </div>
             </main>
             
             <ul className={styles.contentOverflow}>
-                {   
-                    filteredCategory.map(e=>(
+                {   filteredCategory.length?
+                    filteredCategory.filter((val)=> {
+                        if (input == ''){
+                            return val
+                        }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                            return val
+                        }
+                    } ).map(e=>(
                         <div className={styles.resultados}>
+                             
                         
                         {/* ESCALAS FENOLOGICAS */}
                         <p className={styles.tituloCard}>{e.cereal}</p>
@@ -135,6 +169,29 @@ function handleChange(e){
                         <p>{e.props}</p>
                         </div>
                         ))
+                        :
+                        allRes.filter((val)=> {
+                            if (input == ''){
+                                return val
+                            }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                                return val
+                            }
+                        } ).map(e=>(
+                            <div className={styles.resultados}>
+                              {/* ESCALAS FENOLOGICAS */}
+                        <p className={styles.tituloCard}>{e.cereal}</p>
+                        <p className={styles.sub}>{e.title}</p>
+                        <p>{e.subetapa}</p>
+                        <p>{e.Descripcion}</p>
+                        <img className={styles.escalasImg} src={e.imagen}/>
+
+                        {/* FUNG/HERB/INSECT */}
+                        <p className={styles.tituloCard}>{e.type}</p>
+                        <p className={styles.sub}>{e.subtype}</p>
+                        <p>{e.subtype2}</p>
+                        <p>{e.props}</p>  
+                            </div>
+                        ))
                        
                         
 
@@ -149,3 +206,5 @@ function handleChange(e){
 
 
 export default AgroConsultas;
+
+
