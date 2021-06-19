@@ -1,15 +1,14 @@
-import React, {useState,useEffect} from 'react';
-
-import fhi from './fhi.json';
+import React, {useState} from 'react';
 import manejoIntegrado from './manejoIntegrado.json'
 import styles from './styles.module.css'
-import {connect} from 'react-redux'
 import etapasDesarrollo2 from './etapasDesarrollo2.json'
 import funguicidas from './funguicidas.json'
 import insecticidas from './insecticidas.json'
 import herbicidas from './herbicidas.json'
 import allResults from './allResults.json'
-import { getFhi} from '../../redux/actions/agroConsultasActions';
+import Header from '../Header/Header'
+import { motion } from 'framer-motion';
+
 
 function AgroConsultas(props){
     
@@ -49,88 +48,149 @@ function selectAll(e){
     setFilteredCategory(allRes)
 }
 
-// function handleFhi(){
-//     props.getFhi()
-// }
 
-const titles= props.dataAgro
-
-function handleFhi(){
-    console.log(titles.map(e=>(e.Title)))
-}
 
 function handleChange(e){
     console.log(e.target.value)
     setInput(e.target.value)
 }
 
+// function filterAll(){
+//     allRes.filter((el)=>{
+//         setAllRes(el.title && el.title.includes(input))
+//     })
+// }
 
-useEffect(() => {
-    props.getFhi()
-  
-    return () => {
-    }
-  }, [])
+
+// function handleSubmit(e){
+//      e.preventDefault()
+
+//     if(input){
+//         console.log(input)
+//          filterAll()
+//          console.log(allRes)
+//      }else{
+//          alert('You must enter a valid word')
+//      }
+//      setInput('')
+//      setAllRes(allRes)
+//       }
+
+     
+
+
+
+
 
     return(
+        <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={{
+      hidden: {
+          scale: .8,
+          opacity: -1
+      },
+      visible: {
+          scale: 1,
+          opacity: 1,
+          transition:{
+              delay: .002
+          }
+      }
+      }}
+      >
         <div>
+            <Header />
             <main className={styles.main}>
                 <h1 className={styles.titulo}>Agroconsultas</h1>
-                <div className={styles.categorias} id='categorias'>
-                <form  className={styles.form}>
+                <form className={styles.form}>
                 <input className={styles.input} type="text"
                
                 placeholder='Tu consulta...'
                 onChange={(e)=> handleChange(e)} />
                <button className={styles.btn} type= 'submit'>Buscar</button>
                 </form>
+                <div className={styles.categorias} id='categorias'>
+                
                     
                    
                 {/* <button onClick={e => handleFhi(e)} className={styles.categoria} >
                         F.H.I
                     </button> */}
-                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >
-                        Escalas Fenológicas 
+                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >Escalas Fenológicas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} >
-                        Funguicidas 
+                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} > Funguicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    
                     </button>
-                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} >
-                        Insecticidas 
+                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} > Insecticidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >
-                        Herbicidas 
+                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >Herbicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                       
                     </button>
-                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >
-                        Manejo Integrado 
+                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >Manejo Integrado<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                        
                     </button>
-                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} >
-                        Toda la info 
+                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} > Ver Todo<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+
                     </button>
+                   
                    
                    
                     
                 </div>
             </main>
             
-            <ul>
-                {   
-                    filteredCategory.map(e=>(
+            <ul className={styles.contentOverflow}>
+                {   filteredCategory.length?
+                    filteredCategory.filter((val)=> {
+                        if (input == ''){
+                            return val
+                        }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                            return val
+                        }
+                    } ).map(e=>(
                         <div className={styles.resultados}>
+                             
                         
                         {/* ESCALAS FENOLOGICAS */}
-                        <p>{e.cereal}</p>
-                        <p>{e.title}</p>
+                        <p className={styles.tituloCard}>{e.cereal}</p>
+                        <p className={styles.sub}>{e.title}</p>
                         <p>{e.subetapa}</p>
                         <p>{e.Descripcion}</p>
-                        <img src={e.imagen}/>
+                        <img className={styles.escalasImg} src={e.imagen}/>
 
                         {/* FUNG/HERB/INSECT */}
-                        <p>{e.type}</p>
-                        <p>{e.subtype}</p>
+                        <p className={styles.tituloCard}>{e.type}</p>
+                        <p className={styles.sub}>{e.subtype}</p>
                         <p>{e.subtype2}</p>
                         <p>{e.props}</p>
                         </div>
+                        ))
+                        :
+                        allRes.filter((val)=> {
+                            if (input == ''){
+                                return val
+                            }else if (val.title && val.title.toLowerCase().includes(input.toLowerCase()) || (val.cereal && val.cereal.toLowerCase().includes(input.toLowerCase())|| (val.type && val.type.toLowerCase().includes(input.toLowerCase()) || (val.subtype && val.subtype.toLowerCase().includes(input.toLowerCase()))))){
+                                return val
+                            }
+                        } ).map(e=>(
+                            <div className={styles.resultados}>
+                              {/* ESCALAS FENOLOGICAS */}
+                        <p className={styles.tituloCard}>{e.cereal}</p>
+                        <p className={styles.sub}>{e.title}</p>
+                        <p>{e.subetapa}</p>
+                        <p>{e.Descripcion}</p>
+                        <img className={styles.escalasImg} src={e.imagen}/>
+
+                        {/* FUNG/HERB/INSECT */}
+                        <p className={styles.tituloCard}>{e.type}</p>
+                        <p className={styles.sub}>{e.subtype}</p>
+                        <p>{e.subtype2}</p>
+                        <p>{e.props}</p>  
+                            </div>
                         ))
                        
                         
@@ -139,22 +199,12 @@ useEffect(() => {
             </ul>
             
         </div>
+        </motion.div>
     )
 }
 
-function mapStateToProps(state){
-    return {
-        dataAgro: state.agroConsultasReducer.fhiData,
-       
-    }
-}
-
-function mapDispatchToProps(dispatch){
-    return{
-        getFhi: () => dispatch(getFhi()),
-        
-    }
-}
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(AgroConsultas);
+export default AgroConsultas;
+
+

@@ -1,17 +1,19 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
-const passport = require("./passport");
-
-
+const server = express();
 require("./db.js");
 
-const server = express();
+//=====passport ====
+const passport = require("./passport");
+const session = require("express-session");
 
-server.name = "API";
+//===================================================================
 
+server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
@@ -27,10 +29,26 @@ server.use((req, res, next) => {
   next();
 });
 
+//=============================== middleware passport =========================
+
+// server.use(
+//   session({
+//     secret: "esto funciona perfect",
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
+
 server.use(passport.initialize());
+// server.use(passport.session());
+// server.use(function (req, res, next) {
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 server.all("*", function (req, res, next) {
   passport.authenticate("bearer", function (err, user) {
+    // console.log("ACA ESTA EL UNDEFINED >> req user", req.user)
     if (err) return res.status(400).json({ message: "malformed JSON" });
     if (user) {
       req.user = user;
@@ -38,15 +56,15 @@ server.all("*", function (req, res, next) {
     return next();
   })(req, res, next);
 });
+//===================================================================
 
 server.use("/", routes);
 
 // Error catching endware.
 server.use((err, req, res, next) => {
-  // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
-  console.error(err);
+  console.error("soy el error en app.js", err);
   res.status(status).send(message);
 });
 

@@ -1,37 +1,25 @@
-const { User } = require("../db");
 const passport = require("passport");
+const { User } = require("../db.js");
 const jwt = require("jsonwebtoken");
 const { AUTH_JWT_SECRET, FRONT } = process.env;
-const bcrypt = require("bcrypt");
-
 
 //==========================================================================//
 const myProfile = async (req, res, next) => {
   try {
-    const id  = req.user.id;
-    console.log(req.user)
+    const { id } = req.user;
     const result = await User.findByPk(id, {
-      attributes: [
-        "id",
-        "fullName",
-        "email",
-        "profile_pic",
-        "is_admin",
-        "updatedAt",
-      ],
+      attributes: ["id", "fullName", "profile_pic", "email", "updatedAt"],
     });
     if (req.user.updatedAt === result.updatedAt.toISOString()) {
-      return res.send(result);
+      return res.json(result);
     } else {
-      const { id, fullName, email, profile_pic, is_admin, updatedAt } = result;
+      const { id, fullName, profile_pic, email } = result;
       result.dataValues.jwt = jwt.sign(
         {
           id,
           fullName,
-          email,
           profile_pic,
-          is_admin,
-          updatedAt,
+          email,
         },
         AUTH_JWT_SECRET
       );
@@ -45,112 +33,50 @@ const myProfile = async (req, res, next) => {
 //==========================================================================//
 
 const register = async (req, res) => {
-  try{
+  try {
     const user = await User.create(req.body);
-    const { 
-      id,
-      email,
-      fullName,
-      password
-    } = user;
-
-    // Receiving Data
-    if (!{ id, email, fullName, password }) return res.status(403).end();
-    // Create a Token
-    const token = jwt.sign(
-      {
-        id,
-        email,
-        fullName,
-        password
-      },
-      AUTH_JWT_SECRET,
-      {
-        expiresIn: 60 * 60 * 24, // expires in 24 hours
-      }
-    )
-    res.status(200).json({ auth: true, token });
-
-   
-} catch (error) {
-    console.log(error)
-    res.status(500).json({ message:  "Something went wrong"  });
-}
-}
-
-//==========================================================================//
-const login = async (req, res) => {
-//   const { email, password } = req.body;
-//   try {
-//       const oldUser = await User.findOne({
-//         where: { email: email  }});
-//       if (!oldUser) return res.status(404).json({ message:  "User doesn`t exist" });
-//       const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
-//       if (!isPasswordCorrect) return res.status(400).json({ message: 'Invalid Password' });
-//       const token = jwt.sign({ email: oldUser.email }, AUTH_JWT_SECRET, { expiresIn: '1hr' });
-//       res.status(201).json({ result: oldUser, token, message:  "Log in Successful" });
-//   } catch (error) {
-//       console.log(error);
-//       res.status(500).json({message:'Something went wrong'});
-//   }
-// }
-  passport.authenticate("local", (err, user) => {
-    if (err) {
-      console.log(err)
-    }
-    else if (!user) {
-      console.log(user)
-      return res.status(401)
-    }
-    else return res.send(jwt.verify(user, AUTH_JWT_SECRET));
-  })(req, res);
-};
-
-
-
-
-//==========================================================================//
-
-//logout
-// const logout = (req, res) => {
-  
-//   res.localStorage.removeItem("userInfo");
-//   res.status(200).send("User Logged out");
-// };
-
-//==========================================================================//
-
-const google = () => {
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-  });
-};
-
-const googleAuth = () => {
-  passport.authenticate("google"),
-    function (req, res) {
-      const { id, fullName, profile_pic, email, is_admin, updatedAt } =
-        req.user.dataValues;
-      const token = jwt.sign(
+    const { id, fullName, email, updatedAt } = user;
+    return res.send(
+      jwt.sign(
         {
           id,
           fullName,
-          profile_pic,
-          email,
-          is_admin,
-          updatedAt,
+          email, updatedAt
         },
         AUTH_JWT_SECRET
-      );
-      res.redirect(`${FRONT}/?jwt=${token}`);
-    };
+      )
+    );
+  } catch (error) {
+    if (error.message === "Invalid password")
+      return res.status(400).json({ message: "Invalid password" });
+    if (error.errors[0].message === "email must be unique")
+      return res.status(400).json({ message: "email must be unique" });
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+//==========================================================================//
+const login = async (req, res, next) => {
+  
+  console.log("estoy en login", req.user);
+  passport.authenticate("local", (err, user) => {
+    if (err) return next(err);
+    else if (!user)
+      return res.status(401).json({ message: "No sos vos soy yo" });
+    else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
+  })(req, res, next);
+};
+
+//==========================================================================//
+
+const logout = (req, res) => {
+  req.logout();
+  return res.status(200).send("Logout successed");
 };
 
 module.exports = {
   login,
- // logout,
+  logout,
   register,
   myProfile,
-  google,
-  googleAuth,
 };
