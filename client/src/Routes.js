@@ -14,6 +14,7 @@ import UpdateProfile from "./components/UpdateProfile/updateProfile";
 import LoteHome from "./components/LoteHome";
 import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
 import Map from './components/Map/Map.js';
+import Cotizaciones from './components/Cotizaciones/Cotizaciones'
 
 
 
@@ -69,6 +70,10 @@ export default function Routes() {
       </Route>
       <Route exact path='/agroconsultas'> 
       <AgroConsultas />
+      </Route>
+
+      <Route exact path='/cotizaciones'>
+        <Cotizaciones />
       </Route>
 
     </Switch>
