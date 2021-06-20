@@ -1,59 +1,40 @@
-const { DataTypes } = require("sequelize");
-const bcrypt = require("bcrypt");
+'use strict';
+const {DataTypes} = require("sequelize");
+
 
 module.exports = (sequelize) => {
-  // defino el modelo
 
-  const User = sequelize.define("user", {
+  sequelize.define('user', {
+    fullName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      // validate: {
+      //   len: {
+      //     args: [2, 255],
+      //     msg: "El nombre tiene que ser minimamente de dos caracters"
+      //   }
+      // }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true,
-      },
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      set(value) {
-        if (value) {
-          //Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-          if (
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
-              value
-            )
-          ) {
-            const salt = bcrypt.genSaltSync(10);
-            const hash = bcrypt.hashSync(value, salt);
-            this.setDataValue("password", hash);
-          } else {
-            throw new Error("Invalid password");
-          }
-        } else {
-          this.setDataValue("password", null);
+        isEmail: {
+          msg: "El email tiene que ser un correo valido"
         }
-      },
+      }
     },
-    reset_code: {
-      type: DataTypes.STRING,
-      set(value) {
-        if (value) {
-          const salt = bcrypt.genSaltSync(10);
-          const hash = bcrypt.hashSync(value, salt);
-          this.setDataValue("reset_code", hash);
-        }
-      },
-    },
-
-    fullName: {
+    password:{
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: {
+          args: [6, 255],
+          msg: "La contraseña tiene que tener minimamente 6 caracteres"
+        }
+      }
     },
-    // is_admin: {
-    //   type: DataTypes.BOOLEAN,
-    //   defaultValue: true,
-    // },
     googleId: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -62,15 +43,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING
     }
   });
-  
 
-  User.prototype.compare = (password, isReset) => {
-    //compares resetcode when isReset is true
-    if (this.password || this.reset_code)
-      return bcrypt.compareSync(
-        password.toString(),
-        isReset ? this.reset_code : this.password
-      );
-    else return false;
-  };
+  // User.associate = function(models) {
+  //   User.hasMany(models.Post, { as: "posts", foreignKey: "userId" });
+  //   User.belongsToMany(models.Role, { as: "roles", through: "user_role", foreignKey: "user_id" });
+  // };
+
+  // Comprueba que el usuario es administrador
+  // User.isAdmin = function(roles) {
+  //   let tmpArray = [];
+  //   roles.forEach(role => tmpArray.push(role.role));
+
+  //   return tmpArray.includes('admin');
+  // }
+
+  // return User;
 };

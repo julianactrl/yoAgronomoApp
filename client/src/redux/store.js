@@ -6,6 +6,7 @@ import empresaReducer from './reducers/empresaReducer'
 import weatherReducer from './reducers/weatherReducer'
 import newsReducer from './reducers/newsReducer'
 import loteReducer from './reducers/loteReducer'
+import cotizacionesReducer from './reducers/cotizacionesReducer'
 
 
 
@@ -17,6 +18,7 @@ const reducers = combineReducers({
     weatherReducer,
     newsReducer,
     loteReducer,
+    cotizacionesReducer
   
 })
 

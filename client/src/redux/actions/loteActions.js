@@ -15,7 +15,6 @@ export function getAllLotes (empresaId) {
 
 export function crearLoteDB (data) {
     return function(dispatch) {
-        console.log('etoy haciendo el post gfe');
         return axios.post(`http://localhost:3001/lote/create`, data)
         .then(response => {
             dispatch({
@@ -25,5 +24,12 @@ export function crearLoteDB (data) {
         })
         .catch(e => console.log(e))
     }
+
+}
+export function borrarLote (id) {
+
+    return axios.delete(`http://localhost:3001/lote/delete/${id}`)
+    .then(response => response)
+    .catch(e => console.log(e))
 
 }

@@ -30,7 +30,7 @@ export const CREATE_LOTE = 'CREATE_LOTE';
 
 
 
-
+export const GET_DOLAR = 'GET_DOLAR';
 
 
 
