@@ -27,7 +27,7 @@ export const register = (body) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const { data } = await axios.post(
-      "http://localhost:3001/auth/register",
+      "http://localhost:3001/auth/api/signup",
       body,
       config
     );
@@ -49,18 +49,18 @@ export const register = (body) => async (dispatch) => {
   }
 };
 
-export const login = (email, password) => async (dispatch) => {
+export const login = ({email, password}) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
     });
-    const config = {
-      headers: { "Content-Type": "application/json" },
-    };
-    const { data } = await axios.post(
-      "http://localhost:3001/auth/login",
+    // const config = {
+    //   headers: { "Content-Type": "application/json" },
+    // };
+    const  data  = await axios.post(
+      "http://localhost:3001/auth/api/signin",
       { email, password },
-      config,
+      // config,
 	  
     );
     console.log(data)

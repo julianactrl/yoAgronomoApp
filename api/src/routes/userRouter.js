@@ -14,11 +14,11 @@ const {
 
 //-------------------------Route Users--------------------------//
 
-server.get("/", getUserAll);
-server.get("/:id", getUserById);
-server.put('/edit/:id', isAuthenticated, editUser)
-server.delete('/delete/:id', isAuthenticated, deleteUser)
-server.get('/empresa/:userId', getEmpresaByUserId)
+// server.get("/", getUserAll);
+// server.get("/:id", getUserById);
+// server.put('/edit/:id', isAuthenticated, editUser)
+// server.delete('/delete/:id', isAuthenticated, deleteUser)
+// server.get('/empresa/:userId', getEmpresaByUserId)
 
 
 module.exports = server;
