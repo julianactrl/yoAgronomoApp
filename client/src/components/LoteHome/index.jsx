@@ -30,6 +30,7 @@ export default function LoteHome ({id}) {
         // await dispatch({type:'GET_DETAIL_LOTE',payload:false})
         console.log('esta es la empresa', empresaId, allLotes);
         console.log('detalle de loteeeeeeeeeeeeeeeee',detailLote);
+        console.log('me renderize');
     },[])
 
 
@@ -74,7 +75,7 @@ export default function LoteHome ({id}) {
             <div className={styles.body}> 
                 {(!detailLote && !renderFormCreateLote) && <h1 className={styles.tittle}>{empresaId.name}</h1>}
                 {!detailLote && !renderFormCreateLote ? renderizarLotes(allLotes,LoteCard,Slider,settings)
-                :(renderFormCreateLote?<LoteFormCreate />: <LoteDetails lote={detailLote} />)}
+                :(renderFormCreateLote?<LoteFormCreate empresaId={empresaId.id} />: <LoteDetails lote={detailLote} />)}
                 {/* {renderFormCreateLote && <LoteFormCreate />} */}
             </div>
         </div>
