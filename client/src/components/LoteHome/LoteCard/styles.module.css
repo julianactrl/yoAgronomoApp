@@ -5,8 +5,8 @@
     /* left: 25%; */
     justify-content:center;
     align-items: center;
-    width: 40vh;
-    height: 25vh;
+    width: 36vh;
+    height: 21vh;
     display: flex;
     background-color: rgb(0, 0, 0);
     border-radius: 7px;
@@ -56,19 +56,22 @@
 }
 .detailOculto{
     display: none;
+    /* border: 3px solid white; */
+    padding: 10px;
     opacity: 1;
     animation-name: aparecer;
     animation-duration: 1s;
     height: 60%;
     margin-bottom: 10px;
     width: 100%;
-    font-size: 90%;
+    font-size: 50%;
     animation-iteration-count:initial;
     animation-timing-function: ease;
     flex-direction: column;
     /* border: 2px solid white; */
     /* justify-content: center; */
     align-items: center;
+    /* justify-content: space-between; */
 }
 @keyframes aparecer {
     from{
@@ -89,4 +92,11 @@
 }
 .text{
     color: greenyellow;
+    position: relative;
+    top: 20%;
+    font-size: 25px;
+}
+.clima,
+.hectareas{
+    font-size: 25px;
 }

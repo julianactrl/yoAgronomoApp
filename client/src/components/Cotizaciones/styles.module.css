@@ -1,0 +1,29 @@
+.datatableContainer{
+    background-color: #0e0e0e4d;
+    color: white;
+    border-radius: 10px;
+    width: 600px;
+    margin: 0 auto;
+    font-size: 12px;
+    padding: 10px
+}
+.datatable{
+    border-collapse: collapse;
+    width: 100%
+}
+.datatableContainer .datatable,
+.datatableContainer .datatable th,
+.datatableContainer .datatable td{
+padding: 12 12px ;
+}
+
+.datatableContainer .datatable th{
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px #406a11b6;
+}
+
+.datatableContainer .datatable td{
+    border-bottom: solid 1px #406a11b6;
+}

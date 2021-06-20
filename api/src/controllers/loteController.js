@@ -131,10 +131,11 @@ const updateLote = async(req,res,next) => {
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const createManejo = async (req,res,next) => {
-    const { recOrObserv, description, image, loteId} = req.body;
+    const { observaciones,recomendaciones, description, image, loteId} = req.body;
     try{
         await ManejoDeLote.create({
-            recOrObserv,
+            observaciones,
+            recomendaciones,
             description,
             image,
             loteId
@@ -148,7 +149,7 @@ const createManejo = async (req,res,next) => {
 
   const updateManejo = async(req,res,next) => {
     const { id } = req.params;
-    const { recOrObserv, description, image } = req.body;
+    const { observaciones,recomendaciones, description, image } = req.body;
 
     let ManejoFind = await ManejoDeLote.findAll({
         where: {
@@ -158,7 +159,8 @@ const createManejo = async (req,res,next) => {
     if (ManejoFind.length > 0) {
         ManejoFind.map(async ManejoDeLote => {
             await ManejoDeLote.update({
-                recOrObserv,
+                observaciones,
+                recomendaciones,
                 description,
                 image,
             });

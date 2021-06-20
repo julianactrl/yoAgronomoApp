@@ -98,45 +98,48 @@ export default function LoteDetails({lote}){
                 <div className={voltear?styles.cardAct:styles.card}>
                     <div className={styles.loteDetails}>
                         <div className={styles.slider}>
-                            <h1 className={styles.name}>{loteExample.name}</h1>
+                            <div className={styles.contenedorHeader}>
+                                <h1 className={styles.name}>{lote.name}</h1>
+                                <div className={styles.contLogoDelEdit}>
+                                    <img src={logoDelete} alt="" className={styles.deleteLogo}/>
+                                    <img src={logoEdit} alt="" className={styles.editLogo} />
+                                </div> 
+                            </div>
                             <Slider {...settings} >
-                                <img src={'https://www.semana.com/resizer/IEcOf8TJx4XxRszD1F26YO7lixw=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4KEOUCGM7FDRHGJVNJJWTAF464.jpeg'} className={styles.img}/>
+                                <img src={lote.imagen} className={styles.img}/>
                                 <img src={'https://www.semana.com/resizer/IEcOf8TJx4XxRszD1F26YO7lixw=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4KEOUCGM7FDRHGJVNJJWTAF464.jpeg'} className={styles.img}/>
                             </Slider> 
                         </div>
-                        <div className={styles.contLogoDelEdit}>
-                            <img src={logoDelete} alt="" className={styles.deleteLogo}/>
-                            <img src={logoEdit} alt="" className={styles.editLogo} />
-                        </div> 
+                        
                         <div className={styles.details}>
                         <button onClick={cerrar} className={styles.cross}/>                           
                             <div className={styles.clima}>
                                 {
-                                    weather?weather.map((c)=>{
-                                        return (
+                                    weather[0]?
+                                        (
                                             <div className={styles.contClima}>
-                                                <img src={c.current.condition.icon} className={styles.imgClima}alt="" />
+                                                <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
                                                 <div className={styles.contClimaText}>
-                                                    <p className={styles.dataText}>Ubicación: <span>{c.location.name}</span></p>
-                                                    <p className={styles.dataText}>Hectáreas: <span>500</span></p> 
+                                                    <p className={styles.dataText}>Ubicación: <span>{weather[0].location.name}</span></p>
+                                                    <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
                                                 </div>
                                                 
                                             </div>
                                         )
-                                    }):null
+                                    :null
                                 }
                             </div>
                             <div className={botonera==='obs'?styles.ghostDivHidden:styles.ghostDiv}>
                                 {
-                                    weather?weather.map((c)=>{
-                                        return(
+                                    weather[0]?
+                                        (
                                             <div className={styles.contDataClima}>
-                                                <p className={styles.dataText}>Temperatura: <span>{c.current.temp_c}</span>°</p>
-                                                <p className={styles.dataText}>Velocidad del viento: <span>{c.current.wind_kph}</span>km/h</p>
-                                                <p className={styles.dataText}>Humedad: <span>{c.current.humidity}</span>%</p>                          
+                                                <p className={styles.dataText}>Temperatura: <span>{weather[0].current.temp_c}</span>°</p>
+                                                <p className={styles.dataText}>Velocidad del viento: <span>{weather[0].current.wind_kph}</span>km/h</p>
+                                                <p className={styles.dataText}>Humedad: <span>{weather[0].current.humidity}</span>%</p>                          
                                             </div>
                                         )
-                                    }):null
+                                    :null
                                 }                             
                             </div>
                             <div className={styles.obsRec}>
