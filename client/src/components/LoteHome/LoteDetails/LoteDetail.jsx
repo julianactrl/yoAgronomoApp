@@ -7,27 +7,27 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
+import { borrarLote } from '../../../redux/actions/loteActions';
 
 export default function LoteDetails({lote}){
 
     const [voltear, setVoletar] = useState(false);
     const [botonera, setBotonera] = useState('')
-    const [formulario, setFormulario] = useState(false)
+    const [formulario, setFormulario] = useState(false);
+    const [cargarDatos, setCargarDatos] = useState({
+        observaciones: null,
+        recomendaciones: null,
+        image: null,
+    })
 
     const weather = useSelector(state => state.weatherReducer.weather)
-    const ubication = useSelector(state => state.empresaReducer.empresaForId.ubicacion)
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getWeather(ubication))
+        dispatch(getWeather(lote.ubicacion))
     },[]) 
 
-    const loteExample = {
-        img: '',
-        name: 'TERRADA',
-        hectareas: 1000
-
-    }
     //Funcion para la botonera de Observaciones y Tareas...
 
     function btnObsTar(aux){
@@ -46,6 +46,15 @@ export default function LoteDetails({lote}){
         if(botonera==='tar' && aux==='tar'){
             setBotonera('')
         }
+    }
+    function postearManejo(data){
+        setCargarDatos({
+
+        })
+    }
+
+    function deleteLote(){
+        return borrarLote(lote.id)
     }
 
     ///////////////////////////ARROWS SLIDER//////////////////////////////////////////////////
@@ -101,7 +110,7 @@ export default function LoteDetails({lote}){
                             <div className={styles.contenedorHeader}>
                                 <h1 className={styles.name}>{lote.name}</h1>
                                 <div className={styles.contLogoDelEdit}>
-                                    <img src={logoDelete} alt="" className={styles.deleteLogo}/>
+                                    <img onClick={deleteLote} src={logoDelete} alt="" className={styles.deleteLogo}/>
                                     <img src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
@@ -120,7 +129,7 @@ export default function LoteDetails({lote}){
                                             <div className={styles.contClima}>
                                                 <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
                                                 <div className={styles.contClimaText}>
-                                                    <p className={styles.dataText}>Ubicación: <span>{weather[0].location.name}</span></p>
+                                                    <p className={styles.dataText}>Ubicación: <span>{lote.ubicacion}</span></p>
                                                     <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
                                                 </div>
                                                 
@@ -183,11 +192,11 @@ export default function LoteDetails({lote}){
                                 </div> 
                                 <div className={styles.cargarImg}>
                                     <p>Adjuntar Imágen</p>
-                                    <div class={styles.fileselect} id="src-file1" >
-                                        <input type="file" name="src-file1" aria-label="Archivo"/>
+                                    <div class={styles.fileselect} id="archivo" >
+                                        <input type="file" name="archivo" aria-label="Archivo"/>
                                     </div>
                                 </div>
-                                <input type='submit' className={styles.submit}/>
+                                <input onClick={postearManejo} type='submit' className={styles.submit}/>
                             </div>
                         </div>
                     </div>
