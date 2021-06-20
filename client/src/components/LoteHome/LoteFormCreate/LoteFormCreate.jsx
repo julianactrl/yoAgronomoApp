@@ -33,7 +33,7 @@ export default function LoteFormCreate({empresaId}){
         if(Object.values(inputs).indexOf(null) == -1) {
             if(Object.values(inputs).indexOf('') == -1) {
                 console.log('toy en la funcion');
-                return crearLoteDB(inputs)
+                return dispatch(crearLoteDB(inputs))
             } 
         }
         console.log('No pudo crearse la empresa');

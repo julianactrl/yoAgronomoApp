@@ -1,4 +1,4 @@
-import {GET_ALL_LOTES} from '../constants/index'
+import {GET_ALL_LOTES, CREATE_LOTE} from '../constants/index'
 import axios from 'axios'
 export function getAllLotes (empresaId) {
     return function(dispatch) {
@@ -14,10 +14,16 @@ export function getAllLotes (empresaId) {
 }
 
 export function crearLoteDB (data) {
-
+    return function(dispatch) {
         return axios.post(`http://localhost:3001/lote/create`, data)
-        .then(response => response)
+        .then(response => {
+            dispatch({
+                type: CREATE_LOTE,
+                payload: response
+            })
+        })
         .catch(e => console.log(e))
+    }
 
 }
 export function borrarLote (id) {
