@@ -30,7 +30,7 @@ export const GET_ALL_LOTES = 'GET_ALL_LOTES';
 
 
 
-
+export const GET_DOLAR = 'GET_DOLAR';
 
 
 
