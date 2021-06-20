@@ -1,82 +1,79 @@
-const passport = require("passport");
-const { User } = require("../db.js");
-const jwt = require("jsonwebtoken");
-const { AUTH_JWT_SECRET, FRONT } = process.env;
-
-//==========================================================================//
-const myProfile = async (req, res, next) => {
-  try {
-    const { id } = req.user;
-    const result = await User.findByPk(id, {
-      attributes: ["id", "fullName", "profile_pic", "email", "updatedAt"],
-    });
-    if (req.user.updatedAt === result.updatedAt.toISOString()) {
-      return res.json(result);
-    } else {
-      const { id, fullName, profile_pic, email } = result;
-      result.dataValues.jwt = jwt.sign(
-        {
-          id,
-          fullName,
-          profile_pic,
-          email,
-        },
-        AUTH_JWT_SECRET
-      );
-      return res.json(result);
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
-//==========================================================================//
-
-const register = async (req, res) => {
-  try {
-    const user = await User.create(req.body);
-    const { id, fullName, email, updatedAt } = user;
-    return res.send(
-      jwt.sign(
-        {
-          id,
-          fullName,
-          email, updatedAt
-        },
-        AUTH_JWT_SECRET
-      )
-    );
-  } catch (error) {
-    if (error.message === "Invalid password")
-      return res.status(400).json({ message: "Invalid password" });
-    if (error.errors[0].message === "email must be unique")
-      return res.status(400).json({ message: "email must be unique" });
-    return res.status(500).json({ message: "Internal Server Error" });
-  }
-};
-
-//==========================================================================//
-const login = async (req, res, next) => {
-  
-  console.log("estoy en login", req.user);
-  passport.authenticate("local", (err, user) => {
-    if (err) return next(err);
-    else if (!user)
-      return res.status(401).json({ message: "No sos vos soy yo" });
-    else return res.send(jwt.sign(user, AUTH_JWT_SECRET));
-  })(req, res, next);
-};
-
-//==========================================================================//
-
-const logout = (req, res) => {
-  req.logout();
-  return res.status(200).send("Logout successed");
-};
+const { User } = require('../db');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const authConfig = require('../config');
 
 module.exports = {
-  login,
-  logout,
-  register,
-  myProfile,
-};
+
+    // Login
+    signIn(req, res) {
+
+        let { email, password } = req.body;
+
+        // Buscar usuario
+        User.findOne({
+            where: {
+                email: email
+            }
+        }).then(user => {
+
+            if (!user) {
+                res.status(404).json({ msg: "Usuario con este correo no encontrado" });
+            } else {
+
+                if (bcrypt.compareSync(password, user.password)) {
+
+                    // Creamos el token
+                    let token = jwt.sign({ user: user }, authConfig.secret, {
+                        expiresIn: authConfig.expires
+                    });
+
+                    res.json({
+                        user: user,
+                        token: token
+                    })
+
+                } else {
+
+                    // Unauthorized Access
+                    res.status(401).json({ msg: "Contraseña incorrecta" })
+                }
+
+            }
+
+        }).catch(err => {
+            res.status(500).json(err);
+        })
+
+    },
+
+    // Registro
+    signUp(req, res) {
+
+        // Encriptamos la contraseña
+        let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+
+        // Crear un usuario
+        User.create({
+            fullName: req.body.fullName,
+            email: req.body.email,
+            password: password
+        }).then(user => {
+
+            // Creamos el token
+            let token = jwt.sign({ user: user }, authConfig.secret, {
+                expiresIn: authConfig.expires
+            });
+
+            res.json({
+                user: user,
+                token: token
+            });
+
+        }).catch(err => {
+            res.status(500).json(err);
+        });
+
+    }
+
+}
