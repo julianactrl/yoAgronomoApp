@@ -8,10 +8,12 @@ export default function LoteCardCreate () {
     const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
     const dispatch = useDispatch()
 
-    const aux = async() => {
-        await dispatch({type:'GET_FORM_LOTE',payload:true});
-        console.log('aaaaaaaaaaaaaaaaaaaaaaaaa',renderFormCreateLote)
-        // await dispatch({type:'GET_DETAIL_LOTE',payload:true})
+    function aux () {
+        // dispatch({type:'GET_FORM_LOTE',payload:true});
+        // console.log('aaaaaaaaaaaaaaaaaaaaaaaaa',renderFormCreateLote)
+        // dispatch({type:'GET_DETAIL_LOTE',payload:true})
+        dispatch({type:'SET_VERIFY',payload:'formularioCrear'})
+        
     }
 
     return (

@@ -3,8 +3,9 @@ import { GET_ALL_LOTES , CREATE_LOTE} from "../constants"
 const initialState = {
     allLotes: [],
     detailLote:[],
-    renderFormCreateLote:[],
-    createdLote:[]
+    renderFormCreateLote:false,
+    createdLote:[],
+    verifyRender:''
 }
 
 const lotesReducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ const lotesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 createdLote: action.payload
+            }
+        case 'SET_VERIFY':
+            return {
+                ...state,
+                verifyRender: action.payload
             }
         default: 
             return state;

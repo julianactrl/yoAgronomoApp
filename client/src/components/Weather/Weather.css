@@ -7,7 +7,7 @@ body{
 
 .body-weather{
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: 87vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,6 +16,8 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* border: 3px solid wheat; */
+    padding-bottom: 100px;
 }
 .container-weather {
     display: flex;

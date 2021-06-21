@@ -113,15 +113,22 @@
     height: 450px;
 }
 .titleAdd{
-    display: none;
+    /* display: none; */
+    opacity: 0;
     font-size: 50px;
     color: black;
+    transition: 0.9s;
+    /* left: 80px;
+    position: relative; */
+    text-align: center;
 }
 .cardContAdd:hover .titleAdd{
     display: inline;
+    opacity: 1;
     font-size: 50px;
     color: #ffffff;
     transition: 0.9s;
+
 }
 
 .cardContAdd{
@@ -137,13 +144,13 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    color: white;
+    color: rgb(19, 13, 13);
     border-radius: 10px;
     align-items: center;
     object-fit: cover;
     width: 400px;
     height: 400px;
-    background-color: #ffffff71;
+    background-color: #05050548;
     border:none;
     box-shadow: 0px 0px 30px black;
     
@@ -222,9 +229,9 @@
     background-repeat: no-repeat;
     position: relative;
     width: 60px;
-    left: 480px;
+    left: 50vh;
     transform: rotate(-90deg);
-    top: 1px;
+    top: 5px;
     height: 60px;
     border-radius: 60px;
     
@@ -243,8 +250,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    top: 570px;
-    left: 320px;
+    top: 54.5vh;
+    left: 30vh;
     transform: rotate(90deg);
     width: 60px;
     height: 60px;
