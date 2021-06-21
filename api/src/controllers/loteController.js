@@ -42,12 +42,12 @@ const getLoteById = async (req,res,next) => {
     try {
         const lote = await Lote.findOne({
             where: {
-                id: id
+                id
             }
         })
         res.json(lote)
     } catch (error) {
-        if (!lote) {
+        if  (!lote) {
             return res.json({
                 messages: "Not found"
             })
@@ -152,7 +152,7 @@ const createManejo = async(req,res,next) => {
     const { observaciones, recomendaciones, image} = req.body;
 
     try{
-        let newManejo = await Lote.create({
+        let newManejo = await ManejoDeLote.create({
             observaciones,
             recomendaciones,
             image,
