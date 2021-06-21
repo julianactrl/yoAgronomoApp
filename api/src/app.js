@@ -38,6 +38,9 @@ server.use((req, res, next) => {
 //     saveUninitialized: true,
 //   })
 // );
+// Middlewares
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
 
 server.use(passport.initialize());
 // server.use(passport.session());

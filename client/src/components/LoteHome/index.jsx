@@ -22,18 +22,26 @@ export default function LoteHome ({id}) {
     const detailLote = useSelector(state=> state.loteReducer.detailLote) // estado para ir al detalle
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId); // todos los datos de la empresa
     const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
+    const createdLote = useSelector(state=>state.loteReducer.createdLote) // lote creado
+
+    const verifyRender = useSelector(state=>state.loteReducer.verifyRender)
 
     console.log('este es el idddddddddddddddd',empresaId);
 
     useEffect(async()=>{
         await dispatch(getAllLotes(empresaId.id))
-        // await dispatch({type:'GET_DETAIL_LOTE',payload:false})
+        await dispatch({type:'GET_DETAIL_LOTE',payload:false})
+        await dispatch({type:'GET_FORM_LOTE',payload:false})
         console.log('esta es la empresa', empresaId, allLotes);
         console.log('detalle de loteeeeeeeeeeeeeeeee',detailLote);
         console.log('me renderize');
     },[])
 
-
+    useEffect(()=>{
+      if(createdLote[0]){
+        dispatch(getAllLotes(empresaId.id))
+      }
+    },[createdLote])
 
     function SampleNextArrow(props) {
         const { style, onClick } = props;
@@ -56,6 +64,23 @@ export default function LoteHome ({id}) {
         );
       }
       
+      // funcion switch renderizar
+      function switcher (type) {
+        switch (type) {
+          case 'detalle':
+            return  <LoteDetails lote={detailLote} />
+          case 'formularioCrear':
+            return <LoteFormCreate empresaId={empresaId.id} />
+          default:
+            return (
+              <>
+              <h1 className={styles.tittle}>{empresaId.name}</h1>
+              {renderizarLotes(allLotes,LoteCard,Slider,settings)}
+              </>
+              )
+        }
+      }
+
 
       const settings = {
         dots: false,
@@ -72,11 +97,14 @@ export default function LoteHome ({id}) {
         <div className={styles.contenedor}>
             <Header />
             {/* { <button onClick={()=> {dispatch({type:'GET_DETAIL_LOTE',payload:false});dispatch({type:'GET_FORM_LOTE',payload:false})}} >DETALLE</button>} */}
-            <div className={styles.body}> 
-                {(!detailLote && !renderFormCreateLote) && <h1 className={styles.tittle}>{empresaId.name}</h1>}
+            <div className={styles.body}>
+              
+              {switcher(verifyRender)}
+
+                {/* {(!detailLote && !renderFormCreateLote) && <h1 className={styles.tittle}>{empresaId.name}</h1>}
                 {!detailLote && !renderFormCreateLote ? renderizarLotes(allLotes,LoteCard,Slider,settings)
                 :(renderFormCreateLote?<LoteFormCreate empresaId={empresaId.id} />: <LoteDetails lote={detailLote} />)}
-                {/* {renderFormCreateLote && <LoteFormCreate />} */}
+                {renderFormCreateLote && <LoteFormCreate />} */}
             </div>
         </div>
     )
