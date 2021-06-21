@@ -42,7 +42,7 @@ const getLoteById = async (req,res,next) => {
     try {
         const lote = await Lote.findOne({
             where: {
-                id
+                id: id
             }
         })
         res.json(lote)
