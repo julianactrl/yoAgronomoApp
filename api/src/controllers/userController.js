@@ -1,4 +1,6 @@
-const { Post, Empresa } = require('../db');
+const { Post, Empresa,User } = require('../db');
+const bcrypt = require('bcrypt');
+const authConfig = require('../config');
 
 // module.exports = {
 
@@ -67,8 +69,34 @@ const getEmpresaByUserId = (req, res) => {
       res.send({ message: err }).status(400);
     });
 };
+const updateUser = async(req,res) => {
+  const { id } = req.params;
+  const { fullName,email,profile_pic } = req.body;
+  let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+
+  let userFind = await User.findAll({
+      where: {
+          id
+      }
+  })
+  if (userFind.length > 0) {
+      userFind.map(async user => {
+          await user.update({
+              fullName,
+              email,
+              password,
+              profile_pic
+          });
+      });
+      return res.json({
+          message: "User updated",
+          date: userFind
+      })
+  }
+}
 
 module.exports = {
 
   getEmpresaByUserId,
+  updateUser
 };
