@@ -15,6 +15,10 @@ import LoteHome from "./components/LoteHome";
 import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
 import Map from './components/Map/Map.js';
 import Cotizaciones from './components/Cotizaciones/Cotizaciones'
+import MercadoPago from './components/MercadoPago/MercadoPago.jsx';
+import Premium from './components/MercadoPago/Premium.jsx';
+import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
+import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
 
 
 
@@ -74,6 +78,18 @@ export default function Routes() {
 
       <Route exact path='/cotizaciones'>
         <Cotizaciones />
+      </Route>
+      <Route exact path='/membresia'>
+        <MercadoPago />
+      </Route>
+      <Route exact path='/membresia/premium'>
+        <Premium />
+      </Route>
+      <Route exact path='/membresia/premiumplus'>
+        <PremiumPlus />
+      </Route>
+      <Route exact path='/membresia/premiumpro'>
+        <PremiumPro />
       </Route>
 
     </Switch>

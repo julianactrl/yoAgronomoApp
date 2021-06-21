@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../MercadoPago/MercadoPago.css'
-import Header from '../Header/Header';
 const FORM_ID = 'payment-form';
 
 export default function MercadoPago(props) {
@@ -13,8 +12,8 @@ export default function MercadoPago(props) {
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post('http://localhost:3001/premium/checkout/1', {
-        "totalPrice": 299,
+    axios.post('http://localhost:3001/premium/checkout/', {
+        "totalPrice": 999,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
         console.log("dddd",order)  
@@ -38,38 +37,22 @@ export default function MercadoPago(props) {
     }
   }, [preferenceId]);
   console.log(linkMp)
-
-  return (
-    <>
-          {/* <a style={{"margin-top": "100px"}} id={FORM_ID} href={linkMp}>
-          </a> */}
-          {/* <a href={linkMp}>
-            <button >
-              PAGA GIL
-            </button>
-
-          </a> */}
-          <Header />
+  return(
       <div className='MpContainer'>
-      <div className='membresiaPremium'>
-        <h2>Membresia Premium</h2>
-        <Link to='/membresia/premium'>
-          <button>Ver mas información</button>
-        </Link>
-      </div>
-      <div className='membresiaPremiumPlus'>
-        <h2>Membresia Premium Plus</h2>
-        <Link to='/membresia/premiumplus'>
-          <button>Ver mas información</button>
-        </Link>
-      </div>
-      <div className='membresiaPremiumPro'>
+        <div className='membresiaPremiumPro'>
         <h2>Membresia Premium Pro</h2>
-        <Link to='/membresia/premiumpro'>
-          <button>Ver mas información</button>
-        </Link>
+        <h3>Obteniendo esta membresia accedes a estos beneficios</h3>
+        <ul>
+          <li>Capacidad de cargar mas de 10 empresas.</li>
+          <li>Carga mas de 10 lotes por empresa.</li>
+          <li>Por cada lote que tenga tu empresa, podrás cargar mas de 1000 hectáreas sin límites!</li>
+        </ul>
+        <h5>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
+        <h4>Costo total: $999 ARS</h4>
       </div>
-    </div>
-    </>
-  );
+        <a className='btnPagar' href={linkMp}>
+            <button>Pagar</button>
+        </a>
+      </div>
+  )
 }
