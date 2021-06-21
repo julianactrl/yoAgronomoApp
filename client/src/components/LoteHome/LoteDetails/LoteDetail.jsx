@@ -99,7 +99,8 @@ export default function LoteDetails({lote}){
         
     }
     function cerrar(){
-        dispatch({type:'GET_DETAIL_LOTE',payload:false})
+        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
+        dispatch({type:'SET_VERIFY',payload:''})
     }
     return(
         <div className={styles.contMain}>

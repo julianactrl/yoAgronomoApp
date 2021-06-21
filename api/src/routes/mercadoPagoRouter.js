@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:3000/weather",
+      success: "http://localhost:3000/",
       failure: "http://localhost:3001/",
       pending: "http://localhost:3001/",
     },
