@@ -8,12 +8,12 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
-import { borrarLote, crearLoteManejo, getAllLotes } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo } from '../../../redux/actions/loteActions';
 
 export default function LoteDetails({lote}){
 
     const [voltear, setVoletar] = useState(false);
-    const [botonera, setBotonera] = useState('')
+    const [botonera, setBotonera] = useState(false)
     const [formulario, setFormulario] = useState(false);
     const [post, setPost] = useState(false);
     const [cargarDatos, setCargarDatos] = useState({
@@ -40,27 +40,17 @@ export default function LoteDetails({lote}){
 
     useEffect(() => {
         if(post !== null){
-            dispatch(getAllLotes(lote.id)) 
+            dispatch(getManejo(lote.id)) 
         }    
     },[post])
 
     //Funcion para la botonera de Observaciones y Tareas...
 
-    function btnObsTar(aux){
-        if(botonera===''){
-            setBotonera(aux)
-        }
-        if(botonera==='obs' && aux==='tar'){
-            setBotonera(aux)
-        }
-        if(botonera==='tar' && aux==='obs'){
-            setBotonera(aux)
-        }
-        if(botonera==='obs' && aux==='obs'){
-            setBotonera('')
-        }
-        if(botonera==='tar' && aux==='tar'){
-            setBotonera('')
+    function btnObsTar(){
+        if(botonera){
+            setBotonera(false)
+        }else{
+            setBotonera(true)
         }
     }
     const observacionData = useRef(null);
@@ -162,7 +152,7 @@ export default function LoteDetails({lote}){
                                     :null
                                 }
                             </div>
-                            <div className={botonera==='obs'?styles.ghostDivHidden:styles.ghostDiv}>
+                            <div className={botonera?styles.ghostDivHidden:styles.ghostDiv}>
                                 {
                                     weather[0]?
                                         (
@@ -176,37 +166,29 @@ export default function LoteDetails({lote}){
                                 }                             
                             </div>
                             <div className={styles.obsRec}>
-                                {/* <div onClick={()=>{btnObsTar('obs')}} className={botonera=='tar'?styles.contDesactivated:styles.btnObs}>Observaciones</div>
-                                <div onClick={()=>{btnObsTar('tar')}} className={botonera==='obs'?styles.contDesactivated:styles.btnObs}>Tareas</div> */}
-                                <div onClick={()=>{btnObsTar('obs')}} className={botonera=='obs'?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1>Observaciones</h1>
-                                    <div className={botonera=='obs'?styles.contOverflow:styles.none}>
+                                <div onClick={()=>{btnObsTar(true)}} className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
+                                    <h1>MANEJO</h1>
+                                    <div className={botonera?styles.contOverflow:styles.none}>
                                         <div className={styles.contOverflowText}>
-                                            {
-                                            manejoLote.map(observaciones=>{
-                                                return(
-                                                    <div>
-                                                        {observaciones}
-                                                    </div>
-                                                )
-                                                })
-                                            }
+                                            <div className={styles.obs}>
+                                                <h4>Observaciones</h4>
+                                                {manejoLote.map(data=>{
+                                                        return(
+                                                            <p>{data.observaciones}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div>  
+                                            <div className={styles.recom}>
+                                            <h4>Recomendaciones</h4>
+                                                {manejoLote.map(data=>{
+                                                        return(
+                                                            <p>{data.recomendaciones}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div> 
                                         </div>
-                                    </div>
-                                </div>
-                                <div onClick={()=>{btnObsTar('tar')}} className={botonera=='tar'?styles.contTareasActivated:styles.contTarDesactivated}>
-                                    <h1>Tareas</h1>
-                                    <div className={botonera=='tar'?styles.contOverflow:styles.none}>
-                                        {
-                                            manejoLote.map(recomendaciones=>{
-                                                return(
-                                                    <div>
-                                                        {recomendaciones}
-                                                    </div>
-                                                    
-                                                )
-                                            })
-                                        }
                                     </div>
                                 </div>
                             </div>

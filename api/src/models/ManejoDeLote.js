@@ -5,14 +5,11 @@ module.exports = (sequelize) => {
         sequelize.define('manejoDeLote', {
             observaciones: {
                 type: DataTypes.STRING,
-                allowNull: true,
+                allowNull: false,
             },
             recomendaciones: {
                 type: DataTypes.STRING,
-                allowNull: true,
-            },
-            description: {
-                type: DataTypes.STRING,
+                allowNull: false,
             },
             image: {
                 type: DataTypes.STRING,
