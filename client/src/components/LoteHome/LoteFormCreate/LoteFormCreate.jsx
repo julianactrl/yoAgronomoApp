@@ -34,15 +34,17 @@ export default function LoteFormCreate({empresaId}){
         if(Object.values(inputs).indexOf(null) == -1) {
             if(Object.values(inputs).indexOf('') == -1) {
                 console.log('toy en la funcion');
-                return dispatch(crearLoteDB(inputs))
+                alert('Lote creado con exito !!')
+                dispatch(crearLoteDB(inputs))
+                return dispatch({type:'SET_VERIFY',payload:''})
             } 
         }
         console.log('No pudo crearse la empresa');
     }
 
     useEffect(()=>{
-        console.log('iputsssssssssssssss',inputs)
-    },[inputs])
+        dispatch({type:'SET_VERIFY',payload:'formularioCrear'})
+    },[])
 
     return (
         <div className={styles.cont}>

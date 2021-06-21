@@ -16,12 +16,7 @@ export function getAllLotes (empresaId) {
 export function crearLoteDB (data) {
     return function(dispatch) {
         return axios.post(`http://localhost:3001/lote/create`, data)
-        .then(response => {
-            dispatch({
-                type: CREATE_LOTE,
-                payload: response
-            })
-        })
+        .then(response => console.log('lote Creado', response))
         .catch(e => console.log(e))
     }
 
