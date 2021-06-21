@@ -6,7 +6,7 @@ const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 
 export function getAllEmpresas() {
     return function(dispatch) {
-        return fetch(`${REACT_APP_API_HEROKU}/empresa`)
+        return fetch(`${REACT_APP_API}/empresa`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -19,7 +19,7 @@ export function getAllEmpresas() {
 
 export function getEmpresa(id) {
     return function(dispatch) {
-        return fetch(`${REACT_APP_API_HEROKU}/empresa/${id}`)
+        return fetch(`${REACT_APP_API}/empresa/${id}`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -31,18 +31,19 @@ export function getEmpresa(id) {
 }
 
 
-export const postEmpresa = ({ name, hectareas,ubicacion,imagen }) => {
+export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
 
     return (dispatch) => {
         dispatch({ type: POST_EMPRESA });
         axios({
             method: 'post',
-            url: `${REACT_APP_API_HEROKU}/empresa/create`,
+            url: `${REACT_APP_API}/empresa/create`,
             data: {
                 name,
                 hectareas,
                 ubicacion,
-                imagen
+                imagen,
+                userId
             },
         }).catch(e => dispatch(e))
     }
@@ -53,7 +54,7 @@ export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
         dispatch({ type: UPDATE_EMPRESA });
         axios({
             method: 'put',
-            url: `${REACT_APP_API_HEROKU}/empresa/create/${id}`,
+            url: `${REACT_APP_API}/empresa/create/${id}`,
             data: {
                 name,
                 hectareas,
@@ -69,7 +70,7 @@ export const deleteEmpresa = (id) => {
         dispatch({ type: DELETE_EMPRESA });
         axios({
             method: 'delete',
-            url: `${REACT_APP_API_HEROKU}/empresa/delete/${id}`,
+            url: `${REACT_APP_API}/empresa/delete/${id}`,
             payload: id
         }).catch(e => dispatch(e))
     }
