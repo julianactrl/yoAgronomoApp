@@ -1,10 +1,12 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
+const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
 
 
 export function getAllEmpresas() {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/empresa`)
+        return fetch(`${REACT_APP_API_HEROKU}/empresa`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -17,7 +19,7 @@ export function getAllEmpresas() {
 
 export function getEmpresa(id) {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/empresa/${id}`)
+        return fetch(`${REACT_APP_API_HEROKU}/empresa/${id}`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -35,7 +37,7 @@ export const postEmpresa = ({ name, hectareas,ubicacion,imagen }) => {
         dispatch({ type: POST_EMPRESA });
         axios({
             method: 'post',
-            url: `http://localhost:3001/empresa/create`,
+            url: `${REACT_APP_API_HEROKU}/empresa/create`,
             data: {
                 name,
                 hectareas,
@@ -51,7 +53,7 @@ export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
         dispatch({ type: UPDATE_EMPRESA });
         axios({
             method: 'put',
-            url: `http://localhost:3001/empresa/create/${id}`,
+            url: `${REACT_APP_API_HEROKU}/empresa/create/${id}`,
             data: {
                 name,
                 hectareas,
@@ -67,7 +69,7 @@ export const deleteEmpresa = (id) => {
         dispatch({ type: DELETE_EMPRESA });
         axios({
             method: 'delete',
-            url: `http://localhost:3001/empresa/delete/${id}`,
+            url: `${REACT_APP_API_HEROKU}/empresa/delete/${id}`,
             payload: id
         }).catch(e => dispatch(e))
     }

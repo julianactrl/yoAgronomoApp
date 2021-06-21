@@ -4,6 +4,7 @@ import {
 } from '../constants';
 
 const apiKey=process.env.REACT_APP_WEATHER_API_KEY
+
 export const getWeather = (city) => {
     return function(dispatch) {
         axios

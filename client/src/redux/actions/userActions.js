@@ -15,7 +15,8 @@ import {
   UPDATE_USER
 } from "../constants";
 
-const { REACT_APP_API } = process.env;
+const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
 
 
 
@@ -28,7 +29,7 @@ export const register = (body) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const {data}  = await axios.post(
-      "http://localhost:3001/auth/api/signup",
+      `${REACT_APP_API_HEROKU}/auth/api/signup`,
       body,
       config
     );
@@ -58,7 +59,7 @@ export const login = ({email, password}) => async (dispatch) => {
     //   headers: { "Content-Type": "application/json" },
     // };
     const  data  = await axios.post(
-      "http://localhost:3001/auth/api/signin",
+      `${REACT_APP_API_HEROKU}/auth/api/signin`,
       { email, password },
       // config,
 	  
@@ -84,19 +85,7 @@ export const logout = () => {
   return {
     type: USER_LOGOUT,
   };
-//   try {
-//   const { data } = await axios.get('http://localhost:3001/auth/logout')
-//   dispatch({
-//     type: USER_LOGOUT,
-//     payload: data
-//   })
-//   document.location.href = "/index";
-// } catch(error) {
-//   dispatch({
-//     type: USER_LOGOUT_ERROR,
-//     payload: error
 
-//   })
 
 };
 
@@ -104,7 +93,7 @@ export const logout = () => {
 export const getUser = () => {
   return function(dispatch) {
     dispatch({type: LOADING_USER})
-    return axios.get(`http://localhost:3001/auth/myProfile` , BEARER())
+    return axios.get(`${REACT_APP_API_HEROKU}/auth/myProfile` , BEARER())
     .then(async userInfo => {
       if (userInfo.data.jwt) localStorage.setItem('jwt', JSON.stringify(userInfo.data.jwt));
       delete userInfo.data.jwt
@@ -137,7 +126,7 @@ export const updateUser = ({id,fullName,email,password,profile_pic}) => {
     dispatch({ type: UPDATE_USER,payload: {fullName,email,password,profile_pic} });
     axios({
         method: 'put',
-        url: `http://localhost:3001/user/edit/${id}`,
+        url: `${REACT_APP_API_HEROKU}/user/edit/${id}`,
         data: {
             fullName,
             email,
