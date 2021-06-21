@@ -17,13 +17,8 @@ export function getAllLotes (empresaId) {
 
 export function crearLoteDB (data) {
     return function(dispatch) {
-        return axios.post(`${REACT_APP_API_HEROKU}/lote/create`, data)
-        .then(response => {
-            dispatch({
-                type: CREATE_LOTE,
-                payload: response
-            })
-        })
+        return axios.post(`http://localhost:3001/lote/create`, data)
+        .then(response => console.log('lote Creado', response))
         .catch(e => console.log(e))
     }
 
