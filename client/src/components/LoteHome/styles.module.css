@@ -1,0 +1,163 @@
+
+.contenedor{
+    /* display: flex; */
+    height:100vh;
+    /* border: 10px solid white; */
+    justify-content: center;
+    
+}
+
+.tittle{
+    color: white;
+    position: fixed;
+    text-align: center;
+    padding-bottom: 2vh;
+    bottom: 70%;
+    left: 26%;
+    font-size: 80px;
+    width: 50%;
+    letter-spacing:10px;
+    /* background-color: rgba(172, 255, 47, 0.219); */
+}
+.contenedorCards{
+    /* border: 3px solid green; */
+    position: relative;
+    /* left: 25%; */
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    height:60vh;
+    width: 100vh;
+    grid-template-columns:repeat(2, 1fr);
+}
+.body{
+    /* background-color: hotpink; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    width: 52%;
+    position: relative;
+    left: 25%;
+    top: 24vh;
+}
+
+/* btn next and prev */
+
+.nextBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 100%;
+    bottom: 20rem;
+    transform: rotate(-90deg);
+    
+    height: 60px;
+    border-radius: 60px;
+    /* border: 5px solid greenyellow; */
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    /* top: 80%; */
+    top: 20rem;
+    right: 8%;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    /* border: 5px solid greenyellow; */
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
+}
+
+
+/* agregar empresa */
+
+
+.cardContAdd{
+    display: flex;
+    cursor: pointer;
+    /* left: 180px; */
+    background-image: url('../../assets/cicle.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-clip:padding-box;
+    background-size: 700px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    width: 36vh;
+    height: 21vh;
+    background-color: rgba(255, 255, 255, 0.178);
+    border:none;
+    box-shadow: 0px 0px 30px black;
+    
+}
+/* .imgAdd2{
+    width: 20%;
+    height: 30%;
+    position: fixed;
+    opacity: 0.3;
+} */
+.cardContAdd:hover{
+    transition: 0.9s;
+    background-size: 600px;
+    border:none;
+    background-color: #43748a46;
+    box-shadow: 5px 5px 40px black;
+}
+
+.titleAdd{
+    display: none;
+    color: black;
+    transition: 0.9s;
+}
+.cardContAdd:hover .titleAdd{
+    display: inline;
+    font-size: 150%;
+    color: greenyellow;
+    transition: 0.9s;
+}
+
+
+.imgAdd{
+    bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 1000px;
+    border: 2px solid rgba(0, 189, 13, 0.075);
+    width: 30%;
+} 
+.imgAdd:hover{
+    transition: 1s;
+    background-color: #80cc28;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border: 2px solid rgba(0, 104, 189, 0.226);
+}

@@ -15,7 +15,7 @@ export function validate(input) {
   if (!input.password) {
       errors.password = 'Se requiere una contraseña';
     } else if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(input.password)) {
-      errors.password = 'La contraseña debe contener al menos un caracter especial,una mayúscula y un número.';
+      errors.password = 'La contraseña debe contener ocho caracteres, al menos un caracter especial,una mayúscula y un número.';
     }
 
   return errors;
@@ -52,6 +52,7 @@ const Register = () => {
          e.preventDefault();
          console.log(userRegister)
          dispatch(register(userRegister))
+         alert('Registro exitoso!')
          history.push('/home')
          setUserRegister({
           email:"",

@@ -1,0 +1,688 @@
+{
+
+    "etapas": [
+
+        {
+            "subtitle": "subtitle",
+            "cereal": "MAIZ",
+            "title": "Etapa: VE - Emergencia",
+            "Descripcion": "El coleoptile alcanza la superficie del suelo y se establece la plántula."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V1 - Collar de 1era hoja",
+            "Descripcion": "La hoja inferior (corta con punta redondeada) está completamente desplegada, con collar y lígula visible."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V3 - Collar de 3er hoja",
+            "Descripcion": "Tres hojas completamente desplegadas. El punto de crecimiento se mantiene por debajo de la superficie del suelo."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V5 - Collar de 5ta hoja",
+            "Descripcion": "Cinco hojas completamente desplegadas. El punto de crecimiento se acerca a la superficie del suelo."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V6 - Collar de 6ta hoja",
+            "Descripcion": "Seis hojas completamente desarrolladas. El ápice de crecimiento está por encima de la superficie del suelo."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V7 - Collar de 7ma hoja",
+            "Descripcion": "Siete hojas completamente desplegadas."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: V10 - Collar de 10ma hoja",
+            "Descripcion": "Diez hojas completamente desarrolladas."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: Vn - Collar de “n” hojas",
+            "Descripcion": ". “n” ésima hoja completamente desplegada, con collar y lígula visible. VT - Antesis. Aparición de la panoja con liberación de polen."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: VT - Antesis",
+            "Descripcion": "Aparición de la panoja con liberación de polen."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R1 - Silking",
+            "Descripcion": " Se produce la emergencia de los estigmas que capturan los granos de polen."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R2 - Ampolla o Blister",
+            "Descripcion": "Los granos son de color blanco asemejándose a una ampolla."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R3 - Grano lechoso",
+            "Descripcion": "Los granos son de color amarillo en la parte exterior con un interior líquido blanco lechoso."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R4 - Grano pastoso",
+            "Descripcion": "El fluido en el endosperma se ha espesado hasta obtener una consistencia pastosa. La mazorca es de color blanco cuando se quitan los granos. La humedad del grano es de aproximadamente el 70%."
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R5 - Grano Dentado",
+            "Descripcion": "La mazorca es de color rojo oscuro. Comienza el secado del grano formándose, en la parte superior, una capa dura de color blanco de almidon, que continua hacia la mazorca. La humedad del grano es de aproximadamente el 55%. "
+        },
+        {
+            "cereal": "Maiz",
+            "title": "Etapa: R6 - Madurez Fisiologica",
+            "Descripcion": "Todos los granos han alcanzado máximo peso seco. Una capa de color negro o marrón se ha formado en la porciòn del grano que se une a la mazorca, lo que indica que la madurez fisiológica se ha alcanzado. El contenido de humedad del grano oscila entre el 30-35% en esta etapa."
+        },
+        {
+            "imagen": "https://i.pinimg.com/originals/09/c9/ba/09c9ba56482e422f0220774d45d2a12e.png"
+        },
+        {
+            "cereal": "GIRASOL",
+            "title": "Etapa: VE - Emergencia",
+            "Descripcion": "El hipocótilo y los cotiledones han emergido sobre la superficie del suelo y la primera hoja verdadera tiene menos de 4 cm de largo."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: V (N)",
+            "Descripcion": "Se determina contando el número de hojas verdaderas de longitud superior a 4 cm. ej.: V1, V2, V3, etc. Cuando las hojas se pierden, las cicatrices que dejan en el tallo (excluyendo las del nudo cotiledonal) más las hojas presentes, deben ser contadas para determinar el estado de desarrollo vegetativo."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R1",
+            "Descripcion": "El botón floral comienza a diferenciarse. Visto desde arriba las brácteas inmaduras tienen la apariencia de una estrella de numerosas puntas."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R2",
+            "Descripcion": "El botón floral se elonga entre 0.5 y 2cm por encima de la hoja más cercana inserta en el tallo. Las brácteas están unidas directamente a la parte de atrás de las yemas."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R3",
+            "Descripcion": "El botón floral se elonga mas de 2cm por encima de la hoja más próxima. "
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R4",
+            "Descripcion": "- La inflorescencia comienza a abrirse. Vista desde arriba, las flores liguladas aún inmaduras son visibles. "
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R5",
+            "Descripcion": "Este estado corresponde al inicio de floración. Se divide en sub-estados dependiendo del porcentaje del área del capítulo que ha completado su floración. Ej.: R5.1, el 10 % de las flores se encuentra en antesis. "
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R6",
+            "Descripcion": "La floración es completa y las flores liguladas comienzan a marchitarse."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R7",
+            "Descripcion": "El envés del capítulo comienza a colorearse amarillo pálido."
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R8",
+            "Descripcion": "El envés del capítulo es amarillo pero las brácteas permanecen verdes"
+        },
+        {
+            "cereal": "Girasol",
+            "title": "Etapa: R9",
+            "Descripcion": "Las brácteas se tornan amarillas y marrones. La mayor parte del envés del capítulo se ha tornado marrón. Este estado corresponde a madurez fisiológica. "
+        },
+        {
+            "imagen": "https://www.syngenta.com.ar/sites/g/files/zhg331/f/media-wysiwyg/2020/05/17/girasol.png"
+        },
+        {
+            "cereal": "GARBANZO",
+            "title": "Etapa: V0",
+            "Descripcion": "1er nudo -visible debajo del suelo- donde se insertan las hojas cotiledonares opuestas."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: VE",
+            "Descripcion": "Emergencia de plántula. 2do nudo con catáfilas tridentadas -visible debajo del suelo-"
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: V1",
+            "Descripcion": "1er nudo -visible sobre el suelo- donde se despliega la 1er hoja multifoliada. "
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: V2",
+            "Descripcion": "2do nudo -visible sobre el suelo- donde se inserta la 2da hoja multifoliada."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: V3",
+            "Descripcion": " 3er nudo -visible sobre el suelo- donde se inserta la 3er hoja multifoliada."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: Vn",
+            "Descripcion": "“n” nudos -visibles sobre el suelo- donde se insertan “n” hojas multifoliadas desarrolladas."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R1 ",
+            "Descripcion": "Se inicia la floración y se observa una flor abierta en cualquier parte de la planta."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R2",
+            "Descripcion": "La mayoría de las flores están abiertas."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R3",
+            "Descripcion": "- Inicio de formación de vainas."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R4",
+            "Descripcion": "Las vainas han alcanzado su tamaño máximo, y se las visualiza planas."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R5",
+            "Descripcion": "Se inicia la formación de grano, que comienza a ocupar el lugar que le corresponde dentro de la cavidad de la vaina."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R6",
+            "Descripcion": "Todos los granos ocupan la cavidad de la vaina, y esta comienza a redondearse."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R7",
+            "Descripcion": "Las hojas comienzan a virar de color y el 50% de las vainas se vuelven de color amarillo."
+        },
+        {
+            "cereal": "Garbanzo",
+            "title": "Etapa: R8",
+            "Descripcion": "El 90 % de las vainas de la planta son de color amarillo-marrón."
+        },
+        {
+
+            "imagen": "https://lh3.googleusercontent.com/proxy/ECqY-dwEAnpluLp117cXEwPfd5tNQHleL33Ar7rvka020qi48rpd-a8mJ4e7_9HhkECcch--ZItnp4TQ5YsvDoZFQUIye22W9bN9VAc"
+        },
+        {
+            "cereal": "MANI",
+            "title": "Etapa: VE - Emergencia",
+            "Descripcion": "El hipocotilo con los cotiledones atraviesan la superficie del suelo. "
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: V1 - (1er nudo)",
+            "Descripcion": "Plántula con un nudo desarrollado con su hoja tetrafoliada y foliolos horizontales."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: Vn - (“n” número de nudos)",
+            "Descripcion": "desarrollados sobre el eje principal de la planta. Considerando para ello como último nudo, al superior que presente una hoja tetrafoliada desarrollada con sus foliolos horizontales."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R1 - Inicio de Floración",
+            "Descripcion": "Las plantas tienen o han tenido una flor abierta en cualquier nudo de la planta. "
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R2 - Inicio de formación del ginóforo o un ginóforo alargado",
+            "Descripcion": "Las plantas, al menos, tienen un clavo en proceso de elongación y sin introducirse en el suelo"
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R3 - Inicio de formación de cajas ",
+            "Descripcion": "Las plantas tienen un clavo elongado, con el extremo del ovario de un diámetro igual a dos veces del diámetro del clavo."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R4 - Caja completamente desarrollada",
+            "Descripcion": "Se observa una primera caja que ha llegado a su máximo tamaño"
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R5 - Inicio de formación de semillas",
+            "Descripcion": "La mejor forma de determinar esta etapa es haciendo cortes transversales a las cajas, y es cuando las mismas tienen por lo menos un fruto donde, a través del corte, se puede observar el crecimiento de los cotiledones seminales."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R6 - Semillas completas",
+            "Descripcion": "Se observa una caja cuya cavidad esta aparentemente llena por las semillas."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R7 - Inicio de maduración",
+            "Descripcion": "Las plantas tienen por lo menos una caja madura, con la parte interna del pericarpo manchada."
+        },
+        {
+            "cereal": "Mani",
+            "title": "Etapa: R8 - Madurez de cosecha o arrancado",
+            "Descripcion": "Cuando se alcanza el % de cajas maduras que indican el momento de arrancado, donde los frutos presentan, en el interior del pericarpo, una coloración canela o marrón y el tegumento seminal manifiesta un cambio de color hasta alcanzar el característico del cultivar."
+        },
+        {
+
+            "imagen": "https://thumbs.dreamstime.com/b/dibujo-vectorial-de-las-fases-cultivo-cacahuetes-en-dise%C3%B1o-plano-proceso-plantaci%C3%B3n-la-planta-man%C3%AD-crecimiento-partir-167677211.jpg"
+        },
+        {
+            "cereal": "SOJA",
+            "title": "Etapa: VE – Emergencia",
+            "Descripcion": "Se observa el hipocótile en forma de arco, empujando al epicótile y a los cotiledones, haciéndolos emerger sobre la superficie del suelo. ."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: VC - Etapa cotiledonar",
+            "Descripcion": "El hipocótile se endereza y cesa su crecimiento. Los cotiledones se despliegan totalmente en el nudo cotiledonal (nudo 0). Hay que tener en cuenta, para considerar este estado, es que en el nudo inmediato superior (nudo 1) los bordes de las hojas unifoliadas no se toquen. A partir de aquí el resto de los estados vegetativos se los identifican con el número de nudos."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: V1 - (1er nudo)",
+            "Descripcion": "El par de hojas opuestas unifoliadas están expandida totalmente (nudo 1), y en el nudo inmediato superior se observa que los bordes de cada uno de los foliolos de la 1er hoja trifoliada no se tocan (nudo 2). "
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: V2 - (2do nudo)",
+            "Descripcion": "La 1er hoja trifoliada está totalmente desplegada (nudo 2), y en el nudo 3 (inmediato superior) los bordes de cada uno de los foliolos de la 2da hoja trifoliada no se están tocando. "
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: V3 - (3er nudo)",
+            "Descripcion": "La 2da hoja trifoliada está completamente desarrollada en el nudo 3 y en el nudo inmediato superior (nudo 4) los bordes de cada uno de los foliolos de la 3er hoja trifoliada no se tocan."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: Vn - (“n” número de nudos)",
+            "Descripcion": "La hoja trifoliada del nudo (n) está expandida totalmente, y en el nudo inmediato superior los bordes de cada uno de los foliolos no se tocan."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R1 - Inicio de Floración",
+            "Descripcion": "Se observa una flor abierta en cualquier nudo del tallo principal"
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R2 - Floración completa",
+            "Descripcion": "Se observa una flor abierta en uno de los nudos superiores del tallo principal."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R3 - Inicio de formación de vainas",
+            "Descripcion": "Una vaina de 5 milímetros de largo en uno de los 4 nudos superiores del tallo principal, y con hojas totalmente desplegadas. "
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R4 - Vainas completamente desarrolladas",
+            "Descripcion": "Una vaina de 2 cm en uno de los 4 nudos superiores del tallo principal con hojas totalmente desplegadas."
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R5 - Inicio de formación de semillas",
+            "Descripcion": "Una vaina, ubicada en uno de los 4 nudos superiores del tallo principal, contiene una semilla de 3 mm de largo. "
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R6 - Semilla completamente desarrollada",
+            "Descripcion": "Una vaina, en cualquiera de los 4 nudos superiores del tallo principal, contiene una semilla verde que llena la cavidad de dicha vaina, con hojas totalmente desplegadas.  "
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R7 - Inicio de maduración",
+            "Descripcion": "Una vaina normal en cualquier nudo del tallo principal ha alcanzado su color de madurez -madurez fisiológica"
+        },
+        {
+            "cereal": "Soja",
+            "title": "Etapa: R8 - Maduración completa",
+            "Descripcion": "El 95 % de las vainas de la planta han alcanzado el color de madurez. Se completa el ciclo ontogénico, culminando con la maduración iniciada en la etapa anterior. "
+        },
+        {
+
+            "imagen": "data:image/jpeg;base64,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"
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 0 - Emergencia",
+            "Descripcion": "El coleoptile es visible en la superficie del suelo."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 1 - Lígula de la 3er hoja visible",
+            "Descripcion": "Los collares y lígulas de tres hojas pueden ser vistos sin disección de la planta."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 2 - Lígula de la 5ta hoja visible",
+            "Descripcion": "Los collares y lígulas de cinco hojas pueden verse sin la disección de la planta."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 3 - Diferenciación de meristemas",
+            "Descripcion": "Momento del cambio del punto de crecimiento de vegetativo a reproductivo. Aproximadamente entre 7 a 10 hojas se encuentran completamente expandidas. "
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 4 - Hoja bandera visible",
+            "Descripcion": "Todas las hojas excepto las últimas 3 a 4 se hayan expandidas, representando el 80% de la máxima área foliar."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 5 - Estado de bota o buche",
+            "Descripcion": "Todas las hojas se han expandido completamente proporcionando la máxima área foliar. La panoja casi alcanzó su máxima longitud, y está rodeada por la vaina de la hoja bandera."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 6 - Floración",
+            "Descripcion": "Las plantas se encuentran en algún momento de la floración, que progresa de arriba hacia abajo de la panoja. "
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 7 - Grano lechoso",
+            "Descripcion": "En esta etapa el grano tiene una consistencia lechosa y el llenado del grano se produce rápidamente. Se siguen perdiendo las hojas inferiores quedando 8 a 12 hojas funcionales en esta etapa."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 8 - Grano pastoso",
+            "Descripcion": "En esta etapa aproximadamente tres cuartas partes del peso seco del grano se ha alcanzado."
+        },
+        {
+            "cereal": "Sorgo",
+            "title": "Etapa: Estado 9 - Madurez Fisiológica",
+            "Descripcion": "La humedad del grano depende del híbrido y el ambiente, y varía entre un 25 y un 35%."
+        },
+        {
+
+            "imagen": "https://image.slidesharecdn.com/etapasdedesarrollodecultivodesorgo-181030131010/95/etapas-de-desarrollo-de-sorgo-2-638.jpg?cb=1540905543"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+            "subetapa": "Z 00",
+            "Descripcion": "Semilla seca"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+            "subetapa": "Z 01",
+            "Descripcion": "Comienzo de imbibición."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+            "subetapa": "Z 05",
+            "Descripcion": "Radícula emergida del cariopse."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 0 - Germinación. Zadoks (Z)0",
+            "subetapa": "Z 08",
+            "Descripcion": "Hoja en el extremo del coleoptile."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 1 - Emergencia. Z1",
+            "subetapa": "Z 10",
+            "Descripcion": "1era hoja verdadera atravesó el coleoptile."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 1 - Emergencia. Z1",
+            "subetapa": "Z 11",
+            "Descripcion": "1era hoja expandida y comienza a desenrollarse la 2da."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 1 - Emergencia. Z1",
+            "subetapa": "Z 12",
+            "Descripcion": "2da hoja expandida y comienza a desenrollarse la 3era."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 1 - Emergencia. Z1",
+            "subetapa": "Z 16",
+            "Descripcion": "6ta hoja expandida y comienza a desenrollarse la 7ma."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 1 - Emergencia. Z1",
+            "subetapa": "Z 19",
+            "Descripcion": "Nueve o más hojas totalmente expandidas."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 2 - Macollaje. Z2",
+            "subetapa": "Z 20",
+            "Descripcion": "Vástago principal (VP) solamente."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 2 - Macollaje. Z2",
+            "subetapa": "Z 21",
+            "Descripcion": "VP y un macollo."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 2 - Macollaje. Z2",
+            "subetapa": "Z 22",
+            "Descripcion": "VP y dos macollos."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 2 - Macollaje. Z2",
+            "subetapa": "Z 26",
+            "Descripcion": "VP y seis macollos"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 2 - Macollaje. Z2",
+            "subetapa": "Z 29",
+            "Descripcion": "VP y nueve o más macollos."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 30",
+            "Descripcion": "Erección del pseudotallo"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 31",
+            "Descripcion": "Detección del 1er entrenudo."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 32",
+            "Descripcion": "Detección del 2do entrenudo"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 36",
+            "Descripcion": "Detección del 6to entrenudo"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 37",
+            "Descripcion": "Hoja bandera visible."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 3 - Alargamiento del tallo. Z3",
+            "subetapa": "Z 39",
+            "Descripcion": "Lígula de la hoja bandera visible."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 41",
+            "Descripcion": "Hoja bandera totalmente expandida."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 42-43",
+            "Descripcion": "Preinflorescencia ligeramente hinchada."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 44-45",
+            "Descripcion": "Detección del 2do entrenudo"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 36",
+            "Descripcion": "Preinflorescencia totalmente hinchada."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 46-47",
+            "Descripcion": "Apertura de la vaina de la hoja bandera."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 4 - Pre inflorescencia no emergida. Z4",
+            "subetapa": "Z 48-49",
+            "Descripcion": "Aristas visibles."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+            "subetapa": "Z 50-51",
+            "Descripcion": "1eras espiguillas visibles."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+            "subetapa": "Z 52-53",
+            "Descripcion": "¼ de la inflorescencia emergida."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+            "subetapa": "Z 54-55",
+            "Descripcion": "½ de la inflorescencia emergida."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+            "subetapa": "Z 56-57",
+            "Descripcion": "¾ de la inflorescencia emergida."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 5 - Emergencia de la inflorescencia. Z5",
+            "subetapa": "Z 48-49",
+            "Descripcion": "Emergencia total"
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 6 - Antesis. Z6",
+            "subetapa": "Z 64-65",
+            "Descripcion": "1/2 antesis."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 6 - Antesis. Z6",
+            "subetapa": "Z 68-69",
+            "Descripcion": "Antesis completa."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 7 - Grano lechoso. Z7",
+            "subetapa": "Z 71-72",
+            "Descripcion": "Cariopse maduro."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 7 - Grano lechoso. Z7",
+            "subetapa": "Z 73-74",
+            "Descripcion": "Grano lechoso temprano."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 7 - Grano lechoso. Z7",
+            "subetapa": "Z 75-76",
+            "Descripcion": "Grano lechoso medio."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 7 - Grano lechoso. Z7",
+            "subetapa": "Z 77-78",
+            "Descripcion": "Grano lechoso tardío."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 8 - Grano pastoso. Z8",
+            "subetapa": "Z 83",
+            "Descripcion": "Temprano."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 8 - Grano pastoso. Z8",
+            "subetapa": "Z 85",
+            "Descripcion": "Blando (no detiene la impresión de la uña)."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 8 - Grano pastoso. Z8",
+            "subetapa": "Z 87",
+            "Descripcion": "Duro (detiene la impresión de la uña). Inflorescencia pierde clorofila."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 91",
+            "Descripcion": "Cariopse duro (dificultoso dividir por la uña del pulgar)."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 92",
+            "Descripcion": "Cariopse duro (no puede ser mellado por la uña del pulgar)."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 94",
+            "Descripcion": "Sobremadurez, colapso y muerte de la caña."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 95",
+            "Descripcion": "Dormición."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 96",
+            "Descripcion": "50% de germinación."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 97",
+            "Descripcion": "Dormición secundaria inducida."
+        },
+        {
+            "cereal": "Cerelaes de siembra Otoñal",
+            "title": "Etapa 9 - Madurez. Z9",
+            "subetapa": "Z 98-99",
+            "Descripcion": "Perdida de dormición secundaria."
+        }
+    ]
+
+
+}

@@ -1,0 +1,92 @@
+{
+   "funguicidas": [
+       {
+           "type": "Inhibidores de Múltiples Sitios de Acción",
+           "subtype": "Cupricos/Azufrados",
+           "props": "Desnaturalizan enzimas, Inorgánicos, Protectores de contacto, Para enfermedades fúngicas y bacterianas en cultivos intensivos, Pueden generar fitotoxicidad foliar, No generan resistencia, Oxido cuproso / Azufre elemental"
+        },
+        {
+            "type": "Inhibidores de Múltiples Sitios de Acción",
+            "subtype":"Ditiocarbamatos",
+            "props":"Inactivan enzimas y aminoácidos, Orgánicos,Protectores de contacto, Thiram -> importante para tratamiento de semillas contra enfermedades de suelo, Mancozeb -> muy utilizado como protector foliar en intensivos"
+        },
+        {
+            "type": "Inhibidores de Múltiples Sitios de Acción",
+            "subtype":"Ftalamidas",
+            "props":"Afectan a la respiración celular inhibiendo enzimas, Protectores de contacto, Orgánicos,Captan -> protector foliar contra tizón, roya, viruela en intensivos"
+        },
+        {
+            "type": "Inhibidores de Múltiples Sitios de Acción",
+            "subtype":"Fenipiridinamidas",
+            "props":"Inhibidores de enzimas,Protectores de contacto, Orgánicos, Fluazinan para múltiples enfermedades de papa"
+        },
+        {
+            "type":"Inhibidores de la Quinasa",
+            "subtype":"Dicarboximidas",
+            "props":"Bloquean la síntesis de ADN inhibiendo la germinación de esporas e hifas, Protectores de contacto, Iprodione -> curasemillas de trigo, foliar en intensivos (hongos de suelo, podredumbre y mohos), Procimedone -> contra Sclerotinia y Botrytis en girasol e intensivos"
+        },
+        {
+            "type":"Inhibidores de la Quinasa",
+            "subtype":"Quinolinas",
+            "props":"Protectores de contacto, Quinoxifen -> para oídio de la vid (inhibe la formación del apresorio del hongo)"
+        },
+        {
+            "type":"Inhibidores de la Quinasa",
+            "subtype":"Fenilpirroles",
+            "props":"Protectores de contacto, Fludioxinil -> para hongos de suelo en papa y frutales. Como tratamiento de semillas y para post cosecha."
+        },
+        {
+            "type":"Inhibidores de la Sintesis de Lípidos",
+            "subtype":"Aromaticos Clorados",
+            "props":"Producen una peroxidación de lípidos, Protectores de contacto, Dicloran/ PCNB -> contra Botrytis y Sclerotinia en cítricos, hortalizas, algodón. Como curasemillas o aplicado al suelo."
+        },
+        {
+            "type":"Inhibidores de la Respiracion",
+            "subtype":"Estrobilurinas",
+            "props":"Intervienen en el complejo III citocromo reductasa., Curativos/preventivos, Acción translaminar (mesosistémicos), Aplicaciones preventivas o apenas se observan los síntomas, siempre en mezclas, Efecto reverdecedor, Funcionan contra Oomycetes, Azoxystrobina -> contra viruela, carbón, roya, tizón, etc. en soja, trigo y maíz, Picoxystrobin / Pyraclostrobin -> contra manchas, royas, oídios en soja, trigo y maíz"
+        },
+        {
+            "type":"Inhibidores de la Respiracion",
+            "subtype":"Carboxamidas",
+            "props":"Inhiben la acción de la enzima succínico – deshidrogenasa, Curativos, Sistemicos, Como tratamiento de semillas y para aplicación foliar, Carboxin  contra carbones y royas en soja, trigo y maíz"
+        },
+        {
+            "type":"Inhibidores de la Mitosis",
+            "subtype":"Benzimidazoles",
+            "props":"Inhiben la síntesis de tubulinas, Sistemicos, Bajo costo, fácil generación de resistencia, amplio espectro, Múltiples momentos de aplicación, Carbendazim / Metiltiofanato  contra cercospora, sclerotinia, fusarium, verticilium, etc. en trigo, soja e intensivos."
+        },
+        {
+            "type":"Inhibidores de la Biosíntesis de Ergosterol",
+            "subtype":"Triazoles",
+            "props":"Inhiben la enzima 1,4 α demetilasa, provocando una disrupción en las membranas, Sistemicos, Curativos, De rápida acción, No controlan Oomycetes, Ciproconazole -> curasemillas contra carbón para trigo, Tebuconazole -> contra manchas, royas, tizones en trigo y soja, Epoxiconazole -> contra manchas y royas en trigo y cebada, Difenoconazole -> contra golpe blanco y mancha amarilla en trigo"
+        },
+        {
+            "type":"Inhibidores del Metabolismo de Acidos Nucléicos",
+            "subtype":"Acilalaninas",
+            "props":"Interfieren en la síntesis de ARN, inhibiendo la germinación de esporas y crecimiento del micelio, Sistemicos, Utilizados como curasemillas y como formulaciones para suelo, Metalaxil -> contra damping off y mildiu para soja, maíz, girasol, etc."
+        },
+        {
+            "type":"Inhibidores del Metabolismo de Acidos Nucléicos",
+            "subtype":"Hidroximpirimidinas",
+            "props":"Inhiben la acción de la adenosin – deaminasa, Bupirimato -> controla mildiu en cultivos intensivos"
+        },
+        {
+            "type":"Modo de Accion Desconocido",
+            "subtype":"Derivados de la Guanidina",
+            "props":"Interfieren en la respiración, Sistemicos,Curativos, Dodine -> contra sarna del manzano"
+        },
+        {
+            "type":"Modo de Accion Desconocido",
+            "subtype":"Triazol Carboximidas",
+            "props":"Inhiben la fosforilación oxidativa y la síntesis de microtúbulos, Sistemicos, Curativos, Ethaboxam -> para Phytophtora donde se vaya a sembrar papa"
+        },
+        {
+            "type":"Modo de Accion Desconocido",
+            "subtype":"Fenilureas",
+            "props":"Inhiben la mitosis, Sistemicos, Curativos, Pencycurón -> curasemillas contra Rhizoctonia en papa"
+        }
+          
+          
+
+    ]
+}

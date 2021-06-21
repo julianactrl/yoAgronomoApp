@@ -5,12 +5,13 @@ import CardsEmpresas from '../CardEmpresa/CardsEmpresas';
 import add from '../../assets/añadir.png';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import styles from './styles.module.css'
 import Slider from 'react-slick'
+import styles from './styles.module.css'
 import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
 import {motion} from 'framer-motion';
+
 
 
 export default function DashBoard (){
@@ -98,7 +99,7 @@ export default function DashBoard (){
                 <h1 className={styles.title}>Mis Empresas</h1>
                     <Slider {...settings}>
                       <Link path to='/newempresa' className={styles.mainAdd}>
-                          <div  className={styles.cardContAdd} >
+                        <div  className={styles.cardContAdd} >
                             <h1 className={styles.titleAdd}>Agregar Empresa</h1>
                           <img src={add} alt="" className={styles.imgAdd}/>
                         </div>

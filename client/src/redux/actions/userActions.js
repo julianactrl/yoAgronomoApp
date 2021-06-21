@@ -1,4 +1,5 @@
 import axios from "axios";
+import {firestone} from '../../'
 import {
   REGISTER_USER_ERROR,
   REGISTER_USER_REQUEST,
@@ -7,9 +8,17 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_ERROR,
   USER_LOGOUT,
+  USER_LOGOUT_ERROR,
+  GET_USER,
+  LOADING_USER,
+  BEARER,
+  UPDATE_USER
 } from "../constants";
 
-const { REACT_APP_API } = process.env;
+const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
+
+
 
 export const register = (body) => async (dispatch) => {
   try {
@@ -19,8 +28,8 @@ export const register = (body) => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
     };
-    const { data } = await axios.post(
-      "http://localhost:3001/auth/register",
+    const {data}  = await axios.post(
+      `${REACT_APP_API_HEROKU}/auth/api/signup`,
       body,
       config
     );
@@ -28,7 +37,6 @@ export const register = (body) => async (dispatch) => {
       type: REGISTER_USER_SUCCESS,
       payload: data,
     });
-    alert("Registro exitoso");
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
@@ -42,22 +50,24 @@ export const register = (body) => async (dispatch) => {
   }
 };
 
-export const login = (email, password) => async (dispatch) => {
+export const login = ({email, password}) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
     });
-    const config = {
-      headers: { "Content-Type": "application/json" },
-    };
-    const { data } = await axios.post(
-      "http://localhost:3001/auth/login",
+    // const config = {
+    //   headers: { "Content-Type": "application/json" },
+    // };
+    const  data  = await axios.post(
+      `${REACT_APP_API_HEROKU}/auth/api/signin`,
       { email, password },
-      config
+      // config,
+	  
     );
+    console.log(data)
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data,
+      payload: data.data,
     });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
@@ -75,4 +85,54 @@ export const logout = () => {
   return {
     type: USER_LOGOUT,
   };
+
+
 };
+
+
+export const getUser = () => {
+  return function(dispatch) {
+    dispatch({type: LOADING_USER})
+    return axios.get(`${REACT_APP_API_HEROKU}/auth/myProfile` , BEARER())
+    .then(async userInfo => {
+      if (userInfo.data.jwt) localStorage.setItem('jwt', JSON.stringify(userInfo.data.jwt));
+      delete userInfo.data.jwt
+        dispatch({ 
+          type: GET_USER,
+          payload:userInfo.data
+        })
+        // const cart = firestone.collection("cart");
+        // try {
+				// 	const query = await cart.where(firebase.firestore.FieldPath.documentId(),
+				// 		'==',
+				// 		user.data.id.toString()).get();
+				// 	const firebaseCart = query.docs[0]?.data();
+				// 	const localStorageCart = JSON.parse(localStorage.getItem('cart'))
+				// 	if (Object.keys(localStorageCart).length === 0) {
+				// 		if (firebaseCart) {
+				// 			localStorage.setItem('cart', JSON.stringify(firebaseCart));
+				// 		}
+				// 	} else {
+				// 		cart.doc(user.data.id.toString()).set(localStorageCart)
+				// 	}
+				// 	dispatch(setCart());
+				// } catch (err) { console.log(err) }
+			
+      })
+  }
+}
+export const updateUser = ({id,fullName,email,password,profile_pic}) => {
+  return (dispatch) => {
+    dispatch({ type: UPDATE_USER,payload: {fullName,email,password,profile_pic} });
+    axios({
+        method: 'put',
+        url: `${REACT_APP_API_HEROKU}/user/edit/${id}`,
+        data: {
+            fullName,
+            email,
+            password,
+            profile_pic
+        },
+    }).catch(e => dispatch(e))
+}
+}

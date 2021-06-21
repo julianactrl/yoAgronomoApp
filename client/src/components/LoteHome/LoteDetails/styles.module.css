@@ -1,0 +1,593 @@
+.contMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    bottom: 5vh;
+}
+.contCard{
+    width: 150vh;
+    height: 70vh;
+    -webkit-perspective: 4000;
+
+}
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+}
+
+.cardAct{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+    transform: rotateY(180deg);
+}
+.loteDetails{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.486);
+}
+.name{
+    font-size: 40px;
+    font-family: Roboto;
+    letter-spacing: 3px;
+    color: white;
+    position: relative;
+    text-align: center;
+    left: 25%;
+    /* border: 3px solid white; */
+}
+.contenedorHeader{
+    /* background-color: rgba(255, 99, 71, 0.479); */
+    display: flex;
+    /* border: 2px solid wheat; */
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 4vh;
+    /* height: 15%; */
+}
+.obsRec {
+    position: relative;
+    display: flex;
+    width: 80%;
+    height: 40%;
+    bottom: 5%;
+    display: flex;
+    width: 80%;
+    height: 47%;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.slider{
+    position: relative;
+    left: 2%;
+    width: 50%;
+    height: 100%;
+    /* border: 4px solid white; */
+}
+
+.details{
+    color: white;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clima{
+    width: 68vh;
+}
+.contDataClima{
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+
+}
+.contClima{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    height: 100%;
+}
+.imgClima{
+    position: relative;
+    right: 15%;
+    width: 100px;
+
+}
+.imgClima:hover{
+    transition:.6s;
+    transform: rotate(10deg)scale(1.5);
+}
+
+.contClimaText{
+    position: relative;
+    left: 10%;
+}
+.contLogoDelEdit{
+    display: flex;
+    /* position: relative; */
+    width: 15%;
+    justify-content: space-between;
+    /* background-color: wheat; */
+    /* border: 2px solid wheat; */
+    /* cursor: pointer; */
+}
+.editLogo,
+.deleteLogo{
+    background-color: rgba(129, 93, 93, 0);
+    border: 2px solid rgba(129, 143, 151, 0.192);
+    border-radius: 5px;
+    /* border: 3px solid wheat; */
+    width: 45px;
+}
+.editLogo:hover,
+.deleteLogo:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid rgba(0, 225, 255, 0.26);
+    background-color: rgb(189, 189, 189);
+    box-shadow: 0 0 5px white;
+}
+
+.ghostDivHidden{
+    position: absolute;
+    top: 35%;
+    width: 60vh;
+    height: 20vh;
+    transition: .3s;
+    opacity: 0;
+}
+.ghostDiv{
+    position: absolute;
+    top: 35%;
+    width: 60vh;
+    height: 20vh;
+    transition: .5s;
+    opacity: 1;
+}
+
+.dataText{
+    
+    font-size: 19px;
+}
+.cross{
+    position: relative;
+    left: 40%;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image: url('../../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
+
+}
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+.nextBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 50%;
+    transform: rotate(-90deg);
+    top: 2vh;
+    height: 60px;
+    border-radius: 60px;
+    
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 55vh;
+    left: 35%;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
+}
+/* /////////////////////////////////////////////////////////////////////////// */
+.btnDetails{
+    border:none;
+    position: relative;
+    text-decoration: none;
+    background: rgb(128, 128, 128);
+    height: 10%;
+    width: 18%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color:#708857 ;
+    color:rgb(3, 3, 3);
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+}
+.btnDetails:hover{
+    background-color: #27963c;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.contAux{
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+
+}
+/* ((((((((((((((((((((((((((((((((((((BOTONES OBSERVACIONES Y TAREAS )))))))))))))))))))))))))))))))))))) */
+.contObsActivated{
+    position: relative;
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+    animation-name: agrandar;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-iteration-count: initial;
+}
+.contTareasActivated{
+    position: relative;
+    font-size: 12px;
+    font-family: Roboto;
+    text-align: center;
+    width: 45%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+    animation-name: agrandar;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-iteration-count: initial;
+}
+
+.contObsDesactivated{
+    position: relative;
+    top: 75%;
+    display: flex;
+    box-shadow: 0 0 30px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 0.294);
+    text-align: center;
+    height: 8vh;
+    width: 45%;
+}
+.contObsDesactivated:hover,
+.contTarDesactivated:hover{
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(104, 104, 104, 0.582);
+    background-color: rgba(58, 58, 58, 0.431);
+
+}
+.contTarDesactivated{
+    position: relative;
+    top: 75%;
+    display: flex;
+    box-shadow: 0 0 30px black;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    background-color: rgba(0, 0, 0, 0.294);
+    text-align: center;
+    height: 8vh;
+    width: 45%;    
+}
+@keyframes agrandar {
+    from{
+        top:75%;
+        height: 0;
+    }
+    to{
+        top:0;
+        height: 100%;
+    }
+    
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.contOverflow{
+    width: 90%;
+    height: 20vh;
+    background-color: rgba(83, 83, 83, 0.157);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    
+}
+.contOverflowText{
+    padding: 8%;
+    display: flex;
+    font-size: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.contOverflow::-webkit-scrollbar {
+    background: rgba(224, 224, 224, 0.185);
+    border-radius: 4px;
+}
+
+.img{
+    box-shadow: 0 0 30px 0.1px rgb(27, 27, 27);
+    opacity: 0.8;
+
+}
+/* //////////////////////////////      FORMULARIO         //////////////////////////////////////////// */
+.none{
+    display: none;
+}
+
+.loteForm{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
+    /* url('../../../assets/logo\ -\ copia.png'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    background-clip: border-box;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    box-shadow: 0 0 10px black;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.486);
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contCargaText{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+
+}
+.formPrincipio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.titleLote{
+    position: relative;
+    top: 5%;
+    letter-spacing: 1.5px;
+    font-family: Roboto;
+    right: 30%;
+    font-size: 40px;
+}
+
+.choseenCont{
+    position: relative;
+    display: flex;
+    top: 5%;
+    width: 30%;
+    justify-content: space-between;
+}
+.btn{
+    border:none;
+    position: relative;
+    text-decoration: none;
+    background: rgb(128, 128, 128);
+    width: 20vh;
+    height: 5vh;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color:#536369 ;
+    color:rgb(3, 3, 3);
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+
+}
+.btn:hover{
+    border:1px solid white;
+    background-color:#5f828f ;
+}
+.btnAtras{
+    border:none;
+    color: white;
+    position: fixed;
+    right: 2%;
+    top: 3%;
+    font-size: 100%;
+    text-decoration: none;
+    background: rgb(128, 128, 128);
+    height: 8%;
+    width: 6%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color:#536369 ;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+}
+.btnAtras:hover{
+    background-color: #8a3831;
+    color: #000000;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.cargarImg{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+    width: 20vh;
+    height: 20vh;
+}
+.fileselect {    
+    background-image: url('../../../assets/adjuntarArchivo.png');      
+    background-color:#ffffff ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+    display: flex;    
+    width: 100px;   
+    height: 100px;    
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0);
+  }
+  .fileselect:hover{
+      transition: 0.3s;
+      background-size: 90%;
+      background-color: rgba(0, 217, 255, 0.801);
+      border:1px solid rgba(0, 0, 0, 0.644);
+  }
+   
+  .fileselect input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    display: inline-block;            
+  }
+  .contTextarea{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+  }
+  .submit{
+      position: relative;
+      left: 5vh;
+      width: 10vh;
+      height: 5vh;
+      background-color: rgb(43, 133, 31);
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+  }
+  .submit:hover{
+    transition: 0.3s;
+    background-color: rgb(70, 177, 56);
+    box-shadow: 0 0 10px rgb(63, 63, 63);
+    letter-spacing: .3px;
+
+  }
+  .textatera{
+      border:none;
+      background-color: rgba(0, 0, 0, 0.452);
+      box-shadow: 0 0 10px rgba(56, 56, 56, 0.596);
+}

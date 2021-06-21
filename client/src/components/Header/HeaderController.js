@@ -1,9 +1,13 @@
+
+
 import {Link} from 'react-router-dom'
 import styles from './styles.module.css'
 
 //...  SideBar  ...
 
 export function sidebar(verify){
+    const empresaId = window.location.pathname.split('/')[2] //---> Id de la empresa que aparece en detalle
+    
     if (verify === 'dashboard'){
         return(
             <div className={styles.sidebarcont}>
@@ -14,10 +18,10 @@ export function sidebar(verify){
                     <Link className={styles.linktext}>
                     <h2 className={styles.text}>AGENDA</h2>
                     </Link>
-                    <Link className={styles.linktext}>
-                    <h2 className={styles.text}>PREMIUM</h2>
+                    <Link to='/membresia' className={styles.linktext}>
+                    <h2 className={styles.text}>MEMBRESIA</h2>
                     </Link>
-                    <Link className={styles.linktext}>
+                    <Link to='/agroconsultas' className={styles.linktext}>
                     <h2 className={styles.text}>AGRO CONSULTAS</h2>
                     </Link>
                 </div>    
@@ -33,22 +37,22 @@ export function sidebar(verify){
                 <Link className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to={`/lote/${empresaId}`} className={styles.linktext}>
                 <h2 className={styles.text}>LOTES</h2>
                 </Link>
-                <Link className={styles.linktext}>
-                <h2 className={styles.text}>MERCADO</h2>
+                <Link to='/mercados' className={styles.linktext}>
+                <h2 className={styles.text}>MERCADOS</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link  className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>
                 <h2 className={styles.text}>CLIMA</h2>
                 </Link>
-                <Link className={styles.linktext}>
-                <h2 className={styles.text}>PREMIUM</h2>
+                <Link to='/membresia'className={styles.linktext}>
+                <h2 className={styles.text}>MEMBRESIA</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/agroconsultas'className={styles.linktext}>
                 <h2 className={styles.text}>AGRO CONSULTAS</h2>
                 </Link>
             </div>
@@ -58,3 +62,4 @@ export function sidebar(verify){
     }
 
 }
+

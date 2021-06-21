@@ -1,3 +1,4 @@
+
 import React from "react";
 import DashBoard from "./components/DashBoard/DashBoard";
 import { Route, Switch,Link } from "react-router-dom";
@@ -8,6 +9,19 @@ import DetailEmpresa from './components/DetailEmpresa/DetailEmpresa.js';
 import IntroPage from "./components/IntroPage/IntroPage.jsx";
 import News from './components/News/News.js';
 import UpdateEmpresa from './components/UpdateEmpresa/UpdateEmpresa';
+import UpdateProfile from "./components/UpdateProfile/updateProfile";
+
+import LoteHome from "./components/LoteHome";
+import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
+import Map from './components/Map/Map.js';
+import Cotizaciones from './components/Cotizaciones/Cotizaciones'
+import MercadoPago from './components/MercadoPago/MercadoPago.jsx';
+import Premium from './components/MercadoPago/Premium.jsx';
+import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
+import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
+
+
+
 
 export default function Routes() {
   return (
@@ -32,20 +46,55 @@ export default function Routes() {
       <Route exact path='/newempresa'>
         <NewEmpresa />
       </Route>
+      <Route exact path='/agroconsultas'>
+        <AgroConsultas />
+      </Route>
+      <Route exact path='/mercados'>
+        <Cotizaciones />
+      </Route>
 
       <Route exact path="/home">
         <DashBoard />
       </Route>
+
+      <Route exact path="/user/update/:id" render={({ match }) =>
+        <UpdateProfile id={match.params.id} />}>
+       </Route>
       
+
+      <Route exact path='/lote/:id'>
+        <LoteHome id={window.location.pathname.split('/')[2]} />
+      </Route>
+  
       <Route  path="/weather">
         <Weather />
       </Route>
       <Route exact path='/news'>
         <News />
       </Route>
+      <Route exact path='/map'>
+        <Map />
+      </Route>
+      <Route exact path='/agroconsultas'> 
+      <AgroConsultas />
+      </Route>
+
+      <Route exact path='/cotizaciones'>
+        <Cotizaciones />
+      </Route>
+      <Route exact path='/membresia'>
+        <MercadoPago />
+      </Route>
+      <Route exact path='/membresia/premium'>
+        <Premium />
+      </Route>
+      <Route exact path='/membresia/premiumplus'>
+        <PremiumPlus />
+      </Route>
+      <Route exact path='/membresia/premiumpro'>
+        <PremiumPro />
+      </Route>
 
     </Switch>
     );
   }
-
-      

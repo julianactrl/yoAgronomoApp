@@ -22,3 +22,4 @@ server.delete("/deleteManejo/:id",deleteManejo)
 
 
 module.exports = server;
+

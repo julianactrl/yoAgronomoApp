@@ -33,13 +33,142 @@ const IntroPage = () => {
         }
         }}
         >
+
+          <main className="container text-center d-flex flex-column vh-100 justify-content-center ">
+
+            <div className="row mt-5">
+              <div className="col-12">
+                <img className={s.logo} src={leaf}/>
+              </div>
+            </div>
+
+            <div className="row">
+              <div className="col-12">
+                <h2 className={s.intro}><strong>YO</strong> AGRONOMO</h2>
+              </div>
+            </div>
+
+            <div className="row mt-5 mb-5">
+              <div className="col-12">
+                <Link to='/index'>
+                  <button className={s.mainBtn}>INGRESAR</button>
+                </Link>
+              </div>
+            </div>
+
+
+
+
+            
+            <div className="row text-center">
+              {/* <div className="col-12"> */}
+                  <div className="col-4 col-md-1 ">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}> 
+                          <img className={s.leo} alt=""src={img1}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}> 
+                          <img className={s.leo} alt=""src={img2}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img3}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                             <img className={s.leo} alt=""src={img4}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img5}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img6}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img7}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img8}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img9}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img10}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+                  <div className="col-4 col-md-1">
+                        <Link to = '/index'>
+                          <div className={s.wrapper}>
+                          <img className={s.leo} alt=""src={img1}/> 
+                              <h2 className={s.title}>Gestión Integral Agro</h2> 
+                          </div> 
+                        </Link>
+                  </div>
+          
+                </div>
+            {/* </div> */}
+          </main>
+
+
+
+
+
+
+
+{/* 
         <div className={s.main}>
             <img className={s.logo} src={leaf}/>
             <h2 className={s.intro}><strong>YO</strong> AGRONOMO</h2>
             <Link to='/index'>
             <button className={s.mainBtn}>INGRESAR</button>
             </Link>
-        </div>
+        </div> */}
 
     <motion.div
        initial='hidden'
@@ -58,90 +187,8 @@ const IntroPage = () => {
        }
        }}
        >
-    <div className={s.slider}>
-      <ul>
-        <li>
-          <figure>
-          <Link to = '/index'>
-           <div className={s.wrapper}> <img
-              alt=""
-              src={img1}
-            /> <h2 className={s.title}>Gestión Integral Agro</h2> </div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-            <div className={s.wrapper}><img
-              alt=""
-              src={img2}
-            /> <h2 className={s.title}>Manejo Administrativo</h2> </div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-            <div className={s.wrapper}><img
-              alt=""
-              src={img3}
-            /> <h2 className={s.title}>Clima en vivo</h2> </div> </Link>
-          </figure>
-        </li>
-        <li>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img4}
-            /> <h2 className={s.title}>Mercados en vivo</h2></div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img5}
-            /><h2 className={s.title}>Stock de insumos</h2></div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img6}
-            /><h2 className={s.title}>Gestión comercial</h2></div> </Link>
-          </figure>
-        </li>
-        <li>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img7}
-            /> <h2 className={s.title}>Stock de granos</h2></div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img8}
-            /><h2 className={s.title}>Suscripción premium</h2></div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img9}
-            /> <h2 className={s.title}>Plataforma integral</h2></div> </Link>
-          </figure>
-          <figure>
-          <Link to = '/index'>
-          <div className={s.wrapper}> <img
-              alt=""
-              src={img10}
-            /> <h2 className={s.title}>Monitoreo</h2></div> </Link>
-          </figure>
-        </li>
-       
-      </ul>
-    </div>
+    
     </motion.div>
-  );
-
 
 
 

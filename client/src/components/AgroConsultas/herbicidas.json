@@ -1,0 +1,87 @@
+{
+    "herbicidas":[
+        {
+            "type": "Afectan al Metabolismo Celular",
+            "subtype": "Inhibidores de la Sintesis de Acidos Grasos",
+            "props": "Actúan inhibiendo la Acetil-Coa carboxilasa, afectando la síntesis de lípidos y por ende, las membranas. Inhiben además la síntesis de ceras., Son post emergentes, Son sistémicos, ingresando por follaje, Graminicidas, Deben mezclarse con aceite. Se pueden mezclar con fungicidas, insecticidas y glifosato (con ningún otro herbicida) -Ciclohexanodionas -> Cletodim -Arilfenoxipropiónicos -> Haloxifop / Quizalofop -Fenilpirazolinonas -> Pinoxadem (requiere antídoto para utilizarse en post emergencia de trigo)"
+        },
+        {
+            "type": "Afectan al Metabolismo Celular",
+            "subtype": "Inhibidores de la Sintesis de Aminoacidos",
+            "props": "El herbicida actúa uniéndose a la enzima EPSPS y la bloquea, interrumpiéndose así la vía del shiquimato, donde se producen aminoácidos aromáticos y metabolitos importantes para la plant, Son post emergentes, Absoridos por follaje, No selectivo/amplio espectro, Para barbechos y cultivos RR, Muy sistémico, Poca resistencia, aunque cada vez aparecen más malezas resistentes, Baja toxicidad, Poca actividad en suelo,Poca resistencia al lavado por lluvias, Antagonismo con aguas duras,Acción lenta -Glicinas -> Glifosato"
+        },
+        {
+            "type": "Afectan al Metabolismo Celular",
+            "subtype": "Inhibidores de la Glutamina Sintetasa",
+            "props": "Se inhibe la síntesis de glutamina (fuente de amonio en muchas enzimas), No selectivos, Desecante, Post emergente, Sistémico (de transporte limitado), Para barbechos o para maíz Liberty Link, Acción de 2 a 5 días -Ácidos fosfínicos -> Glufosinato de amonio"
+        },
+        {
+            "type": "Afectan al Metabolismo Celular",
+            "subtype": "Inhibidores ALS",
+            "props": "Inhiben la enzima ALS, que participa en la biosíntesis de aminoácidos de cadena larga como la leucina, isoleucina y valina.-Sulfonilureas  -Clorimurón  -Metsulfurón  -Nicosulfurón (Controlan yuyo colorado (Nicosulfurón alepos), Post emergentes, Sistémicos, Ingresan por raíz y follaje Residualidad)-Imidazolinonas -> Imazetapir -> Imazapir  Triazolpirimidinas -> Diclosulam Pre emergente,Absorbido por raíz,Para soja (en pre siembra, pre y post emergencia) Control de latifoliadas (rama negra),->Flumetsulam Pre y post emergencia de malezas (pre emergencia del cultivo)Absorbido por raíz y follaje Para alfalfa, soja y maíz,Control de latifoliadas (yuyo colorado, quinoa, etc)"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores del Fotosistema I",
+            "props": "Inhiben la producción de NADPH en los cloroplastos, inhibiendo a la enzima ferredoxin oxirreductorasa, encargada de catalizar NADP a NAPDH., Post emergentes de contacto (quemantes), Se usan en preemergencia del cultivo, Control de latifoliadas y gramíneas anuales, Bipiridilos -> Paraquat -> Diquat"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores del  Fotosistema II",
+            "props": "Se interrumpe el flujo de electrones inhibiendo la acción de la quinona. El herbicida se une a la proteína D1 a la cual se debería unir la quinona para el transporte de electrones, Controlan latifoliadas y algunas gramíneas, No existe resistencia a estos grupos químicos, Para barbecho-Triazinas -> Atrazina -Triazinonas -> Metribuzin -Ureas -> Linuron -> Diuron -Benzotiadiazinas -> Bentazón -Benzonitrilos -> Bromoxinil"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la PPO",
+            "props": "Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas, Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazi -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la Sintesis Carotenoides",
+            "subtype2": "Inhibidores de la PDS",
+            "props": "Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema), Pre emergentes, Sistémicos absorbidos por raíz, Controlan latifoliadas y algunas gramíneas, Para girasol, soja, maíz y trigo, Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la Sintesis de Carotenoides",
+            "subtype2": "Inhibidores de la HPPD",
+            "props": "Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides., Controlan latifoliadas y gramíneas anuales-Isoxazolidinonas -> Clomazone-Isoxazoles -> Isoxaflutole-Triketonas -> Biciclopirona-Ciclohexanona -> Mesotrione"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la Clorofila",
+            "subtype2": "Inhibidores de la PPO",
+            "props": "Inhiben la acción de la enzima PPO, la cual actúa en la síntesis de protoporfirinas, precursores de la clorofila. Produce radicales libres, degradación de membranas y muerte celular por acumulación de protoporfirinas, Difeniléteres -> Lactofen Fomesafen -Feniltalimidas -> Flumioxazin -Triazolinonas -> Sulfentrazone -Uracilos -> Saflufenacil"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la Síntesis de Carotenoides",
+            "subtype2":"Inhibidores de la HPPD",
+            "props": "Actúan inhibiendo la HPPD, la cual participa en la formación de un cofactor de la PDS. Se interrumpe la síntesis de carotenoides, Controlan latifoliadas y gramíneas anuales -Isoxazolidinonas ->Clomazone -Isoxazoles -> Isoxaflutole -Triketonas -> Biciclopirona -Ciclohexanona -> Mesotrione"
+        },
+        {
+            "type": "Afectan los Procesos Luminicos",
+            "subtype": "Inhibidores de la Síntesis de Carotenoides",
+            "subtype2":"Inhibidores de la PDS",
+            "props": "Actúan inhibiendo la enzima fitoeno desaturasa, la cuál participa en la síntesis de carotenoides otorgándoles los dobles enlaces que les permiten disipar calor. Sin carotenoides, la clorofila se degrada bajo mucha actividad lumínica (se quema), Pre emergentes, Sistémicos absorbidos por raíz, Controlan latifoliadas y algunas gramíneas, Para girasol, soja, maíz y trigo, Debe respetarse un período de 15-20 días para sembrar.-Pirrolidona -> Fluorocloridona-Carboximidas -> Diflufenican"
+        },
+        {
+            "type": "Afectan Crecimiento y la división celular",
+            "subtype": "Inhibidores de la Fotosintesis",
+            "subtype2":"Reguladores de Crecimiento Hormonales",
+            "props": "Interferencia en el metabolismo de los ácidos grasos, El ácido indol acético se une al TIR1 (represor que evita acumulación de AIA). Al inhibir este represor el herbicida, se induce a la producción de grandes cantidades de ABA y etileno, generando epinastias, daño de tejidos, senescencia, malformaciones, detención del crecimiento, Control de latifoliadas, En cereales de invierno se emplean en macollaje (pueden generar posterior deformación de la espiga), En maíz entre 4 y 6 hojas., Son post emergencia de maleza, Se absorben por follaje, Sistémicos.-Ácidos fenóxidos -> 2,4D ->2,4DB-Ácidos benzoicos -> Dicamba -Ácidos picolínicos -> Piclor -> Fluroxipi -> Aminopyralid"
+        },
+        {
+            "type": "Afectan Crecimiento y la división celular",
+            "subtype": "Inhibidores de la Fotosintesis",
+            "subtype2":"Inhibidores de la Mitosis",
+            "props": "Inhibidores de la síntesis de microtúbulos, Se inhibe la acción de la tubulina, no se polimerizan los microtúbulos, los cromosomas no migran, no hay división celular, Graminicidas y control de hoja ancha, Pre emergentes, Sistémicos, Absorben por raíz, Trifluralina debe ser incorporada por fotodescomposición.-Dinitroanilinas -> Trifluralina -> Pendimentalin -Cloroacetamidas  -> Alaclor -> Metolacloro -> S-metolacloro -> Acetoclor"
+        },
+        {
+            "type": "Afectan Crecimiento y la división celular",
+            "subtype": "Inhibidores de la Fotosintesis",
+            "subtype2":"Inhibidores DHP",
+            "props": "Inhiben la división celular y producción de ácido fólico, Post emergentes, Absorben por raíz, tallo y hoja, Control de latifoliadas y gramíneas, Sistémicos, Para caña de azúcar. -Carbamatos -> Asulam"
+        }
+    ]
+}

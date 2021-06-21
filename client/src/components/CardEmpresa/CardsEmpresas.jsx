@@ -13,7 +13,7 @@ export default function CardsEmpresas ({empresa}){
             <Link to={`/empresa/${empresa.id}`}>
                 <div className={styles.main}>
                         <div className={styles.cardCont}>
-                            <img src={image1} className={styles.img}/>
+                            <img src={empresa.imagen} className={styles.img}/>
                             <h1 className={styles.titleEmpresa}>{empresa.name}</h1>
                             <h3 className={styles.titleEmpresa}>{empresa.hectareas}</h3>
                         </div>
