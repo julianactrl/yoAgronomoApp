@@ -11,7 +11,8 @@ import {
   USER_LOGOUT_ERROR,
   GET_USER,
   LOADING_USER,
-  BEARER
+  BEARER,
+  UPDATE_USER
 } from "../constants";
 
 const { REACT_APP_API } = process.env;
@@ -130,4 +131,19 @@ export const getUser = () => {
 			
       })
   }
+}
+export const updateUser = ({id,fullName,email,password,profile_pic}) => {
+  return (dispatch) => {
+    dispatch({ type: UPDATE_USER,payload: {fullName,email,password,profile_pic} });
+    axios({
+        method: 'put',
+        url: `http://localhost:3001/user/edit/${id}`,
+        data: {
+            fullName,
+            email,
+            password,
+            profile_pic
+        },
+    }).catch(e => dispatch(e))
+}
 }

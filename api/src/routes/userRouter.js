@@ -9,14 +9,16 @@ const {
     getUserById,
     editUser,
     deleteUser,
-    getEmpresaByUserId
+    getEmpresaByUserId,
+    updateUser
+
 } = require("../controllers/userController");
 
 //-------------------------Route Users--------------------------//
 
 // server.get("/", getUserAll);
 // server.get("/:id", getUserById);
-// server.put('/edit/:id', isAuthenticated, editUser)
+server.put('/edit/:id',updateUser)
 // server.delete('/delete/:id', isAuthenticated, deleteUser)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 

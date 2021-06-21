@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getUser, updateEmpresa} from '../../redux/actions/userActions';
+import {getUser, updateEmpresa,updateUser,logout} from '../../redux/actions/userActions';
 import styles from './styles.module.css';
 import axios from 'axios';
 import Header from '../Header/Header';
@@ -8,12 +8,16 @@ import { useHistory } from 'react-router';
 
 function UpdateProfile ({id}) {
     const currentUser = useSelector(state =>state.userReducer.userInfo)
-
+   
+   
+        var id = currentUser.user.id
+    
     const [input, setInput] = useState({
-        imagen: '',
+        id:id,
         fullName: '',
         email: '',
         password:'',
+        profile_pic: ''
 })
 
 async function handleInputChange(e) {
@@ -22,7 +26,7 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('-------', input)
+        console.log('---estoe s input----', input)
     }
 
 const dispatch = useDispatch();
@@ -33,18 +37,15 @@ const dispatch = useDispatch();
 // }, []);
 
 
-
+const newInfo = {
+    email:input.email,
+    password: input.password
+}
 const history = useHistory()
 function handleSubmit(e) {
-    e.preventDefault();
-    axios.put(`http://localhost:3001/user/edit/${id}`, input)
-        .then(response => console.log(response.data)) 
-        .catch(error  => console.log(error))
-    e.target.reset();
-    alert('Su usuario fue actualizado!')
-    history.push('/home')
-    console.log('+++++++++++++', input)
-        
+    dispatch(updateUser(input))
+    dispatch(logout())
+    history.push("/home")    
 }
 
 
