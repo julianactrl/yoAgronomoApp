@@ -3,9 +3,10 @@ import { GET_ALL_LOTES , CREATE_LOTE} from "../constants"
 const initialState = {
     allLotes: [],
     detailLote:[],
-    renderFormCreateLote:false,
+    manejoLote: [],
     createdLote:[],
     verifyRender:''
+
 }
 
 const lotesReducer = (state = initialState, action) => {
@@ -26,6 +27,10 @@ const lotesReducer = (state = initialState, action) => {
                 ...state,
                 renderFormCreateLote : action.payload
             }
+        case 'GET_MANEJO': 
+            return {
+                ...state,
+                manejoLote : action.payload
         case CREATE_LOTE:
             return {
                 ...state,
@@ -35,6 +40,7 @@ const lotesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 verifyRender: action.payload
+
             }
         default: 
             return state;
