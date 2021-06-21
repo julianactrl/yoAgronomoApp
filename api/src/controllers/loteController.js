@@ -132,7 +132,7 @@ const updateLote = async(req,res,next) => {
 
 const createManejo = async (req,res,next) => {
     const { loteId } = req.params
-    const { observaciones,recomendaciones, description, image } = req.body;
+    const { observaciones,recomendaciones, image } = req.body;
     try{
         await ManejoDeLote.create({
             observaciones,
