@@ -26,7 +26,7 @@ export const register = (body) => async (dispatch) => {
     const config = {
       headers: { "Content-Type": "application/json" },
     };
-    const { data } = await axios.post(
+    const {data}  = await axios.post(
       "http://localhost:3001/auth/api/signup",
       body,
       config
@@ -35,7 +35,6 @@ export const register = (body) => async (dispatch) => {
       type: REGISTER_USER_SUCCESS,
       payload: data,
     });
-    alert("Registro exitoso");
     dispatch({
       type: USER_LOGIN_SUCCESS,
       payload: data,
@@ -66,7 +65,7 @@ export const login = ({email, password}) => async (dispatch) => {
     console.log(data)
     dispatch({
       type: USER_LOGIN_SUCCESS,
-      payload: data,
+      payload: data.data,
     });
 
     localStorage.setItem("userInfo", JSON.stringify(data));
