@@ -16,9 +16,9 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:3000/orden/completada",
-      failure: "http://localhost:3002/",
-      pending: "http://localhost:3002/",
+      success: "http://localhost:3000/index",
+      failure: "http://localhost:3001/",
+      pending: "http://localhost:3001/",
     },
     auto_return: "approved",
   };

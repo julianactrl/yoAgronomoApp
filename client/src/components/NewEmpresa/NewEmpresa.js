@@ -59,8 +59,8 @@ const dispatch = useDispatch();
         >
         <div className={styles.div}>
             <Header />
-        <h2 className={styles.alineado} >Nueva Empresa</h2>
         <div className={styles.caja}>
+        <h2 className={styles.alineado} >Nueva Empresa</h2>
         <form className={styles.estilosForm} 
         onSubmit={handleSubmit} 
         > 

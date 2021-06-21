@@ -1,70 +1,51 @@
-const { User, Empresa } = require("../db");
+const { Post, Empresa,User } = require('../db');
+const bcrypt = require('bcrypt');
+const authConfig = require('../config');
 
-const getUserAll = async(req, res, next) => {
-  try {
-    if (req.user) {
-      const result = await User.findAll();
-      res.send(result);
-    } else {
-      res.status(401).json({ message: "No hay usuarios" });
-    }
-  } catch (error) {
-    next(error);
-  }
-};
+// module.exports = {
 
-//==================================================//
-const getUserById = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await User.findByPk(id);
-    res.send(result);
-  } catch (error) {
-    next(error);
-  }
-};
-//==================================================//
-const editUser = (req, res, next) => {
-  const { id } = req.params;
+//     async find(req, res, next) {
+//         let post = await Post.findByPk(req.params.id);
 
-  const { email, password, fullName, googleId, profile_pic } = req.body;
+//         if (!post) {
+//             res.status(404).json({ msg: "El post no encontrado" });
+//         } else {
+//             req.post = post;
+//             next();
+//         }
+//     },
 
-  User.update(
-    {
-      email,
-      password,
-      fullName,
-      googleId,
-      profile_pic
-    },
-    {
-      where: {
-        id: id,
-      },
-    }
-  ).then((modified) => {
-    console.log(modified);
-    if (modified[0] === 0) {
-      return res.status(404).json({ message: "Usuario no encontrado" });
-    }
-    res.status(200).json({ message: "Usuario modificado con exito" });
-  });
-};
+//     async index(req, res) {
+//         let posts = await Post.findAll();
 
-//==================================================//
-const deleteUser = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    await User.destroy({
-      where: {
-        id: id,
-      },
-    });
-    res.status(202).json({ message: "Cuenta Eliminada con Exito" });
-  } catch (error) {
-    next(error);
-  }
-};
+//         res.json(posts);
+//     },
+
+//     // Show
+//     async show(req, res) {
+//         res.json(req.post);
+//     },
+
+//     // Update
+//     async update(req, res) {
+
+//         req.post.title = req.body.title;
+//         req.post.body = req.body.body;
+
+//         req.post.save().then(post => {
+//             res.json(post);
+//         })
+
+//     },
+
+//     // Delete
+//     async delete(req, res) {
+//         req.post.destroy().then(post => {
+//             res.json({ msg: "El post ha sido eliminado " });
+//         })
+//     },
+
+// }
 
 //==================================================//
 
@@ -88,11 +69,43 @@ const getEmpresaByUserId = (req, res) => {
       res.send({ message: err }).status(400);
     });
 };
+const updateUser = async(req,res) => {
+  const { id } = req.params;
+  const { fullName,email,profile_pic } = req.body;
+  let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+
+  let userFind = await User.findAll({
+      where: {
+          id
+      }
+  })
+  if (userFind.length > 0) {
+      userFind.map(async user => {
+          await user.update({
+              fullName,
+              email,
+              password,
+              profile_pic
+          });
+      });
+      return res.json({
+          message: "User updated",
+          date: userFind
+      })
+  }
+}
+
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+  User.findByPk(id)
+    .then((deleteUser) => deleteUser.destroy())
+    .then((deleteUser) => res.send("Usuario eliminado con exito"))
+    .catch((err) => res.send(err));
+};
 
 module.exports = {
-  getUserAll,
-  getUserById,
-  editUser,
-  deleteUser,
+
   getEmpresaByUserId,
+  updateUser,
+  deleteUser
 };

@@ -1,10 +1,16 @@
-import { GET_ALL_LOTES } from "../constants"
+import { GET_ALL_LOTES , CREATE_LOTE} from "../constants"
 
 const initialState = {
     allLotes: [],
     detailLote:[],
+<<<<<<< HEAD
     manejoLote: [],
     renderFormCreateLote:[]
+=======
+    renderFormCreateLote:false,
+    createdLote:[],
+    verifyRender:''
+>>>>>>> dev
 }
 
 const lotesReducer = (state = initialState, action) => {
@@ -25,10 +31,22 @@ const lotesReducer = (state = initialState, action) => {
                 ...state,
                 renderFormCreateLote : action.payload
             }
+<<<<<<< HEAD
         case 'GET_MANEJO': 
             return {
                 ...state,
                 manejoLote : action.payload
+=======
+        case CREATE_LOTE:
+            return {
+                ...state,
+                createdLote: action.payload
+            }
+        case 'SET_VERIFY':
+            return {
+                ...state,
+                verifyRender: action.payload
+>>>>>>> dev
             }
         default: 
             return state;

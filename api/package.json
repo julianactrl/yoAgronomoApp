@@ -4,8 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "dev": "nodemon -L",
     "start": "node.index.js",
+=======
+    "dev":"nodemon -L",
+    "start": "node index.js",
+>>>>>>> dev
     "forever": "forever index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,7 +34,9 @@
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "pg": "^8.2.1",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^5.21.10",
+    "sequelize-cli": "^6.2.0",
     "start": "^5.1.0"
   }
 }

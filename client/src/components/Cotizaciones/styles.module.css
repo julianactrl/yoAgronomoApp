@@ -1,11 +1,25 @@
 .datatableContainer{
+    display: flex;
+    align-content: center !important;
+    justify-content: center !important;
     background-color: #0e0e0e4d;
     color: white;
     border-radius: 10px;
-    width: 600px;
-    margin: 0 auto;
+    width: 700px;
+    height: 500px;
+    margin: 4rem 0 0 38rem;
     font-size: 12px;
     padding: 10px
+}
+
+.dolarHoy{
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-top: 3rem;
 }
 .datatable{
     border-collapse: collapse;

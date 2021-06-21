@@ -8,23 +8,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 export default function DashBoardProfile() {
-  const [active, setActive] = useState(false);
-  const {userInfo, error, isLoading} = useSelector((state) => state.userReducer);
-  console.log("estado",userInfo)
-
-  if(isLoading) {
-    alert('Loading')
-  }else if (error){
-    console.log(error)
-  }else if (userInfo) {
-    var decoded = jwt_decode(userInfo);
+  const [active, setActive] = useState(false)
+   const token = useSelector(state => state.userReducer.userInfo.token)
+   console.log(token)
+ 
+  if(token){
+      var decoded = jwt_decode(token)
+      var usuario = decoded.user;
   }
+  console.log("aaa", usuario)
+  console.log('holaa')
+  
+const dispatch= useDispatch();
 
-  const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch(logout);
-  };
+  const handleLogout = () =>{
+      dispatch(logout)
+  }
 
   function renderPerfil() {
     return (
@@ -39,16 +39,25 @@ export default function DashBoardProfile() {
             onClick={() => (!active ? setActive(true) : setActive(false))}
           />
         </button>
-        <h3 className={styles.title}>{decoded.fullName}</h3>
-        <h3 className={styles.email}>{decoded.email}</h3>
-        <h3 className={styles.titleLogout} onClick={handleLogout}>
-          CERRAR SESION
-        </h3>
-        <Link to={`/user/update/${decoded.id}`}>
-          <h3 className={styles.settings}>
-            <FontAwesomeIcon icon={faUserCog} />
-          </h3>
-        </Link>{" "}
+        {
+            usuario ?
+            <>
+                <h3 className={styles.title}>{usuario.fullName}</h3>
+                <h3 className={styles.email}>{usuario.email}</h3>
+                <h3 className={styles.titleLogout} onClick={handleLogout}>
+                CERRAR SESION
+                </h3>
+                <Link to={`/user/update/${usuario.id}`}>
+                    <h3 className={styles.settings}>
+                    <FontAwesomeIcon icon={faUserCog} />
+                    </h3>
+                </Link>{" "}
+            </>
+            :
+            <h1>Loading...</h1>
+
+        }
+        
       </div>
     );
   }

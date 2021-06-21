@@ -109,7 +109,7 @@ function handleChange(e){
                
                 placeholder='Tu consulta...'
                 onChange={(e)=> handleChange(e)} />
-               <button className={styles.btn} type= 'submit'>Buscar</button>
+               <button className={styles.btn} type= 'submit'> X </button>
                 </form>
                 <div className={styles.categorias} id='categorias'>
                 

@@ -25,15 +25,16 @@ export default function LoteFormCreate({empresaId}){
         
     }
     function cerrar() { // funcion para volver al home
-        dispatch({type:'GET_DETAIL_LOTE',payload:false})
-        dispatch({type:'GET_FORM_LOTE',payload:false})
+        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
+        // dispatch({type:'GET_FORM_LOTE',payload:false})
+        dispatch({type:'SET_VERIFY',payload:''})
     }
 
     function crearLote () {
         if(Object.values(inputs).indexOf(null) == -1) {
             if(Object.values(inputs).indexOf('') == -1) {
                 console.log('toy en la funcion');
-                return crearLoteDB(inputs)
+                return dispatch(crearLoteDB(inputs))
             } 
         }
         console.log('No pudo crearse la empresa');

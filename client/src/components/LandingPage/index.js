@@ -42,18 +42,22 @@ const LandingPage = () => {
 
             </div>
             <div className={styles.options}>
-          <Link to="/index">
-            <h1 className={styles.login}>Login</h1>
-          </Link>
+          <div className={styles.contenedorTittle}>
+            <Link to="/index">
+              <h1 className={styles.login}>Login</h1>
+            </Link>
 
-          <Link to="/index/register">
-            <h1 className={styles.registro}>Registro</h1>
-          </Link>
+            <Link to="/index/register">
+              <h1 className={styles.registro}>Registro</h1>
+            </Link>
+          </div>  
         </div>
 
         <Route exact path="/index/register" component={Register} />
         <Route exact path="/index" component={Login} />
-            <GoogleBtn/>
+        <div className={styles.btnGooglee}>
+            <GoogleBtn className={styles.btnGooglee}/>
+        </div>
         </div>
        
       </motion.div>

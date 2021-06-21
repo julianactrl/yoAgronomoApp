@@ -1,19 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getUser, updateEmpresa} from '../../redux/actions/userActions';
+import {getUser, updateEmpresa,updateUser,logout} from '../../redux/actions/userActions';
 import styles from './styles.module.css';
 import axios from 'axios';
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
+import {Link} from "react-router-dom"
+import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function UpdateProfile ({id}) {
     const currentUser = useSelector(state =>state.userReducer.userInfo)
-
+   
+   
+        var id = currentUser.user.id
+    
     const [input, setInput] = useState({
-        imagen: '',
+        id:id,
         fullName: '',
         email: '',
         password:'',
+        profile_pic: ''
 })
 
 async function handleInputChange(e) {
@@ -22,7 +30,7 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('-------', input)
+        console.log('---esto es input----', input)
     }
 
 const dispatch = useDispatch();
@@ -33,19 +41,30 @@ const dispatch = useDispatch();
 // }, []);
 
 
-
+const newInfo = {
+    email:input.email,
+    password: input.password
+}
 const history = useHistory()
 function handleSubmit(e) {
-    e.preventDefault();
-    axios.put(`http://localhost:3001/user/edit/${id}`, input)
-        .then(response => console.log(response.data)) 
-        .catch(error  => console.log(error))
-    e.target.reset();
-    alert('Su usuario fue actualizado!')
-    history.push('/home')
-    console.log('+++++++++++++', input)
-        
+    alert("¿Seguro desea modificar estos datos?")
+    dispatch(updateUser(input))
+    alert("Datos modificados correctamente, ingrese sesión nuevamente")
+    dispatch(logout())
+    history.push("/home")    
 }
+
+function deleteUsuario(id) {
+        
+    // dispatch(deleteEmpresa(id));
+    axios.delete(`http://localhost:3001/user/delete/${id}`)
+    .then(response => console.log(response.data)) 
+    .catch(error  => console.log(error))
+    alert('La cuenta del usuario ha sido eliminada')
+    
+    
+}
+
 
 
     return (
@@ -98,6 +117,9 @@ function handleSubmit(e) {
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Actualizar Usuario</button>
+            <Link to={`/`}>
+            <h3 onClick={()=>deleteUsuario(id)} className={styles.eliminarEmpresa}><FontAwesomeIcon icon={faUserTimes}/></h3> 
+            </Link>
             </form>
             </div>
             

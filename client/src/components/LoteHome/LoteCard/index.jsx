@@ -15,6 +15,7 @@ export default function LoteCard ({lote}) {
 
     function detailLote(data) {
         dispatch({type:'GET_DETAIL_LOTE',payload:data})
+        dispatch({type:'SET_VERIFY',payload:'detalle'})
     }
 
 
