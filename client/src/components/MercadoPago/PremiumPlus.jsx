@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Header from '../Header/Header';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../MercadoPago/MercadoPago.css'
@@ -38,14 +39,16 @@ export default function MercadoPago(props) {
   }, [preferenceId]);
   console.log(linkMp)
   return(
+    <>
+    <Header/>
       <div className='MpContainer'>
        <div className='membresiaPremiumPlus'>
-        <h2>Membresia Premium Plus</h2>
+        <h2><strong>Membresia Premium Plus</strong></h2>
         <h3>Obteniendo esta membresia accedes a estos beneficios</h3>
         <ul>
           <li>Capacidad de cargar hasta 10 empresas.</li>
           <li>Carga hasta 10 lotes por empresa.</li>
-          <li>Por cada lote que tenga tu empresa, podrás cargar de 500 - 1000 hectáreas.</li>
+          <li>Podrás gestionar de 500 a 1000 hectáreas.</li>
         </ul>
         <h5>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
         <h4>Costo total: $499 ARS</h4>
@@ -54,5 +57,6 @@ export default function MercadoPago(props) {
             <button>Pagar</button>
         </a>
       </div>
+      </>
   )
 }

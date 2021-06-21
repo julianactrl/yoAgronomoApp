@@ -1,3 +1,4 @@
+import Header from '../Header/Header'
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
@@ -38,14 +39,16 @@ export default function MercadoPago(props) {
   }, [preferenceId]);
   console.log(linkMp)
   return(
+    <>
+        <Header />
       <div className='MpContainer'>
         <div className='membresiaPremiumPro'>
-        <h2>Membresia Premium Pro</h2>
+        <h2><strong>Membresia Premium Pro</strong></h2>
         <h3>Obteniendo esta membresia accedes a estos beneficios</h3>
         <ul>
           <li>Capacidad de cargar mas de 10 empresas.</li>
           <li>Carga mas de 10 lotes por empresa.</li>
-          <li>Por cada lote que tenga tu empresa, podrás cargar mas de 1000 hectáreas sin límites!</li>
+          <li>Podrás gestionar mas de 1000 hectáreas sin límites!</li>
         </ul>
         <h5>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
         <h4>Costo total: $999 ARS</h4>
@@ -54,5 +57,6 @@ export default function MercadoPago(props) {
             <button>Pagar</button>
         </a>
       </div>
+      </>
   )
 }
