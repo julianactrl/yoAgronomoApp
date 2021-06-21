@@ -168,7 +168,7 @@ const createManejo = async(req,res,next) => {
             })
     }
     }catch(error){
-        if(!newLote){
+        if(!newManejo){
             res.status(400).json({
                 message: "Somethings goes wrong"
             })
