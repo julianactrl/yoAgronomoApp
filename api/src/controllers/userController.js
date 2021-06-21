@@ -95,8 +95,17 @@ const updateUser = async(req,res) => {
   }
 }
 
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+  User.findByPk(id)
+    .then((deleteUser) => deleteUser.destroy())
+    .then((deleteUser) => res.send("Usuario eliminado con exito"))
+    .catch((err) => res.send(err));
+};
+
 module.exports = {
 
   getEmpresaByUserId,
-  updateUser
+  updateUser,
+  deleteUser
 };

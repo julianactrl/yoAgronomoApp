@@ -5,6 +5,10 @@ import styles from './styles.module.css';
 import axios from 'axios';
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
+import {Link} from "react-router-dom"
+import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function UpdateProfile ({id}) {
     const currentUser = useSelector(state =>state.userReducer.userInfo)
@@ -26,7 +30,7 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('---estoe s input----', input)
+        console.log('---esto es input----', input)
     }
 
 const dispatch = useDispatch();
@@ -49,6 +53,18 @@ function handleSubmit(e) {
     dispatch(logout())
     history.push("/home")    
 }
+
+function deleteUsuario(id) {
+        
+    // dispatch(deleteEmpresa(id));
+    axios.delete(`http://localhost:3001/user/delete/${id}`)
+    .then(response => console.log(response.data)) 
+    .catch(error  => console.log(error))
+    alert('La cuenta del usuario ha sido eliminada')
+    
+    
+}
+
 
 
     return (
@@ -101,6 +117,9 @@ function handleSubmit(e) {
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Actualizar Usuario</button>
+            <Link to={`/`}>
+            <h3 onClick={()=>deleteUsuario(id)} className={styles.eliminarEmpresa}><FontAwesomeIcon icon={faUserTimes}/></h3> 
+            </Link>
             </form>
             </div>
             

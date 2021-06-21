@@ -19,7 +19,7 @@ const {
 // server.get("/", getUserAll);
 // server.get("/:id", getUserById);
 server.put('/edit/:id',updateUser)
-// server.delete('/delete/:id', isAuthenticated, deleteUser)
+server.delete('/delete/:id', deleteUser)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 
 
