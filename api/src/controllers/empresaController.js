@@ -1,4 +1,4 @@
-const { Empresa } = require("../db");
+const { Empresa , User} = require("../db");
 const { Op } = require("sequelize");
 
 const getEmpresaByName = async (req, res, next) => {
@@ -31,7 +31,25 @@ const getAllEmpresas = async (req, res, next) => {
     res.status(404).send(next);
   }
 };
-
+const getAllEmpresasByUser = async (req, res, next) => {
+  const {id} = req.params
+  try {
+      const empresa = await Empresa.count();
+      if (empresa !== 0) {
+        res.status(201).json(await Empresa.findAll({
+            include: {
+                model: User,
+                where :{
+                    id
+                }
+            }
+        }));
+      }
+    } catch (e) {
+      res.status(404).send(next);
+    }
+ 
+};
 
 const getEmpresaById = async (req, res) =>{
   const {id} = req.params
@@ -50,13 +68,14 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { name, hectareas, ubicacion, imagen} = req.body;
+  const { name, hectareas, ubicacion, imagen, userId} = req.body;
   try {
     await Empresa.create({
       name,
       hectareas,
       ubicacion,
-      imagen
+      imagen,
+      userId
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
@@ -103,4 +122,5 @@ module.exports = {
   getEmpresaById,
   getAllEmpresas,
   updateEmpresa,
+  getAllEmpresasByUser
 };

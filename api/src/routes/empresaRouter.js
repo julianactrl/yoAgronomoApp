@@ -7,6 +7,7 @@ const {
   getEmpresaById,
   getEmpresaByName,
   updateEmpresa,
+  getAllEmpresasByUser
 } = require("../controllers/empresaController");
 
 server.post("/create", createEmpresa);
@@ -15,5 +16,6 @@ server.get("/", getAllEmpresas);
 server.get("/:id", getEmpresaById);
 server.get("/nombreEmpresa", getEmpresaByName);
 server.put("/:id", updateEmpresa);
+server.get("/user/:id",getAllEmpresasByUser)
 
 module.exports = server;
