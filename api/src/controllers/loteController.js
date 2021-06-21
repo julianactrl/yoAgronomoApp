@@ -130,22 +130,52 @@ const updateLote = async(req,res,next) => {
 
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const createManejo = async (req,res,next) => {
-    const { observaciones,recomendaciones, description, image, loteId} = req.body;
+// const createManejo = async (req,res,next) => {
+//     const { observaciones,recomendaciones, description, image, loteId} = req.body;
+//     try{
+//         await ManejoDeLote.create({
+//             observaciones,
+//             recomendaciones,
+//             description,
+//             image,
+//             loteId
+//         })
+//         res.status(200).json("fue creado con exito");
+//     } catch (error) {
+//       console.log(error);
+//       res.status(500).send(next);
+//     }
+//   };
+
+const createManejo = async(req,res,next) => {
+    const { loteId } = req.params;
+    const { observaciones, recomendaciones, image} = req.body;
+
     try{
-        await ManejoDeLote.create({
+        let newManejo = await Lote.create({
             observaciones,
             recomendaciones,
-            description,
             image,
             loteId
+        }, {
+            fields: ['observaciones', 'recomendaciones', 'image', 'loteId']
         })
-        res.status(200).json("fue creado con exito");
-    } catch (error) {
-      console.log(error);
-      res.status(500).send(next);
+        if (newManejo) {
+            
+            res.status(200).json({
+                message: "Lote created succesfully",
+                data: newManejo
+            })
     }
-  };
+    }catch(error){
+        if(!newLote){
+            res.status(400).json({
+                message: "Somethings goes wrong"
+            })
+        }
+    }
+}
+
 
   const updateManejo = async(req,res,next) => {
     const { id } = req.params;
