@@ -42,8 +42,7 @@
 }
 
 .btn {
-    width: 230px !important;
-    margin: 1vh 0 0 0;
+    margin-left: 2px;
     font-weight: 600;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 12px !important;
@@ -51,7 +50,7 @@
     text-transform: uppercase;
     text-decoration: none;
     background: #80cc28 !important;
-    padding: 10px !important;
+    padding: 13px !important;
     border-radius: 5px;
     display: inline-block;
     border: none;
@@ -60,7 +59,7 @@
 
 .form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
