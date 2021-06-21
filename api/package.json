@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "dev": "nodemon -L",
     "start": "node.index.js",
-=======
     "dev":"nodemon -L",
     "start": "node index.js",
->>>>>>> dev
+    "dev": "nodemon -L",
+    "start": "node.index.js",
     "forever": "forever index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -26,6 +26,11 @@ const lotesReducer = (state = initialState, action) => {
                 ...state,
                 manejoLote : action.payload
             }
+        case 'GET_MANEJO': 
+            return {
+                ...state,
+                manejoLote : action.payload
+            }
         case CREATE_LOTE:
             return {
                 ...state,
