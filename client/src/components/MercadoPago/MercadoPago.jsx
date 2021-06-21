@@ -6,38 +6,6 @@ import Header from '../Header/Header';
 const FORM_ID = 'payment-form';
 
 export default function MercadoPago(props) {
-   
-
-  const [preferenceId, setPreferenceId] = useState(null);
-  const [linkMp, setLinkMp] = useState(null);
-  
-  useEffect(() => {
-    // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post('http://localhost:3001/premium/checkout/1', {
-        "totalPrice": 299,
-        "title": "YoAgronomo Premium"
-    } ).then((order) => {
-        console.log("dddd",order)  
-    setPreferenceId(order.data.preferenceId);
-    setLinkMp(order.data.url)
-      
-    });
-  }, []);
-  
-
-  useEffect(() => {
-    if (preferenceId) {
-      // con el preferenceId en mano, inyectamos el script de mercadoPago
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src =
-        'https://www.mercadopago.cl/integrations/v1/web-payment-checkout.js';
-      script.setAttribute('data-preference-id', preferenceId);
-      const form = document.getElementById(FORM_ID);
-      form.appendChild(script);
-    }
-  }, [preferenceId]);
-  console.log(linkMp)
 
   return (
     <>
@@ -52,21 +20,21 @@ export default function MercadoPago(props) {
           <Header />
       <div className='MpContainer'>
       <div className='membresiaPremium'>
-        <h2>Membresia Premium</h2>
+        <h2 className='h2Mp'>Membresia Premium</h2>
         <Link to='/membresia/premium'>
-          <button className="mpBoton">Ver mas información</button>
+          <button className='masInfoBtn'>Ver mas información</button>
         </Link>
       </div>
       <div className='membresiaPremiumPlus'>
-        <h2>Membresia Premium Plus</h2>
+        <h2 className='h2Mp'>Membresia Premium Plus</h2>
         <Link to='/membresia/premiumplus'>
-          <button className="mpBoton">Ver mas información</button>
+          <button className='masInfoBtn'>Ver mas información</button>
         </Link>
       </div>
       <div className='membresiaPremiumPro'>
-        <h2>Membresia Premium Pro</h2>
+        <h2 className='h2Mp'>Membresia Premium Pro</h2>
         <Link to='/membresia/premiumpro'>
-          <button className="mpBoton">Ver mas información</button>
+          <button className='masInfoBtn'>Ver mas información</button>
         </Link>
       </div>
     </div>

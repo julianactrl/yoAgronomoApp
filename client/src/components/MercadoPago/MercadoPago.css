@@ -2,124 +2,157 @@
     min-height: 100vh;
     min-width: 100%;
     display: flex;
-    justify-content:space-evenly;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
+    justify-content:space-evenly;
+    padding-top: 10rem;
+    /* background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
     url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
-    background-size: cover;
-  }
-  .membresiaPremiumPro{
+    background-size: cover; */
+}
+.membresiaPremiumPro{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 2px solid #000000;
-    height: 50vh;
+    height: 70vh;
     width: 25%;
     /* background: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png'); */
     background-image: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png');
     background-position: center;
     background-position:top;
-    background-size:140%;
+    background-size:130%;
     border-radius: 20px;
     background-color: #ffffff81;
-    /* padding-top: 60px; */
-  
-  }
-  .membresiaPremiumPro:hover{
+    padding-top: 60px;
+
+}
+.membresiaPremiumPro:hover{
     transition: 0.9s;
-    background-size: 150%;
+    background-size: 140%;
     border:2px solid black;
     background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
     color: #b5abab;
-  }
-  .membresiaPremium{
+}
+.membresiaPremium{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 2px solid #000000;
-    height: 50vh;
+    height: 70vh;
     width: 25%;
     background-image: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png');
     background-position: center;
     background-position:top;
-    background-size:140%;
+    background-size:130%;
     border-radius: 20px;
     background-color: #ffffff81;
     padding-top: 60px;
-  }
-  .membresiaPremium:hover{
+}
+.membresiaPremium:hover{
     transition: 0.9s;
-    background-size: 150%;
+    background-size: 140%;
     border:2px solid black;
     background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
     color: #b5abab;
-  }
-  .membresiaPremiumPlus{
+}
+.membresiaPremiumPlus{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 2px solid #000000;
-    height: 50vh;
+    height: 70vh;
     padding: 0;
     width: 25%;
     /* background: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png'); */
     background-image: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png');
     background-position:top;
-    background-size:140%;
+    background-size:130%;
     border-radius: 20px;
     background-color: #ffffff81;
     padding-top: 60px;
-  }
-  .membresiaPremiumPlus:hover{
+    font-weight: bold;
+}
+.membresiaPremiumPlus:hover{
     transition: 0.9s;
-    background-size:150%;
+    background-size:140%;
     border:2px solid black;
     background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
     color: #b5abab;
-  }
-  ul{
-    margin: 0 20px;
+}
+.ulMp{
+    margin: 0 2rem;
     text-align: left;
-  }
-  h5{
-    margin: 20px;
+    font-weight: bold;
+}
+.h5Mp{
+    margin: 2rem;
     text-align: center;
-  }
-  h2{
+    font-weight: bold;
+}
+.h2Mp{
     margin:0;
-  }
-  h3{
-    margin:1rem;
+    font-family: 'Segoe UI', sans-serif
+}
+.h4Mp{
+    font-weight: bold;
+}
+.h3Mp{
+    margin:2rem;
     text-align: center;
+    font-weight: bold;
   }
 
   .mpBoton{
     padding: 10px;
-    font-size: 20px;
-    margin-top: 10px;
-    color: rgb(0, 0, 0) ;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    border-radius: 5px;
-    border: none;
-    transition: all 0.2s ease 0s;
-  }
+    font-weight: bold;
+}
+.masInfoBtn{
+    margin-top: 4rem;
+    height: 4rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;
+    background-color: transparent;
+    font-weight: bold;
+}
+.membresiaPremium:hover .masInfoBtn{
+    background-color: #009945;
+    border: 2px solid rgb(0, 59, 27);
+}
+.membresiaPremiumPlus:hover .masInfoBtn{
+    background-color: #009945;
+    border: 2px solid rgb(0, 59, 27);
+}
+.membresiaPremiumPro:hover .masInfoBtn{
+    background-color: #009945;
+    border: 2px solid rgb(0, 59, 27);
+}
+.btnPagar{
+    height: 4rem;
+    width: 7rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    color: black;
+    background-color: transparent;
+    font-weight: bold;
+    margin: 20px;
+}
 
-  .mpBoton:hover{
-    cursor: pointer;
-    background: #27963c !important;
-    color:black !important;
-    letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.2s ease 0s;
-    box-shadow: 0 0 5pt 0.5pt #161616;
+.membresiaPremium:hover .btnPagar{
+    background-color: #2395db;
+    border: 1px solid black;
+}
+.membresiaPremiumPlus:hover .btnPagar{
+    background-color: #2395db;
+    border: 1px solid black;
+}
+.membresiaPremiumPro:hover .btnPagar{
+    background-color: #2395db;
+    border: 1px solid black;
 }

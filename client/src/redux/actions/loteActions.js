@@ -1,8 +1,10 @@
 import {GET_ALL_LOTES, CREATE_LOTE} from '../constants/index'
 import axios from 'axios'
+const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
 export function getAllLotes (empresaId) {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/lote/empresa/${empresaId}`)
+        return fetch(`${REACT_APP_API_HEROKU}/lote/empresa/${empresaId}`)
             .then(data => data.json())
             .then(data => {
                 dispatch({
@@ -23,7 +25,7 @@ export function crearLoteDB (data) {
 }
 export function borrarLote (id) {
 
-    return axios.delete(`http://localhost:3001/lote/delete/${id}`)
+    return axios.delete(`${REACT_APP_API_HEROKU}/lote/delete/${id}`)
     .then(response => response)
     .catch(e => console.log(e))
 
