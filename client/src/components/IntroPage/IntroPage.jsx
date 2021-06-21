@@ -189,8 +189,6 @@ const IntroPage = () => {
        >
     
     </motion.div>
-  );
-
 
 
 

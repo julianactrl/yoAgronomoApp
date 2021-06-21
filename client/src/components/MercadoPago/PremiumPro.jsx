@@ -43,20 +43,20 @@ export default function MercadoPago(props) {
         <Header />
       <div className='MpContainer'>
         <div className='membresiaPremiumPro'>
-        <h2><strong>Membresia Premium Pro</strong></h2>
-        <h3>Obteniendo esta membresia accedes a estos beneficios</h3>
-        <ul>
+        <h2 className='h2Mp'><strong>Membresia Premium Pro</strong></h2>
+        <h3 className='h3Mp'>Obteniendo esta membresia accedes a estos beneficios</h3>
+        <ul className='ulMp'>
           <li>Capacidad de cargar mas de 10 empresas.</li>
           <li>Carga mas de 10 lotes por empresa.</li>
           <li>Podrás gestionar mas de 1000 hectáreas sin límites!</li>
-        </ul>
-        <h5>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
-        <h4>Costo total: $999 ARS</h4>
-      </div>
-        <a className='btnPagar' href={linkMp}>
-            <button>Pagar</button>
+          </ul>
+        <h5 className='h5Mp'>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
+        <h4 className='h4Mp'>Costo total: $999 ARS</h4>
+        <a href={linkMp}>
+            <button className='btnPagar'>Pagar</button>
         </a>
       </div>
-      </>
+      </div>
+    </>
   )
 }
