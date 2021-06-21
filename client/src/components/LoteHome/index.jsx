@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import styles from './styles.module.css'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -17,31 +17,19 @@ import { getAllLotes } from "../../redux/actions/loteActions";
 
 export default function LoteHome ({id}) {
     const dispatch = useDispatch()
-    const [activador, setActivador] = useState(true)
+    // const [activador, setActivador] = useState(true)
     const allLotes = useSelector(state=> state.loteReducer.allLotes)  // todos los lotes de la empresa
     const detailLote = useSelector(state=> state.loteReducer.detailLote) // estado para ir al detalle
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId); // todos los datos de la empresa
-    const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
-    const createdLote = useSelector(state=>state.loteReducer.createdLote) // lote creado
+    // const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
+    // const createdLote = useSelector(state=>state.loteReducer.createdLote) // lote creado
 
     const verifyRender = useSelector(state=>state.loteReducer.verifyRender)
 
-    console.log('este es el idddddddddddddddd',empresaId);
 
     useEffect(async()=>{
         await dispatch(getAllLotes(empresaId.id))
-        await dispatch({type:'GET_DETAIL_LOTE',payload:false})
-        await dispatch({type:'GET_FORM_LOTE',payload:false})
-        console.log('esta es la empresa', empresaId, allLotes);
-        console.log('detalle de loteeeeeeeeeeeeeeeee',detailLote);
-        console.log('me renderize');
     },[])
-
-    useEffect(()=>{
-      if(createdLote[0]){
-        dispatch(getAllLotes(empresaId.id))
-      }
-    },[createdLote])
 
     function SampleNextArrow(props) {
         const { style, onClick } = props;
@@ -81,6 +69,13 @@ export default function LoteHome ({id}) {
         }
       }
 
+      // Mantiene actualizado los lotes cada vez que se crea uno o se borre
+      function auxiliar (verifyRender) {
+        if(verifyRender == '') {
+          dispatch(getAllLotes(empresaId.id))
+        }
+      }
+
 
       const settings = {
         dots: false,
@@ -96,24 +91,10 @@ export default function LoteHome ({id}) {
     return (
         <div className={styles.contenedor}>
             <Header />
-            {/* { <button onClick={()=> {dispatch({type:'GET_DETAIL_LOTE',payload:false});dispatch({type:'GET_FORM_LOTE',payload:false})}} >DETALLE</button>} */}
             <div className={styles.body}>
-              
               {switcher(verifyRender)}
-
-                {/* {(!detailLote && !renderFormCreateLote) && <h1 className={styles.tittle}>{empresaId.name}</h1>}
-                {!detailLote && !renderFormCreateLote ? renderizarLotes(allLotes,LoteCard,Slider,settings)
-                :(renderFormCreateLote?<LoteFormCreate empresaId={empresaId.id} />: <LoteDetails lote={detailLote} />)}
-                {renderFormCreateLote && <LoteFormCreate />} */}
+              {auxiliar(verifyRender)}
             </div>
         </div>
     )
 }
-
-// DATA'S LOTES
-    // empresaId: 6
-    // id: 1
-    // imagen: "https://imganuncios.mitula.net/timbues_barrio_ioppolo_lotes_10_00_x_33_00_metros_con_hasta_el_40_financiacion_4470063618060034108.jpg"
-    // name: "Lote3"
-    // superficie: "700 m2"
-    // ubicacion: "Tucuman"

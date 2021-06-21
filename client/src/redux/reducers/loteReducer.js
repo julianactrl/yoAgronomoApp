@@ -1,10 +1,8 @@
-import { GET_ALL_LOTES , CREATE_LOTE} from "../constants"
+import { GET_ALL_LOTES } from "../constants"
 
 const initialState = {
     allLotes: [],
     detailLote:[],
-    manejoLote: [],
-    createdLote:[],
     verifyRender:''
 }
 
