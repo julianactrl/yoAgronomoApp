@@ -98,3 +98,28 @@
     margin:1rem;
     text-align: center;
   }
+
+  .mpBoton{
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(0, 0, 0) ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.2s ease 0s;
+  }
+
+  .mpBoton:hover{
+    cursor: pointer;
+    background: #27963c !important;
+    color:black !important;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}

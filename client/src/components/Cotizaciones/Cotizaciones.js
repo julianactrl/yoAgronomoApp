@@ -2,8 +2,11 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import {getDolar} from '../../redux/actions/cotizacionesActions'
 import styles from './styles.module.css'
+import Header from '../Header/Header'
 
 function Cotizaciones() {
+
+    
     
 const dispatch = useDispatch()
 const cotizaciones = useSelector(state => state.cotizacionesReducer.cotizaciones)
@@ -13,8 +16,12 @@ useEffect(() => {
     
     
 },[]) 
+const fecha = new Date()
 
     return (
+        <div>
+            <Header/>
+            <h1 className={styles.dolarHoy}>Dolay hoy {fecha.toLocaleDateString()}</h1>
         <div className={styles.datatableContainer}>
                    
             <table className={styles.datatable}>
@@ -40,6 +47,7 @@ useEffect(() => {
                 } 
                 </tbody>
             </table>
+        </div>
         </div>
     )
 }

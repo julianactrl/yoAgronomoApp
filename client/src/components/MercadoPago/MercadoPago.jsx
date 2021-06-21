@@ -54,19 +54,19 @@ export default function MercadoPago(props) {
       <div className='membresiaPremium'>
         <h2>Membresia Premium</h2>
         <Link to='/membresia/premium'>
-          <button>Ver mas información</button>
+          <button className="mpBoton">Ver mas información</button>
         </Link>
       </div>
       <div className='membresiaPremiumPlus'>
         <h2>Membresia Premium Plus</h2>
         <Link to='/membresia/premiumplus'>
-          <button>Ver mas información</button>
+          <button className="mpBoton">Ver mas información</button>
         </Link>
       </div>
       <div className='membresiaPremiumPro'>
         <h2>Membresia Premium Pro</h2>
         <Link to='/membresia/premiumpro'>
-          <button>Ver mas información</button>
+          <button className="mpBoton">Ver mas información</button>
         </Link>
       </div>
     </div>

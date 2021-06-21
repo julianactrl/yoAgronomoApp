@@ -40,8 +40,8 @@ export function sidebar(verify){
                 <Link to={`/lote/${empresaId}`} className={styles.linktext}>
                 <h2 className={styles.text}>LOTES</h2>
                 </Link>
-                <Link className={styles.linktext}>
-                <h2 className={styles.text}>MERCADO</h2>
+                <Link to='/mercados' className={styles.linktext}>
+                <h2 className={styles.text}>MERCADOS</h2>
                 </Link>
                 <Link  className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
