@@ -11,6 +11,7 @@ import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
 import {motion} from 'framer-motion';
+import Cotizaciones from '../Cotizaciones/Cotizaciones';
 
 
 export default function DashBoard (){
@@ -92,6 +93,7 @@ export default function DashBoard (){
                     showNews?<News/>:null
                     } 
                 </div>
+                <div className={styles.cotizaciones}><Cotizaciones/></div>
                 <h1 className={showNews?styles.newsTitleClosed:styles.newsTitle}>NEWS</h1>
                 <button className={showNews?styles.btnNewsOpen:styles.btnNews} onClick={news}></button> 
                 <div className={showNews?styles.bodyNone:styles.body}>
