@@ -20,6 +20,33 @@ export function crearLoteDB (data) {
         .catch(e => console.log(e))
 
 }
+export function crearLoteManejo (data, id) {
+
+    return axios.post(`http://localhost:3001/${id}/createManejo`, data)
+    .then(response => response)
+    .catch(e => console.log(e))
+
+}
+export function getManejo (id) {
+    return function(dispatch) {
+        return fetch(`http://localhost:3001/lote/manejos/${id}`)
+            .then(data => data.json())
+            .then(data => {
+                dispatch({
+                    type: 'GET_MANEJO',
+                    payload: data
+                })
+            })
+    }
+}
+
+export function borrarManejo (id) {
+
+    return axios.delete(`http://localhost:3001/lote/deleteManejo/${id}`)
+    .then(response => response)
+    .catch(e => console.log(e))
+
+}
 export function borrarLote (id) {
 
     return axios.delete(`http://localhost:3001/lote/delete/${id}`)

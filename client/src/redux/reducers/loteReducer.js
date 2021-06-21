@@ -3,6 +3,7 @@ import { GET_ALL_LOTES } from "../constants"
 const initialState = {
     allLotes: [],
     detailLote:[],
+    manejoLote: [],
     renderFormCreateLote:[]
 }
 
@@ -23,6 +24,11 @@ const lotesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 renderFormCreateLote : action.payload
+            }
+        case 'GET_MANEJO': 
+            return {
+                ...state,
+                manejoLote : action.payload
             }
         default: 
             return state;
