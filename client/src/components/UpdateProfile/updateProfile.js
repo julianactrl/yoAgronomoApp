@@ -43,7 +43,9 @@ const newInfo = {
 }
 const history = useHistory()
 function handleSubmit(e) {
+    alert("¿Seguro desea modificar estos datos?")
     dispatch(updateUser(input))
+    alert("Datos modificados correctamente, ingrese sesión nuevamente")
     dispatch(logout())
     history.push("/home")    
 }
