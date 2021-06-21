@@ -3,11 +3,11 @@ const {DataTypes} = require("sequelize");
 module.exports = (sequelize) => {
 
         sequelize.define('manejoDeLote', {
-            recOrObserv: {
+            recomendaciones: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            description: {
+            observaciolnes: {
                 type: DataTypes.STRING,
             },
             image: {

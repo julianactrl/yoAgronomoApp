@@ -15,7 +15,7 @@ server.put("/:id", updateLote);
 /////// MANEJO DE LOTE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 server.get("/manejos/:id", getAllManejo)
-server.post("/createManejo", createManejo)
+server.post("/createManejo/:loteId", createManejo)
 server.put('/updateManejo/:id', updateManejo)
 server.delete("/deleteManejo/:id",deleteManejo)
 

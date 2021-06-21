@@ -131,7 +131,8 @@ const updateLote = async(req,res,next) => {
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const createManejo = async (req,res,next) => {
-    const { recOrObserv, description, image, loteId} = req.body;
+    const { loteId } = req.params
+    const { recOrObserv, description, image } = req.body;
     try{
         await ManejoDeLote.create({
             recOrObserv,
