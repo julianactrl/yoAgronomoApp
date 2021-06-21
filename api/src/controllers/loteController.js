@@ -137,7 +137,6 @@ const createManejo = async (req,res,next) => {
         await ManejoDeLote.create({
             observaciones,
             recomendaciones,
-            description,
             image,
             loteId
         })
