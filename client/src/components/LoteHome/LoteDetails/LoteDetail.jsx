@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+  
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './styles.module.css'
 import "slick-carousel/slick/slick.css"; 
@@ -7,13 +8,14 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
-import { borrarLote } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo } from '../../../redux/actions/loteActions';
 
 export default function LoteDetails({lote}){
 
     const [voltear, setVoletar] = useState(false);
-    const [botonera, setBotonera] = useState('')
+    const [botonera, setBotonera] = useState(false)
     const [formulario, setFormulario] = useState(false);
+    const [post, setPost] = useState(false);
     const [cargarDatos, setCargarDatos] = useState({
         observaciones: null,
         recomendaciones: null,
@@ -21,6 +23,7 @@ export default function LoteDetails({lote}){
     })
 
     const weather = useSelector(state => state.weatherReducer.weather)
+    const manejoLote = useSelector(state => state.loteReducer.manejoLote)
     
     const dispatch = useDispatch();
 
@@ -28,28 +31,38 @@ export default function LoteDetails({lote}){
         dispatch(getWeather(lote.ubicacion))
     },[]) 
 
+    useEffect(async () => {
+        if(cargarDatos.observaciones !== null){
+            await dispatch(crearLoteManejo(cargarDatos, lote.id)) 
+            setPost(true)
+        }        
+    },[cargarDatos])
+
+    useEffect(() => {
+        if(post !== null){
+            dispatch(getManejo(lote.id)) 
+        }    
+    },[post])
+
     //Funcion para la botonera de Observaciones y Tareas...
 
-    function btnObsTar(aux){
-        if(botonera===''){
-            setBotonera(aux)
-        }
-        if(botonera==='obs' && aux==='tar'){
-            setBotonera(aux)
-        }
-        if(botonera==='tar' && aux==='obs'){
-            setBotonera(aux)
-        }
-        if(botonera==='obs' && aux==='obs'){
-            setBotonera('')
-        }
-        if(botonera==='tar' && aux==='tar'){
-            setBotonera('')
+    function btnObsTar(){
+        if(botonera){
+            setBotonera(false)
+        }else{
+            setBotonera(true)
         }
     }
-    function postearManejo(data){
-        setCargarDatos({
+    const observacionData = useRef(null);
+    const recomendacionData = useRef(null);
+    const imageData = useRef(null);
 
+    function postearManejo(){
+        alert(observacionData.current.value)
+        setCargarDatos({
+            observaciones: observacionData.current.value,
+            recomendaciones: recomendacionData.current.value,
+            image: imageData.current.value,
         })
     }
 
@@ -139,7 +152,7 @@ export default function LoteDetails({lote}){
                                     :null
                                 }
                             </div>
-                            <div className={botonera==='obs'?styles.ghostDivHidden:styles.ghostDiv}>
+                            <div className={botonera?styles.ghostDivHidden:styles.ghostDiv}>
                                 {
                                     weather[0]?
                                         (
@@ -153,21 +166,29 @@ export default function LoteDetails({lote}){
                                 }                             
                             </div>
                             <div className={styles.obsRec}>
-                                {/* <div onClick={()=>{btnObsTar('obs')}} className={botonera=='tar'?styles.contDesactivated:styles.btnObs}>Observaciones</div>
-                                <div onClick={()=>{btnObsTar('tar')}} className={botonera==='obs'?styles.contDesactivated:styles.btnObs}>Tareas</div> */}
-                                <div onClick={()=>{btnObsTar('obs')}} className={botonera=='obs'?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1>Observaciones</h1>
-                                    <div className={botonera=='obs'?styles.contOverflow:null}>
+                                <div onClick={()=>{btnObsTar(true)}} className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
+                                    <h1>MANEJO</h1>
+                                    <div className={botonera?styles.contOverflow:styles.none}>
                                         <div className={styles.contOverflowText}>
+                                            <div className={styles.obs}>
+                                                <h4>Observaciones</h4>
+                                                {manejoLote.map(data=>{
+                                                        return(
+                                                            <p>{data.observaciones}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div>  
+                                            <div className={styles.recom}>
+                                            <h4>Recomendaciones</h4>
+                                                {manejoLote.map(data=>{
+                                                        return(
+                                                            <p>{data.recomendaciones}</p>
+                                                        )
+                                                    })
+                                                }
+                                            </div> 
                                         </div>
-                                    </div>
-                                </div>
-                                <div onClick={()=>{btnObsTar('tar')}} className={botonera=='tar'?styles.contTareasActivated:styles.contTarDesactivated}>
-                                    <h1>Tareas</h1>
-                                    <div className={botonera=='tar'?styles.contOverflow:null}>
-                                        <p></p>
-                                        <p></p>
-                                        <p></p>
                                     </div>
                                 </div>
                             </div>
@@ -178,27 +199,30 @@ export default function LoteDetails({lote}){
                     <div className={styles.loteForm}>
                     <button onClick={card3d} className={styles.btnAtras}>Atrás</button>
                         <h1 className={styles.titleLote}>CARGA DE DATOS</h1>
-                        <div className={styles.form}>
-                            <div className={formulario?styles.none:styles.formPrincipio}>
-                                <p>¿Qué tipo de dato te gustaría añadir?</p>
-                                <div className={styles.choseenCont}>
-                                    <button className={styles.btn} onClick={()=>{setFormulario(true)}}>Obsevación</button>
-                                    <button className={styles.btn} onClick={()=>{setFormulario(true)}}>Recomendación</button>
-                                </div>
-                            </div>
-                            <div className={formulario?styles.contCargaText:styles.none}>
+                        <div className={styles.form}>                            
+                            <div className={!formulario?styles.contCargaText:styles.none}>
                                 <div className={styles.contTextarea}>
                                     <h2 class={styles.textareatitle}>Indicá tu observación acá abajo</h2>
-                                    <textarea name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                    <textarea ref={observacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div> 
                                 <div className={styles.cargarImg}>
                                     <p>Adjuntar Imágen</p>
                                     <div class={styles.fileselect} id="archivo" >
-                                        <input type="file" name="archivo" aria-label="Archivo"/>
+                                        <input ref={imageData}type="file" name="archivo" aria-label="Archivo"/>
                                     </div>
                                 </div>
-                                <input onClick={postearManejo} type='submit' className={styles.submit}/>
                             </div>
+                            <div className={formulario?styles.contCargaText:styles.none}>
+                                <div className={styles.contTextarea}>
+                                    <h2 class={styles.textareatitle}>Ahora añadí tu recomendación...</h2>
+                                    <textarea ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                </div>
+                                <div className={styles.contSubmit}>
+                                    <input onClick={postearManejo} type='submit' className={styles.submit}/>
+                                </div> 
+                            </div>                           
+                            <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
+                            <button className={formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(false)}}>Atrás</button>
                         </div>
                     </div>
                 </div>
