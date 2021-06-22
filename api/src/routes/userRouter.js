@@ -14,14 +14,14 @@ const {
 
 } = require("../controllers/userController");
 
-const {isAuthenticated} = require("../auth");
+// const {isAuthenticated} = require("../auth");
 
 //-------------------------Route Users--------------------------//
 
 // server.get("/", getUserAll);
 // server.get("/:id", getUserById);
-server.put('/edit/:id', isAuthenticated, updateUser)
-server.delete('/delete/:id', isAuthenticated, deleteUser)
+server.put('/edit/:id', updateUser)
+server.delete('/delete/:id', deleteUser)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 
 
