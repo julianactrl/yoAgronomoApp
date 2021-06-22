@@ -50,7 +50,6 @@ export default function LoteDetails({lote}){
         await dispatch(getManejo(lote.id))  
     },[post])
 
-
     function btnObsTar(){
         if(botonera){
             setBotonera(false)
