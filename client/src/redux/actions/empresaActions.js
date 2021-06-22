@@ -4,9 +4,9 @@ const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 
 
 
-export function getAllEmpresas() {
+export function getAllEmpresas(id) {
     return function(dispatch) {
-        return fetch(`${REACT_APP_API}/empresa`)
+        return fetch(`${REACT_APP_API}/empresa/user/${id}`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          

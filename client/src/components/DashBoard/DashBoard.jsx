@@ -21,9 +21,10 @@ export default function DashBoard (){
   const [stateAux, setStateAux]= useState(false)
   const dispatch = useDispatch()
   const allEmpresas = useSelector(state => state.empresaReducer.allEmpresas)
-
+  const userId = useSelector(state => state.userReducer.userInfo.user.id)
   useEffect(()=>{
-      dispatch(getAllEmpresas())
+    console.log("este es el id de usuario", userId)
+      dispatch(getAllEmpresas(userId))
       setStateAux(true)
       cookies.set('selectedEmpresa', '', {path:'/', expires: new Date(Date.now()+2592000)})
   },[])
