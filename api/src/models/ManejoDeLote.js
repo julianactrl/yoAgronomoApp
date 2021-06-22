@@ -3,15 +3,11 @@ const {DataTypes} = require("sequelize");
 module.exports = (sequelize) => {
 
         sequelize.define('manejoDeLote', {
-            observaciones: {
-                type: DataTypes.STRING,
-                allowNull: true,
-            },
             recomendaciones: {
                 type: DataTypes.STRING,
                 allowNull: true,
             },
-            description: {
+            observaciones: {
                 type: DataTypes.STRING,
             },
             image: {

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch,useSelector} from 'react-redux';
 import styles from './styles.module.css'
 import axios from 'axios';
 import {postEmpresa} from '../../redux/actions/empresaActions';
@@ -8,11 +8,14 @@ import Header from '../Header/Header';
 import { useHistory } from 'react-router';
 
 function NewEmpresa () {
+    const currentUserId = useSelector(state =>state.userReducer.userInfo.user.id)
+    console.log("iddd")
 const [input, setInput] = useState({
         name: '',
         hectareas: '',
         ubicacion: '',
-        imagen: ''
+        imagen: '',
+        userId: currentUserId
 })
 function handleInputChange(e) {
     setInput({
@@ -22,6 +25,7 @@ function handleInputChange(e) {
 }
 const history = useHistory()
 function handleSubmit(e) {
+    console.log("eessss",input)
     e.preventDefault();
     if(!input.name) {
         alert('Debe ingresar un nombre!')
@@ -31,9 +35,9 @@ function handleSubmit(e) {
         alert('Debe ingresar una ubicación!')
         return
     }
-    console.log(input.imagen)
+    console.log("el input", input.userId)
     dispatch(postEmpresa(input));
-    e.target.reset();
+    //e.target.reset();
     alert('Su empresa fue creada!')
     history.push('/home')
         

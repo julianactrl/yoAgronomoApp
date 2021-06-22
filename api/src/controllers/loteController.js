@@ -47,7 +47,7 @@ const getLoteById = async (req,res,next) => {
         })
         res.json(lote)
     } catch (error) {
-        if (!lote) {
+        if  (!lote) {
             return res.json({
                 messages: "Not found"
             })
@@ -131,12 +131,12 @@ const updateLote = async(req,res,next) => {
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const createManejo = async (req,res,next) => {
-    const { observaciones,recomendaciones, description, image, loteId} = req.body;
+    const { loteId } = req.params
+    const { observaciones,recomendaciones, image } = req.body;
     try{
         await ManejoDeLote.create({
             observaciones,
             recomendaciones,
-            description,
             image,
             loteId
         })
@@ -146,6 +146,9 @@ const createManejo = async (req,res,next) => {
       res.status(500).send(next);
     }
   };
+
+
+
 
   const updateManejo = async(req,res,next) => {
     const { id } = req.params;
