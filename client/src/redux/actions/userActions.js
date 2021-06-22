@@ -1,4 +1,5 @@
 import axios from "axios";
+import swal from "sweetalert";
 import {firestone} from '../../'
 import {
   REGISTER_USER_ERROR,
@@ -14,6 +15,7 @@ import {
   BEARER,
   UPDATE_USER
 } from "../constants";
+import swal from 'sweetalert'
 
 const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 
@@ -64,18 +66,38 @@ export const login = ({email, password}) => async (dispatch) => {
       // config,
 	  
     );
-    console.log(data)
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data.data,
-    });
+    console.log(data.request.status)
+    switch(data.request.status){
+      case 200:
+        dispatch({
+          type: USER_LOGIN_SUCCESS,
+          payload: data.data,
+        })    
+        localStorage.setItem("userInfo", JSON.stringify(data))
+        swal("success")
+        break;
+      case 401:
+        dispatch({
+          type: USER_LOGIN_ERROR,
+          payload: data.error,
+        })
+        swal("Not allow", {icon: "Warning"})
+        break;
+      case 500:
+        dispatch({
+          type: USER_LOGIN_ERROR,
+          payload: data.error,
+        })
+        swal("Internal server error", {icon: "warning"})
+      break;
+      default:
+        break;
+        
+    }
+    
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
-    dispatch({
-      type: USER_LOGIN_ERROR,
-      payload: error,
-    });
+    console.log(error)
   }
 };
 
