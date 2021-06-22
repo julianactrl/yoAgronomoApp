@@ -44,7 +44,7 @@ const dispatch= useDispatch();
             <>
                 <h3 className={styles.title}>{usuario.fullName}</h3>
                 <h3 className={styles.email}>{usuario.email}</h3>
-                <h3 className={styles.titleLogout} onClick={handleLogout}>
+                <h3 className={styles.titleLogout} onClick={e=> handleLogout(e)}>
                 CERRAR SESION
                 </h3>
                 <Link to={`/user/update/${usuario.id}`}>

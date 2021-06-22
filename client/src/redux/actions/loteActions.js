@@ -4,7 +4,7 @@ const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 
 export function getAllLotes (empresaId) {
     return function(dispatch) {
-        return fetch(`${REACT_APP_API_HEROKU}/lote/empresa/${empresaId}`)
+        return fetch(`${REACT_APP_API}/lote/empresa/${empresaId}`)
             .then(data => data.json())
             .then(data => {
                 dispatch({
@@ -17,7 +17,7 @@ export function getAllLotes (empresaId) {
 
 export function crearLoteDB (data) {
     return function(dispatch) {
-        return axios.post(`${REACT_APP_API_HEROKU}/lote/create`, data)
+        return axios.post(`${REACT_APP_API}/lote/create`, data)
         .then(response => {
             dispatch({
                 type: CREATE_LOTE,
@@ -57,7 +57,7 @@ export function borrarManejo (id) {
 }
 export function borrarLote (id) {
 
-    return axios.delete(`${REACT_APP_API_HEROKU}/lote/delete/${id}`)
+    return axios.delete(`${REACT_APP_API}/lote/delete/${id}`)
     .then(response => response)
     .catch(e => console.log(e))
 
