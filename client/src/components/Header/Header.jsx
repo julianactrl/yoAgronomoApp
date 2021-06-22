@@ -4,9 +4,11 @@ import avatar from '../../assets/avatar.png'
 import logo from '../../assets/logo.png'
 import {sidebar} from './HeaderController'
 import DashBoardProfile from '../DashBoardProfile/DashBoardProfile.jsx'
+import Cookies from 'universal-cookie'
 
 export default function Header (verify){
 
+    const cookies = new Cookies()
     const [open, setOpen] = useState(false);
     const [btnlogo, setbtnLogo] = useState(false);
 
@@ -21,7 +23,7 @@ export default function Header (verify){
         <div className={styles.header}>
             <div className={styles.headertitle}>
                 {
-                    open?sidebar(verify):null
+                    open?sidebar(cookies.get('selectedEmpresa')):null
                 }          
                 <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo}/>     
             </div>
