@@ -5,6 +5,8 @@ import axios from 'axios';
 import '../MercadoPago/MercadoPago.css'
 const FORM_ID = 'payment-form';
 
+const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
 export default function MercadoPago(props) {
    
 
@@ -13,7 +15,7 @@ export default function MercadoPago(props) {
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post('http://localhost:3001/premium/checkout/', {
+    axios.post(`${REACT_APP_API}/premium/checkout/`, {
         "totalPrice": 299,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
