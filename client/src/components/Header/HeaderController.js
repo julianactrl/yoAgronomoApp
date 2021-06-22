@@ -3,16 +3,17 @@
 import {Link} from 'react-router-dom'
 import styles from './styles.module.css'
 
+
 //...  SideBar  ...
 
 export function sidebar(verify){
     const empresaId = window.location.pathname.split('/')[2] //---> Id de la empresa que aparece en detalle
-    
-    if (verify === 'dashboard'){
+    console.log('este es la cookoe',verify);
+    if (!verify){
         return(
             <div className={styles.sidebarcont}>
                 <div className={styles.linktextcont}>
-                    <Link className={styles.linktext}>
+                    <Link to='/home' className={styles.linktext}>
                     <h2 className={styles.text}>HOME</h2>
                     </Link>
                     <Link className={styles.linktext}>

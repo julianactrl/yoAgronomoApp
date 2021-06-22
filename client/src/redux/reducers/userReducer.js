@@ -71,6 +71,8 @@ const userReducer = (state = initialState, action) => {
     case USER_LOGOUT:
       return {
         isAuth: false,
+        userInfo:{},
+        user:{}
       };
     case USER_LOGOUT_ERROR: {
       return {

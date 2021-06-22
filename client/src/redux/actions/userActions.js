@@ -29,7 +29,7 @@ export const register = (body) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const {data}  = await axios.post(
-      `${REACT_APP_API_HEROKU}/auth/api/signup`,
+      `${REACT_APP_API}/auth/api/signup`,
       body,
       config
     );
@@ -41,7 +41,7 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-	localStorage.setItem('userInfo', JSON.stringify(data));
+	//localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: REGISTER_USER_ERROR,
@@ -59,7 +59,7 @@ export const login = ({email, password}) => async (dispatch) => {
     //   headers: { "Content-Type": "application/json" },
     // };
     const  data  = await axios.post(
-      `${REACT_APP_API_HEROKU}/auth/api/signin`,
+      `${REACT_APP_API}/auth/api/signin`,
       { email, password },
       // config,
 	  
@@ -93,7 +93,7 @@ export const logout = () => {
 export const getUser = () => {
   return function(dispatch) {
     dispatch({type: LOADING_USER})
-    return axios.get(`${REACT_APP_API_HEROKU}/auth/myProfile` , BEARER())
+    return axios.get(`${REACT_APP_API}/auth/myProfile` , BEARER())
     .then(async userInfo => {
       if (userInfo.data.jwt) localStorage.setItem('jwt', JSON.stringify(userInfo.data.jwt));
       delete userInfo.data.jwt
@@ -126,7 +126,7 @@ export const updateUser = ({id,fullName,email,password,profile_pic}) => {
     dispatch({ type: UPDATE_USER,payload: {fullName,email,password,profile_pic} });
     axios({
         method: 'put',
-        url: `${REACT_APP_API_HEROKU}/user/edit/${id}`,
+        url: `${REACT_APP_API}/user/edit/${id}`,
         data: {
             fullName,
             email,
