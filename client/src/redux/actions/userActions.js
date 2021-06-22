@@ -42,7 +42,7 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-	//localStorage.setItem('userInfo', JSON.stringify(data));
+    window.location.href= '/home'
   } catch (error) {
     dispatch({
       type: REGISTER_USER_ERROR,
