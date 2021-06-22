@@ -1,5 +1,6 @@
 import axios from "axios";
 import {firestone} from '../../'
+
 import {
   REGISTER_USER_ERROR,
   REGISTER_USER_REQUEST,
@@ -69,8 +70,8 @@ export const login = ({email, password}) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data.data,
     });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
+    window.location.href= '/home'
+    //localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_LOGIN_ERROR,
@@ -80,11 +81,13 @@ export const login = ({email, password}) => async (dispatch) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("userInfo");
-  document.location.href = "/index";
+  localStorage.removeItem('persist:root')
+  
+  //document.location.href = "/index";
   return {
     type: USER_LOGOUT,
   };
+  
 
 
 };

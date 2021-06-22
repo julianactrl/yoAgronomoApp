@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { logout } from "../../redux/actions/userActions";
 import jwt_decode from "jwt-decode";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
@@ -20,10 +20,11 @@ export default function DashBoardProfile() {
   console.log('holaa')
   
 const dispatch= useDispatch();
-
+let history= useHistory();
 
   const handleLogout = () =>{
-      dispatch(logout)
+      dispatch(logout())
+      history.push('/index')
   }
 
   function renderPerfil() {
