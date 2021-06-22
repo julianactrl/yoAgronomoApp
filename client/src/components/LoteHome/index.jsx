@@ -71,7 +71,7 @@ export default function LoteHome ({id}) {
 
       // Mantiene actualizado los lotes cada vez que se crea uno o se borre
       function auxiliar (verifyRender) {
-        if(verifyRender == '') {
+        if(verifyRender == 'asa') {
           dispatch(getAllLotes(empresaId.id))
         }
       }
