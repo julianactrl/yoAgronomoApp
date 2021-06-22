@@ -28,12 +28,13 @@ export default function LoteFormCreate({empresaId}){
         dispatch({type:'SET_VERIFY',payload:''})
     }
 
-    function crearLote () {
+    async function crearLote () {
         if(Object.values(inputs).indexOf(null) == -1) {
             if(Object.values(inputs).indexOf('') == -1) {
                 console.log('toy en la funcion');
                 alert('Lote creado con exito !!')
-                dispatch(crearLoteDB(inputs))
+                await dispatch(crearLoteDB(inputs))
+                
                 return dispatch({type:'SET_VERIFY',payload:''})
             } 
         }
@@ -95,4 +96,3 @@ export default function LoteFormCreate({empresaId}){
         </div>
     )
 }
-

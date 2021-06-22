@@ -8,14 +8,15 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
-import { borrarLote, getManejo, crearLoteManejo } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo, deleteManejo } from '../../../redux/actions/loteActions';
+
 
 export default function LoteDetails({lote}){
 
     const [voltear, setVoletar] = useState(false);
     const [botonera, setBotonera] = useState(false)
     const [formulario, setFormulario] = useState(false);
-    const [post, setPost] = useState(false);
+    const [post, setPost] = useState('');
     const [cargarDatos, setCargarDatos] = useState({
         observaciones: null,
         recomendaciones: null,
@@ -30,21 +31,25 @@ export default function LoteDetails({lote}){
     useEffect(() => {
         dispatch(getWeather(lote.ubicacion))
     },[]) 
+    useEffect(()=>{
+        
+    },[manejoLote])
 
     useEffect(async () => {
         if(cargarDatos.observaciones !== null){
-            await dispatch(crearLoteManejo(cargarDatos, lote.id)) 
-            setPost(true)
-        }        
+           await crearLoteManejo(cargarDatos, lote.id)
+        }
+        setPost(Math.random())
+        
     },[cargarDatos])
 
     useEffect(() => {
-        if(post !== null){
-            dispatch(getManejo(lote.id)) 
-        }    
+         setPost('') 
+    },[post])
+    useEffect(async () => {
+        await dispatch(getManejo(lote.id))  
     },[post])
 
-    //Funcion para la botonera de Observaciones y Tareas...
 
     function btnObsTar(){
         if(botonera){
@@ -58,16 +63,21 @@ export default function LoteDetails({lote}){
     const imageData = useRef(null);
 
     function postearManejo(){
-        alert(observacionData.current.value)
         setCargarDatos({
-            observaciones: observacionData.current.value,
-            recomendaciones: recomendacionData.current.value,
-            image: imageData.current.value,
+            observaciones: observacionData.current.value + "",
+            recomendaciones: recomendacionData.current.value + "",
+            image: imageData.current.value + "",
         })
+        if(voltear){
+            setVoletar(false)  
+          }else{
+              setVoletar(true)  
+          }
     }
 
     function deleteLote(){
-        return borrarLote(lote.id)
+        borrarLote(lote.id);
+        dispatch({type:'SET_VERIFY',payload:''})
     }
 
     ///////////////////////////ARROWS SLIDER//////////////////////////////////////////////////
@@ -111,8 +121,12 @@ export default function LoteDetails({lote}){
         }
         
     }
+    async function borrarManejo(id){
+        await deleteManejo(id);
+        setPost(Math.random());
+        alert('Observación eliminada');
+    }
     function cerrar(){
-        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
         dispatch({type:'SET_VERIFY',payload:''})
     }
     return(
@@ -136,23 +150,24 @@ export default function LoteDetails({lote}){
                         
                         <div className={styles.details}>
                         <button onClick={cerrar} className={styles.cross}/>                           
-                            <div className={styles.clima}>
-                                {
-                                    weather[0]?
-                                        (
-                                            <div className={styles.contClima}>
-                                                <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
-                                                <div className={styles.contClimaText}>
-                                                    <p className={styles.dataText}>Ubicación: <span>{lote.ubicacion}</span></p>
-                                                    <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
-                                                </div>
-                                                
-                                            </div>
-                                        )
-                                    :null
-                                }
-                            </div>
+
                             <div className={botonera?styles.ghostDivHidden:styles.ghostDiv}>
+                                <div className={styles.clima}>
+                                    {
+                                        weather[0]?
+                                            (
+                                                <div className={styles.contClima}>
+                                                    <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
+                                                    <div className={styles.contClimaText}>
+                                                        <p className={styles.dataText}>Ubicación: <span>{lote.ubicacion}</span></p>
+                                                        <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
+                                                    </div>
+                                                    
+                                                </div>
+                                            )
+                                        :null
+                                    }
+                            </div>
                                 {
                                     weather[0]?
                                         (
@@ -167,28 +182,47 @@ export default function LoteDetails({lote}){
                             </div>
                             <div className={styles.obsRec}>
                                 <div onClick={()=>{btnObsTar(true)}} className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1>MANEJO</h1>
+                                    <h1 className={botonera?styles.none:null}>MANEJO</h1>
+                                    <div className={botonera?styles.contTitleManejo:styles.none}>
+                                        <h4 className={styles.manejoTitle}>Observaciones</h4>
+                                        <h4 className={styles.manejoTitle}>Recomendaciones</h4>
+                                    </div>
                                     <div className={botonera?styles.contOverflow:styles.none}>
-                                        <div className={styles.contOverflowText}>
                                             <div className={styles.obs}>
-                                                <h4>Observaciones</h4>
-                                                {manejoLote.map(data=>{
-                                                        return(
-                                                            <p>{data.observaciones}</p>
-                                                        )
-                                                    })
-                                                }
+                                                <div className={styles.obsData}>
+                                                        {
+                                                            manejoLote.map((data) =>{
+                                                                const {id} = data
+                                                                return(
+                                                                    <div className={styles.segmentManejo}>
+                                                                        <button className={styles.deleteManejobtn} onClick={()=>{borrarManejo(id)}}>x</button>
+                                                                        <div className={styles.dataManejo}>
+                                                                           <p>{data.observaciones}</p> 
+                                                                           <img src={data.image} alt="" />
+                                                                        </div> 
+                                                                    </div>
+                                                                    
+                                                                )
+                                                            })
+                                                        } 
+                                                </div>                                             
                                             </div>  
                                             <div className={styles.recom}>
-                                            <h4>Recomendaciones</h4>
-                                                {manejoLote.map(data=>{
-                                                        return(
-                                                            <p>{data.recomendaciones}</p>
-                                                        )
-                                                    })
-                                                }
-                                            </div> 
-                                        </div>
+                                                <div className={styles.recData}>
+                                                    {
+                                                        manejoLote.map(data=>{
+                                                            return(
+                                                                <div className={styles.segmentManejo}>
+                                                                    <div className={styles.deleteManejobtnHidden}></div>
+                                                                    <div className={styles.dataManejo}>
+                                                                           <p>{data.recomendaciones}</p> 
+                                                                    </div>  
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +252,7 @@ export default function LoteDetails({lote}){
                                     <textarea ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div>
                                 <div className={styles.contSubmit}>
-                                    <input onClick={postearManejo} type='submit' className={styles.submit}/>
+                                    <button onClick={postearManejo} className={styles.submit}>Enviar</button>
                                 </div> 
                             </div>                           
                             <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
