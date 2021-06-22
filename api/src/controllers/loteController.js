@@ -47,11 +47,8 @@ const getLoteById = async (req,res,next) => {
         })
         res.json(lote)
     } catch (error) {
-        if  (!lote) {
-            return res.json({
-                messages: "Not found"
-            })
-        }
+        return next(error)
+        
     }
 }
 const deleteLote = async(req, res,next)=> {

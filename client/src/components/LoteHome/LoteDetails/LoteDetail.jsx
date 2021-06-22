@@ -32,8 +32,8 @@ export default function LoteDetails({lote}){
     },[]) 
 
     useEffect(async () => {
-        if(cargarDatos.observaciones !== null){
-            await dispatch(crearLoteManejo(cargarDatos, lote.id)) 
+        if(cargarDatos.observaciones){
+            await dispatch(crearLoteManejo(cargarDatos, lote.id))
             setPost(true)
         }        
     },[cargarDatos])
@@ -60,14 +60,15 @@ export default function LoteDetails({lote}){
     function postearManejo(){
         alert(observacionData.current.value)
         setCargarDatos({
-            observaciones: observacionData.current.value,
-            recomendaciones: recomendacionData.current.value,
-            image: imageData.current.value,
+            observaciones: observacionData.current.value + "",
+            recomendaciones: recomendacionData.current.value + "",
+            image: imageData.current.value + "",
         })
     }
 
     function deleteLote(){
-        return borrarLote(lote.id)
+        borrarLote(lote.id);
+        dispatch({type:'SET_VERIFY',payload:''})
     }
 
     ///////////////////////////ARROWS SLIDER//////////////////////////////////////////////////
@@ -136,23 +137,24 @@ export default function LoteDetails({lote}){
                         
                         <div className={styles.details}>
                         <button onClick={cerrar} className={styles.cross}/>                           
-                            <div className={styles.clima}>
-                                {
-                                    weather[0]?
-                                        (
-                                            <div className={styles.contClima}>
-                                                <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
-                                                <div className={styles.contClimaText}>
-                                                    <p className={styles.dataText}>Ubicación: <span>{lote.ubicacion}</span></p>
-                                                    <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
-                                                </div>
-                                                
-                                            </div>
-                                        )
-                                    :null
-                                }
-                            </div>
+
                             <div className={botonera?styles.ghostDivHidden:styles.ghostDiv}>
+                                <div className={styles.clima}>
+                                    {
+                                        weather[0]?
+                                            (
+                                                <div className={styles.contClima}>
+                                                    <img src={weather[0].current.condition.icon} className={styles.imgClima}alt="" />
+                                                    <div className={styles.contClimaText}>
+                                                        <p className={styles.dataText}>Ubicación: <span>{lote.ubicacion}</span></p>
+                                                        <p className={styles.dataText}>Superficie: <span>{lote.superficie}</span></p> 
+                                                    </div>
+                                                    
+                                                </div>
+                                            )
+                                        :null
+                                    }
+                            </div>
                                 {
                                     weather[0]?
                                         (
@@ -172,21 +174,27 @@ export default function LoteDetails({lote}){
                                         <div className={styles.contOverflowText}>
                                             <div className={styles.obs}>
                                                 <h4>Observaciones</h4>
-                                                {manejoLote.map(data=>{
-                                                        return(
-                                                            <p>{data.observaciones}</p>
-                                                        )
-                                                    })
-                                                }
+                                                <div className={styles.obsData}>
+                                                    {
+                                                        manejoLote.map(data=>{
+                                                            return(
+                                                                <p>{data.observaciones}</p>
+                                                            )
+                                                        })
+                                                    }  
+                                                </div>                                             
                                             </div>  
                                             <div className={styles.recom}>
-                                            <h4>Recomendaciones</h4>
-                                                {manejoLote.map(data=>{
-                                                        return(
-                                                            <p>{data.recomendaciones}</p>
-                                                        )
-                                                    })
-                                                }
+                                                <h4>Recomendaciones</h4>
+                                                <div className={styles.recData}>
+                                                    {
+                                                    manejoLote.map(data=>{
+                                                            return(
+                                                                <p>{data.recomendaciones}</p>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
                                             </div> 
                                         </div>
                                     </div>

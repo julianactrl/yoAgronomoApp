@@ -69,12 +69,10 @@
 .obsRec {
     position: relative;
     display: flex;
-    width: 80%;
-    height: 40%;
     bottom: 5%;
     display: flex;
     width: 80%;
-    height: 47%;
+    height: 65%;
     flex-direction: row;
     justify-content: space-between;
     
@@ -98,9 +96,7 @@
     flex-direction: column;
 }
 
-.clima{
-    width: 68vh;
-}
+
 .contDataClima{
     position: relative;
     left: 5%;
@@ -113,8 +109,6 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    width:100%;
-    height: 100%;
 }
 .imgClima{
     position: relative;
@@ -129,7 +123,7 @@
 
 .contClimaText{
     position: relative;
-    left: 10%;
+    left: 5%;
 }
 .contLogoDelEdit{
     display: flex;
@@ -159,19 +153,21 @@
 
 .ghostDivHidden{
     position: absolute;
-    top: 35%;
     width: 60vh;
     height: 20vh;
     transition: .3s;
     opacity: 0;
+    bottom: 40%;
 }
 .ghostDiv{
     position: absolute;
-    top: 35%;
+    display: flex;
+    flex-direction: column;
     width: 60vh;
-    height: 20vh;
+    height: 30vh;
     transition: .5s;
     opacity: 1;
+    bottom: 40%;
 }
 
 .dataText{
@@ -309,7 +305,7 @@
 
 .contObsDesactivated{
     position: relative;
-    top: 75%;
+    top: 85%;
     display: flex;
     box-shadow: 0 0 30px black;
     justify-content: center;
@@ -326,19 +322,6 @@
     background-color: rgba(58, 58, 58, 0.431);
 
 }
-.contTarDesactivated{
-    position: relative;
-    top: 75%;
-    display: flex;
-    box-shadow: 0 0 30px black;
-    justify-content: center;
-    align-items: center;
-    font-size: 10px;
-    background-color: rgba(0, 0, 0, 0.294);
-    text-align: center;
-    height: 8vh;
-    width: 45%;    
-}
 @keyframes agrandar {
     from{
         top:75%;
@@ -354,11 +337,13 @@
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .obs{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 50%;
     border-right: 1px solid rgb(26, 26, 26);
 }
 .recom{
+    flex-direction: column;
     display: flex;
     justify-content: center;
     width: 50%;
