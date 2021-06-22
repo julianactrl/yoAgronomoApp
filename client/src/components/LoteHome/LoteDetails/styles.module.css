@@ -301,12 +301,11 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    justify-items: center;
     border-bottom: 1px solid black;
     height: 40vh;
+    transition: 0.3s;
     object-fit:contain;
     scroll-snap-align: center;
-    transition: 0.3s;
 
 }
 .dataManejo{
@@ -400,41 +399,17 @@
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-.obs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
-}
-.recom{
-    flex-direction: column;
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
+
 .contOverflow{
     width: 95%;
-    height: 100%;
+    height: 95%;
     background-color: rgba(255, 255, 255, 0.144);
-    overflow: scroll;
-    overflow-x: hidden;
     display: flex;
-    overflow-y: auto;  
-    scroll-snap-type: y mandatory;     
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  
-  /*
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-  */
-
-    
+    overflow-y:scroll;  
+    scroll-snap-type: y mandatory;
 }
 .contOverflowText{
     display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 .contOverflow::-webkit-scrollbar {
     transition: 0.3s;

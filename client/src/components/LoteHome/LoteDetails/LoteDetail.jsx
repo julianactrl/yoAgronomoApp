@@ -32,7 +32,7 @@ export default function LoteDetails({lote}){
         dispatch(getWeather(lote.ubicacion))
     },[]) 
     useEffect(()=>{
-
+        
     },[manejoLote])
 
     useEffect(async () => {
@@ -212,11 +212,10 @@ export default function LoteDetails({lote}){
                                         <h4 className={styles.manejoTitle}>Recomendaciones</h4>
                                     </div>
                                     <div className={botonera?styles.contOverflow:styles.none}>
-                                        <div className={styles.contOverflowText}>
                                             <div className={styles.obs}>
                                                 <div className={styles.obsData}>
                                                         {
-                                                            post?manejoLote.map((data) =>{
+                                                            manejoLote.map((data) =>{
                                                                 const {id} = data
                                                                 return(
                                                                     <div className={styles.segmentManejo}>
@@ -228,14 +227,14 @@ export default function LoteDetails({lote}){
                                                                     </div>
                                                                     
                                                                 )
-                                                            }):null
+                                                            })
                                                         } 
                                                 </div>                                             
                                             </div>  
                                             <div className={styles.recom}>
                                                 <div className={styles.recData}>
                                                     {
-                                                    post?manejoLote.map(data=>{
+                                                        manejoLote.map(data=>{
                                                             return(
                                                                 <div className={styles.segmentManejo}>
                                                                     <div className={styles.deleteManejobtnHidden}></div>
@@ -244,11 +243,10 @@ export default function LoteDetails({lote}){
                                                                     </div>  
                                                                 </div>
                                                             )
-                                                        }):null
+                                                        })
                                                     }
                                                 </div>
-                                            </div> 
-                                        </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>
