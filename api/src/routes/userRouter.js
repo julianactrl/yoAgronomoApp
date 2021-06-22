@@ -1,7 +1,7 @@
 const server = require("express").Router();
-const { 
-    isAuthenticated
-} = require("../middleware/customMiddleware");
+// const { 
+//     isAuthenticated
+// } = require("../middleware/customMiddleware");
 
 //---------------------------------------------------------------//
 const { 
@@ -14,11 +14,13 @@ const {
 
 } = require("../controllers/userController");
 
+// const {isAuthenticated} = require("../auth");
+
 //-------------------------Route Users--------------------------//
 
 // server.get("/", getUserAll);
 // server.get("/:id", getUserById);
-server.put('/edit/:id',updateUser)
+server.put('/edit/:id', updateUser)
 server.delete('/delete/:id', deleteUser)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 
