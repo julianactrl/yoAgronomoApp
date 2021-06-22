@@ -13,10 +13,6 @@ module.exports = (sequelize) => {
             },
             image: {
                 type: DataTypes.STRING,
-            },
-            loteId: {
-                type: DataTypes.STRING,
-                allowNull: false
             }
         })
 }

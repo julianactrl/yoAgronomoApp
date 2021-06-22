@@ -137,7 +137,7 @@ const createManejo = async (req,res,next) => {
             image,
             loteId
         })
-        res.status(200).json("fue creado con exito");
+        res.json('Fue Creado')
     } catch (error) {
       console.log(error);
       res.status(500).send(next);

@@ -127,16 +127,17 @@
 }
 .contLogoDelEdit{
     display: flex;
-    /* position: relative; */
+    position: relative;
     width: 15%;
     justify-content: space-between;
-    /* background-color: wheat; */
+    top:34rem;
+    right: 37.5rem;
     /* border: 2px solid wheat; */
     /* cursor: pointer; */
 }
 .editLogo,
 .deleteLogo{
-    background-color: rgba(129, 93, 93, 0);
+    background-color: rgba(124, 124, 124, 0.24);
     border: 2px solid rgba(129, 143, 151, 0.192);
     border-radius: 5px;
     /* border: 3px solid wheat; */
@@ -155,7 +156,7 @@
     position: absolute;
     width: 60vh;
     height: 20vh;
-    transition: .3s;
+    transition: .1s;
     opacity: 0;
     bottom: 40%;
 }
@@ -165,7 +166,7 @@
     flex-direction: column;
     width: 60vh;
     height: 30vh;
-    transition: .5s;
+    transition: .1s;
     opacity: 1;
     bottom: 40%;
 }
@@ -202,9 +203,9 @@
     background-repeat: no-repeat;
     position: relative;
     width: 60px;
-    left: 50%;
+    left: 23rem;
     transform: rotate(-90deg);
-    top: 5.5vh;
+    top: 3rem;
     height: 60px;
     border-radius: 60px;
     
@@ -223,8 +224,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    top: 55vh;
-    left: 35%;
+    top: 32rem;
+    left: 15rem;
     transform: rotate(90deg);
     width: 60px;
     height: 60px;
@@ -284,9 +285,73 @@
 
 }
 /* ((((((((((((((((((((((((((((((((((((BOTONES OBSERVACIONES Y TAREAS )))))))))))))))))))))))))))))))))))) */
+
+.contTitleManejo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 8vh;   
+}
+.manejoTitle{
+    font-size: 28px; 
+}
+.segmentManejo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    border-bottom: 1px solid black;
+    height: 40vh;
+    object-fit:contain;
+    scroll-snap-align: center;
+    transition: 0.3s;
+
+}
+.dataManejo{
+    position: relative;
+    top: 1.5rem;
+    left: .5rem;
+    font-size: 22px;
+    display: flex;
+    justify-content:center;
+    text-align: start;
+    align-items: center;
+    object-fit:cover;
+    letter-spacing: 1px;
+    width: 80%;
+    height: 85%;
+}
+.deleteManejobtnHidden{
+    justify-content: center;
+    align-items: center;
+    width: 4vh;
+    height: 2vh;
+    opacity: 0;
+}
+.deleteManejobtn{
+    position:relative;
+    right: 6rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vh;
+    height: 2vh;
+    color: rgb(255, 255, 255);
+    background-color: rgba(80, 0, 0, 0.767);
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+}
+.deleteManejobtn:hover{
+    transition: .3s;
+    background-color: red;
+    color: rgb(0, 247, 255);
+    box-shadow: 0 0 5px rgb(255, 0, 0);
+
+}
 .contObsActivated{
     position: relative;
-    font-size: 12px;
     font-family: Roboto;
     text-align: center;
     width: 100%;
@@ -340,23 +405,30 @@
     flex-direction: column;
     justify-content: center;
     width: 50%;
-    border-right: 1px solid rgb(26, 26, 26);
 }
 .recom{
     flex-direction: column;
     display: flex;
     justify-content: center;
     width: 50%;
-    border-left: 1px solid rgb(26, 26, 26);
 }
 .contOverflow{
     width: 95%;
-    height: 80%;
-    background-color: rgba(61, 61, 61, 0.808);
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.144);
     overflow: scroll;
     overflow-x: hidden;
-    overflow-y: scroll;
     display: flex;
+    overflow-y: auto;  
+    scroll-snap-type: y mandatory;     
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+
     
 }
 .contOverflowText{
@@ -365,8 +437,13 @@
     width: 100%;
 }
 .contOverflow::-webkit-scrollbar {
+    transition: 0.3s;
+    width: 0.5rem;
     background: rgba(224, 224, 224, 0.185);
     border-radius: 4px;
+}
+.contOverflow::-webkit-scrollbar:hover {
+    background: rgba(133, 133, 133, 0.89);
 }
 
 .img{
@@ -560,6 +637,7 @@
       height: 60%;
   }
   .contSubmit{
+      
       display: flex;
       justify-content: center;
       align-items: center;
@@ -567,6 +645,8 @@
       height: 20vh;
   }
   .submit{
+      background: none;
+      border: none;
       color: wheat;
       position: relative;
       left: 5vh;
