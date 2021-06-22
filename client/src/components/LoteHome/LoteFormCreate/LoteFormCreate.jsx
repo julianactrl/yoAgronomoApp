@@ -25,8 +25,6 @@ export default function LoteFormCreate({empresaId}){
         
     }
     function cerrar() { // funcion para volver al home
-        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
-        // dispatch({type:'GET_FORM_LOTE',payload:false})
         dispatch({type:'SET_VERIFY',payload:''})
     }
 
@@ -60,18 +58,30 @@ export default function LoteFormCreate({empresaId}){
                                 <div className={styles.fomularioInputs}>
                                     <p>Nombre</p>
                                     <input value={inputs.name} onChange={data=>setInputs({...inputs,name:data.target.value})} className={styles.inputs} type="text" placeholder='Nombre del lote...'/>
+
                                     <p>Superficie</p>
                                     <input value={inputs.superficie} onChange={data=>setInputs({...inputs,superficie:data.target.value})}  className={styles.inputs} type="text" placeholder='Superficie del lote...'/>
+
+                                    <div className={styles.alerta}>
+                                        <p className={!inputs.name?styles.alertaParrafo:styles.alertaParrafoF}>Nombre Incompleto</p>
+                                        <p className={!inputs.superficie?styles.alertaParrafo:styles.alertaParrafoF}>Superficie Incompleta</p>
+                                        <p className={!inputs.ubicacion?styles.alertaParrafo:styles.alertaParrafoF}>Ubicación Incompleta</p>
+                                        <p className={!inputs.imagen?styles.alertaParrafo:styles.alertaParrafoF}>Imagen Incompleta</p>
+                                    </div>
+
                                     <p>Ubicación</p>
                                     <input value={inputs.ubicacion} onChange={data=>setInputs({...inputs,ubicacion:data.target.value})} className={styles.inputs} type='text' placeholder='Ubicación del lote...' />
+
                                     <p>Imagen</p>
                                     <input value={inputs.imagen} onChange={data=>setInputs({...inputs,imagen:data.target.value})} className={styles.inputs} type='text' placeholder='Imagen del lote...' />
+
                                 </div>
                                 {/* <button>XXXXXXXXXXX</button> */}
                             </form>
                             {/* <div className={styles.btnCont}> */}
                                 {/* <p>Ubicación</p> */}
-                                <button onClick={crearLote} className={styles.btnDetails}>Crear Lote</button> 
+                                <button onClick={crearLote} className={styles.btnDetails}>Crear Lote</button>
+                                {/* <p>Q ondaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>  */}
                             {/* </div> */}
                         </div>
 

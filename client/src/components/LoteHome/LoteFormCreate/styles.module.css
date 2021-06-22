@@ -162,3 +162,29 @@
     border-radius: 5px;
     margin: 10px 0;
 } */
+.alerta{
+    /* background-color: rgba(101, 37, 160, 0.322); */
+    display: flex;
+    position: absolute;
+    width: 35vh;
+    height: 39vh;
+    top: 5.2vh;
+    left: 96%;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    font-size: 135%;
+
+    /* margi */
+    
+}
+.alertaParrafo{
+    /* position: fixed; */
+    /* left: 100%; */
+    background-color: rgba(39, 37, 37, 0.116);
+    color: rgb(255, 0, 0);
+}
+.alertaParrafoF{
+    /* display: none; */
+    opacity: 0;
+}

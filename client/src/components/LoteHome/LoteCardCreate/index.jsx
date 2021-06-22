@@ -5,15 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 export default function LoteCardCreate () {
-    const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
     const dispatch = useDispatch()
 
     function aux () {
-        // dispatch({type:'GET_FORM_LOTE',payload:true});
-        // console.log('aaaaaaaaaaaaaaaaaaaaaaaaa',renderFormCreateLote)
-        // dispatch({type:'GET_DETAIL_LOTE',payload:true})
         dispatch({type:'SET_VERIFY',payload:'formularioCrear'})
-        
     }
 
     return (
