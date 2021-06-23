@@ -13,14 +13,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function UpdateProfile ({id}) {
     const currentUser = useSelector(state =>state.userReducer.userInfo)
    
-   
-        var id = currentUser.user.id
+    var id = currentUser.user.id
+    let fullName = currentUser.user.fullName
+    let email = currentUser.user.email
+    let password = currentUser.user.password
+    let profile_pic = currentUser.user.profile_pic
+       
     
     const [input, setInput] = useState({
         id:id,
         fullName: '',
         email: '',
-        password:'',
+        password: '',
         profile_pic: ''
 })
 
@@ -81,7 +85,7 @@ function deleteUsuario(id) {
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
                 value={input['fullName']}
-                placeholder={currentUser.fullName}
+                placeholder={currentUser.user.fullName}
                 name='fullName' 
                 />
             </div>
@@ -92,7 +96,7 @@ function deleteUsuario(id) {
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
                 value={input['email']}
-                placeholder={currentUser.email}
+                placeholder={currentUser.user.email}
                 name='email'/>
             </div>
 
@@ -102,7 +106,7 @@ function deleteUsuario(id) {
                 type='password'
                 onChange={(e)=>handleInputChange(e)} 
                 value={input['password']}
-                placeholder={currentUser.password}
+                placeholder={currentUser.user.password}
                 name='password'/>
             </div>
            
@@ -110,10 +114,10 @@ function deleteUsuario(id) {
                 <label className={styles.labelCrear}>Imagen: </label>
                 <input className={styles.inputCrear}
                 type='text'
-                onChange={handleInputChange} 
-                value={input['imagen']}
-                placeholder={currentUser.imagen}
-                name='imagen'/>
+                onChange={(e)=>handleInputChange(e)} 
+                value={input['profile_pic']}
+                placeholder={currentUser.user.profile_pic}
+                name='profile_pic'/>
             </div>
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Actualizar Usuario</button>

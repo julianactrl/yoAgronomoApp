@@ -27,10 +27,20 @@ let history= useHistory();
       history.push('/index')
   }
 
+  const user = useSelector(state => state.userReducer.userInfo)
+
   function renderPerfil() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
+          { 
+          usuario.profile_pic ? 
+          <img  src={usuario.profile_pic} alt='perfil'
+          width={90} height={90}
+          className={styles.perfilimg}
+          onClick={() => (!active ? setActive(true) : setActive(false))}  
+          />
+          :
           <img
             alt="perfil"
             src={
@@ -39,6 +49,7 @@ let history= useHistory();
             className={styles.perfilimg}
             onClick={() => (!active ? setActive(true) : setActive(false))}
           />
+          }
         </button>
         {
             usuario ?
@@ -69,6 +80,7 @@ let history= useHistory();
         renderPerfil()
       ) : (
         <button className={styles.perfilbtn}>
+          
           <img
             alt="icon"
             src={
