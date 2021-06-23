@@ -9,8 +9,8 @@ export function validate(input) {
   let errors = {};
   if (!input.email) {
     errors.email = 'Se requiere un Email';
-  } else if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(input.mail)) {
-    errors.email = 'Mail inválido';
+  } else if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(input.email)) {
+    errors.email = 'Email inválido';
   }
   if (!input.password) {
       errors.password = 'Se requiere una contraseña';
@@ -33,6 +33,8 @@ const Register = () => {
         //passwordRepeat:"",
         fullName:""
     })
+    
+    const [loading, setLoading] = useState(false)
 
     const [errors, setErrors] = useState({});
     const handleChange = function(e) {
@@ -52,6 +54,7 @@ const Register = () => {
          e.preventDefault();
          console.log(userRegister)
          dispatch(register(userRegister))
+         setLoading(true)
          setUserRegister({
           email:"",
           password: "",
@@ -110,11 +113,20 @@ const Register = () => {
                     type="password"
                     name="password"
                     className={styles.loginInput}/>
-                </div> */} 
+                </div> */}
+                 { userRegister.password && !(!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(userRegister.password)) ?
                 <button
                   type="submit"
-                   className={styles.registerBtn}
-                  >Registrarme</button>
+                   className={ styles.registerBtn }
+                  >Registrarme</button> : <button type='button' className={styles.disabled}>
+                    Registrarme
+                  </button>
+                 }
+                  {
+                loading? <div>
+                  <img className={styles.loader} src='http://www.hadecoration.gift/public/images/ajax-loader-green.gif' />
+                  </div> : <div></div>
+              } 
               </div>
               </form>
             </div>
