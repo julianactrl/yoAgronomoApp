@@ -52,7 +52,6 @@ const Register = () => {
          e.preventDefault();
          console.log(userRegister)
          dispatch(register(userRegister))
-         alert('Registro exitoso!')
          setUserRegister({
           email:"",
           password: "",

@@ -50,7 +50,7 @@ const Login = () => {
          e.preventDefault();
          console.log(input)
          dispatch(login(input)) 
-         //if (logged) history.push('/home')
+         
      }
 
     return (
