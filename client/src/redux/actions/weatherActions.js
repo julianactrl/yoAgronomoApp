@@ -9,7 +9,7 @@ export const getWeather = (city) => {
     return function(dispatch) {
         axios
 
-            .get(`https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_WEATHER_API_KEY}=${city}&days=7&aqi=no&alerts=no`)
+            .get(`https://api.weatherapi.com/v1/forecast.json?key=${REACT_APP_WEATHER_API_KEY}&q=${city}&days=7&aqi=no&alerts=no`)
 
             .then((r) => r.data)
             .then((data)=> {
