@@ -3,10 +3,12 @@
 
 
 .cardContAdd{
+    transition: 0.3s;
     display: flex;
     cursor: pointer;
     /* left: 180px; */
-    background-image: url('../../../assets/cicle.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.515), rgba(0, 0, 0, 0.515), rgba(0, 0, 0, 0.515)),
+    url('../../../assets/cicle.png');
     background-position:center;
     background-repeat: no-repeat;
     background-clip:padding-box;
@@ -21,7 +23,7 @@
     object-fit: cover;
     width: 36vh;
     height: 21vh;
-    background-color: rgba(255, 255, 255, 0.178);
+    background-color: #daffeffd;
     border:none;
     box-shadow: 0px 0px 30px black;
     
@@ -33,28 +35,31 @@
     opacity: 0.3;
 } */
 .cardContAdd:hover{
-    transition: 0.9s;
+    transition: 0.3s;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.515), rgba(0, 0, 0, 0.515), rgba(0, 0, 0, 0.515)),
+    url('../../../assets/cicle.png');
     background-size: 600px;
+    background-color: rgba(0, 161, 13, 0.205);
     border:none;
-    background-color: #43748a46;
     box-shadow: 5px 5px 40px black;
 }
 
 .titleAdd{
-    display: none;
+    opacity: 0;
     color: black;
     transition: 0.9s;
 }
 .cardContAdd:hover .titleAdd{
-    display: inline;
+    opacity: 1;
     font-size: 150%;
-    color: greenyellow;
-    transition: 0.9s;
+    color: rgb(248, 248, 248);
+    transition: 0.3s;
 }
 
 
 .imgAdd{
-    bottom: 20px;
+    position: relative;
+    bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.096);
     border-radius: 1000px;
     border: 2px solid rgba(0, 189, 13, 0.075);
@@ -62,7 +67,7 @@
 } 
 .imgAdd:hover{
     transition: 1s;
-    background-color: #80cc28;
+    background-color: #eceeea;
     box-shadow: 0 0 10px rgb(0, 0, 0);
     border: 2px solid rgba(0, 104, 189, 0.226);
 }

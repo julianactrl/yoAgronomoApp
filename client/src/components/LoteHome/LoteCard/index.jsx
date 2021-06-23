@@ -22,8 +22,7 @@ export default function LoteCard ({lote}) {
     return (
         <div className={styles.contCard} onClick={()=>detailLote(lote)}>
             {/* <img src={icono} alt="" className={styles.icon}/> */}
-            <img className={styles.img} src={lote.imagen}/>
-            
+                <img className={styles.img} src={lote.imagen}/>
             <div className={styles.detail}>
                 <h1 className={styles.title}>{lote.name}</h1>
                 <div className={styles.detailOculto}>
