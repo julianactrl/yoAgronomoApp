@@ -31,7 +31,7 @@ const updateUser = async(req,res) => {
   const { id } = req.params;
   const { fullName, email } = req.body;  
  
-  let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+  let password = bcrypt.hashSync(req.body.password, 10, Number.parseInt(authConfig.rounds));
 
   let userFind = await User.findAll({
       where: {

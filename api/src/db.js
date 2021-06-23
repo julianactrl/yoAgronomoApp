@@ -4,19 +4,19 @@ const fs = require("fs");
 const path = require("path");
 
 
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL } = process.env;
-dbRDS = false;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL_LOCAL, DATABASE_URL } = process.env;
+//dbRDS = false;
 
-const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
-  ssl: true,
+const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}`, { //?sslmode=require
+  ssl: false,
   protocol: "postgres",
   logging: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false, 
-    },
-  },
+  // dialectOptions: {
+  //   ssl: {
+  //     require: false,
+  //     rejectUnauthorized: false, 
+  //   },
+  // },
 });
 const basename = path.basename(__filename);
 

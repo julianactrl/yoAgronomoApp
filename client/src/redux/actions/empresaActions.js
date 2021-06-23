@@ -1,6 +1,6 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const { REACT_APP_API} = process.env
 
 
 

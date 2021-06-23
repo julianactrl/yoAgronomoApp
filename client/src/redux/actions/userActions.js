@@ -16,7 +16,7 @@ import {
   UPDATE_USER,
 } from "../constants";
 
-const { REACT_APP_API, REACT_APP_API_HEROKU } = process.env;
+const { REACT_APP_API } = process.env;
 
 export const register = (body) => async (dispatch) => {
   try {
@@ -57,13 +57,10 @@ export const login =
       dispatch({
         type: USER_LOGIN_REQUEST,
       });
-      // const config = {
-      //   headers: { "Content-Type": "application/json" },
-      // };
+    
       const data = await axios.post(
         `${REACT_APP_API}/auth/api/signin`,
         { email, password }
-        // config,
       );
       console.log(data.request.status);
       switch (data.request.status) {
@@ -123,23 +120,7 @@ export const getUser = () => {
         dispatch({
           type: GET_USER,
           payload: userInfo.data,
-        });
-        // const cart = firestone.collection("cart");
-        // try {
-        // 	const query = await cart.where(firebase.firestore.FieldPath.documentId(),
-        // 		'==',
-        // 		user.data.id.toString()).get();
-        // 	const firebaseCart = query.docs[0]?.data();
-        // 	const localStorageCart = JSON.parse(localStorage.getItem('cart'))
-        // 	if (Object.keys(localStorageCart).length === 0) {
-        // 		if (firebaseCart) {
-        // 			localStorage.setItem('cart', JSON.stringify(firebaseCart));
-        // 		}
-        // 	} else {
-        // 		cart.doc(user.data.id.toString()).set(localStorageCart)
-        // 	}
-        // 	dispatch(setCart());
-        // } catch (err) { console.log(err) }
+        })
       });
   };
 };
@@ -148,7 +129,7 @@ export const updateUser = (payload ) =>  (dispatch) => {
   return axios
     .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.body)
     .then((updated) => {
-      console.log("respuesta de updated action ",updated)
+      console.log("respuesta de updated action ", updated)
       dispatch({
         type: UPDATE_USER,
         payload: updated.body,
