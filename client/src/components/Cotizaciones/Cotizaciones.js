@@ -21,7 +21,7 @@ const fecha = new Date()
     return (
         <div>
             <Header/>
-            <h1 className={styles.dolarHoy}>Dolay hoy {fecha.toLocaleDateString()}</h1>
+            <h1 className={styles.dolarHoy}>Dolar hoy {fecha.toLocaleDateString()}</h1>
         <div className={styles.datatableContainer}>
                    
             <table className={styles.datatable}>

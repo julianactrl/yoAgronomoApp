@@ -32,6 +32,7 @@ const Login = () => {
         email:"",
         password: ""
     })
+    const [loading, setLoading] = useState(false)
 
     const [errors, setErrors] = useState({});
     const handleChange = function(e) {
@@ -49,7 +50,11 @@ const Login = () => {
 
      function handleSubmit(e){
          e.preventDefault();
+         console.log(input)
          dispatch(login(input))
+         setLoading(true) 
+         
+
      }
 
     return (
@@ -82,9 +87,20 @@ const Login = () => {
     )} 
             </div>
             <div>
+              { input.password?
                 <button 
                 type= "submit"
-                className={styles.loginBtn}>Login</button>
+                className={styles.loginBtn}>Login</button> : <button type='button' className={styles.disabledLogin}>
+                  Login
+                </button>
+              }
+            </div>
+            <div>
+              {
+                loading? <div>
+                  <img className={styles.loader} src='http://www.hadecoration.gift/public/images/ajax-loader-green.gif' />
+                  </div> : <div></div>
+              } 
             </div>
             </form>
             
