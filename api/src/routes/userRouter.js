@@ -2,7 +2,7 @@ const server = require("express").Router();
 // const { 
 //     isAuthenticated
 // } = require("../middleware/customMiddleware");
-
+const upload = require('./../libs/storage');
 //---------------------------------------------------------------//
 const { 
     getUserAll, 
@@ -10,7 +10,7 @@ const {
     editUser,
     deleteUser,
     getEmpresaByUserId,
-    updateUser
+    updateUser,  getImageProfile
 
 } = require("../controllers/userController");
 
@@ -20,8 +20,9 @@ const {
 
 // server.get("/", getUserAll);
 // server.get("/:id", getUserById);
-server.put('/edit/:id', updateUser)
+server.patch('/edit/:id', upload.single("profile_pic"), updateUser)
 server.delete('/delete/:id', deleteUser)
+server.get('/picture/:name', getImageProfile)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 
 
