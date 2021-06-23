@@ -3,6 +3,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
 import {useHistory} from 'react-router-dom';
+import swal from 'sweetalert';
 
 
 export function validate(input) {
@@ -48,9 +49,7 @@ const Login = () => {
 
      function handleSubmit(e){
          e.preventDefault();
-         console.log(input)
-         dispatch(login(input)) 
-         
+         dispatch(login(input))
      }
 
     return (
