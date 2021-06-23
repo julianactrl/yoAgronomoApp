@@ -70,3 +70,10 @@ export function borrarLote (id) {
     .catch(e => console.log(e))
 
 }
+export function updateManejoLot (data, id) {
+
+    return axios.put(`http://localhost:3001/lote/updateManejo/${id}`, data)
+    .then(response => response)
+    .catch(e => console.log(e))
+
+}
