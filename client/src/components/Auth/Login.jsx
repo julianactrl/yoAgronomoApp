@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
 import {useHistory} from 'react-router-dom';
-import swal from 'sweetalert';
+
 
 
 export function validate(input) {
@@ -56,7 +56,7 @@ const Login = () => {
         <div className={styles.container}>
             <form action="" onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
-                <label  className={styles.labels} htmlFor="email">Email</label>
+                <label  className={styles.labels} htmlFor="email"></label>
                 <input 
                 placeholder='email@yoagronomo.com'
                 className={styles.loginInput} 
@@ -69,7 +69,7 @@ const Login = () => {
     )} 
             </div>
             <div className={styles.inputGroup}>
-                <label  className={styles.labels} htmlFor="password">Contraseña</label>
+                <label  className={styles.labels} htmlFor="password"></label>
                 <input 
                 placeholder='Contraseña'
                 className={styles.loginInput} 
