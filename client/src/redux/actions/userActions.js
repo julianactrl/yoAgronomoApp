@@ -41,8 +41,10 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-	//localStorage.setItem('userInfo', JSON.stringify(data));
+    alert('Registro Exitoso')
+    window.location.href= '/home'
   } catch (error) {
+    alert('Credenciales Incorrectas')
     dispatch({
       type: REGISTER_USER_ERROR,
       payload: error,
@@ -92,8 +94,7 @@ export const login = ({email, password}) => async (dispatch) => {
       default:
         break;
         
-    }
-    
+    }   
 
   } catch (error) {
     console.log(error)
@@ -101,11 +102,13 @@ export const login = ({email, password}) => async (dispatch) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("userInfo");
-  document.location.href = "/index";
+  localStorage.removeItem('persist:root')
+  
+  //document.location.href = "/index";
   return {
     type: USER_LOGOUT,
   };
+  
 
 
 };

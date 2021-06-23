@@ -19,12 +19,14 @@ import MercadoPago from './components/MercadoPago/MercadoPago.jsx';
 import Premium from './components/MercadoPago/Premium.jsx';
 import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
 import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 
 
 
 export default function Routes() {
   return (
+    
     <Switch>
       <Route exact path="/">
         <IntroPage/>
@@ -43,19 +45,11 @@ export default function Routes() {
         exact path="/update/:id"
         render={({ match }) => <UpdateEmpresa
          id={match.params.id} />}/>
-      <Route exact path='/newempresa'>
-        <NewEmpresa />
-      </Route>
-      <Route exact path='/agroconsultas'>
-        <AgroConsultas />
-      </Route>
-      <Route exact path='/mercados'>
-        <Cotizaciones />
-      </Route>
-
-      <Route exact path="/home">
-        <DashBoard />
-      </Route>
+      <PrivateRoute component={NewEmpresa} path="/newempresa" exact />
+      <PrivateRoute component={AgroConsultas} path="/agroconsultas" exact />
+      <PrivateRoute component={Cotizaciones} path="/mercados" exact />
+      <PrivateRoute component={DashBoard} path="/home" exact />
+    
 
       <Route exact path="/user/update/:id" render={({ match }) =>
         <UpdateProfile id={match.params.id} />}>
@@ -66,22 +60,13 @@ export default function Routes() {
         <LoteHome id={window.location.pathname.split('/')[2]} />
       </Route>
   
-      <Route  path="/weather">
-        <Weather />
-      </Route>
-      <Route exact path='/news'>
-        <News />
-      </Route>
+      <PrivateRoute component={Weather} path="/weather" exact />
+      <PrivateRoute component={News} path="/news" exact />
       <Route exact path='/map'>
         <Map />
       </Route>
-      <Route exact path='/agroconsultas'> 
-      <AgroConsultas />
-      </Route>
+      
 
-      <Route exact path='/cotizaciones'>
-        <Cotizaciones />
-      </Route>
       <Route exact path='/membresia'>
         <MercadoPago />
       </Route>

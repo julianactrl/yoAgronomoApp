@@ -19,7 +19,8 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['userReducer']
+    whitelist: ['userReducer'],
+    blacklist: ['userReducer.logout']
 }
 
 const reducers = combineReducers({

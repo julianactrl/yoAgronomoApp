@@ -13,22 +13,24 @@ import add from '../../assets/añadir.png';
 import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLotes } from "../../redux/actions/loteActions";
+import Cookies from "universal-cookie";
 
 
 export default function LoteHome ({id}) {
+    const cookies = new Cookies()
     const dispatch = useDispatch()
     // const [activador, setActivador] = useState(true)
     const allLotes = useSelector(state=> state.loteReducer.allLotes)  // todos los lotes de la empresa
     const detailLote = useSelector(state=> state.loteReducer.detailLote) // estado para ir al detalle
-    const empresaId = useSelector(state=>state.empresaReducer.empresaForId); // todos los datos de la empresa
+    // const empresaId = useSelector(state=>state.empresaReducer.empresaForId); // todos los datos de la empresa
     // const renderFormCreateLote = useSelector(state=> state.loteReducer.renderFormCreateLote)
     // const createdLote = useSelector(state=>state.loteReducer.createdLote) // lote creado
 
-    const verifyRender = useSelector(state=>state.loteReducer.verifyRender)
+    const verifyRender = useSelector(state=>state.loteReducer.verifyRender) // estado global que segun el tipo renderiza todos los lotes o el formLote o el detailLote
 
 
     useEffect(async()=>{
-        await dispatch(getAllLotes(empresaId.id))
+        await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
     },[])
 
     function SampleNextArrow(props) {
@@ -58,11 +60,11 @@ export default function LoteHome ({id}) {
           case 'detalle':
             return  <LoteDetails lote={detailLote} />
           case 'formularioCrear':
-            return <LoteFormCreate empresaId={empresaId.id} />
+            return <LoteFormCreate empresaId={cookies.get('selectedEmpresa').id} />
           default:
             return (
               <>
-              <h1 className={styles.tittle}>{empresaId.name}</h1>
+              <h1 className={styles.tittle}>{cookies.get('selectedEmpresa').name}</h1>
               {renderizarLotes(allLotes,LoteCard,Slider,settings)}
               </>
               )
@@ -72,7 +74,8 @@ export default function LoteHome ({id}) {
       // Mantiene actualizado los lotes cada vez que se crea uno o se borre
       function auxiliar (verifyRender) {
         if(verifyRender == '') {
-          dispatch(getAllLotes(empresaId.id))
+          dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
+          dispatch({type:'SET_VERIFY',payload:'default'})
         }
       }
 

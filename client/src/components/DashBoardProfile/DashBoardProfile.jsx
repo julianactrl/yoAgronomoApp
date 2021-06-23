@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { logout } from "../../redux/actions/userActions";
 import jwt_decode from "jwt-decode";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
@@ -20,16 +20,27 @@ export default function DashBoardProfile() {
   console.log('holaa')
   
 const dispatch= useDispatch();
-
+let history= useHistory();
 
   const handleLogout = () =>{
-      dispatch(logout)
+      dispatch(logout())
+      history.push('/index')
   }
+
+  const user = useSelector(state => state.userReducer.userInfo)
 
   function renderPerfil() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
+          { 
+          usuario.profile_pic ? 
+          <img  src={usuario.profile_pic} alt='perfil'
+          width={90} height={90}
+          className={styles.perfilimg}
+          onClick={() => (!active ? setActive(true) : setActive(false))}  
+          />
+          :
           <img
             alt="perfil"
             src={
@@ -38,6 +49,7 @@ const dispatch= useDispatch();
             className={styles.perfilimg}
             onClick={() => (!active ? setActive(true) : setActive(false))}
           />
+          }
         </button>
         {
             usuario ?
@@ -68,6 +80,7 @@ const dispatch= useDispatch();
         renderPerfil()
       ) : (
         <button className={styles.perfilbtn}>
+          
           <img
             alt="icon"
             src={

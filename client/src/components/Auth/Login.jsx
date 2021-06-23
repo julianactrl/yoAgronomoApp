@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
 import {useHistory} from 'react-router-dom';
@@ -20,11 +20,13 @@ export function validate(input) {
     return errors;
   };
 
+
 const Login = () => {
 
 
     const dispatch = useDispatch();   
     let history= useHistory();
+    const logged = useSelector (state =>state.userReducer.isAuth)
 
     const [input,setInput] = useState({
         email:"",

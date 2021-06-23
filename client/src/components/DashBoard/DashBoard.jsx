@@ -11,19 +11,22 @@ import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
 import {motion} from 'framer-motion';
-
+import Cookies from 'universal-cookie';
 
 
 export default function DashBoard (){
 
+  const cookies = new Cookies()
   const [showNews, setShowNews]= useState(false)
   const [stateAux, setStateAux]= useState(false)
   const dispatch = useDispatch()
   const allEmpresas = useSelector(state => state.empresaReducer.allEmpresas)
-
+  const userId = useSelector(state => state.userReducer.userInfo.user.id)
   useEffect(()=>{
-      dispatch(getAllEmpresas())
+    console.log("este es el id de usuario", userId)
+      dispatch(getAllEmpresas(userId))
       setStateAux(true)
+      cookies.set('selectedEmpresa', '', {path:'/', expires: new Date(Date.now()+2592000)})
   },[])
   useEffect(()=>{
     console.log(allEmpresas);
