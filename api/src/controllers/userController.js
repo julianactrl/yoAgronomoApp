@@ -1,7 +1,8 @@
 const { Post, Empresa,User } = require('../db');
 const bcrypt = require('bcrypt');
 const authConfig = require('../config');
-
+const path = require("path");
+const fs = require("fs");
 
 
 //==================================================//
@@ -58,6 +59,21 @@ const updateUser = async(req,res) => {
   }
 }
 
+const getImageProfile = (req, res) => {
+  let getImage;
+  const { name } = req.params;
+  let pathImage = path.join(__dirname, "../");
+  console.log("soy el path ",pathImage)
+  try {
+    getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    console.log("soy get image", getImage)
+  } catch (error) {
+    getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+  }
+  res.set({ "Content-Type": "image/png" });
+  res.send(getImage);
+};
+
 const deleteUser = (req, res) => {
   const { id } = req.params;
   User.findByPk(id)
@@ -70,5 +86,6 @@ module.exports = {
 
   getEmpresaByUserId,
   updateUser,
-  deleteUser
+  deleteUser,
+  getImageProfile
 };

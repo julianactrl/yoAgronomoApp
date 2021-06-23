@@ -35,7 +35,8 @@ let history= useHistory();
         <button className={styles.perfilbtn}>
           { 
           usuario.profile_pic ? 
-          <img  src={usuario.profile_pic} alt='perfil'
+          <img  src={`http://localhost:3001/user/picture/${usuario.profile_pic}`} 
+          alt="https://i.stack.imgur.com/y9DpT.jpg"
           width={90} height={90}
           className={styles.perfilimg}
           onClick={() => (!active ? setActive(true) : setActive(false))}  

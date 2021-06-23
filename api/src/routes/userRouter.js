@@ -10,7 +10,7 @@ const {
     editUser,
     deleteUser,
     getEmpresaByUserId,
-    updateUser
+    updateUser,  getImageProfile
 
 } = require("../controllers/userController");
 
@@ -22,6 +22,7 @@ const {
 // server.get("/:id", getUserById);
 server.patch('/edit/:id', upload.single("profile_pic"), updateUser)
 server.delete('/delete/:id', deleteUser)
+server.get('/picture/:name', getImageProfile)
 // server.get('/empresa/:userId', getEmpresaByUserId)
 
 

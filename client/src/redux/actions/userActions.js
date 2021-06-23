@@ -61,7 +61,7 @@ export const login = ({email, password}) => async (dispatch) => {
     //   headers: { "Content-Type": "application/json" },
     // };
     const  data  = await axios.post(
-      `${ REACT_APP_API_HEROKU}/auth/api/signin`,
+      `${ REACT_APP_API}/auth/api/signin`,
       { email, password },
       // config,
 	  
@@ -75,7 +75,7 @@ export const login = ({email, password}) => async (dispatch) => {
         })    
         localStorage.setItem("userInfo", JSON.stringify(data))
         swal({icon: "success"})
-        window.location.href( '/home')
+        window.location.href='/home'
         break;
       case 401:
         dispatch({
