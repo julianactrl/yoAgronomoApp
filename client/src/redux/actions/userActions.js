@@ -1,5 +1,6 @@
 import axios from "axios";
-import swal from "sweetalert";
+
+
 import {
   REGISTER_USER_ERROR,
   REGISTER_USER_REQUEST,
@@ -15,8 +16,8 @@ import {
   UPDATE_USER
 } from "../constants";
 
-
 const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+
 
 
 
@@ -29,7 +30,7 @@ export const register = (body) => async (dispatch) => {
       headers: { "Content-Type": "application/json" },
     };
     const {data}  = await axios.post(
-      `${ REACT_APP_API_HEROKU}/auth/api/signup`,
+      `${REACT_APP_API}/auth/api/signup`,
       body,
       config
     );
@@ -61,43 +62,24 @@ export const login = ({email, password}) => async (dispatch) => {
     //   headers: { "Content-Type": "application/json" },
     // };
     const  data  = await axios.post(
-      `${ REACT_APP_API_HEROKU}/auth/api/signin`,
+      `${REACT_APP_API}/auth/api/signin`,
       { email, password },
       // config,
 	  
     );
-    console.log(data.request.status)
-    switch(data.request.status){
-      case 200:
-        dispatch({
-          type: USER_LOGIN_SUCCESS,
-          payload: data.data,
-        })    
-        localStorage.setItem("userInfo", JSON.stringify(data))
-        swal({icon: "success"})
-        window.location.href= '/home'
-        break;
-      case 401:
-        dispatch({
-          type: USER_LOGIN_ERROR,
-          payload: data.error,
-        })
-        swal("Not allow", {icon: "warning"})
-        break;
-      case 500:
-        dispatch({
-          type: USER_LOGIN_ERROR,
-          payload: data.error,
-        })
-        swal("Internal server error", {icon: "warning"})
-      break;
-      default:
-        break;
-        
-    }   
-
+    console.log(data)
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data.data,
+    });
+    window.location.href= '/home'
+    //localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
-    console.log(error)
+    alert('Credenciales Incorrectas')
+    dispatch({
+      type: USER_LOGIN_ERROR,
+      payload: error,
+    });
   }
 };
 
@@ -117,7 +99,7 @@ export const logout = () => {
 export const getUser = () => {
   return function(dispatch) {
     dispatch({type: LOADING_USER})
-    return axios.get(`${ REACT_APP_API_HEROKU}/auth/myProfile` , BEARER())
+    return axios.get(`${REACT_APP_API}/auth/myProfile` , BEARER())
     .then(async userInfo => {
       if (userInfo.data.jwt) localStorage.setItem('jwt', JSON.stringify(userInfo.data.jwt));
       delete userInfo.data.jwt
@@ -150,7 +132,7 @@ export const updateUser = ({id,fullName,email,password,profile_pic}) => {
     dispatch({ type: UPDATE_USER,payload: {fullName,email,password,profile_pic} });
     axios({
         method: 'put',
-        url: `${ REACT_APP_API_HEROKU}/user/edit/${id}`,
+        url: `${REACT_APP_API}/user/edit/${id}`,
         data: {
             fullName,
             email,
