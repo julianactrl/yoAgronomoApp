@@ -56,6 +56,13 @@ export function deleteManejo (id) {
     .catch(e => console.log(e))
 
 }
+export function updateLot (data, id) {
+
+    return axios.put(`http://localhost:3001/lote/${id}`, data)
+    .then(response => response)
+    .catch(e => console.log(e))
+
+}
 export function borrarLote (id) {
 
     return axios.delete(`http://localhost:3001/lote/delete/${id}`)
