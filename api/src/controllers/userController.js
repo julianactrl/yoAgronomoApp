@@ -66,7 +66,6 @@ const getImageProfile = (req, res) => {
   console.log("soy el path ",pathImage)
   try {
     getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
-    console.log("soy get image", getImage)
   } catch (error) {
     getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
   }
