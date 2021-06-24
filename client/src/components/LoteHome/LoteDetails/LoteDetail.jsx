@@ -34,7 +34,9 @@ export default function LoteDetails({lote}){
     useEffect(() => {
         dispatch(getWeather(lote.ubicacion))
     },[]) 
+
     const ovflow = useRef()
+
 
     function btnObsTar(){
         if(botonera){
@@ -135,7 +137,6 @@ export default function LoteDetails({lote}){
         alert('Observación eliminada');
     }
     function cerrar(){
-        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
         dispatch({type:'SET_VERIFY',payload:''})
     }
     return(
