@@ -174,8 +174,8 @@ const createManejo = async (req,res,next) => {
 const getAllManejo = async (req,res,next) => {
     const {id} = req.params
     try {
-        const Manejo = await ManejoDeLote.count();
-        if (Manejo !== 0) {
+        // const Manejo = await ManejoDeLote.count();
+        // if (Manejo !== 0) {
           res.status(201).json(await ManejoDeLote.findAll({
               include: {
                   model: Lote,
@@ -184,7 +184,7 @@ const getAllManejo = async (req,res,next) => {
                   }
               }
           }));
-        }
+        // }
       } catch (e) {
         res.status(404).send(next);
       }
@@ -194,7 +194,7 @@ const getAllManejo = async (req,res,next) => {
       const { id } = req.params;
       await ManejoDeLote.destroy({
         where: {
-          id,
+          id: id
         },
       });
       res.json({ message: "Manejo Eliminado" });
