@@ -39,10 +39,10 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-    alert("Registro Exitoso");
+    swal("Registro Exitoso",{icon:"success"});
     window.location.href = "/home";
   } catch (error) {
-    alert("Credenciales Incorrectas");
+    swal("Credenciales Incorrectas", { icon: "warning" });
     dispatch({
       type: REGISTER_USER_ERROR,
       payload: error,
@@ -73,7 +73,6 @@ export const login =
             payload: data.data,
           });
           localStorage.setItem("userInfo", JSON.stringify(data));
-          swal({ icon: "success" });
           window.location.href = "/home";
           break;
         case 401:
@@ -94,7 +93,7 @@ export const login =
           break;
       }
     } catch (error) {
-      alert("Credenciales Incorrectas");
+      swal("Credenciales Incorrectas", { icon: "warning" });
       dispatch({
         type: USER_LOGIN_ERROR,
         payload: error,
