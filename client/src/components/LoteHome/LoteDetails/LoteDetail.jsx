@@ -36,22 +36,6 @@ export default function LoteDetails({lote}){
     },[]) 
     const ovflow = useRef()
 
-    // useEffect(async () => {
-
-    //     setPost(Math.random())
-        
-    // },[cargarDatos])
-
-    // useEffect(async () => {
-    //     await dispatch(getManejo(lote.id))
-    // },[post])
-
-    useEffect(()=>{
-        setPost('')
-    },[post])
-
-
-
     function btnObsTar(){
         if(botonera){
             setBotonera(false)
