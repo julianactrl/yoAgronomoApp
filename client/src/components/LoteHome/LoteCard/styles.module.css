@@ -24,6 +24,7 @@
 }
 .contCard:hover .img{
     transition: all 0.4s;
+    
 
 }
 .contCard:hover .detailOculto  {

@@ -109,6 +109,7 @@
 .loginBtn{
     width: 230px !important;
     font-size: 12px !important;
+    font-weight: 300 !important;
     margin: 5vh 0;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -439,6 +440,7 @@
 .disabledLogin{
     width: 230px !important;
     font-size: 12px !important;
+    font-weight: 300 !important;
     margin: 3vh 0 1vh 0vh;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
