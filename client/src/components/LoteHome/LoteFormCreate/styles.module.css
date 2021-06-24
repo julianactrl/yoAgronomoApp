@@ -141,7 +141,14 @@
 .alertaP{
     font-size: 20px;
     color: #bb2929;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.alertaError{
+    font-size: 20px;
+    color: #bb2929;
     opacity: 1;
+    transition: all 0.3s;
 }
 
 /* inputss */
@@ -162,6 +169,7 @@
 .label{
     display: block;
     font-weight: 900;
+    /* color: rgb(255, 0, 0); */
 }
 
 .contIcono{
@@ -196,15 +204,23 @@
     background-color: #fff;
     border-radius: 3px;
     transition: .3s ease all;
-    border: 3px solid transparent;
-    padding:  10px 40px 10px 10px
+    border: 2px solid transparent;
+    padding:  10px 40px 10px 10px;
+    box-shadow: 0 0 5px transparent;
     /* pad: 0 40% 0px 0px; */
 }
-/* .inputsError{
+.inputsError{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: .3s ease all;
+    /* border: 2px solid rgb(255, 0, 0); */
+    box-shadow: 0 0 7px rgb(255, 0, 0);
+    padding:  10px 40px 10px 10px
+}
 
-} */
 .inputs:focus {
-    border: 3px solid #00ff007e;
+    border: 2px solid #00ff007e;
     outline: none;
     box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }

@@ -81,45 +81,45 @@ export default function LoteFormCreate({empresaId}){
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Nombre</label>
                                         <div className={styles.contenedorInputs}>
-                                            <input name='name' value={inputs.name} onBlur={handleInputs} onChange={data=>setInputs({...inputs,name:data.target.value})} className={styles.inputs} type="text" placeholder='Nombre del lote...'/>
+                                            <input name='name' value={inputs.name} onBlur={handleInputs} onChange={data=>setInputs({...inputs,name:data.target.value})} className={validate.name=='ERROR'?styles.inputsError:styles.inputs} type="text" placeholder='Nombre del lote...'/>
                                             {validate.name.length ? <div className={validate.name=='OK'?styles.contIcono:styles.contIconoError}>
                                                 <FontAwesomeIcon icon={validate.name=='OK'?faCheckCircle:faTimesCircle}/>
                                             </div>:null}
                                         </div>
-                                        {validate.name=='ERROR'&&<p className={styles.alertaP}>Nombre de lote incompleto</p>}
+                                        {<p className={validate.name=='ERROR'?styles.alertaError:styles.alertaP}>Nombre de lote incompleto</p>}
                                     </div>
 
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Superficie</label>
                                         <div className={styles.contenedorInputs}>
-                                            <input name='superficie' value={inputs.superficie} onBlur={handleInputs} onChange={data=>setInputs({...inputs,superficie:data.target.value})}  className={styles.inputs} type="text" placeholder='Superficie del lote...'/>
+                                            <input name='superficie' value={inputs.superficie} onBlur={handleInputs} onChange={data=>setInputs({...inputs,superficie:data.target.value})} className={validate.superficie=='ERROR'?styles.inputsError:styles.inputs} type="text" placeholder='Superficie del lote...'/>
                                             {validate.superficie.length ? <div className={validate.superficie=='OK'?styles.contIcono:styles.contIconoError}>
                                                 <FontAwesomeIcon icon={validate.superficie=='OK'?faCheckCircle:faTimesCircle}/>
                                             </div>:null}
                                         </div>
-                                        {validate.superficie=='ERROR'&&<p className={styles.alertaP}>Superficie de lote incompleto</p>}
+                                        {<p className={validate.superficie=='ERROR'?styles.alertaError:styles.alertaP}>Superficie de lote incompleto</p>}
                                     </div>
 
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Ubicación</label>
                                         <div className={styles.contenedorInputs}>
-                                            <input name='ubicacion' value={inputs.ubicacion} onBlur={handleInputs} onChange={data=>setInputs({...inputs,ubicacion:data.target.value})} className={styles.inputs} type='text' placeholder='Ubicación del lote...' />
+                                            <input name='ubicacion' value={inputs.ubicacion} onBlur={handleInputs} onChange={data=>setInputs({...inputs,ubicacion:data.target.value})} className={validate.ubicacion=='ERROR'?styles.inputsError:styles.inputs} type='text' placeholder='Ubicación del lote...' />
                                             {validate.ubicacion.length ? <div className={validate.ubicacion=='OK'?styles.contIcono:styles.contIconoError}>
                                                 <FontAwesomeIcon icon={validate.ubicacion=='OK'?faCheckCircle:faTimesCircle}/>
                                             </div>:null}
                                         </div>
-                                        {validate.ubicacion=='ERROR'&&<p className={styles.alertaP}>Ubicación de lote incompleto</p>}
+                                        {<p className={validate.ubicacion=='ERROR'?styles.alertaError:styles.alertaP}>Ubicación de lote incompleto</p>}
                                     </div>
                                         
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Imagen</label>
                                         <div className={styles.contenedorInputs}>
-                                            <input name='imagen' value={inputs.imagen} onBlur={handleInputs} onChange={data=>setInputs({...inputs,imagen:data.target.value})} className={styles.inputs} type='text' placeholder='Imagen del lote...' />
+                                            <input name='imagen' value={inputs.imagen} onBlur={handleInputs} onChange={data=>setInputs({...inputs,imagen:data.target.value})} className={validate.imagen=='ERROR'?styles.inputsError:styles.inputs} type='text' placeholder='Imagen del lote...' />
                                             {validate.imagen.length ? <div className={validate.imagen=='OK'?styles.contIcono:styles.contIconoError}>
                                                 <FontAwesomeIcon icon={validate.imagen=='OK'?faCheckCircle:faTimesCircle}/>
                                             </div>:null}
                                         </div>
-                                        {validate.imagen=='ERROR'&&<p className={styles.alertaP}>Imagen de lote incompleto</p>}
+                                        {<p className={validate.imagen=='ERROR'?styles.alertaError:styles.alertaP}>Imagen de lote incompleto</p>}
                                     </div>
 
                                 </div>
