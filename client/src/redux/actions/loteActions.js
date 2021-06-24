@@ -37,6 +37,7 @@ export function crearLoteManejo (data, id) {
 
 }
 export function getManejo (id) {
+    console.log('Action Get MAnejoooooooo');
     return function(dispatch) {
         return fetch(`http://localhost:3001/lote/manejos/${id}`)
             .then(data => data.json())
