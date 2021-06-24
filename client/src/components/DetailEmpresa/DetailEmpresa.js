@@ -10,6 +10,7 @@ import campo from './campo.jpg'
 import axios from 'axios'
 
 
+const { REACT_APP_API} = process.env
 
 function DetailEmpresa ({id}) {
 
@@ -26,7 +27,7 @@ function DetailEmpresa ({id}) {
     function deleteEmpresa(id) {
         
         // dispatch(deleteEmpresa(id));
-        axios.delete(`http://localhost:3001/empresa/delete/${id}`)
+        axios.delete(`${REACT_APP_API}/empresa/delete/${id}`)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
         alert('Su empresa fue eliminada!')

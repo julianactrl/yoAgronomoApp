@@ -126,7 +126,7 @@ function UpdateProfile() {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label className={styles.labelCrear}>Password </label>
             <input
               className={styles.inputCrear}
@@ -135,7 +135,7 @@ function UpdateProfile() {
               value={updateinfo.password}
               name="password"
             />
-          </div>
+          </div> */}
 
           <div>
             <label className={styles.labelCrear}>Imagen: </label>
