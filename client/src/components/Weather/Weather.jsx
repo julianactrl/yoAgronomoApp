@@ -18,7 +18,7 @@ const Weather = (props) => {
             setLoading(false)
         }
         
-    },[]) 
+    },[ubication]) 
     //Funcion que actualiza el reloj segundo a segundo
     function interval(){
     const date = new Date()
@@ -98,6 +98,7 @@ const Weather = (props) => {
                
            }
         </div>
+        
         </div>
         </>
     )
