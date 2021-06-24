@@ -33,12 +33,12 @@ const LandingPage = () => {
 
         <div className={styles.div}>
           <Link to='/'>
-            <img className={styles.goBack} src='https://www.seekpng.com/png/full/18-187048_left-arrow-png-free-download-flecha-hacia-arriba.png'/>  
+            <img className={styles.goBack} alt="not found" src='https://www.seekpng.com/png/full/18-187048_left-arrow-png-free-download-flecha-hacia-arriba.png'/>  
             </Link>
             <div className={styles.title}>
             <h2><strong>YO</strong>AGRONOMO</h2>
 
-            <img className={styles.logo} src={leaf}/>
+            <img className={styles.logo} alt="not found" src={leaf}/>
 
             </div>
             <div className={styles.options}>
