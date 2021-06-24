@@ -10,6 +10,7 @@ import styles from './styles.module.css'
 import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
+import {clearWeather} from '../../redux/actions/weatherActions'
 import {motion} from 'framer-motion';
 import Cookies from 'universal-cookie';
 
@@ -22,8 +23,10 @@ export default function DashBoard (){
   const dispatch = useDispatch()
   const allEmpresas = useSelector(state => state.empresaReducer.allEmpresas)
   const userId = useSelector(state => state.userReducer.userInfo.user.id)
-  useEffect(()=>{
-    console.log("este es el id de usuario", userId)
+ 
+  
+  useEffect(()=>{   
+      dispatch(clearWeather()) 
       dispatch(getAllEmpresas(userId))
       setStateAux(true)
       cookies.set('selectedEmpresa', '', {path:'/', expires: new Date(Date.now()+2592000)})
