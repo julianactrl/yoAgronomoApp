@@ -1,6 +1,6 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const { REACT_APP_API} = process.env
 
 
 
@@ -32,7 +32,6 @@ export function getEmpresa(id) {
 
 
 export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
-
     return (dispatch) => {
         dispatch({ type: POST_EMPRESA });
         axios({
@@ -45,6 +44,7 @@ export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
                 imagen,
                 userId
             },
+            headers: { 'Content-Type': 'multipart/form-data' },
         }).catch(e => dispatch(e))
     }
 }

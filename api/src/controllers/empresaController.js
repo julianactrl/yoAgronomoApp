@@ -68,14 +68,18 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { name, hectareas, ubicacion, imagen, userId} = req.body;
+  
+  const { name, hectareas, ubicacion, userId} = req.body;
+  if (req.file) {
+    var empresa = req.file.filename;
+  }
   try {
     await Empresa.create({
       name,
       hectareas,
       ubicacion,
-      imagen,
-      userId
+      userId,
+      imagen: empresa
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
