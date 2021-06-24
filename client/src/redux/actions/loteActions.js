@@ -37,6 +37,7 @@ export function crearLoteManejo (data, id) {
 
 }
 export function getManejo (id) {
+    console.log('Action Get MAnejoooooooo');
     return function(dispatch) {
         return fetch(`${REACT_APP_API}/lote/manejos/${id}`)
             .then(data => data.json())
