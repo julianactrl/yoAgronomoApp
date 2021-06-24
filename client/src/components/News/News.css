@@ -150,12 +150,11 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    /* position: relative; */
+    position: relative;
     width: 60px;
-    /* left: 850px; */
-    /* top: 70px; */
+    left: 55%;
+    top: 0vh;
     transform: rotate(-90deg);
-
     height: 60px;
     border-radius: 60px;
     
@@ -173,8 +172,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    /* position: relative; */
-    /* left: 650px; */
+    position: relative;
+    left: 42%;
+    top: 71.5vh;
     transform: rotate(90deg);
     width: 60px;
     height: 60px;
