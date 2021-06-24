@@ -134,6 +134,9 @@
 .text{
     display: flex;
     margin-left: 50px;
+    font-weight: 300;
+    text-transform: none;
+    font-size: 35px;
 
 }
 @keyframes spawn {
