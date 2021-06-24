@@ -1,5 +1,5 @@
 import axios from "axios";
-import {firestone} from '../../'
+
 
 import {
   REGISTER_USER_ERROR,
@@ -42,8 +42,10 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
+    alert('Registro Exitoso')
     window.location.href= '/home'
   } catch (error) {
+    alert('Credenciales Incorrectas')
     dispatch({
       type: REGISTER_USER_ERROR,
       payload: error,
@@ -73,6 +75,7 @@ export const login = ({email, password}) => async (dispatch) => {
     window.location.href= '/home'
     //localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
+    alert('Credenciales Incorrectas')
     dispatch({
       type: USER_LOGIN_ERROR,
       payload: error,

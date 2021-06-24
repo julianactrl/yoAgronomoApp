@@ -16,7 +16,7 @@ export default function MercadoPago(props) {
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post(`${REACT_APP_API}/premium/checkout/`, {
+    axios.post(`${REACT_APP_API_HEROKU}/premium/checkout/`, {
         "totalPrice": 999,
         "title": "YoAgronomo Premium"
     } ).then((order) => {

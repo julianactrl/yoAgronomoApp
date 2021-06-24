@@ -8,13 +8,15 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
-import { borrarLote, getManejo, crearLoteManejo, deleteManejo } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot } from '../../../redux/actions/loteActions';
 
 
 export default function LoteDetails({lote}){
 
     const [voltear, setVoletar] = useState(false);
-    const [botonera, setBotonera] = useState(false)
+    const [botonera, setBotonera] = useState(false);
+    const [auxState, setAuxState] = useState(false);
+    const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
     const [post, setPost] = useState('');
     const [cargarDatos, setCargarDatos] = useState({
@@ -74,9 +76,16 @@ export default function LoteDetails({lote}){
           }
     }
 
+
     function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
+    }
+    function handleEdit(){
+        const updated = lote
+        updated.name = edit
+        updateLot(updated, lote.id)
+        setAuxState(false)
     }
 
     ///////////////////////////ARROWS SLIDER//////////////////////////////////////////////////
@@ -135,10 +144,12 @@ export default function LoteDetails({lote}){
                     <div className={styles.loteDetails}>
                         <div className={styles.slider}>
                             <div className={styles.contenedorHeader}>
-                                <h1 className={styles.name}>{lote.name}</h1>
+                                <input onChange={(e)=>{e.target.value.length<=15&&setEdit(e.target.value)}} className={auxState?styles.inputName:styles.none} type="text" value={edit}/>
+                                <button className={auxState?styles.inputNameBtn:styles.none} type='submit' onClick={handleEdit}>Editar</button>
+                                <h1 className={!auxState?styles.name:styles.none}>{edit}</h1> 
                                 <div className={styles.contLogoDelEdit}>
                                     <img onClick={deleteLote} src={logoDelete} alt="" className={styles.deleteLogo}/>
-                                    <img src={logoEdit} alt="" className={styles.editLogo} />
+                                    <img onClick={()=>{setAuxState(true)}}src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
                             <Slider {...settings} >
