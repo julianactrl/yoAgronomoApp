@@ -21,6 +21,7 @@ export const POST_EMPRESA = 'POST_EMPRESA';
 export const DELETE_EMPRESA = 'DELETE_EMPRESA'
 
 export const GET_WEATHER = "GET_WEATHER"
+export const CLEAR_WEATHER = "CLEAR_WEATHER"
 
 export const GET_NEWS = 'GET_NEWS';
 

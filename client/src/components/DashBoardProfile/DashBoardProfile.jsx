@@ -6,24 +6,28 @@ import jwt_decode from "jwt-decode";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
-const { REACT_APP_API, REACT_APP_API_HEROKU } = process.env;
+const { REACT_APP_API } = process.env;
 
 export default function DashBoardProfile() {
-  const [active, setActive] = useState(false);
-  const token = useSelector((state) => state.userReducer.userInfo.token);
-
-  if (token) {
-    var decoded = jwt_decode(token);
-    var usuario = decoded.user;
-  }
-
-  const dispatch = useDispatch();
   let history = useHistory();
-
+  const dispatch = useDispatch();
+  const [active, setActive] = useState(false);
+  const token = useSelector((state) => state.userReducer?.userInfo?.token);
+  
   const handleLogout = () => {
     dispatch(logout());
     history.push("/index");
   };
+
+  if (token) {
+    var decoded = jwt_decode(token);
+    var usuario = decoded.user;
+  } else {
+    handleLogout()
+  }
+
+
+ 
 
   const user = useSelector((state) => state.userReducer.userInfo);
 

@@ -1,6 +1,6 @@
 import {GET_ALL_LOTES, CREATE_LOTE} from '../constants/index'
 import axios from 'axios'
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const { REACT_APP_API} = process.env
 
 export function getAllLotes (empresaId) {
     return function(dispatch) {
@@ -37,6 +37,7 @@ export function crearLoteManejo (data, id) {
 
 }
 export function getManejo (id) {
+    console.log('Action Get MAnejoooooooo');
     return function(dispatch) {
         return fetch(`${REACT_APP_API}/lote/manejos/${id}`)
             .then(data => data.json())

@@ -6,7 +6,8 @@ import {
   USER_LOGOUT,
   USER_LOGOUT_ERROR,
   GET_USER,
-  LOADING_USER
+  LOADING_USER,
+  UPDATE_USER
 } from "./../constants";
 
 const initialState = {
@@ -79,6 +80,15 @@ const userReducer = (state = initialState, action) => {
         error: true
       }
     }
+    case UPDATE_USER: {
+      return {
+        ...state,
+        user: action.payload,
+        userInfo: action.payload,
+
+      };
+    }
+
     default:
       return state;
   }

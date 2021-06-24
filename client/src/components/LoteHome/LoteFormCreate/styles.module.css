@@ -1,30 +1,22 @@
+/* import styled from 'styled-components'; */
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; */
+
 .cont{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* border: 3px solid saddlebrown; */
+    /* background-color: saddlebrown; */
+    /* width: 100%; */
 }
 .contCard{
+    display: flex;
     width: 150vh;
     height: 70vh;
     -webkit-perspective: 4000;
 }
-.card{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: 1s;
-}
 
-.cardAct{
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: 1s;
-    transform: rotateY(180deg);
-}
 .formCont{
     color: white;
     width: 100%;
@@ -33,7 +25,8 @@
     position: fixed;
     bottom: 5vh;
     display: flex;
-    /* flex-direction: column; */
+    padding-top: 0.5rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 10px black;
@@ -42,48 +35,44 @@
     background-color: rgba(0, 0, 0, 0.486);
 
 }
-.form{
-    display: flex;
-    position: relative;
-    /* bottom: 3%; */
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100%;
-    align-items: center;
-    /* border: 2px solid rgb(31, 184, 31); */
-    /* background-color: rgb(206, 71, 206); */
-}
+
 .fomulario{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 60%;
-    /* border: 2px solid rgb(146, 185, 37); */
+    height: 90%;
+    /* border: 3px solid rgb(146, 185, 37); */
 }
-.fomularioTitle{
-    font-size: 50px;
-    position: relative;
-    letter-spacing: 3px;
-    /* bottom: 10%; */
-    /* background-color: rgba(138, 54, 96, 0.651); */
-}
-/* .btnCont{
-    border: 2px solid yellow;
-    width: 80%;
-} */
+
 .fomularioInputs{
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* left: 1.5rem; */
+    bottom: 4rem;
+    display: grid;
+    padding-left: 10px;
     align-items: center;
+    padding-bottom: 2rem;
+    gap: 15px;
+    /* text-align: center; */
+    width: 67%;
+    height: 46%;
+    /* grid-template-columns: max-content; */
+    grid-template-columns: 1fr 1fr;
+    /* justify-content: center; */
+    /* align-items: center; */
     /* background-color: rgba(180, 118, 107, 0.164); */
+}
+.labelInput{
+    /* background-color: sandybrown; */
+    height: 80%;
+    font-size: 25px;
 }
 .btnDetails{
     border:none;
     position: relative;
+    top: 0.5rem;
     text-decoration: none;
     background: rgb(128, 128, 128);
     height: 10%;
@@ -130,8 +119,8 @@
 
 .cross{
     position: relative;
-    left: 1540%;
-    bottom: 30vh;
+    left: 30%;
+    /* bottom: 30vh; */
     border: none;
     background: none;
     background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
@@ -149,6 +138,19 @@
     cursor: pointer;
 
 }
+.alertaP{
+    font-size: 20px;
+    color: #bb2929;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.alertaError{
+    font-size: 20px;
+    color: #bb2929;
+    opacity: 1;
+    transition: all 0.3s;
+}
+
 /* inputss */
 .inputs::placeholder{
     color: rgb(0, 0, 0);
@@ -162,29 +164,82 @@
     border-radius: 5px;
     margin: 10px 0;
 } */
-.alerta{
-    /* background-color: rgba(101, 37, 160, 0.322); */
-    display: flex;
-    position: absolute;
-    width: 35vh;
-    height: 39vh;
-    top: 5.2vh;
-    left: 96%;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
-    font-size: 135%;
 
-    /* margi */
-    
+
+.label{
+    display: block;
+    font-weight: 900;
+    /* color: rgb(255, 0, 0); */
 }
-.alertaParrafo{
-    /* position: fixed; */
-    /* left: 100%; */
-    background-color: rgba(39, 37, 37, 0.116);
+
+.contIcono{
+    position: absolute;
+    /* right: 10px; */
+    /* bottom: 14px; */
+    top: 1.5rem;
+    color: #27963c;
+    left: 26.5rem;
+    font-size: 25px;
+    z-index: 100;
+    /* opacity: 0; */
+}
+.contIconoError{
+    position: absolute;
+    /* right: 10px; */
+    /* bottom: 14px; */
+    top: 1.5rem;
     color: rgb(255, 0, 0);
+    left: 26.5rem;
+    font-size: 25px;
+    z-index: 100;
 }
-.alertaParrafoF{
-    /* display: none; */
-    opacity: 0;
+
+/* Contenedor del input */
+.contenedorInputs{
+    position: relative;
+    z-index: 90;
+}
+.inputs{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: .3s ease all;
+    border: 2px solid transparent;
+    padding:  10px 40px 10px 10px;
+    box-shadow: 0 0 5px transparent;
+    /* pad: 0 40% 0px 0px; */
+}
+.inputsError{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: .3s ease all;
+    /* border: 2px solid rgb(255, 0, 0); */
+    box-shadow: 0 0 7px rgb(255, 0, 0);
+    padding:  10px 40px 10px 10px
+}
+
+.inputs:focus {
+    border: 2px solid #00ff007e;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+/* Header titulo y boton cerrar */
+.contenedorCross{ 
+    /* background-color: rgba(139, 69, 19, 0.205); */
+    /* font-size: 10px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px 20px 0 0;
+
+}
+.fomularioTitle{
+    font-size: 3rem;
+    position: relative;
+    letter-spacing: 3px;
+    top: 20%;
+    left: 2%;
+    /* background-color: rgba(138, 54, 96, 0.651); */
 }
