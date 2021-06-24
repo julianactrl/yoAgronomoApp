@@ -29,24 +29,24 @@ const getEmpresaByUserId = (req, res) => {
 };
 const updateUser = async(req,res) => {
   const { id } = req.params;
-  console.log(id)
+  console.log("SOY EL ID DE UPDATE",id)
   const { fullName, email } = req.body;  
  
-  // let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+  //let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
 
-  let userFind = await User.findByPk(id)
+  let userFind = await User.findAll({where: {id:id}})
   console.log(userFind)
    
   if (req.file) {
     var profile = req.file.filename;
-  }
+    console.log(profile)
+  } 
 
   if (userFind.length > 0) {
       userFind.map(async user => {
           await user.update({
               fullName,
               email,
-              password,
               profile_pic: profile
           });
       });

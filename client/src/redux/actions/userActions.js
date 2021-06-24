@@ -57,11 +57,11 @@ export const login =
       dispatch({
         type: USER_LOGIN_REQUEST,
       });
-    
-      const data = await axios.post(
-        `${REACT_APP_API}/auth/api/signin`,
-        { email, password }
-      );
+
+      const data = await axios.post(`${REACT_APP_API}/auth/api/signin`, {
+        email,
+        password,
+      });
       console.log(data.request.status);
       switch (data.request.status) {
         case 200:
@@ -101,8 +101,6 @@ export const login =
 
 export const logout = () => {
   localStorage.removeItem("persist:root");
-
-  //document.location.href = "/index";
   return {
     type: USER_LOGOUT,
   };
@@ -120,23 +118,22 @@ export const getUser = () => {
         dispatch({
           type: GET_USER,
           payload: userInfo.data,
-        })
+        });
       });
   };
 };
 
-export const updateUser = (payload ) => async (dispatch) => {
-  console.log(payload)
+export const updateUser = (payload) => async (dispatch) => {
   return axios
-    .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.body)
+    .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.fd)
     .then((updated) => {
-      console.log("respuesta de updated action ", updated)
       dispatch({
         type: UPDATE_USER,
-        payload: updated.body,
-      });
+        payload: updated.fd,
+      })
+      window.location.reload()
     })
-    .catch((e) => console.log("Soy el error en update user", e))
+    .catch((e) =>
+      console.log("Soy el error en update user", e.response?.data?.status)
+    );
 };
-
-

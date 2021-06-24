@@ -32,7 +32,6 @@ export function getEmpresa(id) {
 
 
 export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
-
     return (dispatch) => {
         dispatch({ type: POST_EMPRESA });
         axios({
@@ -45,6 +44,7 @@ export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
                 imagen,
                 userId
             },
+            headers: { 'Content-Type': 'multipart/form-data' },
         }).catch(e => dispatch(e))
     }
 }

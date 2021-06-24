@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getUser,updateEmpresa,updateUser,logout } from "../../redux/actions/userActions";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  updateUser,
+  logout,
+} from "../../redux/actions/userActions";
 import styles from "./styles.module.css";
 import axios from "axios";
 import Header from "../Header/Header";
@@ -10,85 +13,80 @@ import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from "sweetalert";
 
-const { REACT_APP_API, REACT_APP_API_HEROKU } = process.env;
+const { REACT_APP_API } = process.env;
 
 function UpdateProfile() {
-  const currentUser = useSelector((state) => state.userReducer.userInfo.user);
   const dispatch = useDispatch();
-
+  var history = useHistory();
   const { id } = useParams();
-  console.log(id)
 
   const [updateinfo, setUpdateInfo] = useState({
-    id:id,
+    id: id,
     fullName: "",
     email: "",
-    password: "",
+    //  password: "",
     profile_pic: "",
   });
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
     setImgUrl(URL.createObjectURL(event.target.files[0]));
-    console.log("---esto es update form----", event.target.files[0]);
   };
-  
+
   function handleInputChange(e) {
-    //e.persist();
     setUpdateInfo({
       ...updateinfo,
       [e.target.name]: e.target.value,
     });
-    console.log("---esto es update form----", e.target.value);
   }
 
-  
   function handleSubmit(e) {
-    
-
-    e.preventDefault();
-    const fd = new FormData();
-    const extension = selectedFile.name.split(".");
-    fd.append(
-      "profile_pic",
-      selectedFile,
-      updateinfo.name + "." + extension[extension.length - 1]
-    );
+   // e.preventDefault();
+    if (selectedFile === null)
+      return swal({
+        title: "Image Field Cannot Be Empty",
+        icon: "warning",
+        button: true,
+        dangerMode: true,
+      });
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
       },
     };
+    const fd = new FormData();
+    debugger;
+    const extension = selectedFile.name.split(".");
 
-
-    const user = {
-      fullName: updateinfo.fullName,
-      email:updateinfo.email,
-      password: updateinfo.password,
-      id: updateinfo.id,
-      profile_pic: selectedFile.name
-    }
-     
-
-
-    dispatch(updateUser(user, config))
+    fd.append("fullName", updateinfo.fullName);
+    fd.append("email", updateinfo.email);
+    fd.append(
+      "profile_pic",
+      selectedFile,
+      updateinfo.fullName + "." + extension[extension.length - 1]
+    );
+    //fd.get("password", updateinfo.password)
+    const infoSendDb = {
+      id: id,
+      fd,
+    };
+    dispatch(updateUser(infoSendDb, config));
     setUpdateInfo(updateinfo);
     swal({
       title: "Info Edited",
       icon: "success",
       button: true,
-    }).then(() => {
-      // history.push("/home");
-
-      //window.location.reload();
-    });
-
+    })
+      .then(() => {
+        dispatch(logout(id));
+        history.reload();
+      })
+      .catch((e) => console.log(e));
     // alert("¿Seguro desea modificar estos datos?");
-    // dispatch(updateUser(input));
     //alert("Datos modificados correctamente, ingrese sesión nuevamente");
-    //dispatch(logout());
   }
 
   function deleteUsuario(id) {
@@ -97,7 +95,7 @@ function UpdateProfile() {
       .delete(`${REACT_APP_API}/user/delete/${id}`)
       .then((response) => console.log(response.data))
       .catch((error) => console.log(error));
-    swal("La cuenta del usuario ha sido eliminada", { icon: "success" });
+      swal("La cuenta del usuario ha sido eliminada", { icon: "success" });
   }
 
   return (
@@ -113,7 +111,6 @@ function UpdateProfile() {
               type="text"
               onChange={handleInputChange}
               value={updateinfo.fullName}
-              placeholder={currentUser.fullName}
               name="fullName"
             />
           </div>
@@ -125,7 +122,6 @@ function UpdateProfile() {
               type="text"
               onChange={handleInputChange}
               value={updateinfo.email}
-              placeholder={currentUser.email}
               name="email"
             />
           </div>
@@ -137,7 +133,6 @@ function UpdateProfile() {
               type="password"
               onChange={handleInputChange}
               value={updateinfo.password}
-              // placeholder={currentUser.password}
               name="password"
             />
           </div>
@@ -147,21 +142,21 @@ function UpdateProfile() {
             <input
               className={styles.inputCrear}
               type="file"
-              // name="profile_pic"
+              name="profile_pic"
+              accept="image/png, image/jpeg"
               onChange={handleFileInputChange}
-              //value={updateinfo["profile_pic"]}
               required
             />
           </div>
 
           <img
-                        src={imgUrl}
-                        alt={imgUrl}
-                        style={{ height: "200px", width: "250px" }}
-                      />
+            src={imgUrl}
+            alt={imgUrl}
+            style={{ height: "200px", width: "250px" }}
+          />
 
           <br></br>
-          <button 
+          <button
             className={styles.buttonCrearEmpresa}
             type="submit"
             value="Crear empresa"
