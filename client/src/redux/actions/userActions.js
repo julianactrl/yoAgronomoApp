@@ -125,7 +125,8 @@ export const getUser = () => {
   };
 };
 
-export const updateUser = (payload ) =>  (dispatch) => {
+export const updateUser = (payload ) => async (dispatch) => {
+  console.log(payload)
   return axios
     .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.body)
     .then((updated) => {
@@ -137,3 +138,5 @@ export const updateUser = (payload ) =>  (dispatch) => {
     })
     .catch((e) => console.log("Soy el error en update user", e))
 };
+
+

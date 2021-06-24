@@ -5,6 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const server = express();
+
 require("./db.js");
 
 //=====passport ====
