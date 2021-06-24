@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 
+
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL, DATABASE_LOCAL } = process.env;
 dbRDS = false;
 
@@ -17,6 +18,7 @@ const sequelize = new Sequelize(`${DATABASE_LOCAL}`, {
   //     rejectUnauthorized: false, 
   //   },
   // },
+
 });
 const basename = path.basename(__filename);
 

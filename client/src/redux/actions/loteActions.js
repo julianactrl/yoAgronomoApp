@@ -37,6 +37,7 @@ export function crearLoteManejo (data, id) {
 
 }
 export function getManejo (id) {
+    console.log('Action Get MAnejoooooooo');
     return function(dispatch) {
         return fetch(`${REACT_APP_API}/lote/manejos/${id}`)
             .then(data => data.json())
@@ -66,6 +67,13 @@ export function updateLot (data, id) {
 export function borrarLote (id) {
 
     return axios.delete(` ${REACT_APP_API}/lote/delete/${id}`)
+    .then(response => response)
+    .catch(e => console.log(e))
+
+}
+export function updateManejoLot (data, id) {
+
+    return axios.put(`http://localhost:3001/lote/updateManejo/${id}`, data)
     .then(response => response)
     .catch(e => console.log(e))
 

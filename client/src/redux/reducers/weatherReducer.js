@@ -1,4 +1,4 @@
-import { GET_WEATHER } from './../constants';
+import { GET_WEATHER,CLEAR_WEATHER } from './../constants';
 const filtercity = (arr, name) => {
     const filtrado = arr.filter(c => c.name === name)
 }
@@ -12,6 +12,11 @@ const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 weather: state.weather.concat(action.payload)
+            }
+        case CLEAR_WEATHER:
+            return {
+                ...state,
+                weather: []
             }
         default:
             return state;

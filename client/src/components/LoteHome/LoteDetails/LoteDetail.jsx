@@ -8,7 +8,7 @@ import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { getWeather } from '../../../redux/actions/weatherActions';
-import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 
 
 export default function LoteDetails({lote}){
@@ -19,38 +19,24 @@ export default function LoteDetails({lote}){
     const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
     const [post, setPost] = useState('');
-    const [cargarDatos, setCargarDatos] = useState({
-        observaciones: null,
-        recomendaciones: null,
-        image: null,
-    })
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
+    
+    const [editManejo, setEditManejo] = useState({
+        observaciones: null,
+        recomendaciones: null,
+    });
+    const [editManejoAux, setEditManejoAux] = useState(false)
     
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getWeather(lote.ubicacion))
     },[]) 
-    useEffect(()=>{
-        
-    },[manejoLote])
 
-    useEffect(async () => {
-        if(cargarDatos.observaciones !== null){
-           await crearLoteManejo(cargarDatos, lote.id)
-        }
-        setPost(Math.random())
-        
-    },[cargarDatos])
+    const ovflow = useRef()
 
-    useEffect(() => {
-         setPost('') 
-    },[post])
-    useEffect(async () => {
-        await dispatch(getManejo(lote.id))  
-    },[post])
 
     function btnObsTar(){
         if(botonera){
@@ -62,31 +48,6 @@ export default function LoteDetails({lote}){
     const observacionData = useRef(null);
     const recomendacionData = useRef(null);
     const imageData = useRef(null);
-
-    function postearManejo(){
-        setCargarDatos({
-            observaciones: observacionData.current.value + "",
-            recomendaciones: recomendacionData.current.value + "",
-            image: imageData.current.value + "",
-        })
-        if(voltear){
-            setVoletar(false)  
-          }else{
-              setVoletar(true)  
-          }
-    }
-
-
-    function deleteLote(){
-        borrarLote(lote.id);
-        dispatch({type:'SET_VERIFY',payload:''})
-    }
-    function handleEdit(){
-        const updated = lote
-        updated.name = edit
-        updateLot(updated, lote.id)
-        setAuxState(false)
-    }
 
     ///////////////////////////ARROWS SLIDER//////////////////////////////////////////////////
     function SampleNextArrow(props) {
@@ -120,7 +81,48 @@ export default function LoteDetails({lote}){
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };
-    ///////////////////////////////////////////////////////////////////////////////////////  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    async function postearManejo(){
+        const data = {
+            observaciones: observacionData.current.value + "",
+            recomendaciones: recomendacionData.current.value + "",
+            image: imageData.current.value + "",
+        }
+        console.log('CREANDO');
+        await crearLoteManejo(data, lote.id) 
+        console.log('CREADO');
+        await dispatch(getManejo(lote.id))
+        if(voltear){
+            setVoletar(false)  
+          }else{
+              setVoletar(true)  
+          }
+    }
+
+
+    function deleteLote(){
+        borrarLote(lote.id);
+        dispatch({type:'SET_VERIFY',payload:''})
+        
+    }
+    function handleEdit(){
+        const updated = lote
+        updated.name = edit
+        updateLot(updated, lote.id)
+        setAuxState(false)
+    }
+    async function handleEditManejo(id){
+        const updated = manejoLote.find(m=> m.id == id);
+        console.log('OBEJO MANEJO AAAAAAAAA',updated)
+
+        updated.observaciones = editManejo.observaciones
+        updated.recomendaciones = editManejo.recomendaciones
+        console.log('ASADAS EDI MANEJOSA Sas da ', editManejo);
+        await updateManejoLot(updated, id)
+        setEditManejoAux(false)
+        dispatch(getManejo(lote.id))
+    }
+ 
     function card3d(){
         if(voltear){
           setVoletar(false)  
@@ -131,7 +133,7 @@ export default function LoteDetails({lote}){
     }
     async function borrarManejo(id){
         await deleteManejo(id);
-        setPost(Math.random());
+        await dispatch(getManejo(lote.id))
         alert('Observación eliminada');
     }
     function cerrar(){
@@ -155,7 +157,7 @@ export default function LoteDetails({lote}){
                             <Slider {...settings} >
                                 <img src={lote.imagen} className={styles.img}/>
                                 <img src={'https://www.semana.com/resizer/IEcOf8TJx4XxRszD1F26YO7lixw=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4KEOUCGM7FDRHGJVNJJWTAF464.jpeg'} className={styles.img}/>
-                            </Slider> 
+                            </Slider>
                         </div>
                         
                         <div className={styles.details}>
@@ -191,24 +193,35 @@ export default function LoteDetails({lote}){
                                 }                             
                             </div>
                             <div className={styles.obsRec}>
-                                <div onClick={()=>{btnObsTar(true)}} className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1 className={botonera?styles.none:null}>MANEJO</h1>
-                                    <div className={botonera?styles.contTitleManejo:styles.none}>
+                                <div className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
+                                    <h1 onClick={()=>{btnObsTar(true)}}className={botonera?styles.none:null}>MANEJO</h1>
+                                    <div onClick={()=>{btnObsTar(true)}}className={botonera?styles.contTitleManejo:styles.none}>
                                         <h4 className={styles.manejoTitle}>Observaciones</h4>
                                         <h4 className={styles.manejoTitle}>Recomendaciones</h4>
                                     </div>
-                                    <div className={botonera?styles.contOverflow:styles.none}>
-                                            <div className={styles.obs}>
+                                    <div ref={ovflow} className={botonera?styles.contOverflow:styles.none}>
+                                            <div className={styles.cardManejo}>
                                                 <div className={styles.obsData}>
                                                         {
                                                             manejoLote.map((data) =>{
                                                                 const {id} = data
                                                                 return(
                                                                     <div className={styles.segmentManejo}>
-                                                                        <button className={styles.deleteManejobtn} onClick={()=>{borrarManejo(id)}}>x</button>
+                                                                        <div className={styles.contEditDelManejo}>
+                                                                            <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
+                                                                            <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
+                                                                        </div> 
                                                                         <div className={styles.dataManejo}>
-                                                                           <p>{data.observaciones}</p> 
-                                                                           <img src={data.image} alt="" />
+                                                                            <div className={styles.obs}>
+                                                                                <p className={editManejoAux?styles.none:null}>{data.observaciones}</p>
+                                                                                <textarea type="text" className={editManejoAux?styles.editManejo:styles.none} onChange={(e)=>{setEditManejo({...editManejo, observaciones: e.target.value})}}/>
+                                                                            </div>
+                                                                            <button type='submit' onClick={()=>{handleEditManejo(id)}} className={editManejoAux?styles.editManejoBtn:styles.none}>EDITAR</button>
+                                                                           <div className={styles.rec}>
+                                                                              <p className={editManejoAux?styles.none:null}>{data.recomendaciones}</p>
+                                                                              <textarea type="text" className={editManejoAux?styles.editManejo:styles.none} onChange={(e)=>{setEditManejo({...editManejo,recomendaciones: e.target.value})}}/> 
+                                                                           </div>
+                                                                           
                                                                         </div> 
                                                                     </div>
                                                                     
@@ -216,25 +229,10 @@ export default function LoteDetails({lote}){
                                                             })
                                                         } 
                                                 </div>                                             
-                                            </div>  
-                                            <div className={styles.recom}>
-                                                <div className={styles.recData}>
-                                                    {
-                                                        manejoLote.map(data=>{
-                                                            return(
-                                                                <div className={styles.segmentManejo}>
-                                                                    <div className={styles.deleteManejobtnHidden}></div>
-                                                                    <div className={styles.dataManejo}>
-                                                                           <p>{data.recomendaciones}</p> 
-                                                                    </div>  
-                                                                </div>
-                                                            )
-                                                        })
-                                                    }
-                                                </div>
                                             </div>
+                                    
+                                        </div>
                                     </div>
-                                </div>
                             </div>
                             <button onClick={card3d} className={styles.btnDetails}>Añadir Observación</button>
                         </div>
