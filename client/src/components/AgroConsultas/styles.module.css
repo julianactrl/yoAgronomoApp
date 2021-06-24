@@ -129,6 +129,7 @@
     transition: .3 ease all;
     font-size: 13px;
     margin-bottom: 10px;
+    color: black;
 }
 
 .categoria:hover {

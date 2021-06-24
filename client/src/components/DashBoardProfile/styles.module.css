@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 .perfilDeploy{
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     padding-left: 30px;
     padding-top: 30px;
-    background-color: #afafaf15;
+    background-color: #afafaf38;
     border-radius: 0px 0px 0px 10px;
     height: 280px;
     width: 380px;
     right: 0px;
     top: 0px;
-    position: absolute;
     animation-duration: 0.2s;
     animation-name: slidein;
 }

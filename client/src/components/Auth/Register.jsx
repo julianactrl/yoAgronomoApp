@@ -9,8 +9,8 @@ export function validate(input) {
   let errors = {};
   if (!input.email) {
     errors.email = 'Se requiere un Email';
-  } else if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(input.mail)) {
-    errors.email = 'Mail inválido';
+  } else if (!/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(input.email)) {
+    errors.email = 'Email inválido';
   }
   if (!input.password) {
       errors.password = 'Se requiere una contraseña';
@@ -33,6 +33,8 @@ const Register = () => {
         //passwordRepeat:"",
         fullName:""
     })
+    
+    const [loading, setLoading] = useState(false)
 
     const [errors, setErrors] = useState({});
     const handleChange = function(e) {
@@ -52,7 +54,7 @@ const Register = () => {
          e.preventDefault();
          console.log(userRegister)
          dispatch(register(userRegister))
-         alert('Registro exitoso!')
+         setLoading(true)
          setUserRegister({
           email:"",
           password: "",
@@ -67,9 +69,9 @@ const Register = () => {
               <div className={styles.box}>
       
                 <div className={styles.inputGroup}>
-                  <label  className={styles.labels} htmlFor="fullName">Nombre y Apellido</label>
+                  <label  className={styles.labels} htmlFor="fullName" ></label>
                   <input
-                 
+                    placeholder='Nombre y Apellido'
                     onChange={handleChange}
                     id= "fullName"
                     type="text"
@@ -79,8 +81,9 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label  className={styles.labels} htmlFor="email">Email</label>
+                  <label  className={styles.labels} htmlFor="email"></label>
                   <input 
+                  placeholder='yoagronomo@gmail.com'
                   onChange={handleChange}
                   type="text" 
                   id="email"
@@ -93,8 +96,9 @@ const Register = () => {
                 </div>
       
                 <div className={styles.inputGroup}>
-                  <label  className={styles.labels} htmlFor="password">Contraseña</label>
+                  <label  className={styles.labels} htmlFor="password"></label>
                   <input
+                  placeholder='Contraseña'
                     onChange={handleChange}
                     type="password"
                     id="password"
@@ -111,11 +115,20 @@ const Register = () => {
                     type="password"
                     name="password"
                     className={styles.loginInput}/>
-                </div> */} 
+                </div> */}
+                 { userRegister.password && !(!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(userRegister.password)) ?
                 <button
                   type="submit"
-                   className={styles.registerBtn}
-                  >Registrarme</button>
+                   className={ styles.registerBtn }
+                  >Registrarme</button> : <button type='button' className={styles.disabled}>
+                    Registrarme
+                  </button>
+                 }
+                  {
+                loading? <div>
+                  <img className={styles.loader} src='http://www.hadecoration.gift/public/images/ajax-loader-green.gif' />
+                  </div> : <div></div>
+              } 
               </div>
               </form>
             </div>

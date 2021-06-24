@@ -109,6 +109,7 @@
 .loginBtn{
     width: 230px !important;
     font-size: 12px !important;
+    font-weight: 300 !important;
     margin: 5vh 0;
     color: rgb(0, 0, 0) ;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -417,7 +418,53 @@
 .login:active{
     background-color: #b1c49b;
 }
+.disabled{
+    width: 230px !important;
+    margin: 3vh 0 0 0;
+    font-size: 12px !important;
+    color: rgb(0, 0, 0) ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #b1c49b !important;
+    padding: 10px !important;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: not-allowed;
+}
 
+.disabled:hover{
+    cursor: not-allowed;
+}
+
+.disabledLogin{
+    width: 230px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    margin: 3vh 0 1vh 0vh;
+    color: rgb(0, 0, 0) ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #b1c49b !important;
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.disabledLogin:hover{
+    cursor: not-allowed;
+}
+
+.loader{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: auto 0;
+}
 
 .registerBtn:hover {
     cursor: pointer;
