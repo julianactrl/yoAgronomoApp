@@ -29,15 +29,13 @@ const getEmpresaByUserId = (req, res) => {
 };
 const updateUser = async(req,res) => {
   const { id } = req.params;
+  console.log(id)
   const { fullName, email } = req.body;  
  
-  let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+  // let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
 
-  let userFind = await User.findAll({
-      where: {
-          id
-      }
-  })
+  let userFind = await User.findByPk(id)
+  console.log(userFind)
    
   if (req.file) {
     var profile = req.file.filename;
@@ -63,7 +61,7 @@ const getImageProfile = (req, res) => {
   let getImage;
   const { name } = req.params;
   let pathImage = path.join(__dirname, "../");
-  console.log("soy el path ",pathImage)
+  // console.log("soy el path ",pathImage)
   try {
     getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
   } catch (error) {

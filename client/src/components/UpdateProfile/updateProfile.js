@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getUser,
-  updateEmpresa,
-  updateUser,
-  logout,
-} from "../../redux/actions/userActions";
+import { getUser,updateEmpresa,updateUser,logout } from "../../redux/actions/userActions";
 import styles from "./styles.module.css";
 import axios from "axios";
 import Header from "../Header/Header";
@@ -14,18 +9,18 @@ import { Link } from "react-router-dom";
 import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from "sweetalert";
-import { userInfo } from "os";
 
 const { REACT_APP_API, REACT_APP_API_HEROKU } = process.env;
 
-function UpdateProfile({ id }) {
+function UpdateProfile() {
   const currentUser = useSelector((state) => state.userReducer.userInfo.user);
   const dispatch = useDispatch();
 
-  var idUser = useParams(id);
+  const { id } = useParams();
+  console.log(id)
 
   const [updateinfo, setUpdateInfo] = useState({
-    id: idUser,
+    id:id,
     fullName: "",
     email: "",
     password: "",
@@ -39,9 +34,7 @@ function UpdateProfile({ id }) {
     setImgUrl(URL.createObjectURL(event.target.files[0]));
     console.log("---esto es update form----", event.target.files[0]);
   };
-
-  const history = useHistory();
-
+  
   function handleInputChange(e) {
     //e.persist();
     setUpdateInfo({
@@ -51,7 +44,10 @@ function UpdateProfile({ id }) {
     console.log("---esto es update form----", e.target.value);
   }
 
+  
   function handleSubmit(e) {
+    
+
     e.preventDefault();
     const fd = new FormData();
     const extension = selectedFile.name.split(".");
@@ -65,18 +61,26 @@ function UpdateProfile({ id }) {
         "Content-Type": "multipart/form-data",
       },
     };
-    fd.append("fullName", updateinfo.fullName);
-    fd.append("email", updateinfo.email);
-    fd.append("password", updateinfo.password);
 
-    dispatch(updateUser(fd, config));
+
+    const user = {
+      fullName: updateinfo.fullName,
+      email:updateinfo.email,
+      password: updateinfo.password,
+      id: updateinfo.id,
+      profile_pic: selectedFile.name
+    }
+     
+
+
+    dispatch(updateUser(user, config))
     setUpdateInfo(updateinfo);
     swal({
       title: "Info Edited",
       icon: "success",
       button: true,
     }).then(() => {
-      history.push("/home");
+      // history.push("/home");
 
       //window.location.reload();
     });
@@ -108,7 +112,7 @@ function UpdateProfile({ id }) {
               className={styles.inputCrear}
               type="text"
               onChange={handleInputChange}
-              value={updateinfo["fullName"]}
+              value={updateinfo.fullName}
               placeholder={currentUser.fullName}
               name="fullName"
             />
@@ -120,7 +124,7 @@ function UpdateProfile({ id }) {
               className={styles.inputCrear}
               type="text"
               onChange={handleInputChange}
-              value={updateinfo["email"]}
+              value={updateinfo.email}
               placeholder={currentUser.email}
               name="email"
             />
@@ -132,7 +136,7 @@ function UpdateProfile({ id }) {
               className={styles.inputCrear}
               type="password"
               onChange={handleInputChange}
-              value={updateinfo["password"]}
+              value={updateinfo.password}
               // placeholder={currentUser.password}
               name="password"
             />
@@ -143,13 +147,21 @@ function UpdateProfile({ id }) {
             <input
               className={styles.inputCrear}
               type="file"
+              // name="profile_pic"
               onChange={handleFileInputChange}
               //value={updateinfo["profile_pic"]}
               required
             />
           </div>
+
+          <img
+                        src={imgUrl}
+                        alt={imgUrl}
+                        style={{ height: "200px", width: "250px" }}
+                      />
+
           <br></br>
-          <button
+          <button 
             className={styles.buttonCrearEmpresa}
             type="submit"
             value="Crear empresa"

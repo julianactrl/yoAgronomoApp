@@ -5,6 +5,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const server = express();
+
 require("./db.js");
 
 //=====passport ====
@@ -25,7 +26,7 @@ server.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
   next();
 });
 
