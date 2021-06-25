@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import emailjs from 'emailjs-com'
+import swal from 'sweetalert'
+import{ init } from 'emailjs-com';
+
 
 const initialState = {
   name: '',
@@ -9,6 +12,8 @@ const initialState = {
 export const Contact = (props) => {
   const [{ name, email, message }, setState] = useState(initialState)
 
+  init("user_LcjcG2lGvKEI7FStHBBEy");  
+
   const handleChange = (e) => {
     const { name, value } = e.target
     setState((prevState) => ({ ...prevState, [name]: value }))
@@ -17,10 +22,10 @@ export const Contact = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(name, email, message)
+    swal('Gracias por contactarnos. Responderemos a la brevedad',{icon:"success"})
     emailjs
       .sendForm(
-        'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID'
+        'service_azuc4yl', 'template_b2fa3d8', e.target, 'user_LcjcG2lGvKEI7FStHBBEy'
       )
       .then(
         (result) => {
@@ -88,7 +93,7 @@ export const Contact = (props) => {
                   <p className='help-block text-danger'></p>
                 </div>
                 <div id='success'></div>
-                <button type='submit' className='btn btn-custom btn-lg'>
+                <button type='submit'  className='btn btn-custom btn-lg'>
                   Enviar Mensaje
                 </button>
               </form>
