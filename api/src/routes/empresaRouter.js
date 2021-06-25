@@ -5,6 +5,7 @@ const upload = require('./../libs/storage');
 
 const {
   createEmpresa,
+  
   deleteEmpresa,
   getAllEmpresas,
   getEmpresaById,
