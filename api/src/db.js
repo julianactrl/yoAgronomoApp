@@ -5,18 +5,18 @@ const path = require("path");
 
 
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL, DATABASE_URL_LOCAL } = process.env;
-// dbRDS = false;
+dbRDS = false;
 
-const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}`, { //?sslmode=require
+const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, { //
   ssl: false,
   protocol: "postgres",
   logging: false,
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false, 
-  //   },
-  // },
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, 
+    },
+  },
 }); 
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
 //   logging: false, // set to console.log to see the raw SQL queries
