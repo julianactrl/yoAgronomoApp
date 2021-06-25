@@ -1,17 +1,16 @@
-'use strict';
-const {DataTypes}= require ("sequelize")
+//'use strict';
+const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
-
-   sequelize.define('role', {
+  sequelize.define("role", {
     role: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   });
 
-//   Role.associate = function(models) {
-//     Role.belongsToMany(models.User, { as: "users", through: "user_role", foreignKey: "role_id" });
-//   };
+  //   Role.associate = function(models) {
+  //     Role.belongsToMany(models.User, { as: "users", through: "user_role", foreignKey: "role_id" });
+  //   };
 
-//   return Role;
+  //   return Role;
 };

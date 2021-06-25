@@ -10,10 +10,6 @@ import campo from './campo.jpg'
 import axios from 'axios'
 const { REACT_APP_API } = process.env;
 
-
-
-const { REACT_APP_API} = process.env
-
 function DetailEmpresa ({id}) {
 
     const dispatch = useDispatch();
