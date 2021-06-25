@@ -44,7 +44,7 @@ export function sidebar(verify){
                 <Link to='/mercados' className={styles.linktext}>
                 <h2 className={styles.text}>MERCADOS</h2>
                 </Link>
-                <Link  className={styles.linktext}>
+                <Link to={`/agenda/${empresaId}`} className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>
