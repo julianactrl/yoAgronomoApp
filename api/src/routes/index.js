@@ -6,6 +6,7 @@ const userRouter = require('./userRouter')
 const loteRouter = require("./loteRouter");
 const mercadoPagoRouter = require('./mercadoPagoRouter')
 const stockRouter = require('./stockRouter')
+const tareaRouter = require('./tareaRouter')
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use("/user", userRouter);
 router.use("/lote",loteRouter);
 router.use("/premium/checkout",mercadoPagoRouter)
 router.use("/stock",stockRouter)
+router.use("/tarea", tareaRouter);
 
 module.exports = router;

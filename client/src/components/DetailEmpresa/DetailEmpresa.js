@@ -8,6 +8,7 @@ import data from './data.json';
 import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
+
 const { REACT_APP_API } = process.env;
 
 function DetailEmpresa ({id}) {

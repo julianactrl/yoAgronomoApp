@@ -83,14 +83,15 @@
 
 
 .sidebarcont{
-    transition: width 2000ms ease;
+    transition: cubic-bezier(0.42, 0, 1, 1.64);
     position:absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 400px;
+    width: 450px;
     height: 100vh;
-    background-color: #284420;
+    background-color: #89ad86;
+    border-right: 2px solid rgba(0, 58, 5, 0.15) ;
     animation-duration: 0.2s;
     animation-name: slidein;
     animation-fill-mode: backwards;
@@ -105,7 +106,7 @@
     }
 
     to {
-        width: 400px;
+        width: 450px;
     }
 }
 .linktextcont{

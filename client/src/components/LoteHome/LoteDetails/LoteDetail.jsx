@@ -7,7 +7,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
-import { getWeather } from '../../../redux/actions/weatherActions';
+import { clearWeather, getWeather } from '../../../redux/actions/weatherActions';
+import emptyIco from '../../../assets/emptyIco.png'
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
@@ -33,9 +34,10 @@ export default function LoteDetails({lote}){
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useEffect(()=>{
         dispatch(getWeather(lote.ubicacion))
-    },[]) 
+        dispatch(getManejo(lote.id))
+    },[])
 
     const ovflow = useRef()
 
@@ -114,7 +116,7 @@ export default function LoteDetails({lote}){
         setAuxState(false)
     }
     async function handleEditManejo(id){
-        const updated = manejoLote.find(m=> m.id == id);
+        const updated = manejoLote.find(m=> m.id === id);
         console.log('OBEJO MANEJO AAAAAAAAA',updated)
 
         updated.observaciones = editManejo.observaciones
@@ -140,6 +142,7 @@ export default function LoteDetails({lote}){
     }
     function cerrar(){
         dispatch({type:'SET_VERIFY',payload:''})
+        clearWeather()
     }
     return(
         <div className={styles.contMain}>
@@ -210,7 +213,7 @@ export default function LoteDetails({lote}){
                                             <div className={styles.cardManejo}>
                                                 <div className={styles.obsData}>
                                                         {
-                                                            manejoLote.map((data) =>{
+                                                            manejoLote[0]?manejoLote.map((data) =>{
                                                                 const {id} = data
                                                                 return(
                                                                     <div className={styles.segmentManejo}>
@@ -233,7 +236,10 @@ export default function LoteDetails({lote}){
                                                                     </div>
                                                                     
                                                                 )
-                                                            })
+                                                            }):<div className={styles.nothingHere}>
+                                                                <h2 className={styles.nothingHereTitle}><strong>NINGUNA OBSERVACIÓN TODAVÍA</strong></h2>
+                                                                <img className={styles.nothingHereImg} src={emptyIco} alt="" />
+                                                            </div>
                                                         } 
                                                 </div>                                             
                                             </div>

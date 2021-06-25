@@ -13,6 +13,7 @@ const {
 } = process.env;
 dbRDS = false;
 
+
 const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
   //
   ssl: true,
