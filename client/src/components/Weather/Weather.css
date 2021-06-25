@@ -36,10 +36,12 @@ body{
 }
 .current-weather h1{
     margin-top: 0;
+    color: black;
     margin-bottom: 0;
 }
 .current-weather h4{
     margin-top: 3px;
+    color: black;
 }
 
 
@@ -49,6 +51,7 @@ body{
 }
 
 .forecast-day {
+    color: black;
     background-color: rgba(75, 177, 57, 0.71);
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 10px;
@@ -61,28 +64,33 @@ body{
 }
 .forecast-day p {
     margin-top: 0;
+    color: black;
     margin-bottom: 0;
     
 }
 .forecast-extended{
+    color: black;
     font-weight:bolder;
     color: white;
     margin-top: 40px;
     
 }
 .temperatures {
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin: 10px;
 }
 .wind_humidity{
+    color: black;
     display: flex;
     justify-content: space-between;
     padding: 7px;
 
 }
 .wind_dir{
+    color: black;
     display: flex;
     justify-content: space-between;
     padding: 7px;
