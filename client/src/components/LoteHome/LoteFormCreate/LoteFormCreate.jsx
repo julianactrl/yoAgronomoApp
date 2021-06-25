@@ -93,7 +93,6 @@ export default function LoteFormCreate({empresaId}){
          fd.append("ubicacion", inputs.ubicacion);
          fd.append("empresaId", inputs.empresaId);
     
-    
          fd.append(
            "imagen",
            selectedFile,
