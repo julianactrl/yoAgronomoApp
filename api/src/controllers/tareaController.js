@@ -65,17 +65,17 @@ const updateTarea = async(req,res,next) => {
 const getAllTareasByEmpresa = async (req, res, next) => {
     const {id} = req.params
     try {
-        const tarea = await Tarea.count();
-        if (tarea !== 0) {
-          res.status(201).json(await Tarea.findAll({
+        
+        
+          res.status(200).json (await Tarea.findAll({
               include: {
                   model: Empresa,
                   where :{
-                      id
+                      id:id
                   }
               }
           }));
-        }
+        
       } catch (e) {
         res.status(404).send(next);
       }
