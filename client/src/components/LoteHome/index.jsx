@@ -63,17 +63,17 @@ export default function LoteHome ({id}) {
             return <LoteFormCreate empresaId={cookies.get('selectedEmpresa').id} />
           default:
             return (
-              <>
-              <h1 className={styles.tittle}>{cookies.get('selectedEmpresa').name}</h1>
+              <div className={styles.contSecundario}>
+              {/* <h1 className={styles.tittle}>{cookies.get('selectedEmpresa').name}</h1> */}
               {renderizarLotes(allLotes,LoteCard,Slider,settings)}
-              </>
+              </div>
               )
         }
       }
 
       // Mantiene actualizado los lotes cada vez que se crea uno o se borre
       function auxiliar (verifyRender) {
-        if(verifyRender == '') {
+        if(verifyRender === '') {
           dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
           dispatch({type:'SET_VERIFY',payload:'default'})
         }
@@ -88,8 +88,6 @@ export default function LoteHome ({id}) {
         slidesToScroll: 1,
         width: 100,
         classname: 'slides',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
       };
     return (
         <div className={styles.contenedor}>
