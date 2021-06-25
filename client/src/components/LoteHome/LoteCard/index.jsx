@@ -3,6 +3,8 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styles from './styles.module.css'
 // import icono from '../../../assets/iconClima.png'
+const { REACT_APP_API } = process.env;
+
 
 export default function LoteCard ({lote}) {
     const dispatch = useDispatch()
@@ -21,8 +23,18 @@ export default function LoteCard ({lote}) {
 
     return (
         <div className={styles.contCard} onClick={()=>detailLote(lote)}>
-            {/* <img src={icono} alt="" className={styles.icon}/> */}
-                <img className={styles.img} src={lote.imagen}/>
+                <img
+                         src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
+                         alt="https://i.stack.imgur.com/y9DpT.jpg"
+                         // width={400}
+                         // height={600}
+                         className={styles.img}
+                       />
+            
+            
+            
+            
+            
             <div className={styles.detail}>
                 <h1 className={styles.title}>{lote.name}</h1>
                 <div className={styles.detailOculto}>
