@@ -80,11 +80,8 @@ function UpdateProfile() {
       icon: "success",
       button: true,
     })
-      .then(() => {
         dispatch(logout(id));
         history.reload();
-      })
-      .catch((e) => console.log(e));
     // alert("¿Seguro desea modificar estos datos?");
     //alert("Datos modificados correctamente, ingrese sesión nuevamente");
   }
