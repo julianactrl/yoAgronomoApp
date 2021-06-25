@@ -14,6 +14,8 @@ import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLotes } from "../../redux/actions/loteActions";
 import Cookies from "universal-cookie";
+import {motion} from 'framer-motion';
+
 
 
 export default function LoteHome ({id}) {
@@ -90,6 +92,18 @@ export default function LoteHome ({id}) {
         classname: 'slides',
       };
     return (
+      <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={{
+      hidden: {
+          opacity: -1
+      },
+      visible: {
+          opacity: 1,
+          transition: 1
+      }
+      }}>
         <div className={styles.contenedor}>
             <Header />
             <div className={styles.body}>
@@ -97,5 +111,7 @@ export default function LoteHome ({id}) {
               {auxiliar(verifyRender)}
             </div>
         </div>
+      </motion.div>
+
     )
 }

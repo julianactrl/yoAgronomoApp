@@ -4,6 +4,8 @@ import styles from './styles.module.css'
 import { crearLoteDB } from '../../../redux/actions/loteActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle , faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import {motion} from 'framer-motion';
+
 import swal from "sweetalert";
 // import { history } from "react-router";
 // import Header from "../Header/Header";
@@ -56,7 +58,6 @@ export default function LoteFormCreate({empresaId}){
       setImgUrl(URL.createObjectURL(event.target.files[0]));
       // console.log("---handleFileInputChange----", event.target.files[0]);
     };
-    
     function handleInputs (data) {
         if(data.target.value.length > 0){
             return setValidate({
@@ -79,11 +80,11 @@ export default function LoteFormCreate({empresaId}){
              button: true,
              dangerMode: true,
            });
-         const config = {
+        const config = {
            headers: {
              "Content-Type": "multipart/form-data",
            },
-         };
+        };
          const fd = new FormData();
          const extension = selectedFile.name.split(".");
      
@@ -91,7 +92,6 @@ export default function LoteFormCreate({empresaId}){
          fd.append("superficie", inputs.superficie);
          fd.append("ubicacion", inputs.ubicacion);
          fd.append("empresaId", inputs.empresaId);
-    
     
          fd.append(
            "imagen",
@@ -119,6 +119,20 @@ export default function LoteFormCreate({empresaId}){
        }
 
     return (
+        <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+        hidden: {
+            scale: 0,
+            opacity: -1
+        },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition:.2
+        }
+        }}>
         <div className={styles.cont}>
             <div className={styles.contCard}>
                     <div className={styles.formCont}>
@@ -181,5 +195,6 @@ export default function LoteFormCreate({empresaId}){
                     </div>
             </div>
         </div>
+    </motion.div>
     )
 }
