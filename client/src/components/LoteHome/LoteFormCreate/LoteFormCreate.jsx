@@ -70,7 +70,6 @@ export default function LoteFormCreate({empresaId}){
             })
         }
     }
-
     function handleSubmit(e) {
         // e.preventDefault();
          if (selectedFile === null)
