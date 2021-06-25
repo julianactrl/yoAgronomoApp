@@ -15,7 +15,7 @@ dbRDS = false;
 
 const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
   //
-  ssl: false,
+  ssl: true,
   protocol: "postgres",
   logging: false,
   dialectOptions: {
