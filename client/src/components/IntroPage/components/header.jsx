@@ -11,7 +11,7 @@ export const Header = (props) => {
               <div className='col-md-8 col-md-offset-2 intro-text'>
                 <h1>
                   {props.data ? props.data.title : 'Loading'}
-                  <img src={leaf} className='leaf' />
+                  <img src={leaf} alt="not found" className='leaf' />
                   <span></span>
                 </h1>
                 <p>{props.data ? props.data.paragraph : 'Loading'}</p>
@@ -28,7 +28,7 @@ export const Header = (props) => {
                   href='#about'
                   
                 >
-                  <img className='arrowAdded' src='https://www.vivesmart.com/wp-content/uploads/2019/03/white-down-arrow-png-2.png'/>
+                  <img className='arrowAdded' alt="not found" src='https://www.vivesmart.com/wp-content/uploads/2019/03/white-down-arrow-png-2.png'/>
                 </a>{' '}
               </div>
             </div>

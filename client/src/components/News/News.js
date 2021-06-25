@@ -27,8 +27,8 @@ const News = (props) => {
         className: "center",
         centerMode: true,
         centerPadding: "0",
-        // nextArrow: <SampleNextArrow />,
-        // prevArrow: <SamplePrevArrow />
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
 
       };
       const Add0 = (fecha) => {

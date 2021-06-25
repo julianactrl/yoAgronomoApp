@@ -16,7 +16,7 @@ import {
   UPDATE_USER,
 } from "../constants";
 
-const { REACT_APP_API, REACT_APP_API_HEROKU } = process.env;
+const { REACT_APP_API } = process.env;
 
 export const register = (body) => async (dispatch) => {
   try {
@@ -57,14 +57,11 @@ export const login =
       dispatch({
         type: USER_LOGIN_REQUEST,
       });
-      // const config = {
-      //   headers: { "Content-Type": "application/json" },
-      // };
-      const data = await axios.post(
-        `${REACT_APP_API}/auth/api/signin`,
-        { email, password }
-        // config,
-      );
+
+      const data = await axios.post(`${REACT_APP_API}/auth/api/signin`, {
+        email,
+        password,
+      });
       console.log(data.request.status);
       switch (data.request.status) {
         case 200:
@@ -103,8 +100,6 @@ export const login =
 
 export const logout = () => {
   localStorage.removeItem("persist:root");
-
-  //document.location.href = "/index";
   return {
     type: USER_LOGOUT,
   };
@@ -123,35 +118,21 @@ export const getUser = () => {
           type: GET_USER,
           payload: userInfo.data,
         });
-        // const cart = firestone.collection("cart");
-        // try {
-        // 	const query = await cart.where(firebase.firestore.FieldPath.documentId(),
-        // 		'==',
-        // 		user.data.id.toString()).get();
-        // 	const firebaseCart = query.docs[0]?.data();
-        // 	const localStorageCart = JSON.parse(localStorage.getItem('cart'))
-        // 	if (Object.keys(localStorageCart).length === 0) {
-        // 		if (firebaseCart) {
-        // 			localStorage.setItem('cart', JSON.stringify(firebaseCart));
-        // 		}
-        // 	} else {
-        // 		cart.doc(user.data.id.toString()).set(localStorageCart)
-        // 	}
-        // 	dispatch(setCart());
-        // } catch (err) { console.log(err) }
       });
   };
 };
 
-export const updateUser = (payload ) =>  (dispatch) => {
+export const updateUser = (payload) => async (dispatch) => {
   return axios
-    .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.body)
+    .patch(`${REACT_APP_API}/user/edit/${payload.id}`, payload.fd)
     .then((updated) => {
-      console.log("respuesta de updated action ",updated)
       dispatch({
         type: UPDATE_USER,
-        payload: updated.body,
-      });
+        payload: updated.fd,
+      })
+      window.location.reload()
     })
-    .catch((e) => console.log("Soy el error en update user", e))
+    .catch((e) =>
+      console.log("Soy el error en update user", e.response?.data?.status)
+    );
 };
