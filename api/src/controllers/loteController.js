@@ -124,14 +124,19 @@ const updateLote = async(req,res,next) => {
 const createManejo = async (req,res,next) => {
     const { loteId } = req.params
     const { observaciones,recomendaciones, image } = req.body;
+
+    if(req.file){
+        var manejo = req.file.filename
+    }
     try{
         await ManejoDeLote.create({
+            loteId,
             observaciones,
-            recomendaciones,
             image,
-            loteId
-        })
-        res.json('Fue Creado')
+            recomendaciones,
+            image:manejo
+        });  res.status(200).json("fue  creado con exito");
+       
     } catch (error) {
       console.log(error);
       res.status(500).send(next);
@@ -212,6 +217,21 @@ const getImageLote = (req, res) => {
     res.send(getImage);
   };
 
+  const getImageManejoLote = (req, res) => {
+    let getImage;
+    const { name } = req.params;
+    let pathImage = path.join(__dirname, "../");
+    // console.log("soy el path ",pathImage)
+    try {
+      getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    } catch (error) {
+      getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+    }
+    res.set({ "Content-Type": "image/png" });
+    res.send(getImage);
+  };
+
+
 module.exports = {
     getAllLotes,
     getLoteByName,
@@ -223,5 +243,6 @@ module.exports = {
     updateManejo,
     getAllManejo,
     deleteManejo,
-    getImageLote
+    getImageLote,
+    getImageManejoLote
   }
