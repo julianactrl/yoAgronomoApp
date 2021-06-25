@@ -1,89 +1,94 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
-import axios from "axios";
-import { postEmpresa } from "../../redux/actions/empresaActions";
 import { motion } from "framer-motion";
 import Header from "../Header/Header";
 import { useHistory } from "react-router";
+import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
 
+
 function NewEmpresa() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const currentUserId = useSelector(
     (state) => state.userReducer.userInfo.user.id
   );
 
   const [input, setInput] = useState({
+
+    userId: currentUserId,
     name: "",
     hectareas: "",
     ubicacion: "",
     imagen: "",
-    userId: currentUserId,
   });
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [imgUrl, setImgUrl] = useState(null);
+  
+  const handleFileInputChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setImgUrl(URL.createObjectURL(event.target.files[0]));
+    // console.log("---handleFileInputChange----", event.target.files[0]);
+  };
+  
   function handleInputChange(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
     });
   }
-  const history = useHistory();
-
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [imgUrl, setImgUrl] = useState(null);
-
-  const handleFileInputChange = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setImgUrl(URL.createObjectURL(event.target.files[0]));
-    console.log("---handleFileInputChange----", event.target.files[0]);
-  };
 
   function handleSubmit(e) {
-    e.preventDefault();
-    if (selectedFile === null)
-      return swal({
-        title: "Image Field Cannot Be Empty",
-        icon: "warning",
-        button: true,
-        dangerMode: true,
-      });
-    const fd = new FormData();
-    const extension = selectedFile.name.split(".");
-    fd.append(
-      "imagen",
-      selectedFile,
-      input.name + "." + extension[extension.length - 1]
-    );
-    fd.append("name", input.name);
-    fd.append("hectareas", input.hectareas);
-    fd.append("ubicacion", input.ubicacion);    
-    const payload = {id:input.userId, data:fd}
-    dispatch(postEmpresa(payload));
-    setInput(input);
-    swal({
-      title: "Su empresa fue creada!",
-      icon: "success",
-      button: true,
-    }).then(() => {
-      history.push("/home");
-      //window.location.reload();
-    });
-    // console.log("eessss",input)
     // e.preventDefault();
-    // if(!input.name) {
-    //     alert('Debe ingresar un nombre!')
-    //     return
-    // }
-    // if(!input.ubicacion) {
-    //     alert('Debe ingresar una ubicación!')
-    //     return
-    // }
-    // console.log("el input", input.userId)
-    // dispatch(postEmpresa(input));
-    // //e.target.reset();
-    // alert('Su empresa fue creada!')
-    // history.push('/home')
-  }
-  const dispatch = useDispatch();
+     if (selectedFile === null)
+       return swal({
+         title: "Image Field Cannot Be Empty",
+         icon: "warning",
+         button: true,
+         dangerMode: true,
+       });
+     const config = {
+       headers: {
+         "Content-Type": "multipart/form-data",
+       },
+     };
+     const fd = new FormData();
+     const extension = selectedFile.name.split(".");
+ 
+     fd.append("name", input.name);
+     fd.append("hectareas", input.hectareas);
+     fd.append("ubicacion", input.ubicacion);
+     fd.append("userId", input.userId);
+
+
+     fd.append(
+       "imagen",
+       selectedFile,
+       input.name + "." + extension[extension.length - 1]
+     );
+     //fd.get("password", updateinfo.password)
+     const infoSendDb = {
+      userId: currentUserId,
+       fd,
+     };
+     dispatch(postEmpresa(infoSendDb, config));
+     setInput(input);
+     swal({
+       title: "Info Edited",
+       icon: "success",
+       button: true,
+     })
+       .then(() => {
+         history.reload();
+       })
+       .catch((e) => console.log(e));
+     // alert("¿Seguro desea modificar estos datos?");
+     //alert("Datos modificados correctamente, ingrese sesión nuevamente");
+   }
+
+
+
   return (
     <motion.div
       initial="hidden"
@@ -112,7 +117,7 @@ function NewEmpresa() {
               <input
                 type="text"
                 onChange={(e) => handleInputChange(e)}
-                value={input["name"]}
+                value={input.name}
                 placeholder="Estancia YoAgronomo"
                 name="name"
               />
@@ -122,7 +127,7 @@ function NewEmpresa() {
               <input
                 type="text"
                 onChange={handleInputChange}
-                value={input["hectareas"]}
+                value={input.hectareas}
                 placeholder="600"
                 name="hectareas"
               />
@@ -132,19 +137,28 @@ function NewEmpresa() {
               <input
                 type="text"
                 onChange={handleInputChange}
-                value={input["ubicacion"]}
+                value={input.ubicacion}
                 placeholder="Santa Fe"
                 name="ubicacion"
               />
             </div>
 
             <div>
-              <label>Imagen: </label>
-              <input
-                type="file"
-                onChange={handleFileInputChange}
-              />
-            </div>
+            <label className={styles.labelCrear}>Imagen: </label>
+            <input
+              className={styles.inputCrear}
+              type="file"
+              name="imagen"
+              accept="image/png, image/jpeg"
+              onChange={handleFileInputChange}
+              required
+            />
+          </div>
+          <img
+            src={imgUrl}
+            alt={imgUrl}
+            style={{ height: "200px", width: "250px" }}
+          />
             <br></br>
             <button
               className={styles.buttonCrearEmpresa}

@@ -10,6 +10,8 @@ import logoEdit from '../../../assets/edit.png'
 import { clearWeather, getWeather } from '../../../redux/actions/weatherActions';
 import emptyIco from '../../../assets/emptyIco.png'
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
+const { REACT_APP_API } = process.env;
+
 
 
 export default function LoteDetails({lote}){
@@ -158,8 +160,13 @@ export default function LoteDetails({lote}){
                                 </div> 
                             </div>
                             <Slider {...settings} >
-                                <img src={lote.imagen} className={styles.img}/>
-                                <img src={'https://www.semana.com/resizer/IEcOf8TJx4XxRszD1F26YO7lixw=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4KEOUCGM7FDRHGJVNJJWTAF464.jpeg'} className={styles.img}/>
+                            <img
+                         src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
+                         alt="https://i.stack.imgur.com/y9DpT.jpg"
+                         // width={400}
+                         // height={600}
+                         className={styles.img}
+                       />
                             </Slider>
                         </div>
                         

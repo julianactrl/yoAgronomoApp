@@ -1,5 +1,6 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
+import { useDeprecatedAnimatedState } from 'framer-motion';
 const { REACT_APP_API} = process.env
 
 
@@ -31,22 +32,21 @@ export function getEmpresa(id) {
 }
 
 
-export const postEmpresa = ({ name, hectareas,ubicacion,imagen,userId }) => {
-    return (dispatch) => {
-        dispatch({ type: POST_EMPRESA });
-        axios({
-            method: 'post',
-            url: `${REACT_APP_API}/empresa/create`,
-            data: {
-                name,
-                hectareas,
-                ubicacion,
-                imagen,
-                userId
-            },
-            headers: { 'Content-Type': 'multipart/form-data' },
-        }).catch(e => dispatch(e))
-    }
+export const postEmpresa = (payload) => async (dispatch) => {
+    console.log(payload)
+    return axios
+        .post(`${REACT_APP_API}/empresa/create/`,
+        payload.fd)
+        .then((update)=>{
+            dispatch({
+                type: POST_EMPRESA,
+                payload: update
+            })
+            window.location.reload()
+        })
+        .catch((e)=>
+        console.log("soy e error en create empresa", e.response?.data?.status)
+        )
 }
 export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
 

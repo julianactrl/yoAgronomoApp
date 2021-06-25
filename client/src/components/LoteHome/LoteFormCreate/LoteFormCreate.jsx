@@ -4,6 +4,11 @@ import styles from './styles.module.css'
 import { crearLoteDB } from '../../../redux/actions/loteActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle , faTimesCircle} from '@fortawesome/free-solid-svg-icons';
+import swal from "sweetalert";
+// import { history } from "react-router";
+// import Header from "../Header/Header";
+
+
 
 
 export default function LoteFormCreate({empresaId}){
@@ -13,7 +18,7 @@ export default function LoteFormCreate({empresaId}){
         name: null,
         superficie: null,
         ubicacion: null,
-        imagen: null,
+        imagen: "",
         empresaId: empresaId
     })
     //ESTADO para verificar si hay texto o no en los inputs.
@@ -37,23 +42,21 @@ export default function LoteFormCreate({empresaId}){
     }
     
 
-    async function crearLote () {
-        if(Object.values(inputs).indexOf(null) == -1) {
-            if(Object.values(inputs).indexOf('') == -1) {
-                console.log('toy en la funcion');
-                alert('Lote creado con exito !!')
-                await dispatch(crearLoteDB(inputs))
-                
-                return dispatch({type:'SET_VERIFY',payload:''})
-            } 
-        }
-        console.log('No pudo crearse la empresa');
-    }
 
     useEffect(()=>{
         dispatch({type:'SET_VERIFY',payload:'formularioCrear'})
     },[])
 
+
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imgUrl, setImgUrl] = useState(null);
+    
+    const handleFileInputChange = (event) => {
+      setSelectedFile(event.target.files[0]);
+      setImgUrl(URL.createObjectURL(event.target.files[0]));
+      // console.log("---handleFileInputChange----", event.target.files[0]);
+    };
+    
     function handleInputs (data) {
         if(data.target.value.length > 0){
             return setValidate({
@@ -68,6 +71,54 @@ export default function LoteFormCreate({empresaId}){
         }
     }
 
+    function handleSubmit(e) {
+        // e.preventDefault();
+         if (selectedFile === null)
+           return swal({
+             title: "Image Field Cannot Be Empty",
+             icon: "warning",
+             button: true,
+             dangerMode: true,
+           });
+         const config = {
+           headers: {
+             "Content-Type": "multipart/form-data",
+           },
+         };
+         const fd = new FormData();
+         const extension = selectedFile.name.split(".");
+     
+         fd.append("name", inputs.name);
+         fd.append("superficie", inputs.superficie);
+         fd.append("ubicacion", inputs.ubicacion);
+         fd.append("empresaId", inputs.empresaId);
+    
+    
+         fd.append(
+           "imagen",
+           selectedFile,
+           inputs.name + "." + extension[extension.length - 1]
+         );
+         //fd.get("password", updateinfo.password)
+         const infoSendDb = {
+            empresaId: empresaId,
+           fd,
+         };
+         dispatch(crearLoteDB(infoSendDb, config));
+         setInputs(inputs);
+         swal({
+           title: "Info Edited",
+           icon: "success",
+           button: true,
+         })
+           .then(() => {
+            //  history.reload();
+           })
+           .catch((e) => console.log(e));
+         // alert("¿Seguro desea modificar estos datos?");
+         //alert("Datos modificados correctamente, ingrese sesión nuevamente");
+       }
+
     return (
         <div className={styles.cont}>
             <div className={styles.contCard}>
@@ -76,7 +127,7 @@ export default function LoteFormCreate({empresaId}){
                             <h1 className={styles.fomularioTitle}>CREACION DE LOTE</h1>
                             <button onClick={cerrar} className={styles.cross}/>
                         </div>
-                        <form  action="" className={styles.fomulario}>
+                        <form onSubmit={handleSubmit} className={styles.fomulario}>
                                 <div className={styles.fomularioInputs}>
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Nombre</label>
@@ -114,16 +165,19 @@ export default function LoteFormCreate({empresaId}){
                                     <div className={styles.labelInput}>
                                         <label className={styles.label}>Imagen</label>
                                         <div className={styles.contenedorInputs}>
-                                            <input name='imagen' value={inputs.imagen} onBlur={handleInputs} onChange={data=>setInputs({...inputs,imagen:data.target.value})} className={validate.imagen=='ERROR'?styles.inputsError:styles.inputs} type='text' placeholder='Imagen del lote...' />
-                                            {validate.imagen.length ? <div className={validate.imagen=='OK'?styles.contIcono:styles.contIconoError}>
-                                                <FontAwesomeIcon icon={validate.imagen=='OK'?faCheckCircle:faTimesCircle}/>
-                                            </div>:null}
+                                        <input
+                                            className={styles.inputCrear}
+                                            type="file"
+                                            name="imagen"
+                                            accept="image/png, image/jpeg"
+                                            onChange={handleFileInputChange}
+                                            required
+                                            />
                                         </div>
-                                        {<p className={validate.imagen=='ERROR'?styles.alertaError:styles.alertaP}>Imagen de lote incompleto</p>}
                                     </div>
 
                                 </div>
-                                <button onClick={crearLote} className={styles.btnDetails}>Crear Lote</button>
+                                <button type="submit" className={styles.btnDetails}>Crear Lote</button>
                         </form>
                     </div>
             </div>

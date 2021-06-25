@@ -1,15 +1,24 @@
 const server = require("express").Router();
 
+const upload = require('./../libs/storage');
+
+
 const {
-  deleteManejo,getAllManejo,updateManejo,createManejo,getAllLotes,getLoteByName,getLoteById,deleteLote,createLote,updateLote
+  deleteManejo,getAllManejo,updateManejo,createManejo,getAllLotes,getLoteByName,getLoteById,deleteLote,createLote,updateLote,getImageLote
 } = require("../controllers/loteController");
 
+//////////////////////////////////////////////////////
 
+server.post('/create', upload.single("imagen"), createLote)
+server.get('/imagen/:name', getImageLote)
+
+
+
+///////////////////////////////////////////////////
 server.get("/empresa/:id", getAllLotes)
 server.get("/:id", getLoteById)
 server.get("/name", getLoteByName)
 server.delete("/delete/:id",deleteLote)
-server.post("/create",createLote)
 server.put("/:id", updateLote);
 
 /////// MANEJO DE LOTE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
