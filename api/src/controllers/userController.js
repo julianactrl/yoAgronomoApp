@@ -29,11 +29,7 @@ const getEmpresaByUserId = (req, res) => {
 };
 const updateUser = async(req,res) => {
   const { id } = req.params;
-  console.log("SOY EL ID DE UPDATE",id)
   const { fullName, email } = req.body;  
- 
-  //let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
-
   let userFind = await User.findAll({where: {id:id}})
   console.log(userFind)
    
@@ -56,6 +52,7 @@ const updateUser = async(req,res) => {
       })
   }
 }
+/////////////////////////////////////////
 
 const getImageProfile = (req, res) => {
   let getImage;
@@ -70,6 +67,7 @@ const getImageProfile = (req, res) => {
   res.set({ "Content-Type": "image/png" });
   res.send(getImage);
 };
+////////////////////////////////
 
 const deleteUser = (req, res) => {
   const { id } = req.params;

@@ -8,6 +8,8 @@ import data from './data.json';
 import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
+const { REACT_APP_API } = process.env;
+
 
 
 const { REACT_APP_API} = process.env
@@ -91,12 +93,23 @@ function DetailEmpresa ({id}) {
             </div>
             </div>
             </div>
-           {
-               empresa.imagen ? 
-               <img width={500} height={350} src={empresa.imagen} alt='imagen del campo' className={styles.imgEmpresa}/>
-               :
-               <img width={500} height={350} src="https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg" alt="imagen default" className={styles.imgEmpresa} />
-           }
+            {empresa.imagen ? (
+            <img
+              src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
+              alt="https://i.stack.imgur.com/y9DpT.jpg"
+              width={500}
+              height={350}
+              className={styles.imgEmpresa}
+            />
+          ) : (
+            <img
+              alt="perfil"
+              src={
+                "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
+              }
+              className={styles.imgEmpresa}
+            />
+          )}
             </div>
             </li>
 
