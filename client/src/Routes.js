@@ -20,7 +20,7 @@ import Premium from './components/MercadoPago/Premium.jsx';
 import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
 import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-
+import GestionGastos from "./components/GestionComercial/GestionGastos";
 
 
 
@@ -58,6 +58,10 @@ export default function Routes() {
 
       <Route exact path='/lote/:id'>
         <LoteHome id={window.location.pathname.split('/')[2]} />
+      </Route>
+
+      <Route exact path='/gestionComercial/gestionGastos'>
+        <GestionGastos />
       </Route>
   
       <PrivateRoute component={Weather} path="/weather" exact />
