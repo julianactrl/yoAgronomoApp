@@ -1,8 +1,9 @@
 const router = require("express").Router();
+require('dotenv')
+const { FRONT, BACK, TOKEN_TEST} = process.env
 var mercadopago = require("mercadopago");
 mercadopago.configure({
-  access_token:
-    "TEST-346511861689288-061816-7233883f42f99cadf084221a3eea9f22-232468002",
+  access_token: TOKEN_TEST,
 });
 
 router.post("/", async (req, res) => {
@@ -16,9 +17,9 @@ router.post("/", async (req, res) => {
       },
     ],
     back_urls: {
-      success: "http://localhost:3000/index",
-      failure: "http://localhost:3001/",
-      pending: "http://localhost:3001/",
+      success: `${FRONT}`,
+      failure: `${BACK}`,
+      pending: `${BACK}`,
     },
     auto_return: "approved",
   };
