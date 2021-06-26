@@ -1,13 +1,13 @@
-const {Stock, Lote} = require("../db");
+const {Stock, Empresa} = require("../db");
 const { Op } = require("sequelize");
 
 const postStock = async(req, res) => {
-    const {tipo, cantidad,loteId} = req.body;
+    const {tipo, cantidad,empresaId} = req.body;
     try{
         await Stock.create({
             tipo,
             cantidad,
-            loteId
+            empresaId
         });
         res.json('Stock generado con éxito!');
     }
@@ -40,14 +40,14 @@ const getAllStock = async (req, res) => {
     const allStock = await Stock.findAll()
     res.send(allStock);
 }
-const getStockByLote = async (req,res) => {
+const getStockByEmpresa = async (req,res) => {
     const {id} = req.params
     try {
         const stock = await Stock.count();
         if (stock !== 0) {
           res.status(201).json(await Stock.findAll({
               include: {
-                  model: Lote,
+                  model: Empresa,
                   where :{
                       id
                   }
@@ -81,6 +81,6 @@ module.exports = {
     postStock,
     editStock,
     getAllStock,
-    getStockByLote,
+    getStockByEmpresa,
     deleteStock
 }
