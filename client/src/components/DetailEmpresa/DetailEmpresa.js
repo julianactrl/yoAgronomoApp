@@ -10,7 +10,6 @@ import campo from './campo.jpg'
 import axios from 'axios'
 
 
-
 function DetailEmpresa ({id}) {
 
     const dispatch = useDispatch();
@@ -37,8 +36,6 @@ function DetailEmpresa ({id}) {
     return (
         <div className={styles.background}>
             <Header />
-            
-                     
             
                 
             { <div className={styles.div}>
@@ -100,6 +97,8 @@ function DetailEmpresa ({id}) {
             </li>
 
             </div> }
+
+            
         
     
         </div>

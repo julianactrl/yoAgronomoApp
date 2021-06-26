@@ -4,7 +4,8 @@ const empresaRouter = require("./empresaRouter");
 const authRouter = require("./authRouter.js");
 const userRouter = require('./userRouter')
 const loteRouter = require("./loteRouter");
-const mercadoPagoRouter = require('./mercadoPagoRouter')
+const mercadoPagoRouter = require('./mercadoPagoRouter');
+const transporteRouter = require("./transporteRouter");
 
 const router = Router();
 
@@ -13,5 +14,6 @@ router.use("/auth", authRouter);
 router.use("/user", userRouter);
 router.use("/lote",loteRouter);
 router.use("/premium/checkout",mercadoPagoRouter)
+router.use("/transporte", transporteRouter)
 
 module.exports = router;

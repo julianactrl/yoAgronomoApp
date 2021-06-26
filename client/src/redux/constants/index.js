@@ -29,6 +29,11 @@ export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
 export const GET_ALL_LOTES = 'GET_ALL_LOTES';
 export const CREATE_LOTE = 'CREATE_LOTE';
 
+export const GET_TRANSPORTE = 'GET_TRANSPORTE';
+export const POST_TRANSPORTE = 'POST_TRANSPORTE';
+export const PUT_TRANSPORTE = 'PUT_TRANSPORTE';
+export const DELETE_TRANSPORTE = 'DELETE_TRANSPORTE';
+
 
 
 export const GET_DOLAR = 'GET_DOLAR';
