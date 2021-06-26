@@ -1,8 +1,5 @@
 const server = require("express").Router();
-
-const upload = require('./../libs/storage');
-
-
+const upload = require("./../libs/storage");
 const {
   createEmpresa,
   deleteEmpresa,
@@ -11,21 +8,17 @@ const {
   getEmpresaByName,
   updateEmpresa,
   getAllEmpresasByUser,
-  getImageEmpresa
+  getImageEmpresa,
 } = require("../controllers/empresaController");
 /////////////////////////////////////////////////////////
 
-server.post('/create', upload.single("imagen"), createEmpresa)
-server.get('/imagen/:name', getImageEmpresa)
-
-/////////////////////////////////////////////
+server.post("/create", upload.single("imagen"), createEmpresa);
+server.get("/imagen/:name", getImageEmpresa);
 server.delete("/delete/:id", deleteEmpresa);
 server.get("/", getAllEmpresas);
 server.get("/:id", getEmpresaById);
 server.get("/nombreEmpresa", getEmpresaByName);
 server.put("/:id", updateEmpresa);
-server.get("/user/:id",getAllEmpresasByUser)
-////////////////////////////////////////////
-
+server.get("/user/:id", getAllEmpresasByUser);
 
 module.exports = server;
