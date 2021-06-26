@@ -70,12 +70,23 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  console.log(req.body)
+  // console.log(req.body)
   const { name, hectareas, ubicacion, userId} = req.body;
-  if (req.file) {
-    var empresa = req.file.filename;
-  }
+    if (req.file) {
+      var empresa = req.file.filename;
+    }
   try {
+    var cantidad = await Empresa.count({
+      where: {
+        userId: userId 
+      }
+    })
+    // console.log(cantidad)
+    var user = await User.findByPk(userId);
+
+      if(cantidad >= 2 && user.isPremium === false ){
+       return res.status(500).send("Debe hacerce premium")
+      }
     await Empresa.create({
       name,
       hectareas,
