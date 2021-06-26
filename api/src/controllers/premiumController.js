@@ -34,9 +34,9 @@ const premium = async (req, res) => {
             },
           ],
           back_urls: {
-            success: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
-            failure: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
-            pending: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
+            success: `${BACK_URL}/premium/mercadoPagoRedirect`,
+            failure: `${BACK_URL}/premium/mercadoPagoRedirect`,
+            pending: `${BACK_URL}/premium/mercadoPagoRedirect`,
           },
           auto_return: "approved",
           notification_url: `${BACK_URL}/premium/mercadoPagoNotifications`,
