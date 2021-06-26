@@ -9,21 +9,21 @@ const FORM_ID = 'payment-form';
 const { REACT_APP_API} = process.env
 
 
-export default function MercadoPago(props) {
-   
-
+export default function MercadoPago() {
+   const {id} = useParams()
+    console.log(id)
   const [preferenceId, setPreferenceId] = useState(null);
   const [linkMp, setLinkMp] = useState(null);
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post(`${ REACT_APP_API}/premium/checkout/`, {
+    axios.post(`${REACT_APP_API}/premium/mp/2`, {
         "totalPrice": 499,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
-        console.log("dddd",order)  
+        console.log("ORDER RESPONSE",order)  
     setPreferenceId(order.data.preferenceId);
-    setLinkMp(order.data.url)
+    setLinkMp(order.data)
       
     });
   }, []);
