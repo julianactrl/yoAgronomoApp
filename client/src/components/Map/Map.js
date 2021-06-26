@@ -25,7 +25,7 @@ const Map = () => {
           .getPath()
           .getArray()
           .map(latLng => {
-            return [parseFloat(latLng.lng().toString().slice(0,9)), parseFloat(latLng.lat().toString().slice(0,9))];
+            return [parseFloat(latLng.lng().toString().slice(0,11)), parseFloat(latLng.lat().toString().slice(0,11))];
           });
         setPath(nextPath);
         //setMiddle({lat: ((path[0].lat + path[1].lat) / 2), lng:((path[0].lng + path[3].lng) / 2)})
