@@ -1,11 +1,13 @@
-
-const express = require('express');
-const { premium } = require('../controllers/premiumController');
-const router = express.Router();
-
-
+const server = require("express").Router();
+const {
+  premium,
+  mercadoPagoNotifications,
+  mercadoPagoRedirect,
+} = require("../controllers/premiumController");
 
 // Rutas posts
-router.post('/mp/:userId', premium);
+server.post("/mp/:userId", premium);
+server.post("/mercadoPagoNotifications", mercadoPagoNotifications);
+server.get("/mercadoPagoRedirect", mercadoPagoRedirect);
 
-module.exports = router;
+module.exports = server;
