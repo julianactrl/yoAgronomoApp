@@ -75,6 +75,16 @@ const getAllTransportes = async (req, res, next) => {
     }
 }
 
+const getTransporteById = async (req, res) => {
+    const {id} = req.params;
+    try {
+        
+        
+    } catch (error) {
+        
+    }
+}
+
 const deleteTransporte =  async (req, res, next) => {
     const {id} = req.params;
     try {
