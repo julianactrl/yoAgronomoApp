@@ -14,6 +14,8 @@ import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLotes } from "../../redux/actions/loteActions";
 import Cookies from "universal-cookie";
+import {motion} from 'framer-motion';
+
 
 
 export default function LoteHome ({id}) {
@@ -32,28 +34,6 @@ export default function LoteHome ({id}) {
     useEffect(async()=>{
         await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
     },[])
-
-    function SampleNextArrow(props) {
-        const { style, onClick } = props;
-        return (
-          <div
-            className={styles.nextBtn}
-            style={style}
-            onClick={onClick}
-          />
-        );
-      }
-      function SamplePrevArrow(props) {
-        const { style, onClick } = props;
-        return (
-          <div
-          className={styles.prevBtn}
-            style={style}
-            onClick={onClick}
-          />
-        );
-      }
-      
       // funcion switch renderizar
       function switcher (type) {
         switch (type) {
@@ -90,6 +70,18 @@ export default function LoteHome ({id}) {
         classname: 'slides',
       };
     return (
+      <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={{
+      hidden: {
+          opacity: -1
+      },
+      visible: {
+          opacity: 1,
+          transition: 1
+      }
+      }}>
         <div className={styles.contenedor}>
             <Header />
             <div className={styles.body}>
@@ -97,5 +89,7 @@ export default function LoteHome ({id}) {
               {auxiliar(verifyRender)}
             </div>
         </div>
+      </motion.div>
+
     )
 }

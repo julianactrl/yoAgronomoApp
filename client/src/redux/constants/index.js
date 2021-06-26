@@ -30,9 +30,14 @@ export const UPDATE_EMPRESA= 'UPDATE_EMPRESA';
 export const GET_ALL_LOTES = 'GET_ALL_LOTES';
 export const CREATE_LOTE = 'CREATE_LOTE';
 
-
-
 export const GET_DOLAR = 'GET_DOLAR';
+
+export const POST_TAREA = 'POST_TAREA';
+export const GET_TAREAS = 'GET_TAREAS';
+export const DELETE_TAREA = 'DELETE_TAREA';
+export const UPDATE_TAREA = 'UPDATE_TAREA';
+
+
 
 
 

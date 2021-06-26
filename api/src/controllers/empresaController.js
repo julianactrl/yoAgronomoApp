@@ -1,4 +1,4 @@
-const { Empresa , User} = require("../db");
+const { Empresa, User } = require("../db");
 const { Op } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
@@ -34,44 +34,59 @@ const getAllEmpresas = async (req, res, next) => {
   }
 };
 const getAllEmpresasByUser = async (req, res, next) => {
-  const {id} = req.params
+  const { id } = req.params;
   try {
-      const empresa = await Empresa.count();
-      if (empresa !== 0) {
-        res.status(201).json(await Empresa.findAll({
-            include: {
-                model: User,
-                where :{
-                    id
-                }
-            }
-        }));
-      }
-    } catch (e) {
-      res.status(404).send(next);
+    const empresa = await Empresa.count();
+    if (empresa !== 0) {
+      res.status(201).json(
+        await Empresa.findAll({
+          include: {
+            model: User,
+            where: {
+              id,
+            },
+          },
+        })
+      );
     }
- 
+  } catch (e) {
+    res.status(404).send(next);
+  }
 };
 
-const getEmpresaById = async (req, res) =>{
-  const {id} = req.params
-  const empresa = await Empresa.findByPk(id)
-  const empresadb ={
+const getEmpresaById = async (req, res) => {
+  const { id } = req.params;
+  const empresa = await Empresa.findByPk(id);
+  const empresadb = {
     id: empresa.id,
     name: empresa.name,
     hectareas: empresa.hectareas,
     ubicacion: empresa.ubicacion,
-    imagen: empresa.imagen
-  }
+    imagen: empresa.imagen,
+  };
   if (!empresa) {
-      res.send('empresa no encontrada')
+    res.send("empresa no encontrada");
   }
-   return res.json(empresadb)
+  return res.json(empresadb);
 };
 
 const createEmpresa = async (req, res, next) => {
-  console.log(req.body)
-  const { name, hectareas, ubicacion, userId} = req.body;
+  // Hacer un findAll de mp_id && payment_link
+  // Si el usuario tiene en la base de datos un mp_id y un link de pago,
+  // Seteamos isPremium en true
+  // Entonces, desbloquear la funcion de cargar mas de 2 empresas
+  //
+  // Si el false solo habilitar la carga de 2
+  // Si premium es false findOrCreate limit: 2
+  // var cantidad = Empresa.count()
+  // if(cantidad <= 2 && isPremium === false){
+  //   function que anule boton de crear
+  // }else if (isPremium === true ){
+  //       Empresa.create
+  // }
+
+  console.log(req.body);
+  const { name, hectareas, ubicacion, userId } = req.body;
   if (req.file) {
     var empresa = req.file.filename;
   }
@@ -81,7 +96,7 @@ const createEmpresa = async (req, res, next) => {
       hectareas,
       ubicacion,
       userId,
-      imagen: empresa
+      imagen: empresa,
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
@@ -106,20 +121,17 @@ const deleteEmpresa = async (req, res, next) => {
 
 const updateEmpresa = async (req, res, next) => {
   try {
-    const {id} = req.params;
-    await Empresa.update(req.body, 
-      {
-        where: {
-          id,
-        },
-
+    const { id } = req.params;
+    await Empresa.update(req.body, {
+      where: {
+        id,
+      },
     });
-    res.status(200).json({message: "empresa modificada" });
+    res.status(200).json({ message: "empresa modificada" });
   } catch (e) {
-    res.status(400).send(next)
-    
+    res.status(400).send(next);
   }
-}
+};
 
 ////////////////////////////////////////////////////////////
 
@@ -146,5 +158,5 @@ module.exports = {
   getAllEmpresas,
   updateEmpresa,
   getAllEmpresasByUser,
-  getImageEmpresa
+  getImageEmpresa,
 };
