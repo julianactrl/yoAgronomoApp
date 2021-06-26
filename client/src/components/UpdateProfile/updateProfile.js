@@ -58,7 +58,7 @@ function UpdateProfile() {
       },
     };
     const fd = new FormData();
-    debugger;
+    
     const extension = selectedFile.name.split(".");
 
     fd.append("fullName", updateinfo.fullName);

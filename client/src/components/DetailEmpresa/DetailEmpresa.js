@@ -38,8 +38,6 @@ function DetailEmpresa ({id}) {
         <div className={styles.background}>
             <Header />
             
-                     
-            
                 
             { <div className={styles.div}>
             <li className={styles.liContenedor}>
@@ -112,6 +110,8 @@ function DetailEmpresa ({id}) {
             </li>
 
             </div> }
+
+            
         
     
         </div>
