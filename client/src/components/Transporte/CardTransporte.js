@@ -21,7 +21,7 @@ function DetailTransporte (props) {
 
     
     useEffect(()=> {
-        dispatch(getTransporte(4));
+        dispatch(getTransporte(1));
     }, []);
     
 
@@ -38,7 +38,9 @@ function DetailTransporte (props) {
                    <p>{transport.fechaSalida}</p>
                    <p>{transport.observaciones}</p>
                </div>
+               
            ))}
+           <Link to={"/updatetransporte/:id"}>Update</Link>
        </div>
     //   <div className={styles.background}>
     //         <Header />

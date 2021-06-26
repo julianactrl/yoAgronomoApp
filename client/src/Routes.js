@@ -87,13 +87,14 @@ export default function Routes() {
        <Route exact path='/createtransporte'>
        <NewTransporte />
        </Route>
-       <Route exact path='/updatetransporte/:id'>
-       <UpdateTransporte />
+
+       <Route exact path='/updatetransporte/:id' render ={({ match }) =>
+       <UpdateTransporte id={match.params.id}/>}>
        </Route>
+
        <Route exact path='/transporte'>
        <DetailTransporte />
        </Route>
-
 
       <Route exact path="/tareas/:id" render={({ match }) =>
         <Calendar id={match.params.id} />}>

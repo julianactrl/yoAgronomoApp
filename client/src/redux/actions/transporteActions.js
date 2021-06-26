@@ -64,3 +64,7 @@ export const deleteTransporte = (id) => {
         }).catch(e => dispatch(e))
     }
 };
+
+// export const getById = (id) => {
+//     return 
+// }
