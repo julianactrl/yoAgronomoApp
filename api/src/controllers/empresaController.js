@@ -1,4 +1,4 @@
-const { Empresa , User} = require("../db");
+const { Empresa, User } = require("../db");
 const { Op } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
@@ -34,54 +34,66 @@ const getAllEmpresas = async (req, res, next) => {
   }
 };
 const getAllEmpresasByUser = async (req, res, next) => {
-  const {id} = req.params
+  const { id } = req.params;
   try {
-      const empresa = await Empresa.count();
-      if (empresa !== 0) {
-        res.status(201).json(await Empresa.findAll({
-            include: {
-                model: User,
-                where :{
-                    id
-                }
-            }
-        }));
-      }
-    } catch (e) {
-      res.status(404).send(next);
+    const empresa = await Empresa.count();
+    if (empresa !== 0) {
+      res.status(201).json(
+        await Empresa.findAll({
+          include: {
+            model: User,
+            where: {
+              id,
+            },
+          },
+        })
+      );
     }
- 
+  } catch (e) {
+    res.status(404).send(next);
+  }
 };
 
-const getEmpresaById = async (req, res) =>{
-  const {id} = req.params
-  const empresa = await Empresa.findByPk(id)
-  const empresadb ={
+const getEmpresaById = async (req, res) => {
+  const { id } = req.params;
+  const empresa = await Empresa.findByPk(id);
+  const empresadb = {
     id: empresa.id,
     name: empresa.name,
     hectareas: empresa.hectareas,
     ubicacion: empresa.ubicacion,
-    imagen: empresa.imagen
-  }
+    imagen: empresa.imagen,
+  };
   if (!empresa) {
-      res.send('empresa no encontrada')
+    res.send("empresa no encontrada");
   }
-   return res.json(empresadb)
+  return res.json(empresadb);
 };
 
 const createEmpresa = async (req, res, next) => {
-  console.log(req.body)
+  // console.log(req.body)
   const { name, hectareas, ubicacion, userId} = req.body;
-  if (req.file) {
-    var empresa = req.file.filename;
-  }
+    if (req.file) {
+      var empresa = req.file.filename;
+    }
   try {
+    var cantidad = await Empresa.count({
+      where: {
+        userId: userId 
+      }
+    })
+    // console.log(cantidad)
+    var user = await User.findByPk(userId);
+
+      if(cantidad >= 2 && user.isPremium === false ){
+       return res.status(500).send("Debe hacerce premium")
+      }
     await Empresa.create({
       name,
       hectareas,
       ubicacion,
       userId,
-      imagen: empresa
+      imagen: empresa,
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
@@ -106,20 +118,17 @@ const deleteEmpresa = async (req, res, next) => {
 
 const updateEmpresa = async (req, res, next) => {
   try {
-    const {id} = req.params;
-    await Empresa.update(req.body, 
-      {
-        where: {
-          id,
-        },
-
+    const { id } = req.params;
+    await Empresa.update(req.body, {
+      where: {
+        id,
+      },
     });
-    res.status(200).json({message: "empresa modificada" });
+    res.status(200).json({ message: "empresa modificada" });
   } catch (e) {
-    res.status(400).send(next)
-    
+    res.status(400).send(next);
   }
-}
+};
 
 ////////////////////////////////////////////////////////////
 
@@ -146,5 +155,5 @@ module.exports = {
   getAllEmpresas,
   updateEmpresa,
   getAllEmpresasByUser,
-  getImageEmpresa
+  getImageEmpresa,
 };
