@@ -5,7 +5,7 @@ module.exports = (sequelize) => {
   sequelize.define("user", {
     fullName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
@@ -33,6 +33,25 @@ module.exports = (sequelize) => {
     },
     profile_pic: {
       type: DataTypes.STRING,
+    },
+    isPremium: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    mp_id: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    payment_link: {
+      type: DataTypes.STRING,
+      validate: {
+        isUrl: true,
+      },
+      allowNull: true,
+    },
+    order_date: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
   });
 
