@@ -90,8 +90,8 @@ const Register = () => {
                   value={userRegister.email} 
                   className={styles.loginInput} />
                   {errors.email && (
-      <p className={styles.error}>{errors.email}</p>
-    )} 
+                  <p className={styles.error}>{errors.email}</p>
+                  )} 
   
                 </div>
       
@@ -105,17 +105,10 @@ const Register = () => {
                     value={userRegister.password}
                     className={styles.loginInput}/>
                     {errors.password && (
-      <p className={styles.error}>{errors.password}</p>
-    )} 
+                   <p className={styles.error}>{errors.password}</p>
+                   )} 
                 </div>
-                {/* <div className={styles.inputGroup}>
-                  <label htmlFor="password">Repetir</label>
-                  <input
-                    onChange={handleChange}
-                    type="password"
-                    name="password"
-                    className={styles.loginInput}/>
-                </div> */}
+                
                  { userRegister.password && !(!/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(userRegister.password)) ?
                 <button
                   type="submit"

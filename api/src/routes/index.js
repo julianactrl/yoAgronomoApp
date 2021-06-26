@@ -5,13 +5,21 @@ const empresaRouter = require("./empresaRouter");
 const authRouter = require("./authRouter.js");
 const userRouter = require("./userRouter");
 const loteRouter = require("./loteRouter");
-const stockRouter = require("./stockRouter");
-const tareaRouter = require("./tareaRouter");
+
+const stockRouter = require('./stockRouter')
+const tareaRouter = require('./tareaRouter')
+const gastosRouter = require('./gastosRouter')
+const transporteRouter = require("./transporteRouter");
+
+
 const premiumRouter = require("./premiumRouter");
 
 router.use("/empresa", empresaRouter);
 router.use("/auth", authRouter);
+router.use("/gastos", gastosRouter);
 router.use("/user", userRouter);
+router.use("/transporte", transporteRouter)
+router.use("/tareas", tareaRouter);
 router.use("/lote", loteRouter);
 router.use("/stock", stockRouter);
 router.use("/tareas", tareaRouter);

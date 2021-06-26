@@ -3,33 +3,28 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_NAME,
-  DATABASE_URL,
-  DATABASE_URL_LOCAL,
-} = process.env;
+
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL_LOCAL, DATABASE_URL } = process.env;
 dbRDS = false;
 
 
-const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
-  //
-  ssl: true,
-  protocol: "postgres",
-  logging: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
-//   logging: false, // set to console.log to see the raw SQL queries
-//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+
+// const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
+//   //
+//   ssl: true,
+//   protocol: "postgres",
+//   logging: false,
+//   dialectOptions: {
+//     ssl: {
+//       require: true,
+//       rejectUnauthorized: false,
+//     },
+//   },
 // });
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+});
 
 
 const basename = path.basename(__filename);
@@ -59,7 +54,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea } =
+
+const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea, ClasificacionDeGastos, Gastos, Transporte} =
   sequelize.models;
 
 // Aca vendrian las relaciones
@@ -67,16 +63,19 @@ const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea } =
 User.hasMany(Empresa);
 Empresa.belongsTo(User);
 Empresa.hasMany(Lote);
+Empresa.hasMany(ClasificacionDeGastos);
 Lote.belongsTo(Empresa);
 Lote.hasMany(ManejoDeLote);
 ManejoDeLote.belongsTo(Lote);
+ClasificacionDeGastos.belongsTo(Empresa);
+ClasificacionDeGastos.hasMany(Gastos);
+Gastos.belongsTo(ClasificacionDeGastos);
 Post.belongsTo(User, { as: "author", foreignKey: "userId" });
-Role.belongsToMany(User, {
-  as: "users",
-  through: "user_role",
-  foreignKey: "role_id",
-});
+Role.belongsToMany(User, { as: "users", through: "user_role", foreignKey: "role_id" });
 User.hasMany(Post, { as: "posts", foreignKey: "userId" });
+
+Transporte.belongsTo(Empresa);
+
 User.belongsToMany(Role, {
   as: "roles",
   through: "user_role",

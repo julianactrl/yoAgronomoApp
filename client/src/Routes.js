@@ -18,6 +18,12 @@ import MercadoPago from "./components/MercadoPago/MercadoPago.jsx";
 import PremiumPlus from "./components/MercadoPago/PremiumPlus.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Calendar from "./components/Calendar/Calendar";
+import NewTransporte from "./components/Transporte/CreateTransporte";
+import UpdateTransporte from "./components/Transporte/UpdateTransporte";
+import DetailTransporte from "./components/Transporte/CardTransporte";
+
+
+
 
 export default function Routes() {
   return (
@@ -71,12 +77,26 @@ export default function Routes() {
         path="/membresia/premiumplus"
         render={({ match }) => <PremiumPlus id={match.params.id} />}
       />
-
+      
       <Route
         exact
         path="/tareas/:id"
         render={({ match }) => <Calendar id={match.params.id} />}
       ></Route>
+       <Route exact path='/createtransporte'>
+       <NewTransporte />
+       </Route>
+       <Route exact path='/updatetransporte/:id'>
+       <UpdateTransporte />
+       </Route>
+       <Route exact path='/transporte'>
+       <DetailTransporte />
+       </Route>
+
+
+      <Route exact path="/tareas/:id" render={({ match }) =>
+        <Calendar id={match.params.id} />}>
+       </Route>
     </Switch>
   );
 }

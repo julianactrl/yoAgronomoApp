@@ -11,6 +11,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import calendarReducer from "./reducers/calendarReducer";
 import premiumReducer from "./reducers/premiunReducer";
+import transporteReducer from './reducers/transporteReducer'
 
 const persistConfig = {
   key: "root",
@@ -28,6 +29,7 @@ const reducers = combineReducers({
   cotizacionesReducer,
   calendarReducer,
   premiumReducer,
+  transporteReducer
 });
 const persistedReducer = persistReducer(persistConfig, reducers);
 
