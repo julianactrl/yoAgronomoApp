@@ -1,5 +1,7 @@
 const {Lote, Empresa, ManejoDeLote} = require("../db");
 const { Op } = require("sequelize");
+const path = require("path");
+const fs = require("fs");
 
 const getAllLotes = async (req,res,next) => {
     const {id} = req.params
@@ -73,29 +75,21 @@ const deleteLote = async(req, res,next)=> {
 const createLote = async(req,res,next) => {
     const { name, superficie, ubicacion, imagen,empresaId} = req.body;
 
+    if(req.file){
+        var Lot = req.file.filename
+    }
     try{
-        let newLote = await Lote.create({
+         await Lote.create({
             name,
             superficie,
             ubicacion,
             imagen,
-            empresaId
-        }, {
-            fields: ['name', 'superficie', 'ubicacion', 'imagen','empresaId']
-        })
-        if (newLote) {
-            
-            res.status(200).json({
-                message: "Lote created succesfully",
-                data: newLote
-            })
-    }
-    }catch(error){
-        if(!newLote){
-            res.status(400).json({
-                message: "Somethings goes wrong"
-            })
-        }
+            empresaId,
+            imagen:Lot
+        });  res.status(200).json("fue  creada con exito");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(next);
     }
 }
 const updateLote = async(req,res,next) => {
@@ -130,14 +124,19 @@ const updateLote = async(req,res,next) => {
 const createManejo = async (req,res,next) => {
     const { loteId } = req.params
     const { observaciones,recomendaciones, image } = req.body;
+
+    if(req.file){
+        var manejo = req.file.filename
+    }
     try{
         await ManejoDeLote.create({
+            loteId,
             observaciones,
-            recomendaciones,
             image,
-            loteId
-        })
-        res.json('Fue Creado')
+            recomendaciones,
+            image:manejo
+        });  res.status(200).json("fue  creado con exito");
+       
     } catch (error) {
       console.log(error);
       res.status(500).send(next);
@@ -202,7 +201,36 @@ const getAllManejo = async (req,res,next) => {
       res.status(500).send(next);
     }
   };
-  
+/////////////////////////////////////////////////////////
+
+const getImageLote = (req, res) => {
+    let getImage;
+    const { name } = req.params;
+    let pathImage = path.join(__dirname, "../");
+    // console.log("soy el path ",pathImage)
+    try {
+      getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    } catch (error) {
+      getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+    }
+    res.set({ "Content-Type": "image/png" });
+    res.send(getImage);
+  };
+
+  const getImageManejoLote = (req, res) => {
+    let getImage;
+    const { name } = req.params;
+    let pathImage = path.join(__dirname, "../");
+    // console.log("soy el path ",pathImage)
+    try {
+      getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    } catch (error) {
+      getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+    }
+    res.set({ "Content-Type": "image/png" });
+    res.send(getImage);
+  };
+
 
 module.exports = {
     getAllLotes,
@@ -215,4 +243,6 @@ module.exports = {
     updateManejo,
     getAllManejo,
     deleteManejo,
+    getImageLote,
+    getImageManejoLote
   }

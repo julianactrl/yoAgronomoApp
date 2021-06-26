@@ -20,9 +20,13 @@ import Premium from './components/MercadoPago/Premium.jsx';
 import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
 import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+<<<<<<< HEAD
 import NewTransporte from "./components/Transporte/CreateTransporte";
 import UpdateTransporte from "./components/Transporte/UpdateTransporte";
 import DetailTransporte from "./components/Transporte/CardTransporte";
+=======
+import Calendar from './components/Calendar/Calendar'
+>>>>>>> dev
 
 
 
@@ -83,6 +87,7 @@ export default function Routes() {
         <PremiumPro />
       </Route>
 
+<<<<<<< HEAD
       <Route exact path='/createtransporte'>
         <NewTransporte />
       </Route>
@@ -93,6 +98,11 @@ export default function Routes() {
         <DetailTransporte />
       </Route>
 
+=======
+      <Route exact path="/tareas/:id" render={({ match }) =>
+        <Calendar id={match.params.id} />}>
+       </Route>
+>>>>>>> dev
     </Switch>
     );
   }

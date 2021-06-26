@@ -5,11 +5,12 @@ const cors = require("cors");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const server = express();
+
 require("./db.js");
 
 //=====passport ====
 const passport = require("./passport");
-const session = require("express-session");
+//const session = require("express-session");
 
 //===================================================================
 
@@ -25,33 +26,19 @@ server.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
   next();
 });
 
-//=============================== middleware passport =========================
-
-// server.use(
-//   session({
-//     secret: "esto funciona perfect",
-//     resave: false,
-//     saveUninitialized: true,
-//   })
-// );
 // Middlewares
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.use(passport.initialize());
-// server.use(passport.session());
-// server.use(function (req, res, next) {
-//   res.locals.user = req.user || null;
-//   next();
-// });
+
 
 server.all("*", function (req, res, next) {
   passport.authenticate("bearer", function (err, user) {
-    // console.log("ACA ESTA EL UNDEFINED >> req user", req.user)
     if (err) return res.status(400).json({ message: "malformed JSON" });
     if (user) {
       req.user = user;

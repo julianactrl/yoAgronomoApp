@@ -1,5 +1,7 @@
 const { Empresa , User} = require("../db");
 const { Op } = require("sequelize");
+const path = require("path");
+const fs = require("fs");
 
 const getEmpresaByName = async (req, res, next) => {
   const nameEmpresa = req.query.name.toLocaleLowerCase();
@@ -68,14 +70,18 @@ const getEmpresaById = async (req, res) =>{
 };
 
 const createEmpresa = async (req, res, next) => {
-  const { name, hectareas, ubicacion, imagen, userId} = req.body;
+  console.log(req.body)
+  const { name, hectareas, ubicacion, userId} = req.body;
+  if (req.file) {
+    var empresa = req.file.filename;
+  }
   try {
     await Empresa.create({
       name,
       hectareas,
       ubicacion,
-      imagen,
-      userId
+      userId,
+      imagen: empresa
     });
     res.status(200).json("fue  creada con exito");
   } catch (error) {
@@ -115,6 +121,23 @@ const updateEmpresa = async (req, res, next) => {
   }
 }
 
+////////////////////////////////////////////////////////////
+
+const getImageEmpresa = (req, res) => {
+  let getImage;
+  const { name } = req.params;
+  let pathImage = path.join(__dirname, "../");
+  // console.log("soy el path ",pathImage)
+  try {
+    getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+  } catch (error) {
+    getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+  }
+  res.set({ "Content-Type": "image/png" });
+  res.send(getImage);
+};
+////////////////////////////////
+
 module.exports = {
   createEmpresa,
   deleteEmpresa,
@@ -122,5 +145,6 @@ module.exports = {
   getEmpresaById,
   getAllEmpresas,
   updateEmpresa,
-  getAllEmpresasByUser
+  getAllEmpresasByUser,
+  getImageEmpresa
 };

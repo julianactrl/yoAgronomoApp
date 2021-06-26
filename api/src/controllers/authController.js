@@ -45,7 +45,7 @@ module.exports = {
   signUp(req, res) {
     // Encriptamos la contraseña
     let password = bcrypt.hashSync(
-      req.body.password,
+      req.body.password, 10,
       Number.parseInt(authConfig.rounds)
     );
 

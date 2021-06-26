@@ -7,8 +7,13 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick'
 import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
-import { getWeather } from '../../../redux/actions/weatherActions';
+import { clearWeather, getWeather } from '../../../redux/actions/weatherActions';
+import emptyIco from '../../../assets/emptyIco.png'
+import grass from '../../../assets/grassBackground.png'
+import {motion} from 'framer-motion';
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
+const { REACT_APP_API } = process.env;
+
 
 
 export default function LoteDetails({lote}){
@@ -18,7 +23,6 @@ export default function LoteDetails({lote}){
     const [auxState, setAuxState] = useState(false);
     const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
-    const [post, setPost] = useState('');
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
@@ -31,10 +35,13 @@ export default function LoteDetails({lote}){
     
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useEffect(()=>{
         dispatch(getWeather(lote.ubicacion))
-    },[]) 
+        dispatch(getManejo(lote.id))
+    },[])
+
     const ovflow = useRef()
+
 
     function btnObsTar(){
         if(botonera){
@@ -97,7 +104,14 @@ export default function LoteDetails({lote}){
           }
     }
 
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imgUrl, setImgUrl] = useState(null);
 
+    const handleFileInputChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+        setImgUrl(URL.createObjectURL(event.target.files[0]));
+        // console.log("---handleFileInputChange----", event.target.files[0]);
+    };
     function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
@@ -110,7 +124,7 @@ export default function LoteDetails({lote}){
         setAuxState(false)
     }
     async function handleEditManejo(id){
-        const updated = manejoLote.find(m=> m.id == id);
+        const updated = manejoLote.find(m=> m.id === id);
         console.log('OBEJO MANEJO AAAAAAAAA',updated)
 
         updated.observaciones = editManejo.observaciones
@@ -135,10 +149,26 @@ export default function LoteDetails({lote}){
         alert('Observación eliminada');
     }
     function cerrar(){
-        // dispatch({type:'GET_DETAIL_LOTE',payload:false})
         dispatch({type:'SET_VERIFY',payload:''})
+        clearWeather()
     }
+    
     return(
+        <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+        hidden: {
+            scale: 0,
+            opacity: -1
+        },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition:.2
+        }
+        }}
+        >
         <div className={styles.contMain}>
             <div className={styles.contCard}>
                 <div className={voltear?styles.cardAct:styles.card}>
@@ -154,8 +184,14 @@ export default function LoteDetails({lote}){
                                 </div> 
                             </div>
                             <Slider {...settings} >
-                                <img src={lote.imagen} className={styles.img}/>
-                                <img src={'https://www.semana.com/resizer/IEcOf8TJx4XxRszD1F26YO7lixw=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4KEOUCGM7FDRHGJVNJJWTAF464.jpeg'} className={styles.img}/>
+                                <img
+                                    src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
+                                    alt="https://i.stack.imgur.com/y9DpT.jpg"
+                                    // width={400}
+                                    // height={600}
+                                    className={styles.img}
+                                />
+                                <img className={styles.imgLogo} src={grass} alt="" />
                             </Slider>
                         </div>
                         
@@ -193,7 +229,7 @@ export default function LoteDetails({lote}){
                             </div>
                             <div className={styles.obsRec}>
                                 <div className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1 onClick={()=>{btnObsTar(true)}}className={botonera?styles.none:null}>MANEJO</h1>
+                                    <h1 onClick={()=>{btnObsTar(true)}}className={botonera?styles.none:styles.manejobar}>MANEJO</h1>
                                     <div onClick={()=>{btnObsTar(true)}}className={botonera?styles.contTitleManejo:styles.none}>
                                         <h4 className={styles.manejoTitle}>Observaciones</h4>
                                         <h4 className={styles.manejoTitle}>Recomendaciones</h4>
@@ -202,7 +238,7 @@ export default function LoteDetails({lote}){
                                             <div className={styles.cardManejo}>
                                                 <div className={styles.obsData}>
                                                         {
-                                                            manejoLote.map((data) =>{
+                                                            manejoLote[0]?manejoLote.map((data) =>{
                                                                 const {id} = data
                                                                 return(
                                                                     <div className={styles.segmentManejo}>
@@ -225,7 +261,10 @@ export default function LoteDetails({lote}){
                                                                     </div>
                                                                     
                                                                 )
-                                                            })
+                                                            }):<div className={styles.nothingHere}>
+                                                                <h2 className={styles.nothingHereTitle}><strong>NINGUNA OBSERVACIÓN TODAVÍA</strong></h2>
+                                                                <img className={styles.nothingHereImg} src={emptyIco} alt="" />
+                                                            </div>
                                                         } 
                                                 </div>                                             
                                             </div>
@@ -249,7 +288,13 @@ export default function LoteDetails({lote}){
                                 <div className={styles.cargarImg}>
                                     <p>Adjuntar Imágen</p>
                                     <div class={styles.fileselect} id="archivo" >
-                                        <input ref={imageData}type="file" name="archivo" aria-label="Archivo"/>
+                                        <input  
+                                        ref={imageData}                                           
+                                        type="file"
+                                        name="imagen"
+                                        accept="image/png, image/jpeg"
+                                        onChange={handleFileInputChange}
+                                        required/>
                                     </div>
                                 </div>
                             </div>
@@ -269,5 +314,6 @@ export default function LoteDetails({lote}){
                 </div>
             </div>
         </div>
+        </motion.div>
     )
 }

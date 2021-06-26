@@ -8,6 +8,8 @@
     bottom: 5vh;
 }
 .contCard{
+    position: relative;
+    top: 5rem;
     width: 150vh;
     height: 70vh;
     -webkit-perspective: 4000;
@@ -31,10 +33,6 @@
 }
 
 .loteDetails{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: right;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
@@ -43,9 +41,9 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 10px black;
-    border: 1px solid rgba(255, 255, 255, 0.26);
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.486);
+    background-color: rgba(0, 0, 0, 0.219);
+    box-shadow: 0 0 10px black;
 }
 .name{
     font-size: 40px;
@@ -444,27 +442,37 @@
     animation-name: agrandar;
     animation-timing-function: ease;
     animation-duration: 0.3s;
-    animation-iteration-count: initial;
+    animation-iteration-count:inherit;
+    animation-direction: alternate;
 }
-
+.manejobar{
+    font-size: 30px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.manejobar:hover{
+    transition: 0.3s;
+    color: rgba(0, 0, 0, 0.794);
+    text-shadow: -0px 0px 10px rgb(255, 255, 255);
+}
 
 .contObsDesactivated{
     position: relative;
     top: 85%;
     display: flex;
-    box-shadow: 0 0 30px black;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px black;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
     background-color: rgba(0, 0, 0, 0.294);
-    text-align: center;
     height: 8vh;
     width: 100%;
 }
 .contObsDesactivated:hover{
-    cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 10px rgba(104, 104, 104, 0.582);
+    box-shadow: 0 0 10px rgb(179, 179, 179);
     background-color: rgba(58, 58, 58, 0.431);
 
 }
@@ -478,6 +486,36 @@
         height: 100%;
     }
     
+}
+@keyframes achicar {
+    from{
+        top: 0;
+    }
+    to{
+        top: 85%;
+    }
+    
+}
+/* //////////////////////////////////////////////////////////////////////////////// */
+.nothingHere{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    flex-direction: column;
+}
+.nothingHereImg{
+    position: relative;
+    top: 5rem;
+    width: 10rem;
+    opacity: .5;
+}
+.nothingHereTitle{
+    position: relative;
+    top: 3rem;
+    font-style: oblique;
+    color: rgb(65, 65, 65);
+    font-size: 22px;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
@@ -505,6 +543,11 @@
     opacity: 0.8;
     height: 43vh;
 }
+.imgLogo{
+    height: 25rem;
+    width: 5px;
+    opacity: 0.8;
+}
 /* //////////////////////////////      FORMULARIO         //////////////////////////////////////////// */
 .none{
     display: none;
@@ -522,9 +565,8 @@
     backface-visibility: hidden;
     transform: rotateY(180deg);
     box-shadow: 0 0 10px black;
-    border: 1px solid rgba(255, 255, 255, 0.26);
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.486);
+    background-color: rgba(0, 0, 0, 0.219);
     display: flex;
     color: white;
     justify-content: center;
@@ -729,4 +771,82 @@
     position: relative;
     font-size: 25px;
     bottom:3vh;
+}
+/* /////////////////// MEDIA QUERYS ////////////////////////////// */
+@media (max-width: 1450px) {
+    .contCard{
+        width: 130vh;
+    }
+    .contLogoDelEdit{
+        right: 32rem;
+    }
+}
+
+@media (max-height: 900px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: 1rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 26.45rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 28.5rem;
+        left: -25rem;
+    }
+}
+@media (max-height: 750px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: .7rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 24.45rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 26.5rem;
+        left: -24rem;
+    }
+}
+@media (max-height: 680px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: .5rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 22rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 23.5rem;
+        left: -22rem;
+    }
+}
+@media (max-width: 1200px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
 }

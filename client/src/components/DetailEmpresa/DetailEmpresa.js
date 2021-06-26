@@ -9,6 +9,10 @@ import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
 
+<<<<<<< HEAD
+=======
+const { REACT_APP_API } = process.env;
+>>>>>>> dev
 
 function DetailEmpresa ({id}) {
 
@@ -25,7 +29,7 @@ function DetailEmpresa ({id}) {
     function deleteEmpresa(id) {
         
         // dispatch(deleteEmpresa(id));
-        axios.delete(`http://localhost:3001/empresa/delete/${id}`)
+        axios.delete(`${REACT_APP_API}/empresa/delete/${id}`)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
         alert('Su empresa fue eliminada!')
@@ -41,16 +45,17 @@ function DetailEmpresa ({id}) {
             { <div className={styles.div}>
             <li className={styles.liContenedor}>
             <div className={styles.name}>
-                <div className={styles.items}>
-            <h1 className={styles.name}>{empresa.name}</h1>
-                    
+                <div className={styles.itemsTop}>
+            <h1 className={styles.nameTitle}>{empresa.name}</h1>
+            <div className={styles.btnsDelEdit}>
             <Link to={`/update/${empresa.id}`}>
             <button className={styles.buttonEmpresa}></button>
             </Link>
             <div className={styles.items}>
             <Link to={`/home`}>
             <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}></button> 
-            </Link>
+            </Link>  
+            </div>
             </div>
             </div>
             </div>
@@ -87,12 +92,23 @@ function DetailEmpresa ({id}) {
             </div>
             </div>
             </div>
-           {
-               empresa.imagen ? 
-               <img width={500} height={350} src={empresa.imagen} alt='imagen del campo' className={styles.imgEmpresa}/>
-               :
-               <img width={500} height={350} src="https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg" alt="imagen default" className={styles.imgEmpresa} />
-           }
+            {empresa.imagen ? (
+            <img
+              src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
+              alt="https://i.stack.imgur.com/y9DpT.jpg"
+              width={500}
+              height={350}
+              className={styles.imgEmpresa}
+            />
+          ) : (
+            <img
+              alt="perfil"
+              src={
+                "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
+              }
+              className={styles.imgEmpresa}
+            />
+          )}
             </div>
             </li>
 

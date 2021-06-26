@@ -1,19 +1,11 @@
-'use strict';
-const {DataTypes} = require("sequelize");
-
+//'use strict';
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-
-  sequelize.define('user', {
+  sequelize.define("user", {
     fullName: {
       type: DataTypes.STRING,
-      allowNull: false,
-      // validate: {
-      //   len: {
-      //     args: [2, 255],
-      //     msg: "El nombre tiene que ser minimamente de dos caracters"
-      //   }
-      // }
+      allowNull: false
     },
     email: {
       type: DataTypes.STRING,
@@ -21,27 +13,27 @@ module.exports = (sequelize) => {
       unique: true,
       validate: {
         isEmail: {
-          msg: "El email tiene que ser un correo valido"
-        }
-      }
+          msg: "El email tiene que ser un correo valido",
+        },
+      },
     },
-    password:{
+    password: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       validate: {
         len: {
           args: [6, 255],
-          msg: "La contraseña tiene que tener minimamente 6 caracteres"
-        }
-      }
+          msg: "La contraseña tiene que tener minimamente 6 caracteres",
+        },
+      },
     },
     googleId: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    profile_pic:{
-      type: DataTypes.STRING
-    }
+    profile_pic: {
+      type: DataTypes.STRING,
+    },
   });
 
   // User.associate = function(models) {
