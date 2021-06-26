@@ -55,7 +55,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 
 
-const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea, ClasificacionDeGastos, Gastos} =
+const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea, ClasificacionDeGastos, Gastos, Transporte} =
   sequelize.models;
 
 // Aca vendrian las relaciones
