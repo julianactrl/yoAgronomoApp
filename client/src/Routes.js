@@ -94,8 +94,8 @@ export default function Routes() {
        </Route>
 
 
-      <Route exact path="/tareas/:id" render={({ match }) =>
-        <Calendar id={match.params.id} />}>
+      <Route exact path="/tareas" >
+        <Calendar/>
        </Route>
     </Switch>
   );
