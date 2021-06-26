@@ -71,26 +71,23 @@ const getEmpresaById = async (req, res) => {
 };
 
 const createEmpresa = async (req, res, next) => {
-  // Hacer un findAll de mp_id && payment_link
-  // Si el usuario tiene en la base de datos un mp_id y un link de pago,
-  // Seteamos isPremium en true
-  // Entonces, desbloquear la funcion de cargar mas de 2 empresas
-  //
-  // Si el false solo habilitar la carga de 2
-  // Si premium es false findOrCreate limit: 2
-  // var cantidad = Empresa.count()
-  // if(cantidad <= 2 && isPremium === false){
-  //   function que anule boton de crear
-  // }else if (isPremium === true ){
-  //       Empresa.create
-  // }
-
-  console.log(req.body);
-  const { name, hectareas, ubicacion, userId } = req.body;
-  if (req.file) {
-    var empresa = req.file.filename;
-  }
+  // console.log(req.body)
+  const { name, hectareas, ubicacion, userId} = req.body;
+    if (req.file) {
+      var empresa = req.file.filename;
+    }
   try {
+    var cantidad = await Empresa.count({
+      where: {
+        userId: userId 
+      }
+    })
+    // console.log(cantidad)
+    var user = await User.findByPk(userId);
+
+      if(cantidad >= 2 && user.isPremium === false ){
+       return res.status(500).send("Debe hacerce premium")
+      }
     await Empresa.create({
       name,
       hectareas,
