@@ -5,7 +5,7 @@ const fs = require("fs");
 
 
 const createTarea = async(req, res, next) => {
-    const { tarea, fecha, empresaId } = req.body;
+    const { tarea, fecha,empresaId } = req.body;
     try{
          await Tarea.create({
             tarea,
@@ -14,7 +14,7 @@ const createTarea = async(req, res, next) => {
         });  res.status(200).json("tarea creada con exito");
     } catch (error) {
       console.log(error);
-      res.status(500).send(next);
+      res.status(500).send(next); 
     }
 }
 

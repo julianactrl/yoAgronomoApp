@@ -17,6 +17,6 @@ router.use("/user", userRouter);
 router.use("/lote",loteRouter);
 // router.use("/premium/checkout",mercadoPagoRouter)
 router.use("/stock",stockRouter)
-router.use("/tarea", tareaRouter);
+router.use("/tareas", tareaRouter);
 router.use('/premium', premiumRouter) // Mercado pago
 module.exports = router;

@@ -11,6 +11,8 @@
     /* width: 100%; */
 }
 .contCard{
+    position: relative;
+    top: 5rem;
     display: flex;
     width: 150vh;
     height: 70vh;

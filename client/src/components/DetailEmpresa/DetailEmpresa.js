@@ -44,16 +44,17 @@ function DetailEmpresa ({id}) {
             { <div className={styles.div}>
             <li className={styles.liContenedor}>
             <div className={styles.name}>
-                <div className={styles.items}>
-            <h1 className={styles.name}>{empresa.name}</h1>
-                    
+                <div className={styles.itemsTop}>
+            <h1 className={styles.nameTitle}>{empresa.name}</h1>
+            <div className={styles.btnsDelEdit}>
             <Link to={`/update/${empresa.id}`}>
             <button className={styles.buttonEmpresa}></button>
             </Link>
             <div className={styles.items}>
             <Link to={`/home`}>
             <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}></button> 
-            </Link>
+            </Link>  
+            </div>
             </div>
             </div>
             </div>
