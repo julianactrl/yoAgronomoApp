@@ -86,24 +86,12 @@ export default function LoteDetails({lote}){
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };
-    /////////////////////////////////////////////////////////////////////////////////////// 
-    async function postearManejo(){
-        const data = {
-            observaciones: observacionData.current.value + "",
-            recomendaciones: recomendacionData.current.value + "",
-            image: imageData.current.value + "",
-        }
-        console.log('CREANDO');
-        await crearLoteManejo(data, lote.id) 
-        console.log('CREADO');
-        await dispatch(getManejo(lote.id))
-        if(voltear){
-            setVoletar(false)  
-          }else{
-              setVoletar(true)  
-          }
-    }
-
+    ///////////////////////////////////////////////////////////////////////////////////////
+    const [inputs , setInputs] = useState({
+        observaciones: null,
+        recomendaciones: null,
+        image: "",
+    })
     const [selectedFile, setSelectedFile] = useState(null);
     const [imgUrl, setImgUrl] = useState(null);
 
@@ -111,7 +99,37 @@ export default function LoteDetails({lote}){
         setSelectedFile(event.target.files[0]);
         setImgUrl(URL.createObjectURL(event.target.files[0]));
         // console.log("---handleFileInputChange----", event.target.files[0]);
-    };
+    }; 
+    async function postearManejo(){
+
+        const config = {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+         };
+          const fd = new FormData();
+          const extension = selectedFile.name.split(".");
+      
+          fd.append("observaciones", inputs.observaciones);
+          fd.append("recomendaciones", inputs.recomendaciones);
+     
+          fd.append(
+            "image",
+            selectedFile,
+            inputs.observaciones + "." + extension[extension.length - 1]
+          );
+            console.log('CREANDO');
+            await crearLoteManejo(fd, lote.id, config) 
+            alert('CREADO');
+            await dispatch(getManejo(lote.id))
+        if(voltear){
+            setVoletar(false)  
+          }else{
+              setVoletar(true)  
+          }
+    }
+
+
     function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
@@ -187,8 +205,6 @@ export default function LoteDetails({lote}){
                                 <img
                                     src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
-                                    // width={400}
-                                    // height={600}
                                     className={styles.img}
                                 />
                                 <img className={styles.imgLogo} src={grass} alt="" />
@@ -245,7 +261,8 @@ export default function LoteDetails({lote}){
                                                                         <div className={styles.contEditDelManejo}>
                                                                             <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
                                                                             <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
-                                                                        </div> 
+                                                                        </div>
+                                                                        <button>Imagen</button> 
                                                                         <div className={styles.dataManejo}>
                                                                             <div className={styles.obs}>
                                                                                 <p className={editManejoAux?styles.none:null}>{data.observaciones}</p>
@@ -279,11 +296,11 @@ export default function LoteDetails({lote}){
                     <div className={styles.loteForm}>
                     <button onClick={card3d} className={styles.btnAtras}>Atrás</button>
                         <h1 className={styles.titleLote}>CARGA DE DATOS</h1>
-                        <div className={styles.form}>                            
+                        <form onSubmit={postearManejo} className={styles.form}>                            
                             <div className={!formulario?styles.contCargaText:styles.none}>
                                 <div className={styles.contTextarea}>
                                     <h2 class={styles.textareatitle}>Indicá tu observación acá abajo</h2>
-                                    <textarea ref={observacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                    <textarea name='observaciones' value={inputs.observaciones}  onChange={data=>setInputs({...inputs,observaciones:data.target.value})} ref={observacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div> 
                                 <div className={styles.cargarImg}>
                                     <p>Adjuntar Imágen</p>
@@ -301,15 +318,16 @@ export default function LoteDetails({lote}){
                             <div className={formulario?styles.contCargaText:styles.none}>
                                 <div className={styles.contTextarea}>
                                     <h2 class={styles.textareatitle}>Ahora añadí tu recomendación...</h2>
-                                    <textarea ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                    <textarea name='recomendaciones' value={inputs.recomendaciones}  onChange={data=>setInputs({...inputs,recomendaciones:data.target.value})} ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div>
                                 <div className={styles.contSubmit}>
-                                    <button onClick={postearManejo} className={styles.submit}>Enviar</button>
+                                    <button type='submit' className={styles.submit}>Enviar</button>
                                 </div> 
                             </div>                           
-                            <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
-                            <button className={formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(false)}}>Atrás</button>
-                        </div>
+                            
+                        </form>
+                        <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
+                        <button className={formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(false)}}>Atrás</button>
                     </div>
                 </div>
             </div>

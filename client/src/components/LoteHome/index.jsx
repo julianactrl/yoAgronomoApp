@@ -34,28 +34,6 @@ export default function LoteHome ({id}) {
     useEffect(async()=>{
         await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
     },[])
-
-    function SampleNextArrow(props) {
-        const { style, onClick } = props;
-        return (
-          <div
-            className={styles.nextBtn}
-            style={style}
-            onClick={onClick}
-          />
-        );
-      }
-      function SamplePrevArrow(props) {
-        const { style, onClick } = props;
-        return (
-          <div
-          className={styles.prevBtn}
-            style={style}
-            onClick={onClick}
-          />
-        );
-      }
-      
       // funcion switch renderizar
       function switcher (type) {
         switch (type) {
