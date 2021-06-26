@@ -1,11 +1,13 @@
 const { User } = require("../db");
-const { FRONT, BACK, TOKEN_TEST} = process.env
+const { FRONT, BACK, BACK_URL , ACCESS_TOKEN_PROD} = process.env
 const mercadopago = require("mercadopago");
 const { mailCompleted } = require("../mails/mensaje");
 
+//Cuenta a la que hacemos referencia como vendedor
 mercadopago.configure({
-  access_token: TOKEN_TEST,
+  access_token: ACCESS_TOKEN_PROD
 });
+
 
 const premium = async (req, res) => {
   try {
@@ -33,9 +35,9 @@ const premium = async (req, res) => {
             },
           ],
           back_urls: {
-            success: `${FRONT}`,
-            failure: `${BACK}`,
-            pending: `${BACK}`,
+            success: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
+            failure: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
+            pending: `${BACK_URL}/api/signin/mercadoPagoRedirect`,
           },
           auto_return: "approved",
           notification_url: `${BACK_URL}/premium/mercadoPagoNotifications`,
