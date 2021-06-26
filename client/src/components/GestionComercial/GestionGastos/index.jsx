@@ -18,6 +18,9 @@ export default function GestionGastos () {
                                 <Clasificacion title={'clasificacion nª 1'}/>
                                 <Clasificacion title={'clasificacion nª 2'}/>
                                 <div className={styles.total}>
+                                    <button className={`btn btn-outline-success ${styles.btnTotal}`}>Agregar Clasificación +</button>
+                                </div>
+                                <div className={styles.total}>
                                     <button className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
                                 </div>
                             </div>
@@ -36,26 +39,34 @@ export default function GestionGastos () {
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Precio</th>
+                                <th>Fecha</th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <GastoItem Nombre={'Hi5'} Descripcion={2003} Precio={1500}/>
-                            <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500}/>
-                            <GastoItem Nombre={'Metroflog messenger'} Descripcion={2004} Precio={1500}/>
-                            <GastoItem Nombre={'Myspace'} Descripcion={2003} Precio={1500}/>
-                            <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500}/>
-                            <tr>
+                        <tbody >
+                                <GastoItem Nombre={'Hi5'} Descripcion={2003} Precio={1500} fecha={'26/06/2021'}/>
+                                <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500} fecha={'26/06/2021'}/>
+                                <GastoItem Nombre={'Metroflog messenger'} Descripcion={2004} Precio={1500} fecha={'26/06/2021'}/>
+                                <GastoItem Nombre={'Myspace'} Descripcion={2003} Precio={1500} fecha={'26/06/2021'}/>
+                                <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500} fecha={'26/06/2021'}/>
+
+                            {/* <tr className={styles.totalNumber}>
                                 <th scope="row">TOTAL</th>
                                 {/* <td>-</td>
                                 <td>7</td> */}
-                                <td><strong>207.51</strong></td>
+                                {/* <td colspan="5" className={styles.totalNumberItem}><strong>207.51</strong></td> */}
+                                {/* <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                            </tr>
+                                <td></td> 
+                            </tr> 
+                                */}
                         </tbody>
                     </table>
+                    <div className={styles.footer}>
+                        <h2>TOTAL</h2>
+                        <h2 className={styles.numberTotal}> 207,51</h2>
+                    </div>
                 </div>
              </div>
          </>

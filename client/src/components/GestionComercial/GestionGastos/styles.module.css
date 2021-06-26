@@ -71,3 +71,26 @@
     height: 100%;
     border-color: rgba(0, 128, 0, 0.479);
 }
+.totalNumber{
+    /* background-color: rgba(0, 0, 255, 0.384); */
+    width: 1200px;
+    align:center;
+    /* display: flex; */
+    /* color: blueviolet; */
+}
+.totalNumberItem{
+    /* width: 100%; */
+    font-size: 30px;
+    
+}
+.footer{
+    /* background-color: blueviolet; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.514);
+}
+.numberTotal{
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+}
