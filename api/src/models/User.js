@@ -53,6 +53,15 @@ module.exports = (sequelize) => {
       type: DataTypes.DATE,
       allowNull: true,
     },
+    order_status: {
+      type: DataTypes.ENUM(
+        "cancelled",
+        "completed",
+        "processing"
+      ),
+      allowNull: false,
+      defaultValue: "processing"
+    },
   });
 
   // User.associate = function(models) {
