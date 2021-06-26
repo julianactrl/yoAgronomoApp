@@ -3,15 +3,10 @@ const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 
-const {
-  DB_USER,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_NAME,
-  DATABASE_URL,
-  DATABASE_URL_LOCAL,
-} = process.env;
+
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL_LOCAL, DATABASE_URL } = process.env;
 dbRDS = false;
+
 
 
 const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
@@ -59,8 +54,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { User, Empresa, Lote, ManejoDeLote, Post, Role, Stock, Tarea } =
-  sequelize.models;
+const { User, Empresa, Lote, ManejoDeLote, Post, Role, Transporte } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -71,12 +65,11 @@ Lote.belongsTo(Empresa);
 Lote.hasMany(ManejoDeLote);
 ManejoDeLote.belongsTo(Lote);
 Post.belongsTo(User, { as: "author", foreignKey: "userId" });
-Role.belongsToMany(User, {
-  as: "users",
-  through: "user_role",
-  foreignKey: "role_id",
-});
+Role.belongsToMany(User, { as: "users", through: "user_role", foreignKey: "role_id" });
 User.hasMany(Post, { as: "posts", foreignKey: "userId" });
+
+Transporte.belongsTo(Empresa);
+
 User.belongsToMany(Role, {
   as: "roles",
   through: "user_role",

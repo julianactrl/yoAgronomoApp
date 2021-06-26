@@ -10,6 +10,7 @@ import empresaReducer from './reducers/empresaReducer'
 import weatherReducer from './reducers/weatherReducer'
 import newsReducer from './reducers/newsReducer'
 import loteReducer from './reducers/loteReducer'
+import transporteReducer from './reducers/transporteReducer'
 import cotizacionesReducer from './reducers/cotizacionesReducer'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
@@ -31,7 +32,11 @@ const reducers = combineReducers({
     newsReducer,
     loteReducer,
     cotizacionesReducer,
+<<<<<<< HEAD
+    transporteReducer
+=======
     calendarReducer
+>>>>>>> dev
 
 })
 const persistedReducer = persistReducer(persistConfig, reducers)

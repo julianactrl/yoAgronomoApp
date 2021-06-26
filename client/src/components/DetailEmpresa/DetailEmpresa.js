@@ -9,7 +9,10 @@ import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
 
+<<<<<<< HEAD
+=======
 const { REACT_APP_API } = process.env;
+>>>>>>> dev
 
 function DetailEmpresa ({id}) {
 
@@ -37,8 +40,6 @@ function DetailEmpresa ({id}) {
     return (
         <div className={styles.background}>
             <Header />
-            
-                     
             
                 
             { <div className={styles.div}>
@@ -112,6 +113,8 @@ function DetailEmpresa ({id}) {
             </li>
 
             </div> }
+
+            
         
     
         </div>
