@@ -32,11 +32,8 @@ const reducers = combineReducers({
     newsReducer,
     loteReducer,
     cotizacionesReducer,
-<<<<<<< HEAD
-    transporteReducer
-=======
+    transporteReducer,
     calendarReducer
->>>>>>> dev
 
 })
 const persistedReducer = persistReducer(persistConfig, reducers)

@@ -9,10 +9,7 @@ import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
 
-<<<<<<< HEAD
-=======
 const { REACT_APP_API } = process.env;
->>>>>>> dev
 
 function DetailEmpresa ({id}) {
 
