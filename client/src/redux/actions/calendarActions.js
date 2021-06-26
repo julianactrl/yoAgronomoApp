@@ -8,9 +8,6 @@ const { REACT_APP_API} = process.env
 export function createTarea(body) {
     return async function(dispatch) {
         try {
-            dispatch({
-              type: POST_TAREA,
-            });
             const config = {
               headers: { "Content-Type": "application/json" },
             };
@@ -19,8 +16,13 @@ export function createTarea(body) {
               body,
               config
             );
+            dispatch({
+                type: POST_TAREA,
+                payload:data
+              });
             swal("Tarea creada correctamente", { icon: "success" });
             console.log(data)
+            window.location.href = "/home";
           } catch (error) {
             swal("No se pudo crear la tarea", { icon: "warning" });
     }}
@@ -76,6 +78,7 @@ export function getAllTareas(id) {
                 type: GET_TAREAS,
                 payload: json
             })  
+            console.log(json)
         })
     }
 }

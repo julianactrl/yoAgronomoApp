@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
 import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
+import { getAllTareas } from '../../redux/actions/calendarActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import data from './data.json';
@@ -13,15 +14,22 @@ const { REACT_APP_API } = process.env;
 
 function DetailEmpresa ({id}) {
 
+
+  const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)  
     const dispatch = useDispatch();
     // const {id} = props.match.params;
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
+    // const tareas = useSelector(state=>state.calendarReducer.tareas);
     
     useEffect(()=> {
-        dispatch(getEmpresa(id));
-        console.log(empresa.imagen)
-        
-    }, []);
+      dispatch(getEmpresa(id));
+      console.log(empresa.imagen)
+      
+  }, []);
+
+  //   useEffect(()=>{
+  //     dispatch(getAllTareas(idEmpresa))
+  // }, [])
     
     function deleteEmpresa(id) {
         
@@ -64,29 +72,14 @@ function DetailEmpresa ({id}) {
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
-           <h3 style={{color: "red"}}>▶</h3>
+           <h3 style={{color: "green"}}>▶</h3>
            </div> 
-           <div className={styles.items}>
-           <h3> Monitoreo de lotes</h3>
+           {/* <div className={styles.items}>
+           <h3> { tareas.length>0 && tareas.map(t=>(
+                           <p>{t.tarea}</p>
+                           ))}</h3>
+           </div> */}
            </div>
-           </div>
-           <div className={styles.items}>
-            <div className={styles.items}>
-           <h3 style={{color: "yellow"}}>▶</h3>
-           </div>
-           <div className={styles.items}>
-            <h3>Diagramación de plan de siembra</h3>
-            </div>
-            </div>
-            <div className={styles.items}>
-            <div className={styles.items}>
-            <h3 style={{color: "green"}}>▶</h3>
-            </div>
-            <div className={styles.items}>
-            <h3>Formulación de aplicaciones</h3>
-            </div>
-           
-            </div>
             </div>
             </div>
             {empresa.imagen ? (
