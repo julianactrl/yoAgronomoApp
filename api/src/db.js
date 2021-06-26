@@ -82,7 +82,7 @@ User.belongsToMany(Role, {
   through: "user_role",
   foreignKey: "user_id",
 });
-Stock.belongsTo(Lote);
+Stock.belongsTo(Empresa);
 Empresa.hasMany(Tarea);
 Tarea.belongsTo(Empresa);
 
