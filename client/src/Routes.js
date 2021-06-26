@@ -81,10 +81,9 @@ export default function Routes() {
         <PremiumPro />
       </Route>
 
-      <Route  exact path="/agenda/:id"
-        render={({ match }) => <Calendar
-         id={match.params.id} />}/>
-
+      <Route exact path="/tareas/:id" render={({ match }) =>
+        <Calendar id={match.params.id} />}>
+       </Route>
     </Switch>
     );
   }

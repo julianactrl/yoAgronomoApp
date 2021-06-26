@@ -9,6 +9,8 @@ import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { clearWeather, getWeather } from '../../../redux/actions/weatherActions';
 import emptyIco from '../../../assets/emptyIco.png'
+import grass from '../../../assets/grassBackground.png'
+import {motion} from 'framer-motion';
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
@@ -21,7 +23,6 @@ export default function LoteDetails({lote}){
     const [auxState, setAuxState] = useState(false);
     const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
-    const [post, setPost] = useState('');
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
@@ -85,17 +86,42 @@ export default function LoteDetails({lote}){
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
       };
-    /////////////////////////////////////////////////////////////////////////////////////// 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    const [inputs , setInputs] = useState({
+        observaciones: null,
+        recomendaciones: null,
+        image: "",
+    })
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imgUrl, setImgUrl] = useState(null);
+
+    const handleFileInputChange = (event) => {
+        setSelectedFile(event.target.files[0]);
+        setImgUrl(URL.createObjectURL(event.target.files[0]));
+        // console.log("---handleFileInputChange----", event.target.files[0]);
+    }; 
     async function postearManejo(){
-        const data = {
-            observaciones: observacionData.current.value + "",
-            recomendaciones: recomendacionData.current.value + "",
-            image: imageData.current.value + "",
-        }
-        console.log('CREANDO');
-        await crearLoteManejo(data, lote.id) 
-        console.log('CREADO');
-        await dispatch(getManejo(lote.id))
+
+        const config = {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+         };
+          const fd = new FormData();
+          const extension = selectedFile.name.split(".");
+      
+          fd.append("observaciones", inputs.observaciones);
+          fd.append("recomendaciones", inputs.recomendaciones);
+     
+          fd.append(
+            "image",
+            selectedFile,
+            inputs.observaciones + "." + extension[extension.length - 1]
+          );
+            console.log('CREANDO');
+            await crearLoteManejo(fd, lote.id, config) 
+            alert('CREADO');
+            await dispatch(getManejo(lote.id))
         if(voltear){
             setVoletar(false)  
           }else{
@@ -144,7 +170,23 @@ export default function LoteDetails({lote}){
         dispatch({type:'SET_VERIFY',payload:''})
         clearWeather()
     }
+    
     return(
+        <motion.div
+        initial='hidden'
+        animate='visible'
+        variants={{
+        hidden: {
+            scale: 0,
+            opacity: -1
+        },
+        visible: {
+            scale: 1,
+            opacity: 1,
+            transition:.2
+        }
+        }}
+        >
         <div className={styles.contMain}>
             <div className={styles.contCard}>
                 <div className={voltear?styles.cardAct:styles.card}>
@@ -160,13 +202,12 @@ export default function LoteDetails({lote}){
                                 </div> 
                             </div>
                             <Slider {...settings} >
-                            <img
-                         src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
-                         alt="https://i.stack.imgur.com/y9DpT.jpg"
-                         // width={400}
-                         // height={600}
-                         className={styles.img}
-                       />
+                                <img
+                                    src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
+                                    alt="https://i.stack.imgur.com/y9DpT.jpg"
+                                    className={styles.img}
+                                />
+                                <img className={styles.imgLogo} src={grass} alt="" />
                             </Slider>
                         </div>
                         
@@ -204,7 +245,7 @@ export default function LoteDetails({lote}){
                             </div>
                             <div className={styles.obsRec}>
                                 <div className={botonera?styles.contObsActivated:styles.contObsDesactivated}>
-                                    <h1 onClick={()=>{btnObsTar(true)}}className={botonera?styles.none:null}>MANEJO</h1>
+                                    <h1 onClick={()=>{btnObsTar(true)}}className={botonera?styles.none:styles.manejobar}>MANEJO</h1>
                                     <div onClick={()=>{btnObsTar(true)}}className={botonera?styles.contTitleManejo:styles.none}>
                                         <h4 className={styles.manejoTitle}>Observaciones</h4>
                                         <h4 className={styles.manejoTitle}>Recomendaciones</h4>
@@ -220,7 +261,8 @@ export default function LoteDetails({lote}){
                                                                         <div className={styles.contEditDelManejo}>
                                                                             <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
                                                                             <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
-                                                                        </div> 
+                                                                        </div>
+                                                                        <button>Imagen</button> 
                                                                         <div className={styles.dataManejo}>
                                                                             <div className={styles.obs}>
                                                                                 <p className={editManejoAux?styles.none:null}>{data.observaciones}</p>
@@ -254,34 +296,42 @@ export default function LoteDetails({lote}){
                     <div className={styles.loteForm}>
                     <button onClick={card3d} className={styles.btnAtras}>Atrás</button>
                         <h1 className={styles.titleLote}>CARGA DE DATOS</h1>
-                        <div className={styles.form}>                            
+                        <form onSubmit={postearManejo} className={styles.form}>                            
                             <div className={!formulario?styles.contCargaText:styles.none}>
                                 <div className={styles.contTextarea}>
                                     <h2 class={styles.textareatitle}>Indicá tu observación acá abajo</h2>
-                                    <textarea ref={observacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                    <textarea name='observaciones' value={inputs.observaciones}  onChange={data=>setInputs({...inputs,observaciones:data.target.value})} ref={observacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div> 
                                 <div className={styles.cargarImg}>
                                     <p>Adjuntar Imágen</p>
                                     <div class={styles.fileselect} id="archivo" >
-                                        <input ref={imageData}type="file" name="archivo" aria-label="Archivo"/>
+                                        <input  
+                                        ref={imageData}                                           
+                                        type="file"
+                                        name="imagen"
+                                        accept="image/png, image/jpeg"
+                                        onChange={handleFileInputChange}
+                                        required/>
                                     </div>
                                 </div>
                             </div>
                             <div className={formulario?styles.contCargaText:styles.none}>
                                 <div className={styles.contTextarea}>
                                     <h2 class={styles.textareatitle}>Ahora añadí tu recomendación...</h2>
-                                    <textarea ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
+                                    <textarea name='recomendaciones' value={inputs.recomendaciones}  onChange={data=>setInputs({...inputs,recomendaciones:data.target.value})} ref={recomendacionData} name="message" rows="20" cols="100" className={styles.textatera}></textarea>
                                 </div>
                                 <div className={styles.contSubmit}>
-                                    <button onClick={postearManejo} className={styles.submit}>Enviar</button>
+                                    <button type='submit' className={styles.submit}>Enviar</button>
                                 </div> 
                             </div>                           
-                            <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
-                            <button className={formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(false)}}>Atrás</button>
-                        </div>
+                            
+                        </form>
+                        <button className={!formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(true)}}>Siguiente</button>
+                        <button className={formulario?styles.btnsPrevNext:styles.none} onClick={()=>{setFormulario(false)}}>Atrás</button>
                     </div>
                 </div>
             </div>
         </div>
+        </motion.div>
     )
 }

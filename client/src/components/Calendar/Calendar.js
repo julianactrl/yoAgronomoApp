@@ -8,13 +8,14 @@ function Calendar(){
 
 const {id} = useParams()    
 
-useEffect(()=>{
-    dispatch(getAllTareas(id))
-}, [])
+// useEffect(()=>{
+//     dispatch(getAllTareas(id))
+// }, [])
 
 const dispatch = useDispatch();
 
 const [tarea, setTarea] = useState({
+    empresaId: id,
     tarea:'',
     fecha:'',
 });
@@ -22,13 +23,14 @@ const [tarea, setTarea] = useState({
 function handleInputChange(e) {
     setTarea({
         ...tarea,                        
-         [e.target.name]: e.target.value  
+         [e.target.name]: e.target.value,  
         });
+        console.log(tarea)
 }
 
 function handleSubmit(e) {
     e.preventDefault();
-    console.log('Tarea agendada!')
+    console.log(tarea)
     dispatch(createTarea(tarea))
         
 }
