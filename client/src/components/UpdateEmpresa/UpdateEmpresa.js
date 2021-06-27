@@ -76,7 +76,6 @@ function handleSubmit(e) {
     selectedFile,
     input.fullName + "." + extension[extension.length - 1]
   );
-  //fd.get("password", updateinfo.password)
   const infoSendDb = {
     id: id,
     fd,

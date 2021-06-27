@@ -104,7 +104,7 @@ const mercadoPagoNotifications = async (req, res) => {
           );
           console.log("MERCHANT", merchant);
 
-          const order = await User.findOne({
+          const user = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
           //con otro medio de pago y es aceptado
