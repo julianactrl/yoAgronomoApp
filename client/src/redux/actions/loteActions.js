@@ -55,6 +55,7 @@ export function crearLoteManejo (data, id) {
     .catch(e => console.log(e))
 
 }
+
 export function getManejo (id) {
     console.log('Action Get MAnejoooooooo');
     return function(dispatch) {

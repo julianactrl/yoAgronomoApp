@@ -12,6 +12,6 @@ const {
 server.post('/create', createTarea);
 server.delete("/delete/:id", deleteTarea);
 server.put("/:id", updateTarea);
-server.get("/empresa/:id", getAllTareasByEmpresa)
+server.get("/:id", getAllTareasByEmpresa)
 
 module.exports = server;
