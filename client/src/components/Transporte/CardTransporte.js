@@ -14,14 +14,14 @@ function DetailTransporte (props) {
     // const {id} = props.match.params;
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id);
     const transporte = useSelector(state=>state.transporteReducer.allTransporte);
-    console.log("el consolelogee", transporte)
+    
 
 
 
 
     
     useEffect(()=> {
-        dispatch(getTransporte(4));
+        dispatch(getTransporte(1));
     }, []);
     
 
@@ -37,8 +37,11 @@ function DetailTransporte (props) {
                    <p>{transport.fechaEntrada}</p>
                    <p>{transport.fechaSalida}</p>
                    <p>{transport.observaciones}</p>
+                   <Link to={`/updatetransporte/${transport.id}`}>Update</Link>
                </div>
+               
            ))}
+           
        </div>
     //   <div className={styles.background}>
     //         <Header />

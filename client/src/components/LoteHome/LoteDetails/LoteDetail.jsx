@@ -23,7 +23,6 @@ export default function LoteDetails({lote}){
     const [auxState, setAuxState] = useState(false);
     const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
-    const [image, setImage]= useState('')
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
@@ -169,7 +168,7 @@ export default function LoteDetails({lote}){
     }
     function cerrar(){
         dispatch({type:'SET_VERIFY',payload:''})
-        clearWeather()
+        dispatch(clearWeather())
     }
     
     return(
@@ -202,14 +201,6 @@ export default function LoteDetails({lote}){
                                     <img onClick={()=>{setAuxState(true)}}src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
-                            <Slider className={styles.none} {...settings} >
-                                <img
-                                    src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
-                                    alt="https://i.stack.imgur.com/y9DpT.jpg"
-                                    className={styles.img}
-                                />
-                                <img className={styles.imgLogo} src={grass} alt="" />
-                            </Slider>
                             <Slider {...settings} >
                                 <img
                                     src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}

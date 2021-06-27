@@ -5,9 +5,7 @@ import axios from 'axios';
 import '../MercadoPago/MercadoPago.css'
 const FORM_ID = 'payment-form';
 
-
 const { REACT_APP_API} = process.env
-
 
 export default function MercadoPago(props) {
    
@@ -17,8 +15,8 @@ export default function MercadoPago(props) {
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post(`${ REACT_APP_API}/premium/checkout/`, {
-        "totalPrice": 499,
+    axios.post(`${REACT_APP_API}/premium/checkout/`, {
+        "totalPrice": 299,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
         console.log("dddd",order)  
@@ -44,22 +42,22 @@ export default function MercadoPago(props) {
   console.log(linkMp)
   return(
     <>
-    <Header/>
+    <Header />
       <div className='MpContainer'>
-       <div className='membresiaPremiumPlus'>
-        <h2 className='h2Mp'><strong>Membresia Premium Plus</strong></h2>
+        <div className='membresiaPremium'>
+        <h2 className='h2Mp'><strong>Membresia Premium</strong></h2>
         <h3 className='h3Mp'>Obteniendo esta membresia accedes a estos beneficios</h3>
         <ul className='ulMp'>
-          <li>Capacidad de cargar hasta 10 empresas.</li>
-          <li>Carga hasta 10 lotes por empresa.</li>
-          <li>Podrás gestionar de 500 a 1000 hectáreas.</li>
+        <li>Capacidad de cargar hasta 6 empresas.</li>
+        <li>Carga hasta 6 lotes por empresa.</li>
+        <li>Gestionar entre 300 - 500 hectáreas.</li>
         </ul>
         <h5 className='h5Mp'>Además de todos los beneficios que te contamos, podrás colaborar con nosotros!</h5>
-        <h4 className='h4Mp'>Costo total: $499 ARS</h4>
+        <h4 className='h4Mp'>Costo total: $299 ARS</h4>
         <a href={linkMp}>
             <button className='btnPagar'>Pagar</button>
         </a>
-      </div>
+        </div>
       </div>
       </>
   )

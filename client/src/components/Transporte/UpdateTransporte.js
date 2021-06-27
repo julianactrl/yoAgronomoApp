@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import { useHistory } from 'react-router';
 
 function UpdateTransporte ({id}) {
+    console.log("este es el id",id)
     const dispatch = useDispatch();
     const transporte = useSelector(state=>state.transporteReducer.transporteForId);
     const [input, setInput] = useState({
@@ -38,7 +39,7 @@ useEffect(()=> {
 const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
-    axios.put(`http://localhost:3001/transporte/update/${id}`, input)
+   axios.put(`http://localhost:3001/transporte/update/${id}`, input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
     e.target.reset();
@@ -57,11 +58,11 @@ function handleSubmit(e) {
         <form className={styles.estilosForm} 
         onSubmit={handleSubmit} 
         > 
-        <div>
+        {/* <div>
             <label className={styles.labelCrear} htmlFor="">Id: </label>
             <input className={styles.inputCrear}
             type="text" readOnly onChange={(e)=>handleInputChange(e)} value={transporte.id} name="id"/>
-        </div>
+        </div> */}
             
         
             <div>

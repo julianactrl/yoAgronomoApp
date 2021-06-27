@@ -1,30 +1,48 @@
-import {POST_TAREA, GET_TAREAS, DELETE_TAREA, UPDATE_TAREA} from '../constants';
+import {
+    POST_TAREA,
+    GET_TAREAS,
+    DELETE_TAREA,
+    UPDATE_TAREA,
+    RESET_TAREAS
+} from '../constants';
 import axios from 'axios';
 import swal from 'sweetalert';
-const { REACT_APP_API} = process.env
+const {
+    REACT_APP_API
+} = process.env
 
 
 
 export function createTarea(body) {
-    return async function(dispatch) {
+    return async function (dispatch) {
         try {
-            dispatch({
-              type: POST_TAREA,
-            });
             const config = {
-              headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
             };
-            const { data } = await axios.post(
-              `${REACT_APP_API}/tareas/create`,
-              body,
-              config
+            const {
+                data
+            } = await axios.post(
+                `${REACT_APP_API}/tareas/create`,
+                body,
+                config
             );
-            swal("Tarea creada correctamente", { icon: "success" });
+            dispatch({
+                type: POST_TAREA,
+                payload: data
+            });
+            swal("Tarea creada correctamente", {
+                icon: "success"
+            });
             console.log(data)
-          } catch (error) {
-            swal("No se pudo crear la tarea", { icon: "warning" });
-    }}
-        };
+        } catch (error) {
+            swal("No se pudo crear la tarea", {
+                icon: "warning"
+            });
+        }
+    }
+};
 // export function createTarea () {
 //     return function(dispatch) {
 //         return axios.post(`${REACT_APP_API}/tarea/create`)
@@ -43,8 +61,8 @@ export function createTarea(body) {
 export function deleteTarea(id) {
 
     return function (dispatch) {
-        dispatch({ 
-            type: DELETE_TAREA 
+        dispatch({
+            type: DELETE_TAREA
         });
         axios({
             method: 'delete',
@@ -53,6 +71,15 @@ export function deleteTarea(id) {
         }).catch(e => dispatch(e))
     }
 }
+
+  
+export const resetTareas = () => {
+    return (dispatch) => {
+      dispatch({
+        type: RESET_TAREAS,
+      });
+    };
+  };
 
 // export function getAllTareas(id) {
 //     return function(dispatch) {
@@ -68,27 +95,33 @@ export function deleteTarea(id) {
 // }
 
 export function getAllTareas(id) {
-    return function(dispatch) {
-        return fetch(`${REACT_APP_API}/tareas/${id}`)  
-        .then(response=>response.json())          
-            .then(json=>{
-                dispatch({          
-                type: GET_TAREAS,
-                payload: json
-            })  
-        })
+    return function (dispatch) {
+        return fetch(`${REACT_APP_API}/tareas/${id}`)
+            .then(response => response.json())
+            .then(json => {
+                dispatch({
+                    type: GET_TAREAS,
+                    payload: json
+                })
+                console.log(json)
+            })
     }
 }
 
-export const updateTarea = ({ id, body }) => {
+export const updateTarea = ({
+    id,
+    body
+}) => {
 
     return (dispatch) => {
-        dispatch({ type: UPDATE_TAREA });
+        dispatch({
+            type: UPDATE_TAREA
+        });
         axios({
             method: 'put',
             url: `${REACT_APP_API}/tarea/${id}`,
             data: {
-               ...body
+                ...body
             },
         }).catch(e => dispatch(e))
     }
