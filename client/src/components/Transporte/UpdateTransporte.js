@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom'
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from 'sweetalert';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const {REACT_APP_API} = process.env
 
 
 function UpdateTransporte ({id}) {
@@ -31,7 +31,6 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('-------', input)
 }
 
 
@@ -53,13 +52,12 @@ function deleteTransporte(id) {
 const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
-   axios.put(`http://localhost:3001/transporte/update/${id}`, input)
+   axios.put(`${REACT_APP_API}/transporte/update/${id}`, input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
     e.target.reset();
     swal("Transporte Actualizado",{icon:"success"})
     history.push(`/empresa/${empresaId}`)
-
 }
 
 

@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert';
+const { REACT_APP_API} = process.env
 
 
 
@@ -30,10 +31,6 @@ function NewTransporte () {
         });
         console.log("Vamo carahoy", input)
     }
-
-
-    
-
     const history = useHistory()
     function handleSubmit(e){
         console.log("esto enviamos al post",input);
@@ -45,8 +42,7 @@ function NewTransporte () {
     }
 
     function deleteTransporte(transporteId) {
-        
-            axios.delete(`http://localhost:3001/transporte/delete/${transporteId}`)
+            axios.delete(`${REACT_APP_API}/transporte/delete/${transporteId}`)
             .then(response => console.log(response.data)) 
             .catch(error  => console.log(error))
             alert('Su transporte fue eliminado!')  
