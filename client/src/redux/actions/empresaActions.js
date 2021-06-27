@@ -33,6 +33,7 @@ export function getEmpresa(id) {
 
 
 export const postEmpresa = (payload) => async (dispatch) => {
+    console.log("POST EMPRESA",payload)
     return axios
         .post(`${REACT_APP_API}/empresa/create/`,payload.fd)
         .then((update)=>{
