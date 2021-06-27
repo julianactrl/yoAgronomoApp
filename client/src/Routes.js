@@ -16,9 +16,7 @@ import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
 import Map from './components/Map/Map.js';
 import Cotizaciones from './components/Cotizaciones/Cotizaciones'
 import MercadoPago from './components/MercadoPago/MercadoPago.jsx';
-import Premium from './components/MercadoPago/Premium.jsx';
 import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
-import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import NewTransporte from "./components/Transporte/CreateTransporte";
 import UpdateTransporte from "./components/Transporte/UpdateTransporte";
@@ -76,15 +74,11 @@ export default function Routes() {
       
       <PrivateRoute component={MercadoPago} path="/membresia" exact />
       
-      <Route exact path='/membresia/premium'>
-        <Premium />
-      </Route>
+      
       <Route exact path='/membresia/premiumplus'>
         <PremiumPlus />
       </Route>
-      <Route exact path='/membresia/premiumpro'>
-        <PremiumPro />
-      </Route>
+    
 
       
        <Route exact path='/createtransporte'>

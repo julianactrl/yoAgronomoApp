@@ -78,8 +78,6 @@ const createLote = async(req,res,next) => {
     if(req.file){
         var Lot = req.file.filename
     }
-
-
     try{
 
         var cantidad = await Lote.count({
@@ -87,9 +85,7 @@ const createLote = async(req,res,next) => {
                 empresaId: empresaId 
             }
           })
-          // console.log(cantidad)
           var user = await User.findByPk(idUser);
-      
             if(cantidad >= 2 && user.isPremium === false ){
              return res.status(500).send("Debe hacerce premium")
             }

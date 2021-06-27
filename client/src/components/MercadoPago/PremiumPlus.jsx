@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
-import { useParams } from "react-router-dom";
 import axios from 'axios';
 import '../MercadoPago/MercadoPago.css'
+import { useSelector } from "react-redux";
+
 const FORM_ID = 'payment-form';
 
 
 const { REACT_APP_API} = process.env
 
 
-export default function MercadoPago(props) {
+export default function MercadoPago() {
+  const id = useSelector((state) => state.userReducer.userInfo.user.id);
    
 
   const [preferenceId, setPreferenceId] = useState(null);
@@ -17,13 +19,13 @@ export default function MercadoPago(props) {
   
   useEffect(() => {
     // luego de montarse el componente, le pedimos al backend el preferenceId
-    axios.post(`${ REACT_APP_API}/premium/checkout/`, {
+    axios.post(`${ REACT_APP_API}/premium/mp/${id}`, {
         "totalPrice": 499,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
         console.log("dddd",order)  
     setPreferenceId(order.data.preferenceId);
-    setLinkMp(order.data.url)
+    setLinkMp(order.data)
       
     });
   }, []);
