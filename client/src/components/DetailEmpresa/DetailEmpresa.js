@@ -76,11 +76,11 @@ function DetailEmpresa ({id}) {
             <h1 className={styles.nameTitle}>{empresa.name}</h1>
             <div className={styles.btnsDelEdit}>
             <Link to={`/update/${empresa.id}`}>
-            <button className={styles.buttonEmpresa}></button>
+            <button className={styles.buttonEmpresa}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
             </Link>
             <div className={styles.items}>
             <Link to={`/home`}>
-            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}></button> 
+            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
             </Link>  
             </div>
             </div>
@@ -90,7 +90,7 @@ function DetailEmpresa ({id}) {
             <div className={styles.description}>
             <h2 className={styles.malditoH2}><i class="fa fa-area-chart" aria-hidden="true"></i> Hectáreas totales: {empresa.hectareas}</h2>
             <h2 className={styles.malditoH2}><i class="fa fa-map-marker" aria-hidden="true"></i> Ubicación: {empresa.ubicacion}</h2>
-            <h2 className={styles.malditoH2}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
+            <h2 className={styles.agendita}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
