@@ -2,10 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
 import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
-<<<<<<< HEAD
 import { getAllTareas,resetTareas } from '../../redux/actions/calendarActions';
-=======
->>>>>>> 33f4b0b1ac9f80c5822d5c870beb60479ac1133a
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import data from './data.json';
@@ -19,7 +16,6 @@ const { REACT_APP_API } = process.env;
 
 function DetailEmpresa ({id}) {
 
-<<<<<<< HEAD
   const history= useHistory();
   const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)  
     const dispatch = useDispatch();
@@ -40,18 +36,6 @@ function DetailEmpresa ({id}) {
      dispatch(getAllTareas(idEmpresa))
    }
   
-=======
-    const dispatch = useDispatch();
-    // const {id} = props.match.params;
-    const empresa = useSelector(state=>state.empresaReducer.empresaForId);
-    
-    useEffect(()=> {
-        dispatch(getEmpresa(id));
-        console.log(empresa.imagen)
-        
-    }, []);
-    
->>>>>>> 33f4b0b1ac9f80c5822d5c870beb60479ac1133a
     function deleteEmpresa(id) {
         
         // dispatch(deleteEmpresa(id));
@@ -110,7 +94,6 @@ function DetailEmpresa ({id}) {
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
-<<<<<<< HEAD
           
            </div> 
               <Link to ='/tareas'>
@@ -121,31 +104,7 @@ function DetailEmpresa ({id}) {
                            
            </div>
                            </Link>
-=======
-           <h3 style={{color: "red"}}>▶</h3>
-           </div> 
-           <div className={styles.items}>
-           <h3> Monitoreo de lotes</h3>
            </div>
->>>>>>> 33f4b0b1ac9f80c5822d5c870beb60479ac1133a
-           </div>
-           <div className={styles.items}>
-            <div className={styles.items}>
-           <h3 style={{color: "yellow"}}>▶</h3>
-           </div>
-           <div className={styles.items}>
-            <h3>Diagramación de plan de siembra</h3>
-            </div>
-            </div>
-            <div className={styles.items}>
-            <div className={styles.items}>
-            <h3 style={{color: "green"}}>▶</h3>
-            </div>
-            <div className={styles.items}>
-            <h3>Formulación de aplicaciones</h3>
-            </div>
-           
-            </div>
             </div>
             </div>
             {empresa.imagen ? (

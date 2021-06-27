@@ -34,14 +34,10 @@ export const GET_TRANSPORTE = 'GET_TRANSPORTE';
 export const POST_TRANSPORTE = 'POST_TRANSPORTE';
 export const PUT_TRANSPORTE = 'PUT_TRANSPORTE';
 export const DELETE_TRANSPORTE = 'DELETE_TRANSPORTE';
-export const GET_TRANSPORTE_ID = 'GET_TRANSPORTE_ID';
+export const GET_TRANSPORTE_ID= 'GET_TRANSPORTE_ID';
 
 export const GET_DOLAR = 'GET_DOLAR';
 
-export const POST_TAREA = 'POST_TAREA';
-export const GET_TAREAS = 'GET_TAREAS';
-export const DELETE_TAREA = 'DELETE_TAREA';
-export const UPDATE_TAREA = 'UPDATE_TAREA';
 
 
 export const POST_TAREA = "POST_TAREA";
