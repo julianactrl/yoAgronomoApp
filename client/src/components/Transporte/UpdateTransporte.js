@@ -46,6 +46,8 @@ function deleteTransporte(id) {
             console.log(error)
         })
         swal("El transport fue eliminado",{icon:"success"})
+
+    history.push("/transporte")
 }
 
 const history = useHistory()

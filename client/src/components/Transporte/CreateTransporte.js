@@ -14,11 +14,11 @@ function NewTransporte () {
     console.log(empresaId)
     const [input, setInput] = useState({
         patente: "",
-        conductor: null,
-        carga: null,
-        fechaEntrada: null,
-        fechaSalida: null,
-        observaciones: null,
+        conductor: "",
+        carga: "",
+        fechaEntrada: "",
+        fechaSalida: "",
+        observaciones: "",
         empresaId: empresaId
     });
 
@@ -36,11 +36,12 @@ function NewTransporte () {
 
     const history = useHistory()
     function handleSubmit(e){
-        console.log(input);
+        console.log("esto enviamos al post",input);
         e.preventDefault();
         dispatch(postTransporte(input));
-        history.push(`/empresa/${empresaId}`)
+        //history.push(`/empresa/${empresaId}`)
         swal("El transport fue creado",{icon:"success"})
+        history.push("/transporte")
     }
 
     function deleteTransporte(transporteId) {

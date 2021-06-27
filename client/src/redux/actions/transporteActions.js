@@ -29,7 +29,7 @@ export function getTransporteById(id) {
             })
     }
 }
-export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaSalida, observaciones }) => {
+export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaSalida, observaciones,empresaId }) => {
 
     return (dispatch) => {
         dispatch({ type: POST_TRANSPORTE });
@@ -42,7 +42,8 @@ export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaS
                 carga,
                 fechaEntrada,
                 fechaSalida,
-                observaciones
+                observaciones,
+                empresaId
             },
         }).catch(e => dispatch(e))
     }

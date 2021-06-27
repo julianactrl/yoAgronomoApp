@@ -27,16 +27,15 @@ function DetailTransporte (props) {
     return (
        <div>
            <Header />
-
-
-           {transporte.map(transport=>(
-             <div className={styles.containerTransporte}>
-                 <Link to={"/createtransporte"}>
+           <Link to={"/createtransporte"}>
                  <div  className={styles.cardContAdd} >
                             <h1 className={styles.titleAdd}>Agregar Transporte</h1>
                           <img src={add} alt="" className={styles.imgAdd}/>
                  </div>
-                 </Link>
+           </Link>
+          <div className={styles.containerTransporte}>
+           {transporte && transporte.map(transport=>(
+             
                <div className={styles.transporte}>
                    <h3 >Patente: {transport.patente}</h3>
                    <h3>Conductor: {transport.conductor}</h3>
@@ -48,9 +47,8 @@ function DetailTransporte (props) {
                        <FontAwesomeIcon icon={faEdit}/>
                     </Link>
                </div>
-             </div>
-               
            ))}
+           </div>
            
        </div>
     //   <div className={styles.background}>
