@@ -23,7 +23,7 @@ export default function LoteDetails({lote}){
     const [auxState, setAuxState] = useState(false);
     const [edit, setEdit] = useState(lote.name);
     const [formulario, setFormulario] = useState(false);
-    const [image, setImage]= useState('')
+    const [imageManejo, setImageManejo]= useState({})
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
@@ -38,6 +38,8 @@ export default function LoteDetails({lote}){
 
     useEffect(()=>{
         dispatch(getWeather(lote.ubicacion))
+    },[])
+    useEffect(()=>{
         dispatch(getManejo(lote.id))
     },[])
 
@@ -202,15 +204,15 @@ export default function LoteDetails({lote}){
                                     <img onClick={()=>{setAuxState(true)}}src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
-                            <Slider className={styles.none} {...settings} >
+                            <Slider className={imageManejo!==null?null:styles.none} {...settings} >
                                 <img
-                                    src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
+                                    src={`${REACT_APP_API}/lote/imagen/${imageManejo}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
                                     className={styles.img}
                                 />
                                 <img className={styles.imgLogo} src={grass} alt="" />
                             </Slider>
-                            <Slider {...settings} >
+                            <Slider  className={imageManejo!==''?null:styles.none} {...settings} >
                                 <img
                                     src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
@@ -271,7 +273,7 @@ export default function LoteDetails({lote}){
                                                                             <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
                                                                             <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
                                                                         </div>
-                                                                        <button>Imagen</button> 
+                                                                        <button onClick={setImageManejo(data.image)}>Imagen</button> 
                                                                         <div className={styles.dataManejo}>
                                                                             <div className={styles.obs}>
                                                                                 <p className={editManejoAux?styles.none:null}>{data.observaciones}</p>
