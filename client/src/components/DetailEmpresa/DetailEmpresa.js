@@ -2,35 +2,40 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom'
 import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
-import { getAllTareas } from '../../redux/actions/calendarActions';
+import { getAllTareas,resetTareas } from '../../redux/actions/calendarActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import data from './data.json';
 import {Link} from 'react-router-dom';
 import campo from './campo.jpg'
 import axios from 'axios'
+import { useHistory} from 'react-router';
+import { motion } from 'framer-motion';
 
 const { REACT_APP_API } = process.env;
 
 function DetailEmpresa ({id}) {
 
-
+  const history= useHistory();
   const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)  
     const dispatch = useDispatch();
     // const {id} = props.match.params;
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
-    // const tareas = useSelector(state=>state.calendarReducer.tareas);
+    const tareas = useSelector(state=>state.calendarReducer.tareas);
     
     useEffect(()=> {
       dispatch(getEmpresa(id));
-      console.log(empresa.imagen)
+      console.log(empresa)
+      dispatch(resetTareas())
       
   }, []);
 
-  //   useEffect(()=>{
-  //     dispatch(getAllTareas(idEmpresa))
-  // }, [])
-    
+
+   function handleAgenda(e){
+     e.preventDefault();
+     dispatch(getAllTareas(idEmpresa))
+   }
+  
     function deleteEmpresa(id) {
         
         // dispatch(deleteEmpresa(id));
@@ -43,6 +48,23 @@ function DetailEmpresa ({id}) {
     }
 
     return (
+       <motion.div
+      initial='hidden'
+      animate='visible'
+      variants={{
+      hidden: {
+          scale: .8,
+          opacity: -1
+      },
+      visible: {
+          scale: 1,
+          opacity: 1,
+          transition:{
+              delay: .002
+          }
+      }
+      }}
+      >
         <div className={styles.background}>
             <Header />
             
@@ -66,24 +88,27 @@ function DetailEmpresa ({id}) {
             </div>
             <div className={styles.caja}>
             <div className={styles.description}>
-            <h2>📏 Hectáreas totales: {empresa.hectareas}</h2>
-            <h2 className={styles.ubicacion}>📍 Ubicación: {empresa.ubicacion}</h2>
-            <h2>📝 Tareas a realizar:</h2>
+            <h2 className={styles.malditoH2}><i class="fa fa-area-chart" aria-hidden="true"></i> Hectáreas totales: {empresa.hectareas}</h2>
+            <h2 className={styles.malditoH2}><i class="fa fa-map-marker" aria-hidden="true"></i> Ubicación: {empresa.ubicacion}</h2>
+            <h2 className={styles.malditoH2}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
-           <h3 style={{color: "green"}}>▶</h3>
+          
            </div> 
-           {/* <div className={styles.items}>
+              <Link to ='/tareas'>
+           <div className={styles.items}>
            <h3> { tareas.length>0 && tareas.map(t=>(
-                           <p>{t.tarea}</p>
+                           <p className={styles.eachTarea}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
                            ))}</h3>
-           </div> */}
+                           
+           </div>
+                           </Link>
            </div>
             </div>
             </div>
             {empresa.imagen ? (
-            <img
+              <img
               src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
               alt="https://i.stack.imgur.com/y9DpT.jpg"
               width={500}
@@ -108,6 +133,7 @@ function DetailEmpresa ({id}) {
         
     
         </div>
+        </motion.div>
     )
 }
 

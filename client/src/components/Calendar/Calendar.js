@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import Header from '../Header/Header'
 import {useHistory} from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 
 function Calendar(){
@@ -37,6 +38,7 @@ function handleSubmit(e) {
     e.preventDefault();
     console.log(tarea)
     dispatch(createTarea(tarea))
+    history.push(`/empresa/${idEmpresa}`)
         
 }
 
@@ -44,6 +46,24 @@ const tareasEmpresa = useSelector((state) => state.calendarReducer.tareas);
 
 
 return (
+
+    <motion.div
+    initial='hidden'
+    animate='visible'
+    variants={{
+    hidden: {
+        scale: .8,
+        opacity: -1
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition:{
+            delay: .002
+        }
+    }
+    }}
+    >
     <div >
         <Header/>
                 <h1 className={styles.tareas}>Tareas a realizar</h1>
@@ -93,6 +113,7 @@ return (
                </table>
            </div>
      </div>
+     </motion.div>
 )
 }
 
