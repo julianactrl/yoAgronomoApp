@@ -1,0 +1,21 @@
+{
+    "users": [
+        {
+            "id": 781615952,
+            "nickname": "TESTHGAFF3CD",
+            "password": "qatest1782",
+            "site_status": "active",
+            "email": "test_user_61450322@testuser.com",
+            "createdAt":"26/06/2021",
+            "access_token":"APP_USR-2125083527791331-062614-7e846937681e9209547613e47275fa7b-781615952"
+        },
+        {
+            "id": 781616262,
+            "nickname": "TESTZATCTLEV",
+            "password": "qatest7764",
+            "site_status": "active",
+            "email": "test_user_88634217@testuser.com"
+        }
+    ]
+   
+}
