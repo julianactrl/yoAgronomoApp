@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {
   updateUser,
   logout,
@@ -16,15 +16,17 @@ import swal from "sweetalert";
 const { REACT_APP_API } = process.env;
 
 function UpdateProfile() {
+  const usuario = useSelector(state=> state.userReducer.userInfo.user)
+  console.log("usuario",usuario)
   const dispatch = useDispatch();
   var history = useHistory();
   const { id } = useParams();
 
   const [updateinfo, setUpdateInfo] = useState({
     id: id,
-    fullName: "",
-    email: "",
-    //  password: "",
+    fullName: usuario.fullName,
+    email: usuario.email,
+    password: "",
     profile_pic: "",
   });
 
@@ -63,6 +65,7 @@ function UpdateProfile() {
 
     fd.append("fullName", updateinfo.fullName);
     fd.append("email", updateinfo.email);
+    fd.append("password",updateinfo.password)
     fd.append(
       "profile_pic",
       selectedFile,
@@ -81,9 +84,8 @@ function UpdateProfile() {
       button: true,
     })
         dispatch(logout(id));
-        history.reload();
-    // alert("¿Seguro desea modificar estos datos?");
-    //alert("Datos modificados correctamente, ingrese sesión nuevamente");
+        history.push("/home");
+    
   }
 
   function deleteUsuario(id) {
@@ -123,7 +125,7 @@ function UpdateProfile() {
             />
           </div>
 
-          {/* <div>
+           <div>
             <label className={styles.labelCrear}>Password </label>
             <input
               className={styles.inputCrear}
@@ -132,7 +134,7 @@ function UpdateProfile() {
               value={updateinfo.password}
               name="password"
             />
-          </div> */}
+          </div> 
 
           <div>
             <label className={styles.labelCrear}>Imagen: </label>
