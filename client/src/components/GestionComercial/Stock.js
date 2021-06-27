@@ -7,6 +7,7 @@ import {
     createStock,
     getStockById
 } from '../../redux/actions/stockActions';
+import Header from '../Header/Header'
 
 export const Stock = (props) => {
     const [form, setForm] = useState(false)
@@ -53,7 +54,9 @@ export const Stock = (props) => {
     }
     console.log('aaaaaaaa', props)
     return (
-    <div className='stockCont'>
+        <div>
+        <Header/>
+        <div className='stockCont'>
         <div className='table-responsive colorTable'>
             <table className='table'>
                 <thead>
@@ -98,6 +101,7 @@ export const Stock = (props) => {
             }
                     <button type="button" onClick={toggleForm} className='btnAddStock'>+</button>
         </div>
+    </div>
     </div>
     )
 }
