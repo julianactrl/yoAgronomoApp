@@ -1,4 +1,4 @@
-const {Lote, Empresa, ManejoDeLote} = require("../db");
+const {Lote, Empresa, ManejoDeLote, User} = require("../db");
 const { Op } = require("sequelize");
 const path = require("path");
 const fs = require("fs");
@@ -73,17 +73,30 @@ const deleteLote = async(req, res,next)=> {
     }
 }
 const createLote = async(req,res,next) => {
-    const { name, superficie, ubicacion, imagen,empresaId} = req.body;
+    const { name, superficie, ubicacion, empresaId, idUser} = req.body;
 
     if(req.file){
         var Lot = req.file.filename
     }
+
+
     try{
+
+        var cantidad = await Lote.count({
+            where: {
+                empresaId: empresaId 
+            }
+          })
+          // console.log(cantidad)
+          var user = await User.findByPk(idUser);
+      
+            if(cantidad >= 2 && user.isPremium === false ){
+             return res.status(500).send("Debe hacerce premium")
+            }
          await Lote.create({
             name,
             superficie,
             ubicacion,
-            imagen,
             empresaId,
             imagen:Lot
         });  res.status(200).json("fue  creada con exito");

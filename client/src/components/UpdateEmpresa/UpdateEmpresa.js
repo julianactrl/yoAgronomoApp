@@ -8,15 +8,31 @@ import Weather from '../Weather/Weather'
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
 
+import swal from "sweetalert";
+const { REACT_APP_API } = process.env;
+
+
 function UpdateEmpresa ({id}) {
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
+    const dispatch = useDispatch();
+    const history = useHistory()
 
     const [input, setInput] = useState({
+        id: id,
         name: '',
         hectareas: '',
         ubicacion: '',
         imagen: ''
 })
+
+const [selectedFile, setSelectedFile] = useState(null);
+const [imgUrl, setImgUrl] = useState(null);
+
+const handleFileInputChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+    setImgUrl(URL.createObjectURL(event.target.files[0]));
+  };
+
 
 async function handleInputChange(e) {
     e.persist();
@@ -24,10 +40,9 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('-------', input)
+        // console.log('-------', input)
     }
 
-const dispatch = useDispatch();
 
 useEffect(()=> {
     dispatch(getEmpresa(id));
@@ -36,16 +51,44 @@ useEffect(()=> {
 
 
 
-const history = useHistory()
 function handleSubmit(e) {
-    e.preventDefault();
-    axios.put(`http://localhost:3001/empresa/${id}`, input)
-        .then(response => console.log(response.data)) 
-        .catch(error  => console.log(error))
-    e.target.reset();
-    alert('Su empresa fue actualizada!')
-    history.push('/home')
-    console.log('+++++++++++++', input)
+    if (selectedFile === null)
+    return swal({
+      title: "Image Field Cannot Be Empty",
+      icon: "warning",
+      button: true,
+      dangerMode: true,
+    });
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  };
+  const fd = new FormData();
+  
+  const extension = selectedFile.name.split(".");
+
+  fd.append("name", input.name);
+  fd.append("hectareas", input.hectareas);
+  fd.append("ubicacion", input.ubicacion);
+  fd.append(
+    "imagen",
+    selectedFile,
+    input.fullName + "." + extension[extension.length - 1]
+  );
+  //fd.get("password", updateinfo.password)
+  const infoSendDb = {
+    id: id,
+    fd,
+  };
+  dispatch(updateEmpresa(infoSendDb, config));
+  setInput(input);
+  swal({
+    title: "Info Edited",
+    icon: "success",
+    button: true,
+  })
+      history.reload();
         
 }
 
@@ -96,13 +139,21 @@ function handleSubmit(e) {
            
             <div>
                 <label className={styles.labelCrear}>Imagen: </label>
-                <input className={styles.inputCrear}
-                type='text'
-                onChange={handleInputChange} 
-                value={input['imagen']}
-                placeholder={empresa.imagen}
-                name='imagen'/>
+                <input 
+                className={styles.inputCrear}
+                type='file'
+                name='imagen'
+                accept="image/png, image/jpeg"
+                onChange={handleFileInputChange} 
+                required
+                />
             </div>
+            <img
+            src={imgUrl}
+            alt={imgUrl}
+            style={{ height: "200px", width: "250px" }}
+          />
+
                 <br></br>
             <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Actualizar Empresa</button>
             </form>

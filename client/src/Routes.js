@@ -67,15 +67,15 @@ export default function Routes() {
       </Route>
   
       <PrivateRoute component={Weather} path="/weather" exact />
-      <PrivateRoute component={News} path="/news" exact />
+      <Route exact path="/news">
+        <News/>
+        </Route>
       <Route exact path='/map'>
         <Map />
       </Route>
       
-
-      <Route exact path='/membresia'>
-        <MercadoPago />
-      </Route>
+      <PrivateRoute component={MercadoPago} path="/membresia" exact />
+      
       <Route exact path='/membresia/premium'>
         <Premium />
       </Route>
@@ -86,6 +86,7 @@ export default function Routes() {
         <PremiumPro />
       </Route>
 
+      
        <Route exact path='/createtransporte'>
        <NewTransporte />
        </Route>
@@ -93,6 +94,9 @@ export default function Routes() {
        <Route exact path='/updatetransporte/:id' render ={({ match }) =>
        <UpdateTransporte id={match.params.id}/>}>
        </Route>
+       
+       <PrivateRoute component={DetailTransporte} path="/transporte" exact />
+       <PrivateRoute component={Calendar} path="/tareas" exact />
 
        <Route exact path='/transporte'>
        <DetailTransporte />
