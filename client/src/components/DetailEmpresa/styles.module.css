@@ -121,6 +121,7 @@ body {
 
 .items {
     float: left;
+    
 
 
 }
@@ -153,6 +154,7 @@ body {
 }
 
 .agenda {
+    
     margin-left: 10px;
     width: 150px !important;
     font-size: 12px !important;
