@@ -168,7 +168,7 @@ export default function LoteDetails({lote}){
     }
     function cerrar(){
         dispatch({type:'SET_VERIFY',payload:''})
-        clearWeather()
+        dispatch(clearWeather())
     }
     
     return(

@@ -14,7 +14,7 @@ function DetailTransporte (props) {
     // const {id} = props.match.params;
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id);
     const transporte = useSelector(state=>state.transporteReducer.allTransporte);
-    console.log("el consolelogee", transporte)
+    
 
 
 
@@ -37,10 +37,11 @@ function DetailTransporte (props) {
                    <p>{transport.fechaEntrada}</p>
                    <p>{transport.fechaSalida}</p>
                    <p>{transport.observaciones}</p>
+                   <Link to={`/updatetransporte/${transport.id}`}>Update</Link>
                </div>
                
            ))}
-           <Link to={"/updatetransporte/:id"}>Update</Link>
+           
        </div>
     //   <div className={styles.background}>
     //         <Header />
