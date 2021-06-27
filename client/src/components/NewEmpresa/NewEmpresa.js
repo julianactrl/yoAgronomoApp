@@ -100,7 +100,7 @@ function NewEmpresa() {
         <div className={styles.caja}>
           <h2 className={styles.alineado}>Nueva Empresa</h2>
           <form className={styles.estilosForm} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Nombre: </label>
               <input
                 type="text"
@@ -110,7 +110,7 @@ function NewEmpresa() {
                 name="name"
               />
             </div>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Hectáreas totales: </label>
               <input
                 type="text"
@@ -120,7 +120,7 @@ function NewEmpresa() {
                 name="hectareas"
               />
             </div>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Ubicación: </label>
               <input
                 type="text"
@@ -131,7 +131,7 @@ function NewEmpresa() {
               />
             </div>
 
-            <div>
+            <div className={styles.fileImg}>
             <label className={styles.labelCrear}>Imagen: </label>
             <input
               className={styles.inputCrear}
