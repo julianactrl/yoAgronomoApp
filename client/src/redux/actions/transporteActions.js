@@ -1,4 +1,4 @@
-import {GET_TRANSPORTE, DELETE_TRANSPORTE, PUT_TRANSPORTE, POST_TRANSPORTE, } from '../constants';
+import {GET_TRANSPORTE, DELETE_TRANSPORTE, PUT_TRANSPORTE, POST_TRANSPORTE, GET_TRANSPORTE_ID } from '../constants';
 import axios from 'axios';
 const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 
@@ -17,6 +17,18 @@ export function getTransporte(id) {
     }
 };
 
+export function getTransporteById(id) {
+    return function(dispatch) {
+        return fetch(`${REACT_APP_API}/transporte/getone/${id}`)
+        .then(response=>response.json())
+            .then(json=>{
+                dispatch({
+                    type: GET_TRANSPORTE_ID,
+                    payload: json
+                })
+            })
+    }
+}
 export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaSalida, observaciones }) => {
 
     return (dispatch) => {

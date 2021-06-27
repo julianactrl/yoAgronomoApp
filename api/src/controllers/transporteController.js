@@ -75,6 +75,22 @@ const getAllTransportes = async (req, res, next) => {
     }
 }
 
+const getTransporteById = async (req,res,next) => {
+    const { id } = req.params;
+    try {
+        const transporte = await Transporte.findOne({
+            where: {
+                id
+            }
+        })
+        res.json(transporte)
+    } catch (error) {
+        return next(error)
+        
+    }
+}
+
+
 
 
 const deleteTransporte =  async (req, res, next) => {
@@ -98,7 +114,8 @@ module.exports = {
     deleteTransporte,
     getAllTransportes,
     createTransporte,
-    updateTransporte
+    updateTransporte,
+    getTransporteById
 
 
 }
