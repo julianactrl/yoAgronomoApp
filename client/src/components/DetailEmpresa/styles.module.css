@@ -45,6 +45,13 @@ body {
     font-weight: 400;
 }
 
+.agendita{
+    display: flex;
+    flex-direction: row;
+    color: black !important;
+    font-weight: 400;
+}
+
 .ubicacion {
     margin-left: 1rem;
 }
@@ -96,8 +103,12 @@ body {
 }
 
 .nameTitle {
-    font-size: 4rem;
-    color: white;
+    font-size: 5rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.301);
+    padding: 10px;
+    border: black solid 2px;
 }
 
 .btnsDelEdit {
@@ -114,28 +125,23 @@ body {
 }
 
 .buttonEmpresa {
+    margin-left: 30px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: url('https://image.flaticon.com/icons/png/512/61/61456.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
     border-radius: 5px;
-    display: inline-block;
+    width: 50px;
+    color: black;
+    font-size: 25px;
     text-decoration: none;
-    background-color: #80cc28;
-    border: none;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    padding:7px;
+    border: black solid 0.5px;
+    background-color:rgba(255, 255, 255, 0.301);
     cursor: pointer;
-    border: none;
     transition: all 0.2s ease 0s;
 
 }
 
 .buttonEmpresa:hover {
-    background-color: #27963c;
-    width: 2.6rem;
+    background-color: #27963b94;
     color: #0a0a0a;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -181,28 +187,23 @@ body {
 }
 
 .eliminarEmpresa {
-    background-image: url('https://image.flaticon.com/icons/png/512/18/18297.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    margin-left: 5px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 5px;
-    display: inline-block;
+    width: 50px;
+    color: black;
+    font-size: 25px;
     text-decoration: none;
-    background-color: #fc3e3e;
-    border: none;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    padding:7px;
+    border: black solid 0.5px;
+    background-color:rgba(255, 255, 255, 0.301);
     cursor: pointer;
-    border: none;
     transition: all 0.2s ease 0s;
 
 }
 
 .eliminarEmpresa:hover {
-    background-color: #fc3e3e;
-    width: 2.6rem;
+    background-color: #fc3e3ec0;
     color: #0a0a0a;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
@@ -217,6 +218,3 @@ body {
     font-size: 20px;
 }
 
-.background {
-    /* background-color: red; */
-}
