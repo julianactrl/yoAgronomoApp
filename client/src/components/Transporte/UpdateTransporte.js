@@ -6,7 +6,7 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
 import {Link} from 'react-router-dom'
-import { faTrashAlt, faWalking } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from 'sweetalert';
 const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
@@ -15,6 +15,7 @@ const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
 function UpdateTransporte ({id}) {
     const dispatch = useDispatch();
     const transporte = useSelector(state=>state.transporteReducer.transporte);
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id)
     const [input, setInput] = useState({
         patente: transporte.patente,
         conductor: transporte.conductor,
@@ -55,7 +56,7 @@ function handleSubmit(e) {
         .catch(error  => console.log(error))
     e.target.reset();
     swal("Transporte Actualizado",{icon:"success"})
-    history.push('/transporte')
+    history.push(`/empresa/${empresaId}`)
 
 }
 

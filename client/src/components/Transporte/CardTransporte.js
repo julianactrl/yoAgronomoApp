@@ -4,7 +4,12 @@ import {getTransporte} from '../../redux/actions/transporteActions'
 import styles from './styles.module.css'
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import add from '../../assets/añadir.png';
+
+ 
 
 
 
@@ -16,21 +21,34 @@ function DetailTransporte (props) {
     const transporte = useSelector(state=>state.transporteReducer.allTransporte);
     
     useEffect(()=> {
-        dispatch(getTransporte(1));
+        dispatch(getTransporte(empresaId));
     }, []);
 
     return (
        <div>
+           <Header />
+
+
            {transporte.map(transport=>(
-               <div>
-                   <h1>{transport.patente}</h1>
-                   <p>{transport.conductor}</p>
-                   <p>{transport.carga}</p>
-                   <p>{transport.fechaEntrada}</p>
-                   <p>{transport.fechaSalida}</p>
-                   <p>{transport.observaciones}</p>
-                   <Link to={`/updatetransporte/${transport.id}`}>Update</Link>
+             <div className={styles.containerTransporte}>
+                 <Link to={"/createtransporte"}>
+                 <div  className={styles.cardContAdd} >
+                            <h1 className={styles.titleAdd}>Agregar Transporte</h1>
+                          <img src={add} alt="" className={styles.imgAdd}/>
+                 </div>
+                 </Link>
+               <div className={styles.transporte}>
+                   <h3 >Patente: {transport.patente}</h3>
+                   <h3>Conductor: {transport.conductor}</h3>
+                   <h3>Carga: {transport.carga}</h3>
+                   <h3>Fecha de entrada: {transport.fechaEntrada}</h3>
+                   <h3>Fecha de salida: {transport.fechaSalida}</h3>
+                   <h3>Observaciones: {transport.observaciones}</h3>
+                   <Link className={styles.editar} to={`/updatetransporte/${transport.id}`}>
+                       <FontAwesomeIcon icon={faEdit}/>
+                    </Link>
                </div>
+             </div>
                
            ))}
            

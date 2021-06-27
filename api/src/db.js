@@ -61,6 +61,7 @@ const { User, Empresa, Lote, ManejoDeLote, Post, Role, Transporte, Stock, Tarea 
 User.hasMany(Empresa);
 Empresa.belongsTo(User);
 Empresa.hasMany(Lote);
+Empresa.hasMany(Transporte);
 Lote.belongsTo(Empresa);
 Lote.hasMany(ManejoDeLote);
 ManejoDeLote.belongsTo(Lote);
@@ -69,6 +70,7 @@ Role.belongsToMany(User, { as: "users", through: "user_role", foreignKey: "role_
 User.hasMany(Post, { as: "posts", foreignKey: "userId" });
 
 Transporte.belongsTo(Empresa);
+
 
 User.belongsToMany(Role, {
   as: "roles",

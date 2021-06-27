@@ -4,11 +4,14 @@ import styles from './styles.module.css';
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
+import swal from 'sweetalert';
+
 
 
 function NewTransporte () {
     const dispatch = useDispatch();
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id);
+    console.log(empresaId)
     const [input, setInput] = useState({
         patente: "",
         conductor: null,
@@ -21,10 +24,13 @@ function NewTransporte () {
 
     function handleInputChange(e){
         setInput({
+            
             ...input,
             [e.target.name] : e.target.value
         });
+        console.log("Vamo carahoy", input)
     }
+
 
     
 
@@ -33,7 +39,9 @@ function NewTransporte () {
         console.log(input);
         e.preventDefault();
         dispatch(postTransporte(input));
-        history.push('/empresa')}
+        history.push(`/empresa/${empresaId}`)
+        swal("El transport fue creado",{icon:"success"})
+    }
 
     function deleteTransporte(transporteId) {
         
@@ -87,7 +95,7 @@ function NewTransporte () {
                         placeholder = 'fechaEntrada'  
                         onChange={handleInputChange}
                         id = 'fechaEntrada'
-                        type='text'
+                        type='date'
                         name="fechaEntrada"
                         value= {input.fechaEntrada}>
                         </input>
@@ -98,7 +106,7 @@ function NewTransporte () {
                         placeholder = 'fechaSalida'  
                         onChange={handleInputChange}
                         id = 'fechaSalida'
-                        type='text'
+                        type='date'
                         name="fechaSalida"
                         value= {input.fechaSalida}>
                         </input>
