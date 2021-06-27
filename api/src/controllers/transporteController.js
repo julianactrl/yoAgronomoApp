@@ -75,6 +75,8 @@ const getAllTransportes = async (req, res, next) => {
     }
 }
 
+
+
 const deleteTransporte =  async (req, res, next) => {
     const {id} = req.params;
     try {

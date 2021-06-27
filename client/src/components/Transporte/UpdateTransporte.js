@@ -57,11 +57,11 @@ function handleSubmit(e) {
         <form className={styles.estilosForm} 
         onSubmit={handleSubmit} 
         > 
-        <div>
+        {/* <div>
             <label className={styles.labelCrear} htmlFor="">Id: </label>
             <input className={styles.inputCrear}
             type="text" readOnly onChange={(e)=>handleInputChange(e)} value={transporte.id} name="id"/>
-        </div>
+        </div> */}
             
         
             <div>

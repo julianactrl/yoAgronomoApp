@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import swal from "sweetalert";
 import {
   REGISTER_USER_ERROR,
@@ -38,7 +39,7 @@ export const register = (body) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-    swal("Registro Exitoso", { icon: "success" });
+    swal("Registro Exitoso",{icon:"success"});
     window.location.href = "/home";
   } catch (error) {
     swal("Credenciales Incorrectas", { icon: "warning" });
@@ -128,8 +129,8 @@ export const updateUser = (payload) => async (dispatch) => {
       dispatch({
         type: UPDATE_USER,
         payload: updated.fd,
-      });
-      window.location.reload();
+      })
+      window.location.reload()
     })
     .catch((e) =>
       console.log("Soy el error en update user", e.response?.data?.status)

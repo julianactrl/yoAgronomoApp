@@ -64,13 +64,13 @@ const premium = async (req, res) => {
 //server.post('/mercadoPagoNotifications',
 const mercadoPagoNotifications = async (req, res) => {
   res.sendStatus(200);
-  console.log("mercadoPagoNotifications query", req.query);
-  console.log("mercadoPagoNotifications body", req.body);
-  console.log("mercadoPagoNotifications type", req.query.type);
+  console.log("mercadoPagoNotifications", req.query);
+  console.log("mercadoPagoNotifications", req.body);
+  console.log("mercadoPagoNotifications", req.query.type);
   try {
     if (req.query.type === "payment") {
       const payment = await mercadopago.payment.get(req.query["data.id"]);
-      console.log("payment mercadoPagoNotifications", payment);
+      console.log("pyment mercadoPagoNotifications", payment);
       console.log("payment body status", payment.body.status);
       switch (payment.body.status) {
         /**************************CASO REJECTED*******************************/
@@ -104,7 +104,7 @@ const mercadoPagoNotifications = async (req, res) => {
           );
           console.log("MERCHANT", merchant);
 
-          const user = await User.findOne({
+          const order = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
           //con otro medio de pago y es aceptado

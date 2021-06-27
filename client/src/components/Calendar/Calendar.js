@@ -10,18 +10,16 @@ import { motion } from 'framer-motion';
 
 function Calendar(){
 
-// const {id} = useParams()
-const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)    
+const {id} = useParams()    
 
-useEffect(()=>{
-    dispatch(getAllTareas(idEmpresa))
-}, [])
+// useEffect(()=>{
+//     dispatch(getAllTareas(id))
+// }, [])
 
 const dispatch = useDispatch();
-const history = useHistory();
 
 const [tarea, setTarea] = useState({
-    empresaId: idEmpresa,
+    empresaId: id,
     tarea:'',
     fecha:'',
 });

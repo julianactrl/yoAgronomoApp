@@ -124,7 +124,7 @@ const updateLote = async(req,res,next) => {
 const createManejo = async (req,res,next) => {
     const { loteId } = req.params
     const { observaciones, recomendaciones, image } = req.body;
-  
+
     if(req.file){
         var manejo = req.file.filename
     }
@@ -183,7 +183,7 @@ const getAllManejo = async (req,res,next) => {
                   }
               }
           }));
-        // } 
+        // }
       } catch (e) {
         res.status(404).send(next);
       }

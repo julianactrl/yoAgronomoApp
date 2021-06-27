@@ -11,11 +11,7 @@ const createTarea = async(req, res, next) => {
             tarea,
             fecha,
             empresaId,
-        });  res.status(200).json({
-            tarea,
-            fecha,
-            empresaId
-          })
+        });  res.status(200).json("tarea creada con exito");
     } catch (error) {
       console.log(error);
       res.status(500).send(next); 
