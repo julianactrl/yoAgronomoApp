@@ -96,7 +96,7 @@ function DetailEmpresa ({id}) {
             <div className={styles.items}>
           
            </div> 
-              <Link to ='/tareas'>
+              <Link className={styles.elLink} to ='/tareas'>
            <div className={styles.items}>
            <h3> { tareas.length>0 && tareas.map(t=>(
                            <p className={styles.eachTarea}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
