@@ -24,6 +24,8 @@ import NewTransporte from "./components/Transporte/CreateTransporte";
 import UpdateTransporte from "./components/Transporte/UpdateTransporte";
 import DetailTransporte from "./components/Transporte/CardTransporte";
 import Calendar from './components/Calendar/Calendar'
+import GestionComercial from './components/GestionComercial/GestionComercial.js';
+import Stock from './components/GestionComercial/Stock.js';
 
 
 
@@ -98,6 +100,12 @@ export default function Routes() {
 
       <Route exact path="/tareas">
         <Calendar/>
+       </Route>
+      <Route exact path="/gestion_comercial">
+        <GestionComercial/>
+       </Route>
+      <Route exact path="/gestion_comercial/stock">
+        <Stock/>
        </Route>
     </Switch>
     );

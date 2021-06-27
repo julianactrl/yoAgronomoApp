@@ -32,7 +32,7 @@ export function sidebar(verify){
                 <Link to='/home' className={styles.linktext}>
                 <h2 className={styles.text}>HOME</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/gestion_comercial' className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
                 <Link to={`/lote/${empresaId}`} className={styles.linktext}>
