@@ -1,6 +1,6 @@
 import {GET_TRANSPORTE, DELETE_TRANSPORTE, PUT_TRANSPORTE, POST_TRANSPORTE, GET_TRANSPORTE_ID } from '../constants';
 import axios from 'axios';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const { REACT_APP_API} = process.env
 
 
 
