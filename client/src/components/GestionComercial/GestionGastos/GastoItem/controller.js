@@ -13,7 +13,7 @@ export function renderizarItemOinput (nombre, descripcion, precio , fecha, edit)
                 <td>{fecha}</td>
                 </>
             : <>
-                <td><input className={styles.input} placeholder={1}/></td>
+                <td><input className={styles.input} placeholder={''}/></td>
                 <td><input className={styles.input} placeholder={nombre}/></td>
                 <td><input className={styles.input} placeholder={descripcion}/></td>
                 <td><input className={styles.input} placeholder={precio}/></td>

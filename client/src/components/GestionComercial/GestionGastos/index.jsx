@@ -3,10 +3,36 @@ import styles from './styles.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Clasificacion from "./Clasificacion"
 import GastoItem from "./GastoItem"
-
+import { useEffect, useState } from "react"
+import { getAllClasificiones , createClasificacion} from "../../../redux/actions/gestionGastosActions"
+import { useDispatch, useSelector } from "react-redux"
+import Cookies from 'universal-cookie'
 
 export default function GestionGastos () {
+    const dispatch = useDispatch();
+    const cookies = new Cookies();
+    const [clasificacion, setClasificacion] = useState({name:''})
+    // const [empresaId, setEmpresaId] = useState();
+    const clasificaciones = useSelector(state=>state.gestionGastosReducer.clasificaciones)
+    const createdClasificacion = useSelector(state=>state.gestionGastosReducer.createdClasificacion)
 
+
+    useEffect(async ()=>{
+        await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    },[])
+
+    useEffect(async ()=>{
+        await dispatch(getAllClasificiones(await cookies.get('selectedEmpresa').id))
+    },[createdClasificacion])
+
+    async function crearClasificacion () {
+        if(clasificacion.name.length){
+            const crearClasificacion = clasificacion;
+            crearClasificacion.empresaId = await cookies.get('selectedEmpresa').id
+            await dispatch(createClasificacion(crearClasificacion))
+            setClasificacion({name:''}) 
+        }
+    }
 
     return (
          <>
@@ -15,10 +41,12 @@ export default function GestionGastos () {
                 <div className={styles.contenedorTable}>
                         <div className={styles.contenedorHeader}>
                             <div className={styles.contClasificacionesYtotal}>
-                                <Clasificacion title={'clasificacion nª 1'}/>
-                                <Clasificacion title={'clasificacion nª 2'}/>
+                                {
+                                    clasificaciones&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
+                                }
                                 <div className={styles.total}>
-                                    <button className={`btn btn-outline-success ${styles.btnTotal}`}>Agregar Clasificación +</button>
+                                    <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar Clasificación +' className={`btn btn-outline-success ${styles.btnTotal}`} />
+                                    <button onClick={crearClasificacion}>Crear !!</button>
                                 </div>
                                 <div className={styles.total}>
                                     <button className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
@@ -44,6 +72,7 @@ export default function GestionGastos () {
                             </tr>
                         </thead>
                         <tbody >
+                                <GastoItem/>
                                 <GastoItem Nombre={'Hi5'} Descripcion={2003} Precio={1500} fecha={'26/06/2021'}/>
                                 <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500} fecha={'26/06/2021'}/>
                                 <GastoItem Nombre={'Metroflog messenger'} Descripcion={2004} Precio={1500} fecha={'26/06/2021'}/>

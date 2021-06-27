@@ -15,7 +15,7 @@ import cotizacionesReducer from './reducers/cotizacionesReducer'
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 import calendarReducer from './reducers/calendarReducer'
-
+import gestionGastosReducer from './reducers/gestionGastosReducer'
 
 
 const persistConfig = {
@@ -33,7 +33,8 @@ const reducers = combineReducers({
     loteReducer,
     cotizacionesReducer,
     transporteReducer,
-    calendarReducer
+    calendarReducer,
+    gestionGastosReducer
 
 })
 const persistedReducer = persistReducer(persistConfig, reducers)

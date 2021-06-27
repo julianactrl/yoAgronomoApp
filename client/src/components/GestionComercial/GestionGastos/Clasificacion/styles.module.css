@@ -4,7 +4,19 @@
     align-items: center;
     /* border: 2px solid black; */
 }
+.btn{
+    position: relative;
+    /* left: 4%; */
+    bottom: 1rem;
+    border: 0.2px solid black;
+    border-radius: 0.4rem;
+}
+.btn:hover{
+    background-color: red;
+    color: white;
+    border: 0.2px solid white;
 
+}
 .btnClasificacion{
     cursor: pointer;
     display: flex;
