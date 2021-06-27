@@ -11,12 +11,9 @@ import swal from "sweetalert";
 function NewEmpresa() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const currentUserId = useSelector(
-    (state) => state.userReducer.userInfo.user.id
-  );
+  const currentUserId = useSelector((state) => state.userReducer.userInfo.user.id);
 
   const [input, setInput] = useState({
-
     userId: currentUserId,
     name: "",
     hectareas: "",
@@ -29,7 +26,6 @@ function NewEmpresa() {
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
     setImgUrl(URL.createObjectURL(event.target.files[0]));
-    // console.log("---handleFileInputChange----", event.target.files[0]);
   };
   
   function handleInputChange(e) {
@@ -39,8 +35,7 @@ function NewEmpresa() {
     });
   }
 
-  function handleSubmit(e) {
-    // e.preventDefault();
+  function handleSubmit() {
      if (selectedFile === null)
        return swal({
          title: "Image Field Cannot Be Empty",
@@ -60,14 +55,11 @@ function NewEmpresa() {
      fd.append("hectareas", input.hectareas);
      fd.append("ubicacion", input.ubicacion);
      fd.append("userId", input.userId);
-
-
      fd.append(
        "imagen",
        selectedFile,
        input.name + "." + extension[extension.length - 1]
      );
-     //fd.get("password", updateinfo.password)
      const infoSendDb = {
       userId: currentUserId,
        fd,
@@ -75,7 +67,7 @@ function NewEmpresa() {
      dispatch(postEmpresa(infoSendDb, config));
      setInput(input);
      swal({
-       title: "Info Edited",
+       title: "Empresa created",
        icon: "success",
        button: true,
      })
@@ -83,11 +75,7 @@ function NewEmpresa() {
          history.reload();
        })
        .catch((e) => console.log(e));
-     // alert("¿Seguro desea modificar estos datos?");
-     //alert("Datos modificados correctamente, ingrese sesión nuevamente");
-   }
-
-
+  }
 
   return (
     <motion.div
