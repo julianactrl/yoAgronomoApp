@@ -15,17 +15,9 @@ function DetailTransporte (props) {
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id);
     const transporte = useSelector(state=>state.transporteReducer.allTransporte);
     
-
-
-
-
-    
     useEffect(()=> {
         dispatch(getTransporte(1));
     }, []);
-    
-
- 
 
     return (
        <div>
