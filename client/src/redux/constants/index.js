@@ -44,14 +44,11 @@ export const DELETE_TAREA = 'DELETE_TAREA';
 export const UPDATE_TAREA = 'UPDATE_TAREA';
 
 
-<<<<<<< HEAD
 export const POST_TAREA = "POST_TAREA";
 export const GET_TAREAS = "GET_TAREAS";
 export const DELETE_TAREA = "DELETE_TAREA";
 export const UPDATE_TAREA = "UPDATE_TAREA";
 export const RESET_TAREAS= "RESET_TAREAS"
-=======
->>>>>>> 33f4b0b1ac9f80c5822d5c870beb60479ac1133a
 
 
 
