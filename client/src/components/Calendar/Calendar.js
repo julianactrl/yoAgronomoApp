@@ -82,13 +82,20 @@ return (
     <div>
         <label>Fecha: </label>
         <input
-        type='text'
+        type='date'
         onChange={(e)=>handleInputChange(e)} 
         value={tarea['fecha']}
         placeholder='2021-07-22'
         name='fecha'/>
     </div>
-     <button className={styles.buttonTarea} type='submit' value='Agendar Tarea' name="Enviar">Agendar Tarea</button>
+    <div>
+              { tarea.fecha && tarea.tarea && tarea.empresaId ?
+               <button className={styles.buttonTarea} type='submit' value='Agendar Tarea' name="Enviar">Agendar Tarea</button> : <button type='button' className={styles.disabledButton}>
+                  Agendar Tarea
+                </button>
+              }
+            </div>
+     
      </form>
      <br></br>
      <div className={styles.datatableContainer}>
