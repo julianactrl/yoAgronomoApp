@@ -14,7 +14,7 @@ function NewEmpresa() {
   const numEmpresa = useSelector((state) => state.empresaReducer.allEmpresas);
   const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
       
-  if(numEmpresa.length === 2 && userInfo === false){
+  if(numEmpresa.length >= 2 && userInfo === false){
         swal({ 
           title: "para seguir creando mas empresas pasarse a Premium",
           icon: "error",
