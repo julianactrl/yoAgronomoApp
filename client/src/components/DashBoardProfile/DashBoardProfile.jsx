@@ -6,9 +6,13 @@ import jwt_decode from "jwt-decode";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
+
 const { REACT_APP_API } = process.env;
 
+
 export default function DashBoardProfile() {
+  const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
+
   let history = useHistory();
   const dispatch = useDispatch();
   const [active, setActive] = useState(false);
@@ -35,6 +39,11 @@ export default function DashBoardProfile() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
+        {userInfo===true ? (
+          <h3>Premium</h3>
+          ) : (
+         <h3>cuenta free</h3>
+          )}
           {usuario.profile_pic ? (
             <img
               src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
@@ -44,6 +53,7 @@ export default function DashBoardProfile() {
               className={styles.perfilimg}
               onClick={() => (!active ? setActive(true) : setActive(false))}
             />
+            
           ) : (
             <img
               alt="perfil"
@@ -71,6 +81,7 @@ export default function DashBoardProfile() {
         ) : (
           <h1>Loading...</h1>
         )}
+       
       </div>
     );
   }
