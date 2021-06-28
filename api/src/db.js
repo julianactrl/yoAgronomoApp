@@ -7,6 +7,7 @@ const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL_LOCAL, DATABASE_URL } = process.env;
 dbRDS = false;
 
+
 const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
   //
   ssl: true,

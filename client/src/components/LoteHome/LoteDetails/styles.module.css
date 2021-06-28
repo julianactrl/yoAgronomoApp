@@ -275,16 +275,15 @@
     border:none;
     position: relative;
     text-decoration: none;
-    background: rgb(128, 128, 128);
     height: 10%;
-    width: 18%;
+    width: 25%;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     text-align: center;
-    background-color: #86caa68a;
-    color:rgb(3, 3, 3);
+    color: white;
+    background-color: #86caa68a;;
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
@@ -330,16 +329,41 @@
     box-shadow: 0 0 5px white;
 
 }
+.contEditBtns{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+    height: 2rem;
+    bottom: -1.8rem;
+}
+
+.editManejoBtnCancelar{
+    color: rgb(209, 250, 255);
+    font-size: 15px;
+    border: none;
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #6d2626c9;
+    box-shadow: 0 0 5px rgb(10, 10, 10);
+}
+.editManejoBtnCancelar:hover{
+    transition: 0.2s;
+    background-color: #c3254dce;
+    
+}
+
 .editManejoBtn{
     color: rgb(209, 250, 255);
-    font-size: 20px;
-    position: absolute;
-    bottom: -2rem;
+    font-size: 15px;
     border: none;
-    width: 40%;
-    height: 3rem;
-    background-color: #528067;
-    box-shadow: 0 0 3px rgb(10, 10, 10);
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #86caa68a;
+    box-shadow: 0 0 5px rgb(10, 10, 10);
 }
 .editManejoBtn:hover{
     transition: 0.2s;
@@ -347,22 +371,28 @@
     
 }
 .editManejo{
+    transition: 0.3s;
+    opacity: 1;
     overflow: hidden;
     border: none;
     background: none;
     color: white;
     text-align: center;
-    background-color: rgba(104, 104, 104, 0.596);
+    background-color: rgba(255, 255, 255, 0.157);
     width: 100%;
     height: 100%;
 }
-.contEditDelManejo{
+.manejoHeader{
     position: relative;
+    top: -1rem;
     display: flex;
-    justify-content: space-around;
-    top:-1rem;
-    width: 5rem;
-    left:-12.5rem;
+    justify-content: space-between;
+    width: 100%;
+}
+.contEditDelManejo{
+    display: flex;
+    justify-content:space-evenly;
+    width: 30%;
 }
 .obs,
 .rec{
@@ -406,7 +436,43 @@
     width: 100%;
     height: 70%;
 }
+.contBtnsImg{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.btnImgManejoCerrar{
+    background:none;
+    border: none;
+    background-color: #6d2626c9;
+    color: white;
+    width: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 0 2px black;
+}
+.btnImgManejoCerrar:hover{
+    transition: 0.3s;
+    background-color:#eb5151e5;
+}
+.btnImgManejo{
+    font-size: 15px;
+    background:none;
+    border: none;
+    background-color:#86caa68a;
+    color: white;
+    width: 6rem;
+    border-radius: 8px;
+    box-shadow: 0 0 2px black;
+}
+.btnImgManejo:hover{
+    transition: 0.3s;
+    color: black;
+    background-color:#91d689e5;
+    
 
+}
 .deleteManejobtn{
     position:relative;
     top: -1rem;
@@ -682,7 +748,8 @@
 }
 .btnsPrevNext{
     position: relative;
-    right: 7vh;
+    right: 6.5rem;
+    bottom: 5rem;
     border: none;
     width: 15vh;
     height: 5vh;

@@ -19,9 +19,9 @@ function UpdateEmpresa ({id}) {
 
     const [input, setInput] = useState({
         id: id,
-        name: '',
-        hectareas: '',
-        ubicacion: '',
+        name: empresa.name,
+        hectareas: empresa.hectareas,
+        ubicacion: empresa.ubicacion,
         imagen: ''
 })
 
@@ -87,7 +87,7 @@ function handleSubmit(e) {
     icon: "success",
     button: true,
   })
-      history.reload();
+      history.push("/home");
         
 }
 
