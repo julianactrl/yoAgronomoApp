@@ -37,12 +37,12 @@ function DetailTransporte (props) {
            {transporte && transporte.map(transport=>(
              
                <div className={styles.transporte}>
-                   <h3 >Patente: {transport.patente}</h3>
-                   <h3>Conductor: {transport.conductor}</h3>
-                   <h3>Carga: {transport.carga}</h3>
-                   <h3>Fecha de entrada: {transport.fechaEntrada}</h3>
-                   <h3>Fecha de salida: {transport.fechaSalida}</h3>
-                   <h3>Observaciones: {transport.observaciones}</h3>
+                   <h3 className={styles.items} >Patente: {transport.patente}</h3>
+                   <h3 className={styles.items} >Conductor: {transport.conductor}</h3>
+                   <h3 className={styles.items} >Carga: {transport.carga}</h3>
+                   <h3 className={styles.items} >Fecha de entrada: {transport.fechaEntrada}</h3>
+                   <h3 className={styles.items} >Fecha de salida: {transport.fechaSalida}</h3>
+                   <h3 className={styles.items} >Observaciones: {transport.observaciones}</h3>
                    <Link className={styles.editar} to={`/updatetransporte/${transport.id}`}>
                        <FontAwesomeIcon icon={faEdit}/>
                     </Link>
