@@ -1,7 +1,7 @@
 const { User } = require("../db");
 const { FRONT, BACK, BACK_URL, ACCESS_TOKEN_PROD } = process.env;
 const mercadopago = require("mercadopago");
-const { mailCompleted, mailPaymentCompleted, mailPaymentInProcess } = require("../mails/mensaje");
+const { mailPaymentCompleted, mailPaymentInProcess } = require("../mails/mensaje");
 
 //Cuenta a la que hacemos referencia como vendedor
 mercadopago.configure({

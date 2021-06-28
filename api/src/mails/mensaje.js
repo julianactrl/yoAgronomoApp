@@ -1,9 +1,10 @@
 const { sendMail } = require("./index.js");
-const ejs = require('ejs');
-const path = require("path");
+
+
 
 const mailPaymentCompleted = async (data) => {
   console.log("user id y mail ", data.id, data.email)
+
   const msj = {
     subject: "Su pago ha sido completado con exito, Id ",
     appreciate: "Ya podes empezar a disfrutar sin limites de tu cuenta Premium Plus!",
@@ -11,13 +12,10 @@ const mailPaymentCompleted = async (data) => {
   };
 
   let mailOptions = {
-    from: '"Yo Agronomo" <yoagronomoapp@gmail.com>',
+    from: '"Yo Agronomo" <yoagronomoapp@gmail.com>"',
     to: data.email,
     subject: `${msj.subject} ${data.id}`,
-    html: ejs.renderFile(path.join((__dirname), 'mailPaymentCompleted.ejs'), {
-			linkHome: `${FRONT}/home`,
-			userId: data.userId,
-		})
+    html: `<p>Bienvenido a Premium Plus!</p>`
   };
 
   await sendMail(mailOptions)
@@ -33,12 +31,10 @@ const mailPaymentInProcess = async (data) => {
 		slogan: 'yo Agronomo App'
 	};
 	let mailOptions = {
-		from: '"Yo Agronomo" <yoagronomoapp@gmail.com>',
+		from: '"Yo Agronomo" <yoagronomoapp@gmail.com>"',
 		to: data.order_email,
 		subject: `${msj.subject} ${data.id}`,
-		html: ejs.renderFile(path.join((__dirname), 'mailPaymentInProcess.ejs'), {
-		 	 payment_link: data.payment_link
-		}),
+		html: `<p>vuelve a internarlo nuevamente en unos minutos, Gracias!</p>`
 	}
 	
 	
