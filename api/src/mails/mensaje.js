@@ -2,19 +2,20 @@ const { sendMail } = require("./index.js");
 const path = require("path");
 
 const mailCompleted = async (data) => {
-  console.log(data.id)
+  console.log("user id y mail ", data.id, data.email)
   const msj = {
     subject: "Order is being processed Nro",
     appreciate: "Thank you for choosing us!",
     text: "If you can not see the link, click below",
     slogan: "Cool",
   };
-  console.log("mensaje --->>", msj.appreciate);
+
   let mailOptions = {
-    from: '"Yo Agronomo" <juliana.mg3@gmail.com>',
+    from: '"Yo Agronomo" <yoagronomoapp@gmail.com>',
     to: data.email,
     subject: `${msj.subject} ${data.id}`,
-    html: `<p>Thanks you for choosing us!</p>`,
+    html: `${msj.appreciate}
+            ${msj.text} ${msj.slogan}`,
   };
 
   await sendMail(mailOptions)
