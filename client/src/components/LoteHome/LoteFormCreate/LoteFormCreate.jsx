@@ -12,9 +12,9 @@ export default function LoteFormCreate({empresaId}){
     const numLotes = useSelector((state) => state.loteReducer.allLotes);
     const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
         
-    if(numLotes.length === 2 && userInfo === false){
+    if(numLotes.length >= 2 && userInfo === false){
           swal({ 
-            title: "para seguir creando mas empresas pasarse a Premium",
+            title: "para seguir creando mas Lotes pasarse a Premium",
             icon: "error",
             button: true,
           })

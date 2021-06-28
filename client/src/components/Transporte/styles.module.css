@@ -1,37 +1,38 @@
-/* .div {
-    background-image:
-    linear-gradient(to bottom, rgba(97, 97, 97, 0.52), rgba(0, 0, 0, 0.411)),
-    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
-    min-width: 100vw;
-    min-height: 100vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
     
-} */
-/* .caja{
-    background-color: rgba(255, 255, 255, 0.37);
-    border-radius: 20px;
-      height:350px;
-      width: 500px;
-      align-content: center;
-      margin: 0 auto;
-      justify-content: center;
-      
-} */
-    
-    
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}  
 .transporte {
-    color: black;
-    background-color: rgba(255, 255, 255, 0.63);
-    border-radius: 5px;
     display: flex;
     align-items: center;
     flex-direction: column;
     width: 18%;
+    left: 180px;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-clip:padding-box;
+    background-size: 650px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(19, 13, 13);
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    width: 550px;
+    height: 300px;
+    background-color: #05050548;
+    border:none;
+    box-shadow: 0px 0px 30px black;
+}
 
-
+.items{
+    color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
 .containerTransporte{
@@ -45,14 +46,14 @@
 }
 
 .editar {
-    color: black;
+    color: rgb(251, 251, 251);
     font-size: 22px;
 }
 
 .titleAdd{
     /* display: none; */
     opacity: 0;
-    font-size: 50px;
+    font-size: 35px;
     color: black;
     transition: 0.9s;
     /* left: 80px;
@@ -62,7 +63,7 @@
 .cardContAdd:hover .titleAdd{
     display: inline;
     opacity: 1;
-    font-size: 50px;
+    font-size: 35px;
     color: #ffffff;
     transition: 0.9s;
 
@@ -76,7 +77,7 @@
     background-position:center;
     background-repeat: no-repeat;
     background-clip:padding-box;
-    background-size: 1000px;
+    background-size: 650px;
     padding: 20px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -85,8 +86,8 @@
     border-radius: 10px;
     align-items: center;
     object-fit: cover;
-    width: 400px;
-    height: 400px;
+    width: 280px;
+    height: 280px;
     background-color: #05050548;
     border:none;
     box-shadow: 0px 0px 30px black;
@@ -102,11 +103,11 @@
 
 .imgAdd{
     position: relative;
-    bottom: 20px;
+    bottom: 18px;
     background-color: rgba(0, 0, 0, 0.096);
-    border-radius: 1000px;
+    border-radius: 900px;
     border: 2px solid rgba(0, 189, 13, 0.075);
-    width: 150px;
+    width: 100px;
 } 
 .imgAdd:hover{
     transition: 1s;
