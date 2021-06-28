@@ -126,10 +126,10 @@ return (
                    <tbody>
                        { tareasEmpresa.length >0 && tareasEmpresa.map(t=>(
                        <tr>
-                           <td><p>{t.tarea}</p></td>
-                           <td><p>{t.fecha}</p></td>
+                           <td><p className={styles.cadaTarea}>{t.tarea}</p></td>
+                           <td><p className={styles.cadaTarea}>{t.fecha}</p></td>
                            <td> <Link to={`/empresa/${idEmpresa}`}>
-                            <button onClick={()=>deleteTarea(`${t.id}`)} className={styles.eliminarEmpresa}></button> 
+                            <button onClick={()=>deleteTarea(`${t.id}`)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
                             </Link> </td>
                             
                            
