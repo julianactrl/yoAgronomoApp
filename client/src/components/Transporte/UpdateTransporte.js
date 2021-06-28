@@ -6,15 +6,16 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
 import {Link} from 'react-router-dom'
-import { faTrashAlt, faWalking } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from 'sweetalert';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const {REACT_APP_API} = process.env
 
 
 function UpdateTransporte ({id}) {
     const dispatch = useDispatch();
     const transporte = useSelector(state=>state.transporteReducer.transporte);
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id)
     const [input, setInput] = useState({
         patente: transporte.patente,
         conductor: transporte.conductor,
@@ -30,7 +31,6 @@ async function handleInputChange(e) {
         ...input,                        
          [e.target.name]: e.target.value  
         });
-        console.log('-------', input)
 }
 
 
@@ -45,18 +45,19 @@ function deleteTransporte(id) {
             console.log(error)
         })
         swal("El transport fue eliminado",{icon:"success"})
+
+    history.push("/transporte")
 }
 
 const history = useHistory()
 function handleSubmit(e) {
     e.preventDefault();
-   axios.put(`http://localhost:3001/transporte/update/${id}`, input)
+   axios.put(`${REACT_APP_API}/transporte/update/${id}`, input)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
     e.target.reset();
     swal("Transporte Actualizado",{icon:"success"})
-    history.push('/transporte')
-
+    history.push(`/empresa/${empresaId}`)
 }
 
 

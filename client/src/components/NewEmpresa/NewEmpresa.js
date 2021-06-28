@@ -7,12 +7,13 @@ import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
 
-
 function NewEmpresa() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const currentUserId = useSelector((state) => state.userReducer.userInfo.user.id);
-
+  const currentUserId = useSelector(
+    (state) => state.userReducer.userInfo.user.id
+  );
+  
   const [input, setInput] = useState({
     userId: currentUserId,
     name: "",
@@ -22,12 +23,12 @@ function NewEmpresa() {
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
-  
+
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
     setImgUrl(URL.createObjectURL(event.target.files[0]));
   };
-  
+
   function handleInputChange(e) {
     setInput({
       ...input,
@@ -36,45 +37,45 @@ function NewEmpresa() {
   }
 
   function handleSubmit() {
-     if (selectedFile === null)
-       return swal({
-         title: "Image Field Cannot Be Empty",
-         icon: "warning",
-         button: true,
-         dangerMode: true,
-       });
-     const config = {
-       headers: {
-         "Content-Type": "multipart/form-data",
-       },
-     };
-     const fd = new FormData();
-     const extension = selectedFile.name.split(".");
- 
-     fd.append("name", input.name);
-     fd.append("hectareas", input.hectareas);
-     fd.append("ubicacion", input.ubicacion);
-     fd.append("userId", input.userId);
-     fd.append(
-       "imagen",
-       selectedFile,
-       input.name + "." + extension[extension.length - 1]
-     );
-     const infoSendDb = {
+    if (selectedFile === null)
+      return swal({
+        title: "Image Field Cannot Be Empty",
+        icon: "warning",
+        button: true,
+        dangerMode: true,
+      });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const fd = new FormData();
+    const extension = selectedFile.name.split(".");
+
+    fd.append("name", input.name);
+    fd.append("hectareas", input.hectareas);
+    fd.append("ubicacion", input.ubicacion);
+    fd.append("userId", input.userId);
+    fd.append(
+      "imagen",
+      selectedFile,
+      input.name + "." + extension[extension.length - 1]
+    );
+    const infoSendDb = {
       userId: currentUserId,
-       fd,
-     };
-     dispatch(postEmpresa(infoSendDb, config));
-     setInput(input);
-     swal({
-       title: "Empresa created",
-       icon: "success",
-       button: true,
-     })
-       .then(() => {
-         history.reload();
-       })
-       .catch((e) => console.log(e));
+      fd,
+    };
+    dispatch(postEmpresa(infoSendDb, config));
+    setInput(input);
+    swal({
+      title: "Empresa created",
+      icon: "success",
+      button: true,
+    })
+      .then(() => {
+        history.reload();
+      })
+      .catch((e) => console.log(e));
   }
 
   return (
@@ -132,21 +133,21 @@ function NewEmpresa() {
             </div>
 
             <div className={styles.fileImg}>
-            <label className={styles.labelCrear}>Imagen: </label>
-            <input
-              className={styles.inputCrear}
-              type="file"
-              name="imagen"
-              accept="image/png, image/jpeg"
-              onChange={handleFileInputChange}
-              required
+              <label className={styles.labelCrear}>Imagen: </label>
+              <input
+                className={styles.inputCrear}
+                type="file"
+                name="imagen"
+                accept="image/png, image/jpeg"
+                onChange={handleFileInputChange}
+                required
+              />
+            </div>
+            <img
+              src={imgUrl}
+              alt={imgUrl}
+              style={{ height: "200px", width: "250px" }}
             />
-          </div>
-          <img
-            src={imgUrl}
-            alt={imgUrl}
-            style={{ height: "200px", width: "250px" }}
-          />
             <br></br>
             <button
               className={styles.buttonCrearEmpresa}

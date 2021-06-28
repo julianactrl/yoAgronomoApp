@@ -15,7 +15,7 @@ export const GestionComercial = () => {
                 </div>
                 <div className='tansporteCont'>
                     <h2 className='h2Gestion'>Transporte</h2>
-                    <Link to='/gestion_comercial/transporte'>
+                    <Link to='/transporte'>
                         <button className='masInfoBtnGestion'>Ver mas información</button>
                     </Link>
                 </div>

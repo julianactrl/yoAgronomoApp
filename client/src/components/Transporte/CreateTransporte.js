@@ -4,40 +4,45 @@ import styles from './styles.module.css';
 import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
+import swal from 'sweetalert';
+const { REACT_APP_API} = process.env
+
 
 
 function NewTransporte () {
     const dispatch = useDispatch();
     const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id);
+    console.log(empresaId)
     const [input, setInput] = useState({
         patente: "",
-        conductor: null,
-        carga: null,
-        fechaEntrada: null,
-        fechaSalida: null,
-        observaciones: null,
+        conductor: "",
+        carga: "",
+        fechaEntrada: "",
+        fechaSalida: "",
+        observaciones: "",
         empresaId: empresaId
     });
 
     function handleInputChange(e){
         setInput({
+            
             ...input,
             [e.target.name] : e.target.value
         });
+        console.log("Vamo carahoy", input)
     }
-
-    
-
     const history = useHistory()
     function handleSubmit(e){
-        console.log(input);
+        console.log("esto enviamos al post",input);
         e.preventDefault();
         dispatch(postTransporte(input));
-        history.push('/empresa')}
+        //history.push(`/empresa/${empresaId}`)
+        swal("El transport fue creado",{icon:"success"})
+        history.push("/transporte")
+    }
 
     function deleteTransporte(transporteId) {
-        
-            axios.delete(`http://localhost:3001/transporte/delete/${transporteId}`)
+            axios.delete(`${REACT_APP_API}/transporte/delete/${transporteId}`)
             .then(response => console.log(response.data)) 
             .catch(error  => console.log(error))
             alert('Su transporte fue eliminado!')  
@@ -87,7 +92,7 @@ function NewTransporte () {
                         placeholder = 'fechaEntrada'  
                         onChange={handleInputChange}
                         id = 'fechaEntrada'
-                        type='text'
+                        type='date'
                         name="fechaEntrada"
                         value= {input.fechaEntrada}>
                         </input>
@@ -98,7 +103,7 @@ function NewTransporte () {
                         placeholder = 'fechaSalida'  
                         onChange={handleInputChange}
                         id = 'fechaSalida'
-                        type='text'
+                        type='date'
                         name="fechaSalida"
                         value= {input.fechaSalida}>
                         </input>
