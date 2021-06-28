@@ -79,7 +79,6 @@ const createLote = async(req,res,next) => {
         var Lot = req.file.filename
     }
     try{
-
         var cantidad = await Lote.count({
             where: {
                 empresaId: empresaId 

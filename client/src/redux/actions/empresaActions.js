@@ -1,6 +1,5 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
-import { useDeprecatedAnimatedState } from 'framer-motion';
 const { REACT_APP_API} = process.env
 
 
