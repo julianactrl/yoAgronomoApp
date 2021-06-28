@@ -19,7 +19,7 @@ const idTarea = useSelector(state => state.calendarReducer.tareaForId.id)
 
 useEffect(()=>{
     dispatch(getAllTareas(idEmpresa))
-    dispatch(getTarea(idTarea))
+    // dispatch(getTarea(idTarea))
 }, [])
 
 const dispatch = useDispatch();
@@ -128,7 +128,7 @@ return (
                        <tr>
                            <td><p>{t.tarea}</p></td>
                            <td><p>{t.fecha}</p></td>
-                           <td> <Link to={`/home`}>
+                           <td> <Link to={`/empresa/${idEmpresa}`}>
                             <button onClick={()=>deleteTarea(`${t.id}`)} className={styles.eliminarEmpresa}></button> 
                             </Link> </td>
                             
