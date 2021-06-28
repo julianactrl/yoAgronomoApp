@@ -24,8 +24,8 @@ function UpdateProfile() {
 
   const [updateinfo, setUpdateInfo] = useState({
     id: id,
-    fullName: usuario.fullName,
-    email: usuario.email,
+    fullName: "",
+    email: "",
     password: "",
     profile_pic: "",
   });
@@ -71,7 +71,6 @@ function UpdateProfile() {
       selectedFile,
       updateinfo.fullName + "." + extension[extension.length - 1]
     );
-    //fd.get("password", updateinfo.password)
     const infoSendDb = {
       id: id,
       fd,
@@ -85,11 +84,9 @@ function UpdateProfile() {
     })
         dispatch(logout(id));
         history.push("/home");
-    
   }
 
   function deleteUsuario(id) {
-    // dispatch(deleteEmpresa(id));
     axios
       .delete(`${REACT_APP_API}/user/delete/${id}`)
       .then((response) => console.log(response.data))
@@ -109,6 +106,7 @@ function UpdateProfile() {
               className={styles.inputCrear}
               type="text"
               onChange={handleInputChange}
+              placeholder={usuario.fullName}
               value={updateinfo.fullName}
               name="fullName"
             />
@@ -121,6 +119,7 @@ function UpdateProfile() {
               type="text"
               onChange={handleInputChange}
               value={updateinfo.email}
+              placeholder={usuario.email}
               name="email"
             />
           </div>

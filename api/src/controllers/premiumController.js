@@ -48,7 +48,7 @@ const premium = async (req, res) => {
           mp_id: resp.response.id,
           payment_link: resp.body.init_point,
         });
-        // mailCompleted(user);
+        mailCompleted(user);
         return res.json(user.payment_link);
       })
       .catch((err) => {
