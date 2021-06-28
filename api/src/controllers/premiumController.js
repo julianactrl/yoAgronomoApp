@@ -1,7 +1,7 @@
 const { User } = require("../db");
 const { FRONT, BACK, BACK_URL, ACCESS_TOKEN_PROD } = process.env;
 const mercadopago = require("mercadopago");
-const { mailCompleted } = require("../mails/mensaje");
+const { mailCompleted, mailPaymentCompleted, mailPaymentInProcess } = require("../mails/mensaje");
 
 //Cuenta a la que hacemos referencia como vendedor
 mercadopago.configure({
@@ -48,7 +48,6 @@ const premium = async (req, res) => {
           mp_id: resp.response.id,
           payment_link: resp.body.init_point,
         });
-        mailCompleted(user);
         return res.json(user.payment_link);
       })
       .catch((err) => {
@@ -106,7 +105,7 @@ const mercadoPagoNotifications = async (req, res) => {
             "ORDER ACTUALIZADA A COMPLETADA-->",
             JSON.stringify(updatedUser, undefined, 4),
             /**AQUI VA ENVIO DE CORREO */
-            mailCompleted(user)
+            mailPaymentCompleted(user)
           );
         }
         /**************************CASO FAILURE*******************************/
@@ -142,7 +141,8 @@ const mercadoPagoNotifications = async (req, res) => {
           });
           return console.log(
             "ORDER ACTUALIZADA A PROCESSING-->",
-            JSON.stringify(updatedUser, undefined, 4)
+            JSON.stringify(updatedUser, undefined, 4),
+            mailPaymentInProcess(user)
           );
         }
         case "in_process": {
@@ -159,7 +159,8 @@ const mercadoPagoNotifications = async (req, res) => {
           });
           return console.log(
             "ORDER ACTUALIZADA A PROCESSING-->",
-            JSON.stringify(updatedUser, undefined, 4)
+            JSON.stringify(updatedUser, undefined, 4),
+            mailPaymentInProcess(user)
           );
         }
       }
