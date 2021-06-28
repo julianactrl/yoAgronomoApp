@@ -1,7 +1,8 @@
-import {POST_TAREA, GET_TAREAS, DELETE_TAREA, UPDATE_TAREA, RESET_TAREAS} from './../constants'
+import {POST_TAREA, GET_TAREAS, DELETE_TAREA, UPDATE_TAREA, RESET_TAREAS, GET_TAREA_ID} from './../constants'
 
 const initialState = {
-    tareas: []
+    tareas: [],
+    tareaForId: []
 }
 
 const calendarReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const calendarReducer = (state = initialState, action) => {
                 ...state,
             tareas: action.payload,
             };
+            case GET_TAREA_ID:
+                return {
+                    ...state,
+                    tareaForId: action.payload
+                }
         case POST_TAREA:
             
             return {
@@ -20,7 +26,7 @@ const calendarReducer = (state = initialState, action) => {
         case DELETE_TAREA:
             return {
                 ...state,
-                tareas: action.payload                
+                tareaForId: action.payload                
            };
            case RESET_TAREAS:
                return{
