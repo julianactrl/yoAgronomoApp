@@ -3,7 +3,8 @@ import {
     GET_TAREAS,
     DELETE_TAREA,
     UPDATE_TAREA,
-    RESET_TAREAS
+    RESET_TAREAS,
+    GET_TAREA_ID
 } from '../constants';
 import axios from 'axios';
 import swal from 'sweetalert';
@@ -11,7 +12,18 @@ const {
     REACT_APP_API
 } = process.env
 
-
+export function getTarea(id) {
+    return function(dispatch) {
+        return fetch(`${REACT_APP_API}/tareas/tarea/${id}`)
+        .then(response=>response.json())          
+            .then(json=>{
+                dispatch({          
+                type: GET_TAREA_ID,
+                payload: json
+            })
+        })
+    }
+}
 
 export function createTarea(body) {
     return async function (dispatch) {
@@ -110,7 +122,8 @@ export function getAllTareas(id) {
 
 export const updateTarea = ({
     id,
-    body
+    tarea,
+    fecha
 }) => {
 
     return (dispatch) => {
@@ -119,9 +132,10 @@ export const updateTarea = ({
         });
         axios({
             method: 'put',
-            url: `${REACT_APP_API}/tarea/${id}`,
+            url: `${REACT_APP_API}/tareas/${id}`,
             data: {
-                ...body
+                tarea,
+                fecha
             },
         }).catch(e => dispatch(e))
     }
