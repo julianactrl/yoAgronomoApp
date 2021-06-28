@@ -27,6 +27,8 @@ function DetailTransporte (props) {
     return (
        <div>
            <Header />
+
+           <div className={styles.page}>
            <Link to={"/createtransporte"}>
                  <div  className={styles.cardContAdd} >
                             <h1 className={styles.titleAdd}>Agregar Transporte</h1>
@@ -49,7 +51,7 @@ function DetailTransporte (props) {
                </div>
            ))}
            </div>
-           
+           </div>
        </div>
     //   <div className={styles.background}>
     //         <Header />

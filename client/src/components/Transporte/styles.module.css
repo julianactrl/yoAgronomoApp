@@ -1,5 +1,9 @@
     
-    
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}  
 .transporte {
     display: flex;
     align-items: center;

@@ -81,7 +81,7 @@ function NewEmpresa() {
       button: true,
     })
       .then(() => {
-        history.reload();
+        history.push("/home")
       })
       .catch((e) => console.log(e));
   }
