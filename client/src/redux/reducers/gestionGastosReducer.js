@@ -1,11 +1,12 @@
 
-import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, GET_ALL_GASTOS} from './../constants';
+import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, GET_ALL_GASTOS, CREATED_GASTO} from './../constants';
 
 const initialState = {
     clasificaciones: [],
     createdClasificacion:[],
     gastos: [],
-    selectedClasificacion: ''
+    selectedClasificacion: '',
+    createdGasto:[]
 }
 
 const gestionGastosReducer = (state = initialState, action) => {
@@ -25,6 +26,11 @@ const gestionGastosReducer = (state = initialState, action) => {
                 ...state,
                 gastos: action.payload,
             };
+        case CREATED_GASTO:
+            return {
+                ...state,
+                createdGasto: action.payload
+            }
         case 'SELECTED_CLASIFICACION':
             return {
                 ...state,

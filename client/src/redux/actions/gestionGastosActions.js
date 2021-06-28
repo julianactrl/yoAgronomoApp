@@ -38,7 +38,7 @@ export function deleteClasificacion (id) {
         return axios.delete(`${REACT_APP_API}/gastos/deleteClasificacion/${id}`)
             .then(response => {
                 dispatch({
-                    type: CREATED_GASTO,
+                    type: CREATED_CLASIFICACION,
                     payload: response
                 })
             })
@@ -54,7 +54,7 @@ export function getAllGastos (clasificacionId) {
             console.log('todos los gastos perri', response);
             dispatch({
                 type: GET_ALL_GASTOS,
-                payload: response
+                payload: response.data
             })
         })
     }
@@ -66,9 +66,21 @@ export function createGastos (data) {
         .then(response => {
             console.log('gasto creadoooo', response);
             dispatch({
-                type: GET_ALL_GASTOS,
+                type: CREATED_GASTO,
                 payload: response
             })
         })
+    }
+}
+
+export function deleteGastos (gastoId) {
+    return function (dispatch) {
+        return axios.delete(`${REACT_APP_API}/gastos/deleteGasto/${gastoId}`)
+            .then(response => {
+                dispatch({
+                    type: CREATED_GASTO,
+                    payload: response
+                })
+            })
     }
 }

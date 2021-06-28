@@ -4,27 +4,49 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Clasificacion from "./Clasificacion"
 import GastoItem from "./GastoItem"
 import { useEffect, useState } from "react"
-import { getAllClasificiones , createClasificacion} from "../../../redux/actions/gestionGastosActions"
+import { getAllClasificiones , createClasificacion, getAllGastos} from "../../../redux/actions/gestionGastosActions"
 import { useDispatch, useSelector } from "react-redux"
 import Cookies from 'universal-cookie'
+import { renderizarTotalClasificaciones } from "./controller"
 
 export default function GestionGastos () {
     const dispatch = useDispatch();
     const cookies = new Cookies();
     const [clasificacion, setClasificacion] = useState({name:''})
+    const [totalClasificaciones, setTotalClasificaciones] = useState() // Estado para mostrar el total de gasto de todas las clasificaciones
     // const [empresaId, setEmpresaId] = useState();
     const clasificaciones = useSelector(state=>state.gestionGastosReducer.clasificaciones)
     const createdClasificacion = useSelector(state=>state.gestionGastosReducer.createdClasificacion)
+    const selectedClasificacion = useSelector(state=>state.gestionGastosReducer.selectedClasificacion)// clasificacion seleccionada
+    const gastos = useSelector(state=>state.gestionGastosReducer.gastos)
+    const createdGasto = useSelector(state=>state.gestionGastosReducer.createdGasto)
 
 
     useEffect(async ()=>{
         await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+        // selectedClasificacion && await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[])
+
+    useEffect(async ()=>{
+        await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
+        console.log('estsos son los gastos papurriiiiiiii',gastos);
+        let gastosAuxiliar = gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)
+        // gastos && console.log(gastosAuxiliar.reduce((acc,next)=> acc.cost + next.cost ));
+        console.log(gastosAuxiliar);
+    },[selectedClasificacion])
+
+    // si se crea un gasto o se elimina con este useefect se actualiza
+    useEffect(()=>{
+        selectedClasificacion && dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
+    },[createdGasto])
 
     useEffect(async ()=>{
         await dispatch(getAllClasificiones(await cookies.get('selectedEmpresa').id))
     },[createdClasificacion])
 
+    // useEffect(()=>{
+    //     console.log('esta es la clasif del usededtccccc', selectedClasificacion);
+    // },[selectedClasificacion])
     async function crearClasificacion () {
         if(clasificacion.name.length){
             const crearClasificacion = clasificacion;
@@ -33,6 +55,7 @@ export default function GestionGastos () {
             setClasificacion({name:''}) 
         }
     }
+
 
     return (
          <>
@@ -49,7 +72,7 @@ export default function GestionGastos () {
                                     <button onClick={crearClasificacion}>Crear !!</button>
                                 </div>
                                 <div className={styles.total}>
-                                    <button className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
+                                    <button onClick={()=>setTotalClasificaciones(true)} className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
                                 </div>
                             </div>
 
@@ -60,6 +83,7 @@ export default function GestionGastos () {
                                 <input className={styles.input} placeholder='Buscar por palabra coincidente'/>
                             </div>
                         </div>
+                        {/* {renderizarTotalClasificaciones(clasificaciones)} */}
                     <table className={`table table-hover ${styles.table}`}>
                         <thead>
                             <tr>
@@ -72,29 +96,16 @@ export default function GestionGastos () {
                             </tr>
                         </thead>
                         <tbody >
-                                <GastoItem/>
-                                <GastoItem Nombre={'Hi5'} Descripcion={2003} Precio={1500} fecha={'26/06/2021'}/>
-                                <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500} fecha={'26/06/2021'}/>
-                                <GastoItem Nombre={'Metroflog messenger'} Descripcion={2004} Precio={1500} fecha={'26/06/2021'}/>
-                                <GastoItem Nombre={'Myspace'} Descripcion={2003} Precio={1500} fecha={'26/06/2021'}/>
-                                <GastoItem Nombre={'Windows live messenger'} Descripcion={1999} Precio={1500} fecha={'26/06/2021'}/>
-
-                            {/* <tr className={styles.totalNumber}>
-                                <th scope="row">TOTAL</th>
-                                {/* <td>-</td>
-                                <td>7</td> */}
-                                {/* <td colspan="5" className={styles.totalNumberItem}><strong>207.51</strong></td> */}
-                                {/* <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td> 
-                            </tr> 
-                                */}
+                                <GastoItem />
+                                {
+                                    gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                }
+                                
                         </tbody>
                     </table>
                     <div className={styles.footer}>
                         <h2>TOTAL</h2>
-                        <h2 className={styles.numberTotal}> 207,51</h2>
+                        <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>
                     </div>
                 </div>
              </div>

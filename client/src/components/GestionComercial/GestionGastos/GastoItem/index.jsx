@@ -1,18 +1,22 @@
 import React ,{ useState } from 'react';
 import styles from './styles.module.css'
 import { renderizarItemOinput } from './controller';
+import { useDispatch, useSelector } from 'react-redux';
+import { createGastos , deleteGastos } from '../../../../redux/actions/gestionGastosActions';
 
-export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, clasificacionDeGastoId}) {
+export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, gastoId}) {
     const [ edit, setEdit ] = useState(false);
+    const dispatch = useDispatch()
+    const selectedClasificacion = useSelector(state=>state.gestionGastosReducer.selectedClasificacion)
     const [ gasto, setGasto ] = useState({
         name:'',
         description:'',
         cost:'',
         date:'',
-        clasificacionDeGastoId: clasificacionDeGastoId
+        clasificacionDeGastoId: selectedClasificacion.clasificacionDeGastoId
     })
 
-
+    // console.log('esta es la clasificacionnnnnnnnnnnnn', selectedClasificacion);
     function renderizarItemOinput (nombre, descripcion, precio , fecha, edit) {
         return (
             <>
@@ -38,8 +42,13 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, clasif
     function handleEdit () {
         edit ? setEdit(false) : setEdit(true)
     }
+    function handleDelete () {
+        return dispatch(deleteGastos(gastoId))
+    }
     function crearGasto () {
-        console.log('este es el gasto papu', gasto);
+        let gastoAux = gasto;
+        gastoAux.clasificacionDeGastoId = selectedClasificacion.clasificacionDeGastoId
+        return dispatch(createGastos(gastoAux))
     }
 
     return (
@@ -53,7 +62,7 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, clasif
                 <td className={styles.contBtn}>
                     { Nombre ? 
                         (<><img onClick={handleEdit} className={styles.img} src={'https://image.flaticon.com/icons/png/512/1159/1159633.png'} />
-                        <img className={styles.imgTacho} src='https://img2.freepng.es/20180410/wjq/kisspng-computer-icons-encapsulated-postscript-font-blueberry-5acd87c1840346.2188309115234190735407.jpg' /></>)
+                        <img onClick={handleDelete} className={styles.imgTacho} src='https://img2.freepng.es/20180410/wjq/kisspng-computer-icons-encapsulated-postscript-font-blueberry-5acd87c1840346.2188309115234190735407.jpg' /></>)
                     :   <><img onClick={crearGasto} className={styles.imgAgregar} src={'https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png'} /> 
                         <img className={styles.imgTachoF} src='https://img2.freepng.es/20180410/wjq/kisspng-computer-icons-encapsulated-postscript-font-blueberry-5acd87c1840346.2188309115234190735407.jpg' /> </>
                     }

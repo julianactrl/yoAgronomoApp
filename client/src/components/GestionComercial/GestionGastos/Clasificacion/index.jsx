@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 
 export default function Clasificacion ({name, id}) {
     const dispatch = useDispatch()
+    const clasificacionSeleccionada= {name:name, clasificacionDeGastoId: id}
 
     return (
         <div className={styles.contClasificacion}>
-            <buton onClick={()=> console.log('hello')} className={`btn btn-outline-success ${styles.btnClasificacion}`}>
+            <buton onClick={()=> dispatch({type:'SELECTED_CLASIFICACION', payload: clasificacionSeleccionada})} className={`btn btn-outline-success ${styles.btnClasificacion}`}>
                 {name}
             </buton>
                 <button onClick={()=> dispatch(deleteClasificacion(id))} className={styles.btn}>X</button>
