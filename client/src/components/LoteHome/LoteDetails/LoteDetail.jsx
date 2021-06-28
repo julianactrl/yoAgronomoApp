@@ -9,7 +9,7 @@ import logoDelete from '../../../assets/trash.png'
 import logoEdit from '../../../assets/edit.png'
 import { clearWeather, getWeather } from '../../../redux/actions/weatherActions';
 import emptyIco from '../../../assets/emptyIco.png'
-import grass from '../../../assets/grassBackground.png'
+import grass from '../../../assets/emptypng.png'
 import {motion} from 'framer-motion';
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
@@ -22,6 +22,8 @@ export default function LoteDetails({lote}){
     const [botonera, setBotonera] = useState(false);
     const [auxState, setAuxState] = useState(false);
     const [edit, setEdit] = useState(lote.name);
+    const [imgManejo, setImgManejo] = useState('');
+    const [imgManejoVerify, setImgManejoVerify] = useState(false)
     const [formulario, setFormulario] = useState(false);
 
     const weather = useSelector(state => state.weatherReducer.weather)
@@ -201,7 +203,15 @@ export default function LoteDetails({lote}){
                                     <img onClick={()=>{setAuxState(true)}}src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
-                            <Slider {...settings} >
+                            <Slider className={imgManejoVerify?null:styles.none} {...settings} >
+                                <img
+                                    src={`${REACT_APP_API}/lote/image/${imgManejo}`}
+                                    alt="https://i.stack.imgur.com/y9DpT.jpg"
+                                    className={styles.img}
+                                />
+                                <img className={styles.imgLogo} src={grass} alt="" />
+                            </Slider>
+                            <Slider className={imgManejoVerify?styles.none:null} {...settings} >
                                 <img
                                     src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
@@ -258,22 +268,29 @@ export default function LoteDetails({lote}){
                                                                 const {id} = data
                                                                 return(
                                                                     <div className={styles.segmentManejo}>
-                                                                        <div className={styles.contEditDelManejo}>
-                                                                            <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
-                                                                            <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
+                                                                        <div className={styles.manejoHeader}>
+                                                                            <div className={styles.contEditDelManejo}>
+                                                                                <img onClick={()=>{borrarManejo(id)}} src={logoDelete} alt="" className={styles.deleteLogoManejo}/>
+                                                                                <img onClick={()=>{setEditManejoAux(true)}}src={logoEdit} alt="" className={styles.editLogoManejo} />
+                                                                            </div>
+                                                                            <div  className={styles.contBtnsImg}>
+                                                                                <button className={imgManejoVerify?styles.none:styles.btnImgManejo} onClick={()=>{setImgManejoVerify(true); setImgManejo(data.image)}}>Ver Imagen</button> 
+                                                                                <button className={imgManejoVerify?styles.btnImgManejoCerrar:styles.none} onClick={()=>{setImgManejoVerify(false); setImgManejo(data.image)}}>x</button> 
+                                                                            </div>
                                                                         </div>
-                                                                        <button>Imagen</button> 
                                                                         <div className={styles.dataManejo}>
                                                                             <div className={styles.obs}>
                                                                                 <p className={editManejoAux?styles.none:null}>{data.observaciones}</p>
                                                                                 <textarea type="text" className={editManejoAux?styles.editManejo:styles.none} onChange={(e)=>{setEditManejo({...editManejo, observaciones: e.target.value})}}/>
                                                                             </div>
-                                                                            <button type='submit' onClick={()=>{handleEditManejo(id)}} className={editManejoAux?styles.editManejoBtn:styles.none}>EDITAR</button>
+                                                                            <div className={styles.contEditBtns}>
+                                                                                <button type='submit' onClick={()=>{handleEditManejo(id)}} className={editManejoAux?styles.editManejoBtn:styles.none}>EDITAR</button>
+                                                                                <button onClick={()=>{setEditManejoAux(false)}} className={editManejoAux?styles.editManejoBtnCancelar:styles.none}>CANCELAR</button>
+                                                                            </div>
                                                                            <div className={styles.rec}>
                                                                               <p className={editManejoAux?styles.none:null}>{data.recomendaciones}</p>
                                                                               <textarea type="text" className={editManejoAux?styles.editManejo:styles.none} onChange={(e)=>{setEditManejo({...editManejo,recomendaciones: e.target.value})}}/> 
                                                                            </div>
-                                                                           
                                                                         </div> 
                                                                     </div>
                                                                     
