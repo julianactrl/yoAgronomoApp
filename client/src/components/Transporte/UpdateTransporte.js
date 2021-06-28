@@ -57,7 +57,7 @@ function handleSubmit(e) {
         .catch(error  => console.log(error))
     e.target.reset();
     swal("Transporte Actualizado",{icon:"success"})
-    history.push(`/empresa/${empresaId}`)
+    history.push(`/transporte`)
 }
 
 
