@@ -184,19 +184,19 @@ const mercadoPagoRedirect = async (req, res) => {
     switch (user.order_status || user.order_status === null) {
       case "completed": {
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       case "processing": {
         //home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       case "canceled": {
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       default:
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
     }
   } catch (err) {
     console.log(err);

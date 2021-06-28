@@ -6,7 +6,6 @@ const morgan = require("morgan");
 const routes = require("./routes/index.js");
 const server = express();
 
-const ejs = require('ejs');
 require("./db.js");
 
 //=====passport ====
@@ -14,7 +13,6 @@ const passport = require("./passport");
 //const session = require("express-session");
 
 //===================================================================
-server.engine('ejs', ejs.renderFile);
 server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
