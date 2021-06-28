@@ -92,9 +92,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 450px;
+    width: 400px;
     height: 100vh;
-    background-color: #89ad86;
+    background-color: #fbfbfb;
     border-right: 2px solid rgba(0, 58, 5, 0.15) ;
     animation-duration: 0.2s;
     animation-name: slidein;
