@@ -1,8 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import React , { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getTotal } from '../../../redux/actions/gestionGastosActions'
 import styles from './styles.module.css'
+import Cookies from 'universal-cookie'
 
 
-export function renderizarTotalClasificaciones (clasificaciones) {
+export default function RenderizarTotalClasificaciones ({clasificaciones}) {
+    const dispatch = useDispatch()
+    const cookie = new Cookies()
+    const total = useSelector(state=>state.gestionGastosReducer.total)
+
+    useEffect(()=>{
+        dispatch(getTotal(cookie.get('selectedEmpresa').id))
+        console.log('totalllllllllllll', total);
+    },[])
 
     return (
         <>
@@ -17,10 +29,10 @@ export function renderizarTotalClasificaciones (clasificaciones) {
                 <tbody >
 
                     {
-                        clasificaciones.map(item=> <>
+                        total.map(item=> <>
                                 <tr>
-                                    <td>{item.name}</td>
-                                    <td>23423</td>
+                                    <td>{item.clasificacion}</td>
+                                    <td>{item.gastos}</td>
                                 </tr>
                             </>
                         )
@@ -32,8 +44,7 @@ export function renderizarTotalClasificaciones (clasificaciones) {
             <div className={styles.footer}>
                 <h2>TOTAL</h2>
                 <h2 className={styles.numberTotal}>
-                     {/* {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)} */}
-                   1200
+                    {total.length ? total.reduce( (acc,next)=> acc.gastos + next.gastos) : null}
                 </h2>
             </div>
         </>

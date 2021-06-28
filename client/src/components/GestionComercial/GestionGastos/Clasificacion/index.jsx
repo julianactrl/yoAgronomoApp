@@ -6,9 +6,14 @@ export default function Clasificacion ({name, id}) {
     const dispatch = useDispatch()
     const clasificacionSeleccionada= {name:name, clasificacionDeGastoId: id}
 
+    function clickClasificacion () {
+        dispatch({type:'SELECTED_CLASIFICACION', payload: clasificacionSeleccionada})
+        dispatch({type: 'GASTO_BY_INPUT',payload: []})
+    }
+
     return (
         <div className={styles.contClasificacion}>
-            <buton onClick={()=> dispatch({type:'SELECTED_CLASIFICACION', payload: clasificacionSeleccionada})} className={`btn btn-outline-success ${styles.btnClasificacion}`}>
+            <buton onClick={clickClasificacion} className={`btn btn-outline-success ${styles.btnClasificacion}`}>
                 {name}
             </buton>
                 <button onClick={()=> dispatch(deleteClasificacion(id))} className={styles.btn}>X</button>

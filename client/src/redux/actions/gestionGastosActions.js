@@ -1,4 +1,4 @@
-import { GET_ALL_CLASIFICACIONES , CREATED_CLASIFICACION , GET_ALL_GASTOS , CREATED_GASTO } from '../constants/index'
+import { GET_ALL_CLASIFICACIONES , CREATED_CLASIFICACION , GET_ALL_GASTOS , CREATED_GASTO , GET_TOTAL , GASTO_BY_INPUT} from '../constants/index'
 import axios from 'axios'
 const { REACT_APP_API} = process.env
 
@@ -84,3 +84,36 @@ export function deleteGastos (gastoId) {
             })
     }
 }
+
+//////////////  TOTAL ///////////////////
+
+
+export function getTotal (empresaId) {
+    return function (dispatch) {
+        return axios.get(`${REACT_APP_API}/gastos/getTotal/${empresaId}`)
+        .then(response => {
+            console.log('todos los total perri', response);
+            dispatch({
+                type: GET_TOTAL,
+                payload: response.data
+            })
+        })
+    }
+}
+
+////////////   BUSCADOR INPUT /////////////////
+
+
+export function getGastoByInput (input) {
+    return function (dispatch) {
+        return axios.get(`${REACT_APP_API}/gastos/getGastoByInput/${input}`)
+        .then(response => {
+            console.log('el intento del inputtttttttttttttttt', response);
+            dispatch({
+                type: GASTO_BY_INPUT,
+                payload: response.data
+            })
+        })
+    }
+}
+

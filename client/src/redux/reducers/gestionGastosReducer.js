@@ -1,12 +1,15 @@
 
-import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, GET_ALL_GASTOS, CREATED_GASTO} from './../constants';
+import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, GET_ALL_GASTOS, CREATED_GASTO, GET_TOTAL, GASTO_BY_INPUT} from './../constants';
 
 const initialState = {
     clasificaciones: [],
     createdClasificacion:[],
     gastos: [],
     selectedClasificacion: '',
-    createdGasto:[]
+    createdGasto:[],
+    totalClasificaciones:[],
+    total:[],
+    gastoByInput:[]
 }
 
 const gestionGastosReducer = (state = initialState, action) => {
@@ -35,6 +38,21 @@ const gestionGastosReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedClasificacion: action.payload
+            }
+        case 'TOTAL_CLASIFICACIONES':
+            return {
+                ...state,
+                totalClasificaciones: action.payload
+            }
+        case GET_TOTAL : 
+            return {
+                ...state,
+                total: action.payload
+            }
+        case GASTO_BY_INPUT:
+            return {
+                ...state,
+                gastoByInput: action.payload
             }
         default: return state;
         }

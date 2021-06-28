@@ -1,5 +1,5 @@
 const { Empresa , Gastos, ClasificacionDeGastos} = require("../db");
-
+const { Op } = require("sequelize");
 
 
 /////////////////////////// CLASIFICACIONES //////////////////////////
@@ -137,6 +137,101 @@ const getAllGastos = async (req,res,next) => {
         res.status(404).send(next);
       }
 }
+
+const getGastosByInput = async (req,res,next) => {
+    const { input } = req.params;
+
+    try {
+
+        const gastos = await Gastos.count();
+        if (gastos !== 0) {
+          let allGastos = await Gastos.findAll({
+                    where: {
+                        [Op.or]: {
+                            name: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                            description: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            }
+                            ,
+                            cost: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                            date: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                        }
+
+                    }
+                
+          })
+
+          res.json(allGastos)
+
+
+
+        }
+      } catch (e) {
+        res.status(404).send('algo esta mal');
+      }
+}
+
+///////////////////  TOTAL   ///////////////////////
+
+const getTotal = async (req,res,next) => {
+    const { empresaId } = req.params
+    try {
+        const gastos = await Gastos.count();
+        const arrayGastos = [];
+        if (gastos !== 0) {
+        const selectedClasificacion = await ClasificacionDeGastos.findAll({
+            where:{
+                empresaId: empresaId
+            }
+        })
+        selectedClasificacion.map(d=> {
+            arrayGastos.push({clasificacion:d.name, clasificacionId:d.id})
+            console.log(arrayGastos);
+        })
+        for (let i = 0; i < arrayGastos.length; i++) {
+            let gastosAux = await Gastos.findAll({
+                include: {
+                    model: ClasificacionDeGastos,
+                    where :{
+                        id: arrayGastos[i].clasificacionId
+                    }
+                }
+             })
+             arrayGastos[i].gastos = gastosAux.map(gasto=> Number(gasto.cost))
+        }
+        arrayGastos.map((a,index)=>{
+            arrayGastos[index].gastos = a.gastos.reduce( (acc,next) => acc + next)
+        })
+        res.json(arrayGastos)
+        }
+      } catch (e) {
+        res.status(404).send('esta mal');
+      }
+}
+
+
 module.exports = {
     getAllClasificiones,
     createClasificacion,
@@ -145,5 +240,8 @@ module.exports = {
     createGasto,
     deleteGasto,
     updateGasto,
-    getAllGastos
+    getAllGastos,
+    getGastosByInput,
+    ///// TOTAL ////
+    getTotal
 }

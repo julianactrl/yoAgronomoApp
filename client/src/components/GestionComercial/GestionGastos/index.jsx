@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Clasificacion from "./Clasificacion"
 import GastoItem from "./GastoItem"
 import { useEffect, useState } from "react"
-import { getAllClasificiones , createClasificacion, getAllGastos} from "../../../redux/actions/gestionGastosActions"
+import { getAllClasificiones , createClasificacion, getAllGastos, getGastoByInput} from "../../../redux/actions/gestionGastosActions"
 import { useDispatch, useSelector } from "react-redux"
 import Cookies from 'universal-cookie'
-import { renderizarTotalClasificaciones } from "./controller"
+import  RenderizarTotalClasificaciones  from "./RenderizarTotalClasificaciones.jsx"
+
 
 export default function GestionGastos () {
     const dispatch = useDispatch();
@@ -18,21 +19,19 @@ export default function GestionGastos () {
     const clasificaciones = useSelector(state=>state.gestionGastosReducer.clasificaciones)
     const createdClasificacion = useSelector(state=>state.gestionGastosReducer.createdClasificacion)
     const selectedClasificacion = useSelector(state=>state.gestionGastosReducer.selectedClasificacion)// clasificacion seleccionada
-    const gastos = useSelector(state=>state.gestionGastosReducer.gastos)
+    const gastos = useSelector(state=>state.gestionGastosReducer.gastos) // todos los gastos
+    const gastoByInput = useSelector(state=>state.gestionGastosReducer.gastoByInput) // gastos buscados por el input
     const createdGasto = useSelector(state=>state.gestionGastosReducer.createdGasto)
 
 
     useEffect(async ()=>{
         await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
-        // selectedClasificacion && await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[])
 
     useEffect(async ()=>{
         await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
-        console.log('estsos son los gastos papurriiiiiiii',gastos);
+        setTotalClasificaciones(false)
         let gastosAuxiliar = gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)
-        // gastos && console.log(gastosAuxiliar.reduce((acc,next)=> acc.cost + next.cost ));
-        console.log(gastosAuxiliar);
     },[selectedClasificacion])
 
     // si se crea un gasto o se elimina con este useefect se actualiza
@@ -40,13 +39,14 @@ export default function GestionGastos () {
         selectedClasificacion && dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[createdGasto])
 
+    useEffect(()=>{
+        console.log('inputtttttttttttttttttttttttt', gastoByInput);
+    },[gastoByInput])
+
     useEffect(async ()=>{
         await dispatch(getAllClasificiones(await cookies.get('selectedEmpresa').id))
     },[createdClasificacion])
 
-    // useEffect(()=>{
-    //     console.log('esta es la clasif del usededtccccc', selectedClasificacion);
-    // },[selectedClasificacion])
     async function crearClasificacion () {
         if(clasificacion.name.length){
             const crearClasificacion = clasificacion;
@@ -80,35 +80,41 @@ export default function GestionGastos () {
                                 <button className={styles.btnLupa}>
                                     <img className={styles.img} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM52Oe0Jm_tYAOj3OmCysuXypVFc3cR53MoM8U_NdsvM-p7OGLJiVRkvZBLnKjb4DRddc&usqp=CAU'/>
                                 </button>
-                                <input className={styles.input} placeholder='Buscar por palabra coincidente'/>
+                                <input onBlur={(e)=>{e.target.value.length? dispatch(getGastoByInput(e.target.value)) : dispatch({type: 'GASTO_BY_INPUT',payload: []}) }} onChange={(e)=> {dispatch(getGastoByInput(e.target.value));console.log(gastoByInput)}} className={styles.input} placeholder='Buscar por palabra coincidente'/>
                             </div>
                         </div>
-                        {/* {renderizarTotalClasificaciones(clasificaciones)} */}
-                    <table className={`table table-hover ${styles.table}`}>
-                        <thead>
-                            <tr>
-                                <th>Prioridad</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Precio</th>
-                                <th>Fecha</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody >
-                                <GastoItem />
-                                {
-                                    gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
-                                }
-                                
-                        </tbody>
-                    </table>
-                    <div className={styles.footer}>
-                        <h2>TOTAL</h2>
-                        <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>
-                    </div>
+                        { totalClasificaciones  ?
+                        <RenderizarTotalClasificaciones clasificaciones={clasificaciones} />
+                            : (<>
+                            <table className={`table table-hover ${styles.table}`}>
+                                <thead>
+                                    <tr>
+                                        <th>Prioridad</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Precio</th>
+                                        <th>Fecha</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                        <GastoItem />
+                                        {
+                                            gastoByInput[0] ?
+                                            gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                            : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                        }
+                                        
+                                </tbody>
+                            </table>
+                            <div className={styles.footer}>
+                                <h2>TOTAL</h2>
+                                <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>
+                            </div>
+                            </>)
+                        }
                 </div>
              </div>
-         </>
+             </>
     )
 }
