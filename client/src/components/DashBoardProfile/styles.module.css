@@ -59,15 +59,15 @@
 
 }
 .perfilimg{
-    cursor: pointer;
+     cursor: pointer;
     display: flex;
-    margin-top: -20px;
-    width: 90px;
-    border-radius: 60px;
+    margin-top: -20px; 
+    width: 100px;
+    border-radius: 90px;
     
 }
 .perfilimg:hover{
-    box-shadow: 0 0 20px rgba(152, 255, 152, 0.644);
+    box-shadow: 5px 5px 0 rgb(3, 3, 3);
 }
 
 .logo{
