@@ -18,32 +18,33 @@ export default function CardsEmpresas ({empresa}){
     }
 
     return (
-        <div onClick={handleCookie}>
-        <Link to={`/empresa/${empresa.id}`}>
-            <div className={styles.main}>
-                    <div className={styles.cardCont}>
+        <div onClick={handleCookie} className={styles.cardContMain}>
+          <Link to={`/empresa/${empresa.id}`} className={styles.cardContMain}>
+              <div className={styles.main}>
+                <div className={styles.cardCont}>
                     {empresa.imagen ? (
-            <img
-              src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
-              alt="https://i.stack.imgur.com/y9DpT.jpg"
-              width={400}
-              height={600}
-              className={styles.imgEmpresa}
-            />
-          ) : (
-            <img
-              alt="perfil"
-              src={
-                "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
-              }
-              className={styles.imgEmpresa}
-            />
-          )}
-                        <h1 className={styles.titleEmpresa}>{empresa.name}</h1>
-                        <h3 className={styles.titleEmpresa}>{empresa.hectareas}</h3>
-                    </div>
-            </div>
-        </Link>
+                        <img
+                          src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
+                          alt="https://i.stack.imgur.com/y9DpT.jpg"
+                          className={styles.imgEmpresa}
+                        />
+                      ) : (
+                        <img
+                          alt="perfil"
+                          src={
+                            "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
+                          }
+                          className={styles.imgEmpresa}
+                        />
+                    )}
+                      <div className={styles.detalles}>
+                            <h1 className={styles.titleEmpresa}>{empresa.name}</h1>
+                            <h3 className={styles.hectareas}>Hectáreas: <span>{empresa.hectareas}</span></h3>
+                      </div>
+                        
+                  </div>
+              </div>
+          </Link>
         </div>
 
     )  
