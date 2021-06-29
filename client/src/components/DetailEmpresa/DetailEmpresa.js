@@ -90,7 +90,7 @@ function pAlta(){
       }
       }}
       >
-        <div className={styles.background}>
+        <div className={styles.cuerpo}>
             <Header />
             
                 

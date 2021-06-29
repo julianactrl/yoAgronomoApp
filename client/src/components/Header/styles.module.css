@@ -95,6 +95,7 @@
     width: 430px;
     height: 100vh;
     background-color: #fbfbfb;
+    background-color: #708857;
     border-right: 2px solid rgba(0, 58, 5, 0.15) ;
     animation-duration: 0.2s;
     animation-name: slidein;
@@ -122,6 +123,7 @@
     animation-duration: 1.3s;
     animation-name: spawn;
     height: 800px;
+    color: whitesmoke !important;
 }
 .linktext{
     display: flex;
@@ -135,7 +137,7 @@
 }
 .linktext:hover{
     transition: 0.2s;
-    background-color: rgba(91, 136, 68, 0.801);
+    background-color: #27963c;
     border:none;
 }
 .text{

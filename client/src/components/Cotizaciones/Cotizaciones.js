@@ -19,7 +19,8 @@ useEffect(() => {
 const fecha = new Date()
 
     return (
-        <div>
+        <div className={styles.componentetotal}>
+        <div className={styles.totcomponent}>
             <Header/>
             <h1 className={styles.dolarHoy}>Dolar hoy {fecha.toLocaleDateString()}</h1>
         <div className={styles.datatableContainer}>
@@ -47,6 +48,7 @@ const fecha = new Date()
                 } 
                 </tbody>
             </table>
+        </div>
         </div>
         </div>
     )
