@@ -10,40 +10,39 @@
     
 }
 .cardCont{
+    transition: 0.3s;
     display: flex;
-    font-style: none;
     background-image: url('../../assets/cicle.png');
     background-position:center;
     background-repeat: no-repeat;
     background-clip:padding-box;
-    background-size: 1000px;
-    padding: 20px;
+    background-size: 80rem;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 400px;
-    height: 400px;
-    color: white;
+    color: rgb(19, 13, 13);
     border-radius: 10px;
-    align-items: center;
-    object-fit: cover;
-    background-color: #ffffff71;
+    width: 50rem;
+    height: 25rem;
+    background-color: #a8b9a7;
     border:none;
-    box-shadow: 0px 0px 30px black;
+    box-shadow: 0px 0px 15px black;
 }
 .cardCont:hover{
-    transition: 0.6s;
+    transition: 0.3s;
     background-size: 900px;
     border:none;
-    background-color: #43748a46;
+    background-color: #a2c3a1;
+
     box-shadow: 5px 5px 40px black;
 }
-.img{
-    position: relative;
-    bottom: 0px;
+.imgEmpresa{
+    position: absolute;
     box-shadow: 0 0 10px rgba(0, 36, 0, 0.746);
     border-radius: 10px;
-    width: 350px;
+    width: 35rem;
+    z-index: 2;
+    height: 15rem;
 }
 a{
     text-decoration: none;
