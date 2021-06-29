@@ -1,6 +1,6 @@
 
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import styles from './styles.module.css'
 // import icono from '../../../assets/iconClima.png'
 const { REACT_APP_API } = process.env;
