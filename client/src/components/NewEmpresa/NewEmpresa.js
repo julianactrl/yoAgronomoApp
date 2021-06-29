@@ -110,7 +110,7 @@ function NewEmpresa() {
           <h2 className={styles.alineado}>Nueva Empresa</h2>
           <form className={styles.estilosForm} onSubmit={handleSubmit}>
             <div className={styles.inputsNewEmpresa}>
-              <label>Nombre: </label>
+              <label>Nombre </label>
               <input
                 type="text"
                 onChange={(e) => handleInputChange(e)}
@@ -120,7 +120,7 @@ function NewEmpresa() {
               />
             </div>
             <div className={styles.inputsNewEmpresa}>
-              <label>Hectáreas totales: </label>
+              <label>Hectáreas </label>
               <input
                 type="text"
                 onChange={handleInputChange}
@@ -130,7 +130,7 @@ function NewEmpresa() {
               />
             </div>
             <div className={styles.inputsNewEmpresa}>
-              <label>Ubicación: </label>
+              <label>Ubicación </label>
               <input
                 type="text"
                 onChange={handleInputChange}
@@ -141,7 +141,7 @@ function NewEmpresa() {
             </div>
 
             <div className={styles.fileImg}>
-              <label className={styles.labelCrear}>Imagen: </label>
+              <label className={styles.labelCrear}>Imagen </label>
               <input
                 className={styles.inputCrear}
                 type="file"

@@ -32,7 +32,7 @@ export default function Header (verify){
                 {userInfo===true ? (
                 <h3 className={styles.premium}>Premium</h3>
                 ) : (
-                <h3>cuenta free</h3>
+                <h3></h3>
                 )} 
             </div>
             <div>

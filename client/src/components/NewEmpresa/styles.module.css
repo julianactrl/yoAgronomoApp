@@ -1,5 +1,7 @@
 
-
+.nombre{
+    margin-left: 550px;
+}
 .div {
     background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
     url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(5\).png');
@@ -50,9 +52,7 @@ label {
     text-align: left;
     
 }
-.inputsNewEmpresa{
-    width: 360px;
-}
+
 
 
 .alineado {
