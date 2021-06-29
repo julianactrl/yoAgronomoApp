@@ -31,6 +31,15 @@
     background-color: #a2c3a1;
     box-shadow: 5px 5px 40px black;
 }
+.cardCont:hover .titleEmpresa{
+    transition: 0.3s;
+    color: white;
+    text-shadow: 0 0 10px rgb(107, 255, 235);
+}
+.cardCont:hover .imgEmpresa{
+    transition: 0.3s;
+    opacity: 1;
+}
 .titleEmpresa{
     font-size: 50px;
     text-shadow: 0 0 10px black;
