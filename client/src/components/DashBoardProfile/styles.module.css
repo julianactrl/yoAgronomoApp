@@ -7,10 +7,10 @@
     flex-direction: column;
     padding-left: 30px;
     padding-top: 30px;
-    background-color: #708857;
-    border-radius: 0px 0px 0px 10px;
-    height: 280px;
-    width: 380px;
+    background-color: #ffffff;
+    border-radius: 0px 0px 0px 5px;
+    height: 320px;
+    width: 250px;
     right: 0px;
     top: 0px;
     animation-duration: 0.2s;
@@ -23,8 +23,8 @@
     }
 
     to {
-        width: 380px;
-        height: 220px;
+        height: 320px;
+        width: 250px;
     }
 }
 
@@ -63,10 +63,10 @@
     display: flex;
     width: 90px;
     border-radius: 60px;
-    position: absolute;
+    
 }
 .perfilimg:hover{
-    box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
+    box-shadow: 0 0 20px rgba(152, 255, 152, 0.644);
 }
 
 .logo{
@@ -109,14 +109,14 @@
 
 .title{
     cursor: default;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 130%;
     margin-top: 40px;
     margin-left: 25px;
 }
 .email{
     cursor: default;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 130%;
     margin-top: 10px;
     margin-left: 25px;
@@ -124,9 +124,9 @@
 }
 
 .settings{
-    margin-left: 310px;
+    margin-left: -10px;
     margin-top: -40px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     
 }
 .settings:hover{
@@ -139,7 +139,7 @@
     padding-left: 80px;
 }
 .titleLogout{
-    color: white;
+    color: rgb(0, 0, 0);
     height: 50%;
     margin-left: 25px;
 }
@@ -147,4 +147,9 @@
     cursor: pointer;
     color: rgb(69, 236, 27);
     font-size: 19px;
+}
+
+.cuenta{
+    display: flex;
+    margin-left: 310px;
 }

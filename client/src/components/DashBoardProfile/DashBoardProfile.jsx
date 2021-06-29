@@ -43,7 +43,8 @@ export default function DashBoardProfile() {
           <h3>Premium</h3>
           ) : (
          <h3>cuenta free</h3>
-          )}
+         
+         )}
           {usuario.profile_pic ? (
             <img
               src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
