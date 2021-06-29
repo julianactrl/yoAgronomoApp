@@ -67,7 +67,7 @@ export default function Routes() {
         <LoteHome id={window.location.pathname.split('/')[2]} />
       </Route>
 
-      <Route exact path='/gestionComercial/gestionGastos'>
+      <Route exact path='/gestion_comercial/proyeccion'>
         <GestionGastos />
       </Route>
   

@@ -1,11 +1,14 @@
-
+.contenedorGasto{
+    background-color: rgba(0, 0, 0, 0.178);
+    justify-content: center;
+}
 
 .btn{
     width: 5%;
 }
 
 .contBtn{
-    background-color: rgb(15, 202, 15);
+    background-color: rgba(15, 202, 15, 0.377);
     /* display: block; */
     width: 15%;
 }

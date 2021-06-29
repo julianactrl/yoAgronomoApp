@@ -31,6 +31,7 @@ export default function GestionGastos () {
     useEffect(async ()=>{
         await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
         setTotalClasificaciones(false)
+        console.log('estos son los gastos',gastos);
         let gastosAuxiliar = gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)
     },[selectedClasificacion])
 
@@ -83,9 +84,9 @@ export default function GestionGastos () {
                         { totalClasificaciones  ?
                         <RenderizarTotalClasificaciones clasificaciones={clasificaciones} />
                             : (<>
-                            <table className={`table table-hover ${styles.table}`}>
-                                <thead>
-                                    <tr>
+                            <table className={` ${styles.table}`}>
+                                <thead className={styles.thead}>
+                                    <tr className={styles.contenedorTHead}>
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Precio</th>
@@ -93,18 +94,25 @@ export default function GestionGastos () {
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody >
+                            </table>
+                                {/* <tbody className={styles.tbody} > */}
+                                    
+                                    <div className={styles.contenedorGasto}>
                                         <GastoItem />
-                                    {/* <div className={styles.contenedorGasto}> */}
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         {
-                                            gastoByInput[0] ?
-                                            gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
-                                            : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                            // gastoByInput[0] ?
+                                            // gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                            // : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
                                         }
                                         
-                                    {/* </div> */}
-                                </tbody>
-                            </table>
+                                    
+                                    </div>
+                                    
+                                {/* </tbody> */}
                             <div className={styles.footer}>
                                 <h2>TOTAL</h2>
                                 <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>

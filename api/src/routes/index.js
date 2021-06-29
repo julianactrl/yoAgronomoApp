@@ -5,7 +5,7 @@ const empresaRouter = require("./empresaRouter");
 const authRouter = require("./authRouter.js");
 const userRouter = require("./userRouter");
 const loteRouter = require("./loteRouter");
-
+const gastosRouter = require('./gastosRouter')
 const stockRouter = require('./stockRouter')
 const tareaRouter = require('./tareaRouter')
 const transporteRouter = require("./transporteRouter");
@@ -21,6 +21,7 @@ router.use("/tareas", tareaRouter);
 router.use("/lote", loteRouter);
 router.use("/stock", stockRouter);
 router.use("/tareas", tareaRouter);
+router.use("/gastos", gastosRouter)
 router.use("/premium", premiumRouter); // Mercado pago
 
 module.exports = router;

@@ -5,7 +5,7 @@ const { REACT_APP_API} = process.env
 
 // CLASIFICACION
 export function getAllClasificiones (id) {
-    console.log('Estoy trayendo todas las clasificaciones');
+    console.log('Estoy trayendo todas las clasificaciones', id);
     return function (dispatch){
         return axios.get(`${REACT_APP_API}/gastos/clasificacion/${id}`)
         .then(response => {
@@ -22,6 +22,7 @@ export function getAllClasificiones (id) {
 
 export function createClasificacion (data) {
     return function (dispatch){
+        console.log('estoy creando una clasificacionnnnn', data);
         return axios.post(`${REACT_APP_API}/gastos/createClasificacion`, data)
             .then(response => {
                 dispatch({
