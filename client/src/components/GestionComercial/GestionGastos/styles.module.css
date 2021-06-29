@@ -94,3 +94,18 @@
     font-size: 3rem;
     letter-spacing: 0.5rem;
 }
+.contenedorGasto{
+    background-color: rgba(0, 0, 255, 0.432);
+    width: 162.4%;
+    height: 100%;
+} 
+.crearGasto{
+    background-color: brown;
+}
+
+.tbody{
+    /* display: flex; */
+    /* background-color: blue; */
+    /* overflow:scroll !important;
+    overflow-y: visible !important; */
+}

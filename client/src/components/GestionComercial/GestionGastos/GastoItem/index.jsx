@@ -21,14 +21,12 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, gastoI
         return (
             <>
                 {!edit ? <>
-                    <td>1</td>
                     <td>{nombre}</td>
                     <td>{descripcion}</td>
                     <td>{precio}</td>
                     <td>{fecha}</td>
                     </>
                 : <>
-                    <td><input  className={styles.input} placeholder={''}/></td>
                     <td><input name={'name'} onChange={(e)=>setGasto({...gasto,[e.target.name]:e.target.value})} value={gasto.name} className={styles.input} placeholder={nombre}/></td>
                     <td><input name={'description'} onChange={(e)=>setGasto({...gasto,[e.target.name]:e.target.value})} value={gasto.description} className={styles.input} placeholder={descripcion}/></td>
                     <td><input name={'cost'} onChange={(e)=>setGasto({...gasto,[e.target.name]:e.target.value})} value={gasto.cost} className={styles.input} placeholder={precio}/></td>

@@ -39,9 +39,6 @@ export default function GestionGastos () {
         selectedClasificacion && dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[createdGasto])
 
-    useEffect(()=>{
-        console.log('inputtttttttttttttttttttttttt', gastoByInput);
-    },[gastoByInput])
 
     useEffect(async ()=>{
         await dispatch(getAllClasificiones(await cookies.get('selectedEmpresa').id))
@@ -89,7 +86,6 @@ export default function GestionGastos () {
                             <table className={`table table-hover ${styles.table}`}>
                                 <thead>
                                     <tr>
-                                        <th>Prioridad</th>
                                         <th>Nombre</th>
                                         <th>Descripcion</th>
                                         <th>Precio</th>
@@ -99,12 +95,14 @@ export default function GestionGastos () {
                                 </thead>
                                 <tbody >
                                         <GastoItem />
+                                    {/* <div className={styles.contenedorGasto}> */}
                                         {
                                             gastoByInput[0] ?
                                             gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
                                             : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
                                         }
                                         
+                                    {/* </div> */}
                                 </tbody>
                             </table>
                             <div className={styles.footer}>
