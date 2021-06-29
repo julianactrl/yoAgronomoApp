@@ -1,4 +1,16 @@
+.divtotal {
+    background-image:
+    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
+    min-width: 100vw;
+    min-height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
     
+}
+
+
 .page{
     display: flex;
     flex-direction: column;

@@ -48,10 +48,10 @@ export const RESET_TAREAS= "RESET_TAREAS";
 export const GET_TAREA_ID = 'GET_TAREA_ID';
 
 
-export const GET_STOCK = 'GET_STOCK'
-export const CREATE_STOCK = 'CREATE_STOCK'
-export const UPDATE_STOCK = 'UPDATE_STOCK'
-export const GET_STOCK_BY_ID = 'GET_STOCK_BY_ID'
+export const GET_STOCK = 'GET_STOCK';
+export const CREATE_STOCK = 'CREATE_STOCK';
+export const UPDATE_STOCK = 'UPDATE_STOCK';
+export const GET_STOCK_BY_ID = 'GET_STOCK_BY_ID';
 
 
 export function BEARER() {

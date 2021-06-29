@@ -25,7 +25,7 @@ function DetailTransporte (props) {
     }, []);
 
     return (
-       <div>
+       <div className={styles.divtotal}>
            <Header />
 
            <div className={styles.page}>
