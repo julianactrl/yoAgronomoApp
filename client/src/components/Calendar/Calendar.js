@@ -29,6 +29,7 @@ const [tarea, setTarea] = useState({
     empresaId: idEmpresa,
     tarea:'',
     fecha:'',
+    prioridad:''
 });
 
 function handleInputChange(e) {
@@ -103,6 +104,16 @@ return (
         placeholder='2021-07-22'
         name='fecha'/>
     </div>
+    <br></br>
+    <div >
+        {/* <label>Prioridad: </label> */}
+        <select name='prioridad' onChange={(e)=>handleInputChange(e)}>
+            <option value=''>-- Selecciona Prioridad --</option>
+            <option value='Alta'>Alta</option>
+            <option value='Media'>Media</option>
+            <option value='Baja'>Baja</option>
+        </select>
+    </div>
     <div>
               { tarea.fecha && tarea.tarea && tarea.empresaId ?
                <button className={styles.buttonTarea} type='submit' value='Agendar Tarea' name="Enviar">Agendar Tarea</button> : <button type='button' className={styles.disabledButton}>
@@ -120,6 +131,7 @@ return (
                        <tr>
                            <th><h2 className={styles.tablita}>Tarea</h2></th>
                            <th><h2 className={styles.tablita}>Fecha</h2></th>
+                           <th><h2 className={styles.tablita}>Prioridad</h2></th>
                            <th></th>
                        </tr>
                    </thead>
@@ -128,6 +140,7 @@ return (
                        <tr>
                            <td><p className={styles.cadaTarea}>{t.tarea}</p></td>
                            <td><p className={styles.cadaTarea}>{t.fecha}</p></td>
+                           <td><p className={styles.cadaTarea}>{t.prioridad}</p></td>
                            <td> <Link to={`/empresa/${idEmpresa}`}>
                             <button onClick={()=>deleteTarea(`${t.id}`)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
                             </Link> </td>

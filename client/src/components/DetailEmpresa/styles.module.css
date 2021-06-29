@@ -1,7 +1,8 @@
 body {
     margin: 0;
-    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
-        url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
+    background: url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(5\).png');
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 .div {
@@ -216,8 +217,16 @@ body {
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
 
-.eachTarea{
-    color: black;
+.eachTareaBaja{
+    color: yellow;
+    font-size: 20px;
+}
+.eachTareaMedia{
+    color: green;
+    font-size: 20px;
+}
+.eachTareaAlta{
+    color: red;
     font-size: 20px;
 }
 

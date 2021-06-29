@@ -2,6 +2,7 @@ import { GET_STOCK, GET_STOCK_BY_ID } from "../constants"
 
 const initialState = {
     stock: [],
+    stockPorEmpresa: [],
 }
 
 const stockReducer = (state = initialState, action) => {
@@ -14,7 +15,12 @@ const stockReducer = (state = initialState, action) => {
         case GET_STOCK_BY_ID:
             return {
                 ...state,
-                stock:action.payload
+                stockPorEmpresa:action.payload
+            }
+        case UPDATE_STOCK:
+            return {
+                ...state,
+                stockPorEmpresa: action.payload
             }
         default: 
             return state;
