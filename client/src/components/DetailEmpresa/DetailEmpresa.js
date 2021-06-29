@@ -51,21 +51,21 @@ function DetailEmpresa ({id}) {
     }
 const [baja, setBaja] = useState([])
 function pBaja(){
-  let baja = tareas.filter((t)=>{
+  let baja = tareas.length>0 && tareas.filter((t)=>{
     return t.prioridad.includes('Baja')
   })
   setBaja(baja)
 }
 const [media, setMedia] = useState([])
 function pMedia(){
-  let media = tareas.filter((t)=>{
+  let media = tareas.length>0 && tareas.filter((t)=>{
     return t.prioridad.includes('Media')
   })
   setMedia(media)
 }
 const [alta, setAlta] = useState([])
 function pAlta(){
-  let alta = tareas.filter((t)=>{
+  let alta = tareas.length>0 && tareas.filter((t)=>{
     return t.prioridad.includes('Alta')
   })
   setAlta(alta)
