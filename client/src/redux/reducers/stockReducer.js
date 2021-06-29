@@ -1,4 +1,4 @@
-import { GET_STOCK, CREATE_STOCK, UPDATE_STOCK, GET_STOCK_BY_ID } from "../constants"
+import { GET_STOCK, GET_STOCK_BY_ID } from "../constants"
 
 const initialState = {
     stock: [],
