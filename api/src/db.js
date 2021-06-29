@@ -8,17 +8,17 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DATABASE_URL_LOCAL, DATABASE_URL
 dbRDS = false;
 
 
-const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}?sslmode=require`, {
+const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
   //
   ssl: true,
   protocol: "postgres",
   logging: false,
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false,
-  //   },
-  // },
+   dialectOptions: {
+     ssl: {
+       require: true,
+      rejectUnauthorized: false,
+    },
+   },
 });
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
 // //   logging: false, // set to console.log to see the raw SQL queries
