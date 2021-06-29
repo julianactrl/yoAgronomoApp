@@ -66,12 +66,9 @@ export default function DashBoard (){
         dots: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        width: 100,
+        slidesToShow: 2,
+        slidesToScroll: 2,
         classname: 'slides',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
       };
       return (
         <motion.div
@@ -99,10 +96,11 @@ export default function DashBoard (){
                     showNews?<News/>:null
                     } 
                 </div>
-                <h1 className={showNews?styles.newsTitleClosed:styles.newsTitle}>NEWS</h1>
-                <button className={showNews?styles.btnNewsOpen:styles.btnNews} onClick={news}></button> 
-                <div className={showNews?styles.bodyNone:styles.body}>
-                <h1 className={styles.title}>Mis Empresas</h1>
+                <div className={styles.newsTitle} ></div>
+                <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button> 
+                <div className={styles.body}>
+                {/* <h1 className={styles.title}>Mis Empresas</h1> */}
+                <div className={styles.contSlider}>
                     <Slider {...settings}>
                       <Link path to='/newempresa' className={styles.mainAdd}>
                         <div  className={styles.cardContAdd} >
@@ -114,6 +112,8 @@ export default function DashBoard (){
                         allEmpresas.map((empresa)=> <CardsEmpresas empresa={empresa}/>)
                       }
                     </Slider>
+                </div>
+
                 </div>
             </div>
         </div>
