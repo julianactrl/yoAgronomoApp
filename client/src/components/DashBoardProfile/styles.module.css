@@ -9,7 +9,7 @@
     padding-top: 30px;
     background-color: #ffffff;
     border-radius: 0px 0px 0px 5px;
-    height: 320px;
+    height: 350px;
     width: 250px;
     right: 0px;
     top: 0px;
@@ -143,6 +143,7 @@
     color: rgb(0, 0, 0);
     height: 50%;
     margin-left: 25px;
+    margin-top: 32px;
 }
 .titleLogout:hover{
     cursor: pointer;
@@ -153,4 +154,9 @@
 .cuenta{
     display: flex;
     margin-left: 310px;
+}
+.contenido{
+    display: flex;
+    margin-bottom: -30px;
+    margin-left: 23px;
 }

@@ -96,7 +96,7 @@
     height: 100vh;
     background-color: #fbfbfb;
     background-color: #ffffff;
-    border-right: 2px solid rgba(0, 58, 5, 0.15) ;
+    border-right: 2.22px solid rgba(0, 58, 5, 0.15) ;
     animation-duration: 0.2s;
     animation-name: slidein;
     animation-fill-mode: backwards;
@@ -137,7 +137,7 @@
 }
 .linktext:hover{
     transition: 0.2s;
-    background-color: #27963c;
+    background-color: #6CB631;
     border:none;
 }
 .text{

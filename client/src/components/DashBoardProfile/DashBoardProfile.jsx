@@ -39,35 +39,37 @@ export default function DashBoardProfile() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
-        {userInfo===true ? (
-          <h3>Premium</h3>
-          ) : (
-         <h3>cuenta free</h3>
-         
-         )}
           {usuario.profile_pic ? (
             <img
-              src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
-              alt="https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
-              width={90}
-              height={90}
-              className={styles.perfilimg}
-              onClick={() => (!active ? setActive(true) : setActive(false))}
+            src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
+            alt="https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
+            width={90}
+            height={90}
+            className={styles.perfilimg}
+            onClick={() => (!active ? setActive(true) : setActive(false))}
             />
             
-          ) : (
-            <img
+            ) : (
+              <img
               alt="perfil"
               src={
                 "https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
               }
               className={styles.perfilimg}
               onClick={() => (!active ? setActive(true) : setActive(false))}
-            />
-          )}
+              />
+              )}
         </button>
         {usuario ? (
           <>
+            <div className={styles.contenido}>
+          {userInfo===true ? (
+            <h3>Premium</h3>
+            ) : (
+           <h3>cuenta free</h3>
+           
+           )}
+           </div>
             <h3 className={styles.title}>{usuario.fullName}</h3>
             <h3 className={styles.email}>{usuario.email}</h3>
             <h3 className={styles.titleLogout} onClick={(e) => handleLogout(e)}>
