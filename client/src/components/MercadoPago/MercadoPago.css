@@ -5,9 +5,9 @@
     align-items: center;
     justify-content:space-evenly;
     padding-top: 10rem;
-    /* background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
-    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
-    background-size: cover; */
+    background:
+    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(10\).png');
+    background-size: cover;
 }
 .membresiaPremiumPro{
     display: flex;

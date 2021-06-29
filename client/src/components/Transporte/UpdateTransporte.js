@@ -63,7 +63,7 @@ function handleSubmit(e) {
 
 
     return (
-        <div className={styles.div}>
+        <div className={styles.divtotal}>
             <Header />
          <h2 className={styles.alineado} >Actualizar Transporte</h2>
         <div className={styles.caja}>
