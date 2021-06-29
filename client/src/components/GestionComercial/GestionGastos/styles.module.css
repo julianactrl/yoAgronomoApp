@@ -74,7 +74,7 @@
 .totalNumber{
     /* background-color: rgba(0, 0, 255, 0.384); */
     width: 1200px;
-    align:center;
+    /* align:center; */
     /* display: flex; */
     /* color: blueviolet; */
 }
@@ -103,9 +103,3 @@
     background-color: brown;
 }
 
-.tbody{
-    /* display: flex; */
-    /* background-color: blue; */
-    /* overflow:scroll !important;
-    overflow-y: visible !important; */
-}
