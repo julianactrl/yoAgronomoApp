@@ -48,7 +48,7 @@ export default function DashBoardProfile() {
           {usuario.profile_pic ? (
             <img
               src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
-              alt="https://i.stack.imgur.com/y9DpT.jpg"
+              alt="https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
               width={90}
               height={90}
               className={styles.perfilimg}
@@ -59,7 +59,7 @@ export default function DashBoardProfile() {
             <img
               alt="perfil"
               src={
-                "https://icon-library.com/images/profile-icon-white/profile-icon-white-3.jpg"
+                "https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
               }
               className={styles.perfilimg}
               onClick={() => (!active ? setActive(true) : setActive(false))}
@@ -96,7 +96,7 @@ export default function DashBoardProfile() {
           <img
             alt="icon"
             src={
-              "https://icon-library.com/images/profile-icon-white/profile-icon-white-3.jpg"
+              "https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
             }
             className={styles.perfilimg}
             onClick={() => {
