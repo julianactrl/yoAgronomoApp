@@ -97,6 +97,7 @@ function UpdateProfile() {
   return (
     <div className={styles.div}>
       <Header />
+      <div className={styles.totbox}>
       <h2 className={styles.alineado}>Actualizar User</h2>
       <div className={styles.caja}>
         <form className={styles.estilosForm} onSubmit={handleSubmit}>
@@ -135,7 +136,7 @@ function UpdateProfile() {
             />
           </div> 
 
-          <div>
+          <div className={styles.fileImg}>
             <label className={styles.labelCrear}>Imagen: </label>
             <input
               className={styles.inputCrear}
@@ -171,6 +172,7 @@ function UpdateProfile() {
             </h3>
           </Link>
         </form>
+      </div>
       </div>
     </div>
   );
