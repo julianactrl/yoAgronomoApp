@@ -216,8 +216,16 @@ body {
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
 
-.eachTarea{
-    color: black;
+.eachTareaBaja{
+    color: yellow;
+    font-size: 20px;
+}
+.eachTareaMedia{
+    color: green;
+    font-size: 20px;
+}
+.eachTareaAlta{
+    color: red;
     font-size: 20px;
 }
 
