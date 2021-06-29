@@ -1,0 +1,194 @@
+.datatableContainer{
+    display: flex;
+    align-content: center !important;
+    justify-content: center !important;
+    background-color: #0e0e0e4d;
+    color: white;
+    border-radius: 10px;
+    width: 700px;
+    height: 500px;
+    margin: 4rem 0 0 38rem;
+    font-size: 12px;
+    padding: 20px;
+    margin: 0 auto;
+
+}
+
+.tareas{
+    color: aliceblue;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    font-weight: 800;
+    margin-top: 3rem;
+}
+.datatable{
+    border-collapse: collapse;
+    width: 100%
+}
+.datatableContainer .datatable,
+.datatableContainer .datatable th,
+.datatableContainer .datatable td{
+padding: 12 12px ;
+}
+
+.datatableContainer .datatable th{
+    font-size: 15px;
+    font-weight: bolder;
+    text-align: left;
+    border-bottom: solid 1px #406a11b6;
+}
+
+.datatableContainer .datatable td{
+    border-bottom: solid 1px #406a11b6;
+}
+.estilosForm{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:#0a0a0a8c;
+    margin: 0 auto;
+    background-color: #ffffff71;
+    padding: 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    position: relative;
+}
+input{
+    border: none;
+    display: block;
+    align-items: center;
+    outline: none;
+    padding: 10px;
+    width: 380px;
+    border-radius: 5px;
+    margin: 10px 0 0 26px;
+}
+
+.buttonTarea{
+    margin: 15px 0 0 0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    background-color:#80cc28 ;
+    color:rgb(3, 3, 3);
+    border: none;
+    font-size: 20px;
+    align-items: center;
+    width: 380px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.2s ease 0s;
+    
+    
+}
+.buttonTarea:hover{
+    background-color: #27963c;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.tablita{
+    color:white
+}
+
+.disabledButton{
+    margin: 15px 0 0 0;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    background-color:#bcdd96 ;
+    color:rgb(3, 3, 3);
+    border: none;
+    font-size: 20px;
+    align-items: center;
+    width: 380px;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: inline-block;
+    border: none;
+    transition: all 0.2s ease 0s;
+}
+
+.disabledButton:hover{
+    cursor: not-allowed;
+}
+.modificarTarea{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-image: url('https://image.flaticon.com/icons/png/512/61/61456.png');
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    background-color:#80cc28 ;
+    border: none;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease 0s;
+    
+}
+.modificarTarea:hover{
+    background-color: #27963c;
+    width: 2.6rem;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.eliminarEmpresa{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #0a0a0a;
+    display: inline-block;
+    text-decoration: none;
+    background-color:#fc3e3e73;
+    border: none;
+    text-align: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease 0s;
+    
+}
+.eliminarEmpresa:hover{
+    background-color:#fc3e3e ;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.cadaTarea{
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 400;
+}

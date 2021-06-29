@@ -8,7 +8,6 @@ const loteRouter = require("./loteRouter");
 
 const stockRouter = require('./stockRouter')
 const tareaRouter = require('./tareaRouter')
-const gastosRouter = require('./gastosRouter')
 const transporteRouter = require("./transporteRouter");
 
 
@@ -16,7 +15,6 @@ const premiumRouter = require("./premiumRouter");
 
 router.use("/empresa", empresaRouter);
 router.use("/auth", authRouter);
-router.use("/gastos", gastosRouter);
 router.use("/user", userRouter);
 router.use("/transporte", transporteRouter)
 router.use("/tareas", tareaRouter);

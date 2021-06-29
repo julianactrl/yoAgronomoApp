@@ -16,9 +16,6 @@ export function sidebar(verify){
                     <Link to='/home' className={styles.linktext}>
                     <h2 className={styles.text}>HOME</h2>
                     </Link>
-                    <Link to= {`/tareas/${empresaId}`} className={styles.linktext}>
-                    <h2 className={styles.text}>AGENDA</h2>
-                    </Link>
                     <Link to='/membresia' className={styles.linktext}>
                     <h2 className={styles.text}>MEMBRESIA</h2>
                     </Link>
@@ -35,7 +32,7 @@ export function sidebar(verify){
                 <Link to='/home' className={styles.linktext}>
                 <h2 className={styles.text}>HOME</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/gestion_comercial' className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
                 <Link to={`/lote/${empresaId}`} className={styles.linktext}>
@@ -44,7 +41,7 @@ export function sidebar(verify){
                 <Link to='/mercados' className={styles.linktext}>
                 <h2 className={styles.text}>MERCADOS</h2>
                 </Link>
-                <Link to={`/tareas/${empresaId}`} className={styles.linktext}>
+                <Link to={`/tareas`} className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>

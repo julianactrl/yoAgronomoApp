@@ -1,6 +1,6 @@
-import {GET_TRANSPORTE, DELETE_TRANSPORTE, PUT_TRANSPORTE, POST_TRANSPORTE, } from '../constants';
+import {GET_TRANSPORTE, DELETE_TRANSPORTE, PUT_TRANSPORTE, POST_TRANSPORTE, GET_TRANSPORTE_ID } from '../constants';
 import axios from 'axios';
-const { REACT_APP_API, REACT_APP_API_HEROKU} = process.env
+const { REACT_APP_API} = process.env
 
 
 
@@ -17,7 +17,19 @@ export function getTransporte(id) {
     }
 };
 
-export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaSalida, observaciones }) => {
+export function getTransporteById(id) {
+    return function(dispatch) {
+        return fetch(`${REACT_APP_API}/transporte/getone/${id}`)
+        .then(response=>response.json())
+            .then(json=>{
+                dispatch({
+                    type: GET_TRANSPORTE_ID,
+                    payload: json
+                })
+            })
+    }
+}
+export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaSalida, observaciones,empresaId }) => {
 
     return (dispatch) => {
         dispatch({ type: POST_TRANSPORTE });
@@ -30,7 +42,8 @@ export const postTransporte = ({ patente, conductor, carga, fechaEntrada, fechaS
                 carga,
                 fechaEntrada,
                 fechaSalida,
-                observaciones
+                observaciones,
+                empresaId
             },
         }).catch(e => dispatch(e))
     }
@@ -64,3 +77,7 @@ export const deleteTransporte = (id) => {
         }).catch(e => dispatch(e))
     }
 };
+
+// export const getById = (id) => {
+//     return 
+// }

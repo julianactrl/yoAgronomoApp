@@ -7,16 +7,22 @@ import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
 
-
 function NewEmpresa() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const currentUserId = useSelector(
-    (state) => state.userReducer.userInfo.user.id
-  );
+  const currentUserId = useSelector((state) => state.userReducer.userInfo.user.id);
+  const numEmpresa = useSelector((state) => state.empresaReducer.allEmpresas);
+  const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
+      
+  if(numEmpresa.length >= 2 && userInfo === false){
+        swal({ 
+          title: "para seguir creando mas empresas pasarse a Premium",
+          icon: "error",
+          button: true,
+        })
+      }
 
   const [input, setInput] = useState({
-
     userId: currentUserId,
     name: "",
     hectareas: "",
@@ -25,13 +31,12 @@ function NewEmpresa() {
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [imgUrl, setImgUrl] = useState(null);
-  
+
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
     setImgUrl(URL.createObjectURL(event.target.files[0]));
-    // console.log("---handleFileInputChange----", event.target.files[0]);
   };
-  
+
   function handleInputChange(e) {
     setInput({
       ...input,
@@ -39,55 +44,47 @@ function NewEmpresa() {
     });
   }
 
-  function handleSubmit(e) {
-    // e.preventDefault();
-     if (selectedFile === null)
-       return swal({
-         title: "Image Field Cannot Be Empty",
-         icon: "warning",
-         button: true,
-         dangerMode: true,
-       });
-     const config = {
-       headers: {
-         "Content-Type": "multipart/form-data",
-       },
-     };
-     const fd = new FormData();
-     const extension = selectedFile.name.split(".");
- 
-     fd.append("name", input.name);
-     fd.append("hectareas", input.hectareas);
-     fd.append("ubicacion", input.ubicacion);
-     fd.append("userId", input.userId);
+  function handleSubmit() {
+    if (selectedFile === null)
+      return swal({
+        title: "Image Field Cannot Be Empty",
+        icon: "warning",
+        button: true,
+        dangerMode: true,
+      });
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const fd = new FormData();
+    const extension = selectedFile.name.split(".");
 
-
-     fd.append(
-       "imagen",
-       selectedFile,
-       input.name + "." + extension[extension.length - 1]
-     );
-     //fd.get("password", updateinfo.password)
-     const infoSendDb = {
+    fd.append("name", input.name);
+    fd.append("hectareas", input.hectareas);
+    fd.append("ubicacion", input.ubicacion);
+    fd.append("userId", input.userId);
+    fd.append(
+      "imagen",
+      selectedFile,
+      input.name + "." + extension[extension.length - 1]
+    );
+    const infoSendDb = {
       userId: currentUserId,
-       fd,
-     };
-     dispatch(postEmpresa(infoSendDb, config));
-     setInput(input);
-     swal({
-       title: "Info Edited",
-       icon: "success",
-       button: true,
-     })
-       .then(() => {
-         history.reload();
-       })
-       .catch((e) => console.log(e));
-     // alert("¿Seguro desea modificar estos datos?");
-     //alert("Datos modificados correctamente, ingrese sesión nuevamente");
-   }
-
-
+      fd,
+    };
+    dispatch(postEmpresa(infoSendDb, config));
+    setInput(input);
+    swal({
+      title: "Empresa created",
+      icon: "success",
+      button: true,
+    })
+      .then(() => {
+        history.push("/home")
+      })
+      .catch((e) => console.log(e));
+  }
 
   return (
     <motion.div
@@ -112,7 +109,7 @@ function NewEmpresa() {
         <div className={styles.caja}>
           <h2 className={styles.alineado}>Nueva Empresa</h2>
           <form className={styles.estilosForm} onSubmit={handleSubmit}>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Nombre: </label>
               <input
                 type="text"
@@ -122,7 +119,7 @@ function NewEmpresa() {
                 name="name"
               />
             </div>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Hectáreas totales: </label>
               <input
                 type="text"
@@ -132,7 +129,7 @@ function NewEmpresa() {
                 name="hectareas"
               />
             </div>
-            <div>
+            <div className={styles.inputsNewEmpresa}>
               <label>Ubicación: </label>
               <input
                 type="text"
@@ -143,22 +140,22 @@ function NewEmpresa() {
               />
             </div>
 
-            <div>
-            <label className={styles.labelCrear}>Imagen: </label>
-            <input
-              className={styles.inputCrear}
-              type="file"
-              name="imagen"
-              accept="image/png, image/jpeg"
-              onChange={handleFileInputChange}
-              required
+            <div className={styles.fileImg}>
+              <label className={styles.labelCrear}>Imagen: </label>
+              <input
+                className={styles.inputCrear}
+                type="file"
+                name="imagen"
+                accept="image/png, image/jpeg"
+                onChange={handleFileInputChange}
+                required
+              />
+            </div>
+            <img
+              src={imgUrl}
+              alt={imgUrl}
+              style={{ height: "200px", width: "250px" }}
             />
-          </div>
-          <img
-            src={imgUrl}
-            alt={imgUrl}
-            style={{ height: "200px", width: "250px" }}
-          />
             <br></br>
             <button
               className={styles.buttonCrearEmpresa}

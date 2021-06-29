@@ -34,13 +34,11 @@ export const GET_TRANSPORTE = 'GET_TRANSPORTE';
 export const POST_TRANSPORTE = 'POST_TRANSPORTE';
 export const PUT_TRANSPORTE = 'PUT_TRANSPORTE';
 export const DELETE_TRANSPORTE = 'DELETE_TRANSPORTE';
+export const GET_TRANSPORTE_ID= 'GET_TRANSPORTE_ID';
 
 export const GET_DOLAR = 'GET_DOLAR';
 
-export const POST_TAREA = 'POST_TAREA';
-export const GET_TAREAS = 'GET_TAREAS';
-export const DELETE_TAREA = 'DELETE_TAREA';
-export const UPDATE_TAREA = 'UPDATE_TAREA';
+
 
 //GASTOS
 export const GET_ALL_CLASIFICACIONES = 'GET_ALL_CLASIFICACIONES';
@@ -49,6 +47,20 @@ export const GET_ALL_GASTOS = 'GET_ALL_GASTOS'
 export const CREATED_GASTO = 'CREATED_GASTO'
 export const GET_TOTAL = 'GET_TOTAL'
 export const GASTO_BY_INPUT = 'GASTO_BY_INPUT'
+
+
+export const POST_TAREA = "POST_TAREA";
+export const GET_TAREAS = "GET_TAREAS";
+export const DELETE_TAREA = "DELETE_TAREA";
+export const UPDATE_TAREA = "UPDATE_TAREA";
+export const RESET_TAREAS= "RESET_TAREAS";
+export const GET_TAREA_ID = 'GET_TAREA_ID';
+
+
+export const GET_STOCK = 'GET_STOCK'
+export const CREATE_STOCK = 'CREATE_STOCK'
+export const UPDATE_STOCK = 'UPDATE_STOCK'
+export const GET_STOCK_BY_ID = 'GET_STOCK_BY_ID'
 
 
 export function BEARER() {

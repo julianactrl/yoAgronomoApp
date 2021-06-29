@@ -3,6 +3,7 @@ const smtpTransport = require('nodemailer-smtp-transport');
 const { EMAIL_ACCOUNT, EMAIL_PASSWORD } = process.env;
 
 const sendMail = (options) => {
+	console.log("ESTOY EN NODEMAILER INDEX SOY OPTIONS", options)
 	let transporter = nodemailer.createTransport(smtpTransport({
 		service: 'gmail',
 		host: 'smtp.gmail.com',

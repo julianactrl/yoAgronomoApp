@@ -5,8 +5,11 @@ import logo from '../../assets/logo.png'
 import {sidebar} from './HeaderController'
 import DashBoardProfile from '../DashBoardProfile/DashBoardProfile.jsx'
 import Cookies from 'universal-cookie'
+import { useSelector } from "react-redux";
+
 
 export default function Header (verify){
+    const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
 
     const cookies = new Cookies()
     const [open, setOpen] = useState(false);
@@ -25,7 +28,12 @@ export default function Header (verify){
                 {
                     open?sidebar(cookies.get('selectedEmpresa')):null
                 }          
-                <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo} alt="not found"/>     
+                <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo} alt="not found"/>    
+                {userInfo===true ? (
+                <h3 className={styles.premium}>Premium</h3>
+                ) : (
+                <h3>cuenta free</h3>
+                )} 
             </div>
             <div>
                 <DashBoardProfile />

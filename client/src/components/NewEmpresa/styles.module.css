@@ -14,19 +14,28 @@ body{
     position: relative;
     
 }
-.estilosForm{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 70%;
+.fileImg{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+}
+.estilosForm{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 30%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
     background-color: #ffffff71;
     padding: 30px;
     border-radius: 8px;
     font-size: 18px;
     position: relative;
+    height: 90vh;
 }
 input{
     border: none;
@@ -40,14 +49,17 @@ label {
     font-size: 18px;
     display:block;
     width:100%;
+    text-align: left;
     
 }
-
+.inputsNewEmpresa{
+    width: 360px;
+}
 
 
 .alineado {
     text-align: center;
-    margin-top: 12rem;
+    /* margin-top: 12rem; */
     align-items: center;
     text-transform: uppercase;
     font-size: 2.5rem;
@@ -89,11 +101,18 @@ label {
 }
     
 .caja{
-    position: relative;
-    bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    height: 100vh;
+    /* position: relative; */
+    /* bottom: 10vh; */
     /* background-color: yellow; */
-    width: 40%;
-    left: 30%;
+    /* width: 40%; */
+    /* left: 30%; */
 }
     
    

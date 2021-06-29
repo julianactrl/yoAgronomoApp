@@ -16,9 +16,7 @@ import AgroConsultas from "./components/AgroConsultas/AgroConsultas";
 import Map from './components/Map/Map.js';
 import Cotizaciones from './components/Cotizaciones/Cotizaciones'
 import MercadoPago from './components/MercadoPago/MercadoPago.jsx';
-import Premium from './components/MercadoPago/Premium.jsx';
 import PremiumPlus from './components/MercadoPago/PremiumPlus.jsx';
-import PremiumPro from './components/MercadoPago/PremiumPro.jsx';
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 import GestionGastos from "./components/GestionComercial/GestionGastos";
@@ -27,6 +25,8 @@ import NewTransporte from "./components/Transporte/CreateTransporte";
 import UpdateTransporte from "./components/Transporte/UpdateTransporte";
 import DetailTransporte from "./components/Transporte/CardTransporte";
 import Calendar from './components/Calendar/Calendar'
+import GestionComercial from './components/GestionComercial/GestionComercial.js';
+import Stock from './components/GestionComercial/Stock.js';
 
 
 
@@ -72,38 +72,45 @@ export default function Routes() {
       </Route>
   
       <PrivateRoute component={Weather} path="/weather" exact />
-      <PrivateRoute component={News} path="/news" exact />
+      <Route exact path="/news">
+        <News/>
+        </Route>
       <Route exact path='/map'>
         <Map />
       </Route>
       
-
-      <Route exact path='/membresia'>
-        <MercadoPago />
-      </Route>
-      <Route exact path='/membresia/premium'>
-        <Premium />
-      </Route>
+      <PrivateRoute component={MercadoPago} path="/membresia" exact />
+      
+      
       <Route exact path='/membresia/premiumplus'>
         <PremiumPlus />
       </Route>
-      <Route exact path='/membresia/premiumpro'>
-        <PremiumPro />
-      </Route>
+    
 
+      
        <Route exact path='/createtransporte'>
        <NewTransporte />
        </Route>
-       <Route exact path='/updatetransporte/:id'>
-       <UpdateTransporte />
+
+       <Route exact path='/updatetransporte/:id' render ={({ match }) =>
+       <UpdateTransporte id={match.params.id}/>}>
        </Route>
+       
+       <PrivateRoute component={DetailTransporte} path="/transporte" exact />
+       <PrivateRoute component={Calendar} path="/tareas" exact />
+
        <Route exact path='/transporte'>
        <DetailTransporte />
        </Route>
 
-
-      <Route exact path="/tareas/:id" render={({ match }) =>
-        <Calendar id={match.params.id} />}>
+      <Route exact path="/tareas">
+        <Calendar/>
+       </Route>
+      <Route exact path="/gestion_comercial">
+        <GestionComercial/>
+       </Route>
+      <Route exact path="/gestion_comercial/stock">
+        <Stock/>
        </Route>
     </Switch>
     );

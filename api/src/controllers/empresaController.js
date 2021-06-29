@@ -71,7 +71,6 @@ const getEmpresaById = async (req, res) => {
 };
 
 const createEmpresa = async (req, res, next) => {
-  // console.log(req.body)
   const { name, hectareas, ubicacion, userId} = req.body;
     if (req.file) {
       var empresa = req.file.filename;
@@ -86,7 +85,7 @@ const createEmpresa = async (req, res, next) => {
     var user = await User.findByPk(userId);
 
       if(cantidad >= 2 && user.isPremium === false ){
-       return res.status(500).send("Debe hacerce premium")
+      return res.status(500).send("Debe hacerce premium")
       }
     await Empresa.create({
       name,
@@ -95,7 +94,7 @@ const createEmpresa = async (req, res, next) => {
       userId,
       imagen: empresa,
     });
-    res.status(200).json("fue  creada con exito");
+   return res.json("fue  creada con exito");
   } catch (error) {
     console.log(error);
     res.status(500).send(next);
@@ -117,8 +116,33 @@ const deleteEmpresa = async (req, res, next) => {
 };
 
 const updateEmpresa = async (req, res, next) => {
+  const { id } = req.params;
+  const { name, hectareas, ubicacion } = req.body
+
+  let empresaFind = await Empresa.findAll({where: {id:id}})
+
+  if (req.file) {
+    var empresa = req.file.filename;
+  } 
+
+  if (empresaFind.length > 0) {
+    empresaFind.map(async emp => {
+        await emp.update({
+          name,
+          hectareas,
+          ubicacion,
+          imagen: empresa
+        });
+    });
+    return res.json({
+        message: "Empresa updated",
+        date: empresaFind
+    })
+}
+
+
+
   try {
-    const { id } = req.params;
     await Empresa.update(req.body, {
       where: {
         id,

@@ -93,7 +93,7 @@ export function borrarLote (id) {
 }
 export function updateManejoLot (data, id) {
 
-    return axios.put(`http://localhost:3001/lote/updateManejo/${id}`, data)
+    return axios.put(`${REACT_APP_API}/lote/updateManejo/${id}`, data)
     .then(response => response)
     .catch(e => console.log(e))
 

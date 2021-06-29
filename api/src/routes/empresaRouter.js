@@ -14,11 +14,14 @@ const {
 
 server.post("/create", upload.single("imagen"), createEmpresa);
 server.get("/imagen/:name", getImageEmpresa);
+server.patch('/:id', upload.single("imagen"), updateEmpresa)
+
+
+//////////////////////////////////////////////////////////////////////
 server.delete("/delete/:id", deleteEmpresa);
 server.get("/", getAllEmpresas);
 server.get("/:id", getEmpresaById);
 server.get("/nombreEmpresa", getEmpresaByName);
-server.put("/:id", updateEmpresa);
 server.get("/user/:id", getAllEmpresasByUser);
 
 module.exports = server;

@@ -1,4 +1,5 @@
 const server = require("express").Router();
+
 const {
   premium,
   mercadoPagoNotifications,

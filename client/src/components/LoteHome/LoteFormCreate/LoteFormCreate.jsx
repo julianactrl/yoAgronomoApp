@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './styles.module.css'
 import { crearLoteDB } from '../../../redux/actions/loteActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle , faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import {motion} from 'framer-motion';
-
 import swal from "sweetalert";
-// import { history } from "react-router";
-// import Header from "../Header/Header";
-
-
-
 
 export default function LoteFormCreate({empresaId}){
+
+    const numLotes = useSelector((state) => state.loteReducer.allLotes);
+    const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
+        
+    if(numLotes.length >= 2 && userInfo === false){
+          swal({ 
+            title: "para seguir creando mas Lotes pasarse a Premium",
+            icon: "error",
+            button: true,
+          })
+        }
     const dispatch = useDispatch()
     const [voltear, setVoletar] = useState(false)
     const [inputs , setInputs] = useState({

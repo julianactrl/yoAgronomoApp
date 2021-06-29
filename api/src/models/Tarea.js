@@ -8,11 +8,14 @@ module.exports = (sequelize) => {
     },
     fecha: {
       type: DataTypes.DATEONLY,
-      // get: function(){
+      // get: function(){ 
       //   return 
       //   moment(getDataValue('DateTime')).format('DD.MM.YYYY')
       // }
     },
+    prioridad: {
+      type: DataTypes.STRING
+    }
 
   }); 
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import {
   updateUser,
   logout,
@@ -16,6 +16,8 @@ import swal from "sweetalert";
 const { REACT_APP_API } = process.env;
 
 function UpdateProfile() {
+  const usuario = useSelector(state=> state.userReducer.userInfo.user)
+  console.log("usuario",usuario)
   const dispatch = useDispatch();
   var history = useHistory();
   const { id } = useParams();
@@ -24,7 +26,7 @@ function UpdateProfile() {
     id: id,
     fullName: "",
     email: "",
-    //  password: "",
+    password: "",
     profile_pic: "",
   });
 
@@ -63,12 +65,12 @@ function UpdateProfile() {
 
     fd.append("fullName", updateinfo.fullName);
     fd.append("email", updateinfo.email);
+    fd.append("password",updateinfo.password)
     fd.append(
       "profile_pic",
       selectedFile,
       updateinfo.fullName + "." + extension[extension.length - 1]
     );
-    //fd.get("password", updateinfo.password)
     const infoSendDb = {
       id: id,
       fd,
@@ -81,13 +83,10 @@ function UpdateProfile() {
       button: true,
     })
         dispatch(logout(id));
-        history.reload();
-    // alert("¿Seguro desea modificar estos datos?");
-    //alert("Datos modificados correctamente, ingrese sesión nuevamente");
+        history.push("/home");
   }
 
   function deleteUsuario(id) {
-    // dispatch(deleteEmpresa(id));
     axios
       .delete(`${REACT_APP_API}/user/delete/${id}`)
       .then((response) => console.log(response.data))
@@ -107,6 +106,7 @@ function UpdateProfile() {
               className={styles.inputCrear}
               type="text"
               onChange={handleInputChange}
+              placeholder={usuario.fullName}
               value={updateinfo.fullName}
               name="fullName"
             />
@@ -119,11 +119,12 @@ function UpdateProfile() {
               type="text"
               onChange={handleInputChange}
               value={updateinfo.email}
+              placeholder={usuario.email}
               name="email"
             />
           </div>
 
-          {/* <div>
+           <div>
             <label className={styles.labelCrear}>Password </label>
             <input
               className={styles.inputCrear}
@@ -132,7 +133,7 @@ function UpdateProfile() {
               value={updateinfo.password}
               name="password"
             />
-          </div> */}
+          </div> 
 
           <div>
             <label className={styles.labelCrear}>Imagen: </label>

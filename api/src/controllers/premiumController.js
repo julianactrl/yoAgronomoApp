@@ -1,7 +1,7 @@
 const { User } = require("../db");
 const { FRONT, BACK, BACK_URL, ACCESS_TOKEN_PROD } = process.env;
 const mercadopago = require("mercadopago");
-const { mailCompleted } = require("../mails/mensaje");
+const { mailPaymentCompleted, mailPaymentInProcess } = require("../mails/mensaje");
 
 //Cuenta a la que hacemos referencia como vendedor
 mercadopago.configure({
@@ -48,7 +48,6 @@ const premium = async (req, res) => {
           mp_id: resp.response.id,
           payment_link: resp.body.init_point,
         });
-        // mailCompleted(user);
         return res.json(user.payment_link);
       })
       .catch((err) => {
@@ -64,22 +63,15 @@ const premium = async (req, res) => {
 //server.post('/mercadoPagoNotifications',
 const mercadoPagoNotifications = async (req, res) => {
   res.sendStatus(200);
-  console.log("mercadoPagoNotifications", req.query);
-  console.log("mercadoPagoNotifications", req.body);
-  console.log("mercadoPagoNotifications", req.query.type);
   try {
     if (req.query.type === "payment") {
       const payment = await mercadopago.payment.get(req.query["data.id"]);
-      console.log("pyment mercadoPagoNotifications", payment);
-      console.log("payment body status", payment.body.status);
       switch (payment.body.status) {
         /**************************CASO REJECTED*******************************/
         case "rejected": {
-          console.log("rejected");
           const merchant = await mercadopago.merchant_orders.get(
             payment.body.order.id
           );
-          console.log("MERCHANT", merchant);
           const user = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
@@ -97,14 +89,10 @@ const mercadoPagoNotifications = async (req, res) => {
 
         /**************************CASO APPROVED*******************************/
         case "approved": {
-          console.log("approved");
-
           const merchant = await mercadopago.merchant_orders.get(
             payment.body.order.id
           );
-          console.log("MERCHANT", merchant);
-
-          const order = await User.findOne({
+          const user = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
           //con otro medio de pago y es aceptado
@@ -113,19 +101,15 @@ const mercadoPagoNotifications = async (req, res) => {
             payment_link: null,
             isPremium: true,
           });
-
           return console.log(
             "ORDER ACTUALIZADA A COMPLETADA-->",
             JSON.stringify(updatedUser, undefined, 4),
             /**AQUI VA ENVIO DE CORREO */
-            mailCompleted(updatedUser)
+            mailPaymentCompleted(user)
           );
         }
         /**************************CASO FAILURE*******************************/
         case "failure": {
-          console.log("failure");
-          console.log("MERCHANT", merchant);
-
           const merchant = await mercadopago.merchant_orders.get(
             payment.body.order.id
           );
@@ -145,12 +129,9 @@ const mercadoPagoNotifications = async (req, res) => {
         /**************************CASO PENDING*******************************/
         case "pending": {
           //este caso es pendiente de pago
-          console.log("pending");
-
           const merchant = await mercadopago.merchant_orders.get(
             payment.body.order.id
           );
-          console.log("MERCHANT", merchant);
           const user = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
@@ -160,17 +141,15 @@ const mercadoPagoNotifications = async (req, res) => {
           });
           return console.log(
             "ORDER ACTUALIZADA A PROCESSING-->",
-            JSON.stringify(updatedUser, undefined, 4)
+            JSON.stringify(updatedUser, undefined, 4),
+            mailPaymentInProcess(user)
           );
         }
         case "in_process": {
           //este caso es pendiente de pago
-          console.log("in_process");
           const merchant = await mercadopago.merchant_orders.get(
             payment.body.order.id
           );
-          console.log("MERCHANT", merchant);
-
           const user = await User.findOne({
             where: { mp_id: merchant.body["preference_id"] },
           });
@@ -180,7 +159,8 @@ const mercadoPagoNotifications = async (req, res) => {
           });
           return console.log(
             "ORDER ACTUALIZADA A PROCESSING-->",
-            JSON.stringify(updatedUser, undefined, 4)
+            JSON.stringify(updatedUser, undefined, 4),
+            mailPaymentInProcess(user)
           );
         }
       }
@@ -193,36 +173,30 @@ const mercadoPagoNotifications = async (req, res) => {
 //server.get('/mercadoPagoRedirect',
 const mercadoPagoRedirect = async (req, res) => {
   try {
-    //console.info("En la ruta de mercadoPagoRedirect", req)
-
     const payment_id = req.query.payment_id;
     const payment_status = req.query.status;
 
-    console.log("REQ mercadoPagoRedirect", req.query);
-
-    //console.log('Payment Status mercadoPagoRedirect', payment_status);
     const user = await User.findOne({
       where: {
         mp_id: req.query["preference_id"],
       },
     });
-    console.log("ORDER mercadoPagoRedirect", user);
     switch (user.order_status || user.order_status === null) {
       case "completed": {
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       case "processing": {
         //home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       case "canceled": {
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
       }
       default:
         //al home
-        return res.redirect(`${FRONT}/home`);
+        return res.redirect(`${FRONT}/index`);
     }
   } catch (err) {
     console.log(err);

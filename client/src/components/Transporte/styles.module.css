@@ -1,102 +1,117 @@
-.div {
-    background-image:
-    linear-gradient(to bottom, rgba(97, 97, 97, 0.52), rgba(0, 0, 0, 0.411)),
-    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
-    min-width: 100vw;
-    min-height: 100vh;
-    background-position: center center;
+    
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}  
+.transporte {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 18%;
+    left: 180px;
+    background-position:center;
     background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    
+    background-clip:padding-box;
+    background-size: 650px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(19, 13, 13);
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    width: 550px;
+    height: 300px;
+    background-color: #05050548;
+    border:none;
+    box-shadow: 0px 0px 30px black;
 }
-/* .caja{
-    background-color: rgba(255, 255, 255, 0.37);
-    border-radius: 20px;
-      height:350px;
-      width: 500px;
-      align-content: center;
-      margin: 0 auto;
-      justify-content: center;
-      
-} */
-    
-    
 
-.description{
-    text-align:left ;
-    align-content: center;
-    width:380px;
-    margin: 0 auto;
-    align-items: center;
-    /* padding: 10rem; */
-    justify-content: center;
-    /* margin: 50px auto;
-    float:none; */
-    margin: 50px auto;
-   
+.items{
+    color: white;
+    display: flex;
+    justify-content: space-between;
 }
-.name{
+
+.containerTransporte{
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content:space-evenly;
+    
+    
+}
+
+.editar {
+    color: rgb(251, 251, 251);
+    font-size: 22px;
+}
+
+.titleAdd{
+    /* display: none; */
+    opacity: 0;
+    font-size: 35px;
+    color: black;
+    transition: 0.9s;
+    /* left: 80px;
+    position: relative; */
     text-align: center;
 }
-.buttonCrearEmpresa{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border-radius: 5px;
-    display: inline-block;
-    padding: 20px 15px;
-    text-decoration: none;
-    text-align: center;
-    background-color:#80cc28 ;
-    color:rgb(3, 3, 3);
-    border: none;
-    font-size: 20px;
-    align-items: center;
-    width: 380px;
-    cursor: pointer;
-    text-transform: uppercase;
-    display: inline-block;
-    border: none;
-    transition: all 0.2s ease 0s;
-    
-    
-}
-.buttonCrearEmpresa:hover{
-    background-color: #27963c;
-    color: #0a0a0a;
-    letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-    transition: all 0.2s ease 0s;
-    box-shadow: 0 0 5pt 0.5pt #161616;
-}
-.inputCrear{
-    border: 0;
-    outline: none;
-    padding: 5px;
-    width: 370px;
-}
-.labelCrear {
-    font-size: 18px;
-    display:block;
-    width:100%;
-    
-}
-.estilosForm{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 380px;
-    margin: 0 auto;
-    background-color: rgba(240, 255, 240, 0.356);
-    padding: 30px;
-    border-radius: 8px;
-    font-size: 18px;
-    
-}
-.alineado {
-    text-align: center;
-    margin-top: 12rem;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 2.5rem;
+.cardContAdd:hover .titleAdd{
+    display: inline;
+    opacity: 1;
+    font-size: 35px;
     color: #ffffff;
+    transition: 0.9s;
+
+}
+
+.cardContAdd{
+    display: flex;
+    position: relative;
+    left: 180px;
+    background-image: url('../../assets/cicle.png');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-clip:padding-box;
+    background-size: 650px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(19, 13, 13);
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    width: 280px;
+    height: 280px;
+    background-color: #05050548;
+    border:none;
+    box-shadow: 0px 0px 30px black;
+    
+}
+.cardContAdd:hover{
+    transition: 0.9s;
+    background-size: 900px;
+    border:none;
+    background-color: #43748a46;
+    box-shadow: 5px 5px 40px black;
+}
+
+.imgAdd{
+    position: relative;
+    bottom: 18px;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 900px;
+    border: 2px solid rgba(0, 189, 13, 0.075);
+    width: 100px;
+} 
+.imgAdd:hover{
+    transition: 1s;
+    background-color: #80cc28;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border: 2px solid rgba(0, 104, 189, 0.226);
 }
