@@ -2,11 +2,12 @@ const {Stock, Empresa} = require("../db");
 const { Op } = require("sequelize");
 
 const postStock = async(req, res) => {
-    const {tipo, cantidad,empresaId} = req.body;
+    const {tipo, cantidad, empresaId, nombreProducto} = req.body;
     try{
         await Stock.create({
             tipo,
             cantidad,
+            nombreProducto,
             empresaId
         });
         res.json('Stock generado con éxito!');
@@ -18,7 +19,7 @@ const postStock = async(req, res) => {
 }
 const editStock = async(req, res) => {
     const {id} = req.params;
-    const {tipo, cantidad} = req.body;
+    const {tipo, cantidad, nombreProducto} = req.body;
     let StockFind = await Stock.findAll({
         where:{
             id
@@ -28,7 +29,8 @@ const editStock = async(req, res) => {
         StockFind.map(async (Stock) => {
             await Stock.update({
                 tipo,
-                cantidad
+                cantidad,
+                nombreProducto
             });
         });
         return res.json({

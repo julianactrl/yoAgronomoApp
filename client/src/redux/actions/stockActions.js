@@ -1,4 +1,4 @@
-import { GET_STOCK, CREATE_STOCK, UPDATE_STOCK, GET_STOCK_BY_ID } from "../constants";
+import { GET_STOCK, CREATE_STOCK,  GET_STOCK_BY_ID } from "../constants";
 import axios from 'axios';
 const { REACT_APP_API} = process.env;
 
@@ -16,7 +16,7 @@ export function getStock (){
 }
 export function getStockById (id){
     return async function (dispatch){
-        return await axios.get(`${REACT_APP_API}/stock/lote/${id}`)
+        return await axios.get(`${REACT_APP_API}/stock/empresa/${id}`)
         .then(res => {
             dispatch({
                 type: GET_STOCK_BY_ID,
@@ -33,6 +33,23 @@ export function createStock (data){
             dispatch({
                 type: CREATE_STOCK,
                 payload: res.data,
+            })
+        })
+    }
+}
+export function deleteStock (id) {
+    return async function (dispatch) {
+        return await axios.delete(`${REACT_APP_API}/stock/delete/${id}`)
+        .catch(e => dispatch(e))
+    }
+}
+export function updateStock(data, id) {
+    return async function (dispatch) {
+        return await axios.post(`${REACT_APP_API}/stock/edit/${id}`, data)
+        .then(res => {
+            dispatch({
+                type:UPDATE_STOCK,
+                payload:res.data
             })
         })
     }
