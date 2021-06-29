@@ -11,6 +11,7 @@ import { clearWeather, getWeather } from '../../../redux/actions/weatherActions'
 import emptyIco from '../../../assets/emptyIco.png'
 import grass from '../../../assets/emptypng.png'
 import {motion} from 'framer-motion';
+import swal from 'sweetalert';
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
@@ -120,9 +121,9 @@ export default function LoteDetails({lote}){
             selectedFile,
             inputs.observaciones + "." + extension[extension.length - 1]
           );
-            console.log('CREANDO');
             await crearLoteManejo(fd, lote.id, config) 
-            alert('CREADO');
+            swal("Creado",{icon:"success"})
+
             await dispatch(getManejo(lote.id))
         if(voltear){
             setVoletar(false)  
@@ -135,6 +136,8 @@ export default function LoteDetails({lote}){
     function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
+        swal("Lote eliminado",{icon:"success"})
+
         
     }
     function handleEdit(){
@@ -166,7 +169,7 @@ export default function LoteDetails({lote}){
     async function borrarManejo(id){
         await deleteManejo(id);
         await dispatch(getManejo(lote.id))
-        alert('Observación eliminada');
+        swal("Observación eliminada",{icon:"success"})
     }
     function cerrar(){
         dispatch({type:'SET_VERIFY',payload:''})
