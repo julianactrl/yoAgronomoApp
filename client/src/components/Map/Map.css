@@ -1,0 +1,13 @@
+.googleMapsCont {
+    font-family: sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .googleMaps {
+    height: 45rem;
+    width: 45rem;
+  }

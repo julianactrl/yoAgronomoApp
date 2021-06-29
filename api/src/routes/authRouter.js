@@ -1,23 +1,27 @@
-const server = require("express").Router();
-const { isAuthenticated, isAdmin } = require("../middleware/customMiddleware");
 
-//---------------------------------------------------------------//
-const {
-  login,
-  register,
-  myProfile,
-  googleAuth,
-  google,
- // logout,
-} = require("../controllers/authController");
+const express = require('express');
+const router = express.Router();
 
-//-------------------------Route Users--------------------------//
+// Middlewares
+const auth = require('../middleware/customMiddleware');
 
-server.post("/login", login);
-//server.get('/logout', logout)
-server.post("/register", register);
-server.get("/myProfile",  isAuthenticated,myProfile);
-server.get("/google", google);
-server.get("/google/callback", googleAuth);
+// Policies
+const PostPolicy = require('../Politicas/politicas');
 
-module.exports = server;
+// Controllers
+const AuthController = require('../controllers/authController');
+const PostController = require('../controllers/userController');
+
+
+// Dos rutas: login y registro
+// /api/singin & /api/singup
+router.post('/api/signin', AuthController.signIn);
+router.post('/api/signup', AuthController.signUp);
+
+// Rutas posts
+// router.get('/api/posts', auth, PostController.index);
+// router.get('/api/posts/:id', auth, PostController.find, PostPolicy.show, PostController.show);
+// router.patch('/api/posts/:id', auth, PostController.find, PostPolicy.update, PostController.update);
+// router.delete('/api/posts/:id', auth, PostController.find, PostPolicy.delete, PostController.delete);
+
+module.exports = router;

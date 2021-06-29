@@ -1,23 +1,25 @@
+
+
 import {Link} from 'react-router-dom'
 import styles from './styles.module.css'
+
 
 //...  SideBar  ...
 
 export function sidebar(verify){
-    if (verify === 'dashboard'){
+    const empresaId = window.location.pathname.split('/')[2] //---> Id de la empresa que aparece en detalle
+    console.log('este es la cookoe',verify);
+    if (!verify){
         return(
             <div className={styles.sidebarcont}>
                 <div className={styles.linktextcont}>
-                    <Link className={styles.linktext}>
+                    <Link to='/home' className={styles.linktext}>
                     <h2 className={styles.text}>HOME</h2>
                     </Link>
-                    <Link className={styles.linktext}>
-                    <h2 className={styles.text}>AGENDA</h2>
+                    <Link to='/membresia' className={styles.linktext}>
+                    <h2 className={styles.text}>MEMBRESIA</h2>
                     </Link>
-                    <Link className={styles.linktext}>
-                    <h2 className={styles.text}>PREMIUM</h2>
-                    </Link>
-                    <Link className={styles.linktext}>
+                    <Link to='/agroconsultas' className={styles.linktext}>
                     <h2 className={styles.text}>AGRO CONSULTAS</h2>
                     </Link>
                 </div>    
@@ -30,25 +32,25 @@ export function sidebar(verify){
                 <Link to='/home' className={styles.linktext}>
                 <h2 className={styles.text}>HOME</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/gestion_comercial' className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to={`/lote/${empresaId}`} className={styles.linktext}>
                 <h2 className={styles.text}>LOTES</h2>
                 </Link>
-                <Link className={styles.linktext}>
-                <h2 className={styles.text}>MERCADO</h2>
+                <Link to='/mercados' className={styles.linktext}>
+                <h2 className={styles.text}>MERCADOS</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to={`/tareas`} className={styles.linktext}>
                 <h2 className={styles.text}>AGENDA</h2>
                 </Link>
                 <Link to='/weather' className={styles.linktext}>
                 <h2 className={styles.text}>CLIMA</h2>
                 </Link>
-                <Link className={styles.linktext}>
-                <h2 className={styles.text}>PREMIUM</h2>
+                <Link to='/membresia'className={styles.linktext}>
+                <h2 className={styles.text}>MEMBRESIA</h2>
                 </Link>
-                <Link className={styles.linktext}>
+                <Link to='/agroconsultas'className={styles.linktext}>
                 <h2 className={styles.text}>AGRO CONSULTAS</h2>
                 </Link>
             </div>
@@ -58,3 +60,4 @@ export function sidebar(verify){
     }
 
 }
+

@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
-
+.premium{
+    color: chartreuse;
+    margin-top: 0;
+    margin-bottom: 10;
+}
 
 .header{
     display: flex;
-    position: absolute;
+    position:relative;
     /* border: 3px solid white; */
     width: 100%;
-    height: 25%;
+    height: 0;
     justify-content: space-between;
     background: linear-gradient(to bottom, #000000, rgba(0, 0, 0, 0));
 }
@@ -31,8 +35,6 @@
     background-size:48px;
     box-shadow: 0 0 10px rgba(152, 255, 152, 0.644);
     background-color: rgba(68, 255, 68, 0.376);
-
-
 }
 .perfilimg{
     display: flex;
@@ -57,6 +59,7 @@
     -o-transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
     transform:rotateY(0deg); 
+    z-index: 1;
 
 }
 .logo:hover{
@@ -79,23 +82,25 @@
     -o-transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
     transform:rotateY(150deg); 
+    z-index: 1;
 }
 
 
 .sidebarcont{
-    transition: width 2000ms ease;
+    transition: cubic-bezier(0.42, 0, 1, 1.64);
     position:absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 400px;
-    height: 937px;
-    background-color: #ffffff71;
+    height: 100vh;
+    background-color: #fbfbfb;
+    border-right: 2px solid rgba(0, 58, 5, 0.15) ;
     animation-duration: 0.2s;
     animation-name: slidein;
     animation-fill-mode: backwards;
     animation-direction: alternate;
-
+    z-index: 1;
 }
 
 
@@ -105,7 +110,7 @@
     }
 
     to {
-        width: 400px;
+        width: 450px;
     }
 }
 .linktextcont{
@@ -136,6 +141,9 @@
 .text{
     display: flex;
     margin-left: 50px;
+    font-weight: 300;
+    text-transform: none;
+    font-size: 35px;
 
 }
 @keyframes spawn {

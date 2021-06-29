@@ -1,14 +1,19 @@
 .imgArticle{
     height: 16.75rem;
-    border-radius: 20px;
+    border-radius: 10px;
+    margin-top: 40px;
 }
 
 .containerDivArt{
     position: static;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
     height: 700px;
     width: 1600px;
     border-radius: 40px;
-    background-color: rgba(255, 255, 255, 0.212);
+    /* background-color: rgba(228, 215, 215, 0.363); */
+    
     /* transform: translateY(20%); */
 }
 .newsContainer{
@@ -17,7 +22,37 @@
     align-items: center;
 }
 
-
+.slider .slick-current{
+    /* border-radius: 40px; */
+    position: relative;
+    /* height: 700px !important; */
+    background-image: url('https://raw.githubusercontent.com/julianactrl/yoAgronomoApp/dev/client/src/assets/pngegg.png');
+    background-position: center;
+    background-position:top;
+    background-size:110%;
+    background-color: #ffffff81 !important;
+    margin: 0 !important;
+    padding-top: 40px;
+    box-shadow: 1px 0px 10px 20px rgba(0, 0, 0, 0.25) !important;
+}
+.slider .slick-current:hover{
+    transition: 0.9s;
+    background-size: 120%;
+    background-color: #43748a46 !important;
+    box-shadow: 5px 5px 40px black;
+    color: #b5abab;
+}
+/* .slick-active{
+    margin-top: 100px;
+} */
+.slider .slick-slide{
+    margin-top: 100px;
+    background-color:#ffffff81;
+    /* border-bottom-left-radius: 40px; */
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    transition: 1s;
+}
 .subContainer{
     display: flex;
     justify-content: center;
@@ -73,18 +108,22 @@
     justify-content: top;
     align-items: center;
     text-align:left;
-    height: 450px;
-    background-color: rgba(255, 0, 0, 0.013);
+    height: 500px;
 }
 
 .cardNew{
     position: relative;
-    left: 20px;
-    bottom: 20px;
+    left: 40px;
 
 }
 .linkArt{
     text-decoration: none;
+    color: black;
+}
+.slick-current:hover .linkArt{
+    color: rgb(255, 255, 255) !important;
+}
+.slick-slide:hover .linkArt{
     color: black;
 }
 
@@ -113,10 +152,9 @@
     background-repeat: no-repeat;
     position: relative;
     width: 60px;
-    left: 850px;
-    top: 70px;
+    left: 55%;
+    top: 0vh;
     transform: rotate(-90deg);
-
     height: 60px;
     border-radius: 60px;
     
@@ -135,8 +173,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    top: 620px;
-    left: 650px;
+    left: 42%;
+    top: 71.5vh;
     transform: rotate(90deg);
     width: 60px;
     height: 60px;
@@ -151,4 +189,43 @@
 }
 .prevBtn:active{
     background-size: 50px;
+}
+.carruselCont{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.newsTitle{
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+.parpadeo {
+    animation-name: parpadeo;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name:parpadeo;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+}
+@-moz-keyframes parpadeo{  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    100% { opacity: 1.0; }
 }

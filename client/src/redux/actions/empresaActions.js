@@ -1,10 +1,12 @@
 import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
 import axios from 'axios';
+const { REACT_APP_API} = process.env
 
 
-export function getAllEmpresas() {
+
+export function getAllEmpresas(id) {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/empresa`)
+        return fetch(`${REACT_APP_API}/empresa/user/${id}`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -17,7 +19,7 @@ export function getAllEmpresas() {
 
 export function getEmpresa(id) {
     return function(dispatch) {
-        return fetch(`http://localhost:3001/empresa/${id}`)
+        return fetch(`${REACT_APP_API}/empresa/${id}`)
         .then(response=>response.json())          
             .then(json=>{
                 dispatch({          
@@ -29,45 +31,48 @@ export function getEmpresa(id) {
 }
 
 
-export const postEmpresa = ({ name, hectareas,ubicacion,imagen }) => {
-
-    return (dispatch) => {
-        dispatch({ type: POST_EMPRESA });
-        axios({
-            method: 'post',
-            url: `http://localhost:3001/empresa/create`,
-            data: {
-                name,
-                hectareas,
-                ubicacion,
-                imagen
-            },
-        }).catch(e => dispatch(e))
-    }
+export const postEmpresa = (payload) => async (dispatch) => {
+    console.log("POST EMPRESA",payload)
+    return axios
+        .post(`${REACT_APP_API}/empresa/create/`,payload.fd)
+        .then((update)=>{
+            dispatch({
+                type: POST_EMPRESA,
+                payload: update
+            })
+            window.location.reload()
+        })
+        .catch((e)=>
+        console.log("soy e error en create empresa", e.response?.data?.status)
+        )
 }
-export const updateEmpresa = ({ id,name, hectareas,ubicacion,image }) => {
 
-    return (dispatch) => {
-        dispatch({ type: UPDATE_EMPRESA });
-        axios({
-            method: 'put',
-            url: `http://localhost:3001/empresa/create/${id}`,
-            data: {
-                name,
-                hectareas,
-                ubicacion,
-                image
-            },
-        }).catch(e => dispatch(e))
-    }
-}
+
+export const updateEmpresa = (payload) => async (dispatch) => {
+  return axios
+    .patch(`${REACT_APP_API}/empresa/${payload.id}`, payload.fd)
+    .then((updated) => {
+      dispatch({
+        type: UPDATE_EMPRESA,
+        payload: updated.fd,
+      });
+      window.location.reload();
+    })
+    .catch((e) =>
+      console.log("Soy el error en update user", e.response?.data?.status)
+    );
+};
+
+
+
+
 export const deleteEmpresa = (id) => {
 
     return (dispatch) => {
         dispatch({ type: DELETE_EMPRESA });
         axios({
             method: 'delete',
-            url: `http://localhost:3001/empresa/delete/${id}`,
+            url: `${REACT_APP_API}/empresa/delete/${id}`,
             payload: id
         }).catch(e => dispatch(e))
     }

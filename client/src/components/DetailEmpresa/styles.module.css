@@ -1,142 +1,223 @@
-body{
+body {
     margin: 0;
     background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
-    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
+        url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
 }
+
 .div {
     min-width: 100vw;
     min-height: 100vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.caja{
-    background-color: rgba(255, 255, 255, 0.6);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border-top-left-radius: 20px;
+
+.caja {
+    
     /* width: 20px; */
     display: flex;
-    height:400px;
-    width: 60rem;
+    width: 100%;
+    height: 100%;
     padding: 2rem;
     align-items: center;
     justify-content: center;
-    margin-top: -10px !important;
-      
+
 }
 
-.liContenedor{
+.liContenedor {
     list-style: none;
-}
-    
-
-.description{
-    text-align:left ;
-    align-content: center;
-    width:380px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    /* padding: 10rem; */
-    justify-content: center;
-    /* margin: 50px auto;
-    float:none; */
-    margin: 50px auto;
-    font-family: 'Segoe UI';
+    justify-items: center;
+    align-content: center;
+    background-color: rgb(117, 129, 117);
+    box-shadow: 0 0 10px black;
+    width: 70vw;
+    height: 70vh;
+    border-radius: 25px;
+}
+
+.malditoH2{
+    color: black !important;
+    font-weight: 400;
+}
+
+.agendita{
+    display: flex;
+    flex-direction: row;
+    color: black !important;
+    font-weight: 400;
+}
+
+.ubicacion {
+    margin-left: 1rem;
+}
+
+
+.description { 
    
+    color: black !important;
+    position: relative;
+    top: 3rem;
+    text-align: start;
+    right: 3rem;
+    align-content: center;
+    width: 50%;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI';
+    /* background-color: red; */
+
 }
-.imgEmpresa{
+
+.imgEmpresa {
+    position: relative;
+    left: 3rem;
+    box-shadow: 0 0 10px black;
     border-radius: 1.5rem;
+    width: 40%;
+    height: 80%;
 }
-.tareas{
-    text-align:left;
+
+.tareas {
+    text-align: left;
     align-content: center;
     margin-left: 2rem;
-    
-}
-.ubicacion{
-    margin-left: 10px;
-    width: 500px;
+
 }
 
-.items{
+.itemsTop {
+    position: relative;
+    top: 3rem;
+    width: 80rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+
+
+}
+
+.nameTitle {
+    font-size: 5rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.301);
+    padding: 10px;
+    border: black solid 2px;
+    border-radius: 8px;
+}
+
+.btnsDelEdit {
+    display: flex;
+    width: 8rem;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.items {
     float: left;
     
+
+
 }
-.name{
-    text-align: center;
-    font-size: 3rem;
-    /* box-shadow: 0 0 19pt #ffffff; */
-    color: #ffffff;
-    /* padding: 5px 0; */    
-    border-radius: 20px;
-    text-transform: capitalize;
-}
-.buttonEmpresa{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-image: url('https://image.flaticon.com/icons/png/512/61/61456.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
+
+.buttonEmpresa {
+    margin-left: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     border-radius: 5px;
-    display: inline-block;
+    width: 50px;
+    color: black;
+    font-size: 25px;
     text-decoration: none;
-    background-color:#80cc28 ;
-    border: none;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    padding:7px;
+    border: black solid 0.5px;
+    background-color:rgba(255, 255, 255, 0.301);
     cursor: pointer;
-    border: none;
     transition: all 0.2s ease 0s;
-    margin-left: 0;
-    
+
 }
-.buttonEmpresa:hover{
-    background-color: #27963c;
-    width: 2.6rem;
+
+.buttonEmpresa:hover {
+    background-color: #27963b94;
     color: #0a0a0a;
     letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.2s ease 0s;
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
-.eliminarEmpresa{
-    background-image: url('https://image.flaticon.com/icons/png/512/18/18297.png');
-    background-repeat:no-repeat;
-    background-size:contain;
-    background-position:center;
-    margin-left: 59rem;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+.agenda {
+    
+    margin-left: 10px;
+    width: 150px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    padding: 15px;
     border-radius: 5px;
     display: inline-block;
-    text-decoration: none;
-    background-color:#fc3e3e;
     border: none;
-    align-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s ease 0s;
-    
+    transition: all 0.4s ease 0s;
 }
-.eliminarEmpresa:hover{
-    background-color:#fc3e3e ;
-    width: 2.6rem;
-    color: #0a0a0a;
+
+.agendaCont{
+    display: flex;
+    flex-direction: row;
+}
+
+.agenda:hover {
+    cursor: pointer;
+    font-size: 13px;
+    color: black !important;
+    background: #27963c !important;
     letter-spacing: 1px;
-    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.2s ease 0s;
     box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.eliminarEmpresa {
+    margin-left: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    width: 50px;
+    color: black;
+    font-size: 25px;
+    text-decoration: none;
+    padding:7px;
+    border: black solid 0.5px;
+    background-color:rgba(255, 255, 255, 0.301);
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
+
+}
+
+.eliminarEmpresa:hover {
+    background-color: #fc3e3ec0;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.eachTarea{
+    color: black;
+    font-size: 20px;
 }
 

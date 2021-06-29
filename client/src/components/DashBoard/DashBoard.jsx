@@ -5,24 +5,31 @@ import CardsEmpresas from '../CardEmpresa/CardsEmpresas';
 import add from '../../assets/añadir.png';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import styles from './styles.module.css'
 import Slider from 'react-slick'
+import styles from './styles.module.css'
 import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllEmpresas } from '../../redux/actions/empresaActions';
+import {clearWeather} from '../../redux/actions/weatherActions'
 import {motion} from 'framer-motion';
+import Cookies from 'universal-cookie';
 
 
 export default function DashBoard (){
 
+  const cookies = new Cookies()
   const [showNews, setShowNews]= useState(false)
   const [stateAux, setStateAux]= useState(false)
   const dispatch = useDispatch()
   const allEmpresas = useSelector(state => state.empresaReducer.allEmpresas)
-
-  useEffect(()=>{
-      dispatch(getAllEmpresas())
+  const userId = useSelector(state => state.userReducer.userInfo.user.id)
+ 
+  
+  useEffect(()=>{   
+      dispatch(clearWeather()) 
+      dispatch(getAllEmpresas(userId))
       setStateAux(true)
+      cookies.set('selectedEmpresa', '', {path:'/', expires: new Date(Date.now()+2592000)})
   },[])
   useEffect(()=>{
     console.log(allEmpresas);
@@ -98,7 +105,7 @@ export default function DashBoard (){
                 <h1 className={styles.title}>Mis Empresas</h1>
                     <Slider {...settings}>
                       <Link path to='/newempresa' className={styles.mainAdd}>
-                          <div  className={styles.cardContAdd} >
+                        <div  className={styles.cardContAdd} >
                             <h1 className={styles.titleAdd}>Agregar Empresa</h1>
                           <img src={add} alt="" className={styles.imgAdd}/>
                         </div>

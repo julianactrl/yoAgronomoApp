@@ -1,0 +1,80 @@
+{
+    "insecticidas": [
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Piretroides",
+            "props": "Actúan generando una alteración en la transmisión del impulso nervioso, haciendo más lento o impidiendo el cierre de los canales de Na+, De contacto en el vegetal, Por contacto e ingestión en el insecto, No residuales, Volteadores, Perjudiciales para la fauna benéfica, Bifentrin / Cipermetrina / Deltametrina / Lambdacialotrina  para control de chinches, isocas y como tratamiento de semillas."
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Fenilpirazoles",
+            "props": "Actúan como antagonistas del GABA, generando hiperexcitación en nervios y músculos, Sistémicos en el vegetal, Por contacto e ingestión en el insecto, Fipronil -> para control de hormigas"
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Avermectinas",
+            "props": "Actúan como agonistas del GABA, paralizando el sistema neuromuscular, De contacto en la planta, Por contacto e ingestión en el insecto, De origen biológico, Amplio espectro, Abamectina -> acaricida"
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Organofosforados",
+            "props": "Se asocian a la acetil-colinesterasa, inhibiendo el corte del pasaje del impulso nervioso, Acción no reversible, no se desprenden de la acetil-colinesterasa, Acción en el insecto por contacto, ingestión e inhalación, Acción en la planta: -Sistémicos: Acefato -> curasemillas contra gusano blanco Dimetoato -> contra ácaros y trip -Translaminares: Clorpirifós -> amplio espectro -Contacto: Fenitrotion / Primifós-metil -> para granos almacenado"
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Carbamatos",
+            "props": "Se asocian a la acetil-colinesterasa inhibiendo el corte del pasaje del impulso nervioso., Son de acción reversible, Actúan en el insecto por contacto e ingestión, Acción en la planta: -Contacto: Carbaril -> amplio espectro -Translaminar: Pirimicarb -> para pulgones -Sistémico: Tiodicarb -> tratamiento de semillas contra lepidópteros"
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "AnálogosNereistoxina",
+            "props": "Actúan como miméticos de la acetil-colina, causando parálisis, Sistémicos en la planta, Por contacto e ingestión en el insecto, Cartap -> contra isocas, mosca blanca y minadores en hortícolas"
+        },
+        {
+            "type": "Interferencia con el sistema nervioso",
+            "subtype": "Neonicotinoides",
+            "props": "Actúan como miméticos de la acetil-colina, causando parálisis, Muy tóxicos para abejas, Sistémicos en planta, Por contacto e ingestión en el insecto, Thiametoxam -> contra chinches, pulgones, mosca blanca, etc, Imidacloprid -> curasemillas y aplicación foliar, de amplio espectro"
+        },
+        {
+            "type": "Reguladores del crecimiento",
+            "subtype": "Ecdisoides",
+            "props": "Reguladores de la ecdisoma, inducen a la muda permanentemente, Sistémicos en planta, Contacto e ingestión en insecto, Tebufenozide -> para lepidópteros en frutales"
+        },
+        {
+            "type": "Reguladores del crecimiento",
+            "subtype": "Benzoilureas",
+            "props": "Inhiben la síntesis de quitina, generando malformación de la cutícula, De contacto en la planta, Por contacto e ingestión en el insecto, Diflubenzurón / Teflubenzurón  para lepidópteros"
+        },
+        {
+            "type": "Inhibidores de la Accion Muscular",
+            "subtype": "Diamidas",
+            "props": "Mantienen abiertos los canales de calcio agotando las reservas e impidiendo contracciones musculares, Sistémicos en planta, De contacto e ingestión en el insecto, Clorantaniliprole -> para lepidópteros (ovolarvicida), Flubendiamide -> para lepidópteros"
+        },
+        {
+            "type": "Bloqueadores de la Alimentación",
+            "subtype": "Piridincarboxamidas",
+            "props": "Inhiben las glándulas salivales, por ende, la alimentación, Translaminares y sistémicos en planta, Por contacto e ingestión en insecto, Flonicamida -> para mosca blanca y pulgón en frutihortícolas"
+        },
+        {
+            "type": "Bloqueadores de la Alimentación",
+            "subtype": "Piridinas",
+            "props": "Inhiben las glándulas salivales, por ende, la alimentación, Translaminares y sistémicos en planta, Por contacto e ingestión en insecto, Pimetrozine -> para pulgones en soja, tomate, algodón"
+        },
+        {
+            "type": "Inhibidores de la FosforilacionOxidativa",
+            "subtype": "Pirroles",
+            "props": "Interrumpen el transporte de electrones en las células, Translaminar en planta, Por ingestión en insecto, Clorfenapir -> lepidópteros y ácaros en tomate, soja y algodón"
+        },
+        {
+            "type": "Reguladores del Comportamiento",
+            "subtype": "Feromonas",
+            "props": "Gossyplure -> para lagarta rosada del algodonero"
+        },
+        {
+            "type": "Microbiologicos",
+            "subtype": "VirusBacteriasHongos",
+            "props": "Por contacto en planta, Por ingestión en insecto, Para control de lepidópteros"
+        }
+       
+    ]
+}

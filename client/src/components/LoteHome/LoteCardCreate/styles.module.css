@@ -1,0 +1,73 @@
+
+/* agregar empresa */
+
+
+.cardContAdd{
+    transition: 0.3s;
+    display: flex;
+    cursor: pointer;
+    /* left: 180px; */
+    background-image:url('../../../assets/cicle.png');
+    background-position:center;
+    background-blend-mode: exclusion;
+    background-repeat: no-repeat;
+    background-clip:padding-box;
+    background-size: 600px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    align-items: center;
+    object-fit: cover;
+    width: 36vh;
+    height: 21vh;
+    background-color: #5a5a5afd;
+    border:none;
+    box-shadow: 0px 0px 30px black;
+    
+}
+/* .imgAdd2{
+    width: 20%;
+    height: 30%;
+    position: fixed;
+    opacity: 0.3;
+} */
+.cardContAdd:hover{
+    transition: 0.3s;
+    background-image:url('../../../assets/cicle.png');
+    background-blend-mode: normal;
+    background-color: #6f7e6dfd;
+    background-size: 400px;
+    border:none;
+    box-shadow: 5px 5px 40px black;
+}
+
+.titleAdd{
+    opacity: 0;
+    color: black;
+    transition: 0.9s;
+}
+.cardContAdd:hover .titleAdd{
+    opacity: 1;
+    font-size: 150%;
+    color: rgb(248, 248, 248);
+    transition: 0.3s;
+}
+
+
+.imgAdd{
+    position: relative;
+    bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.096);
+    border-radius: 1000px;
+    border: 2px solid rgba(0, 189, 13, 0.075);
+    width: 30%;
+} 
+.imgAdd:hover{
+    transition: 1s;
+    background-color: #eceeea;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    border: 2px solid rgba(0, 104, 189, 0.226);
+}

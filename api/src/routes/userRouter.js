@@ -1,25 +1,21 @@
 const server = require("express").Router();
-const { 
-    isAuthenticated, 
-    isAdmin 
-} = require("../middleware/customMiddleware");
-
+const upload = require('./../libs/storage');
 //---------------------------------------------------------------//
 const { 
-    getUserAll, 
-    getUserById,
-    editUser,
     deleteUser,
-    getEmpresaByUserId
+    updateUser,  
+    getImageProfile
+
 } = require("../controllers/userController");
+
 
 //-------------------------Route Users--------------------------//
 
-server.get("/", getUserAll);
-server.get("/:id", getUserById);
-server.put('/edit/:id', isAuthenticated, editUser)
-server.delete('/delete/:id', isAuthenticated, deleteUser)
-server.get('/empresa/:userId', getEmpresaByUserId)
+
+server.patch('/edit/:id', upload.single("profile_pic"), updateUser)
+server.delete('/delete/:id', deleteUser)
+server.get('/picture/:name', getImageProfile)
+
 
 
 module.exports = server;

@@ -1,70 +1,9 @@
-const { User, Empresa } = require("../db");
+const { Post, Empresa,User } = require('../db');
+const bcrypt = require('bcrypt');
+const authConfig = require('../config');
+const path = require("path");
+const fs = require("fs");
 
-const getUserAll = async(req, res, next) => {
-  try {
-    if (req.user) {
-      const result = await User.findAll();
-      res.send(result);
-    } else {
-      res.status(401).json({ message: "No hay usuarios" });
-    }
-  } catch (error) {
-    next(error);
-  }
-};
-
-//==================================================//
-const getUserById = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const result = await User.findByPk(id);
-    res.send(result);
-  } catch (error) {
-    next(error);
-  }
-};
-//==================================================//
-const editUser = (req, res, next) => {
-  const { id } = req.params;
-
-  const { email, password, fullName, googleId, profile_pic } = req.body;
-
-  User.update(
-    {
-      email,
-      password,
-      fullName,
-      googleId,
-      profile_pic
-    },
-    {
-      where: {
-        id: id,
-      },
-    }
-  ).then((modified) => {
-    console.log(modified);
-    if (modified[0] === 0) {
-      return res.status(404).json({ message: "Usuario no encontrado" });
-    }
-    res.status(200).json({ message: "Usuario modificado con exito" });
-  });
-};
-
-//==================================================//
-const deleteUser = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    await User.destroy({
-      where: {
-        id: id,
-      },
-    });
-    res.status(202).json({ message: "Cuenta Eliminada con Exito" });
-  } catch (error) {
-    next(error);
-  }
-};
 
 //==================================================//
 
@@ -88,11 +27,61 @@ const getEmpresaByUserId = (req, res) => {
       res.send({ message: err }).status(400);
     });
 };
+const updateUser = async(req,res) => {
+  const { id } = req.params;
+  const { fullName, email } = req.body;  
+  let password = bcrypt.hashSync(req.body.password, Number.parseInt(authConfig.rounds));
+  let userFind = await User.findAll({where: {id:id}})
+  console.log(userFind)
+   
+  if (req.file) {
+    var profile = req.file.filename;
+    console.log(profile)
+  } 
+  if (userFind.length > 0) {
+      userFind.map(async user => {
+          await user.update({
+              fullName,
+              email,
+              password,
+              profile_pic: profile
+          });
+      });
+      return res.json({
+          message: "User updated",
+          date: userFind
+      })
+  }
+}
+/////////////////////////////////////////
+
+const getImageProfile = (req, res) => {
+  let getImage;
+  const { name } = req.params;
+  let pathImage = path.join(__dirname, "../");
+  // console.log("soy el path ",pathImage)
+  try {
+    getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+  } catch (error) {
+    getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+  }
+  res.set({ "Content-Type": "image/png" });
+  res.send(getImage);
+};
+////////////////////////////////
+
+const deleteUser = (req, res) => {
+  const { id } = req.params;
+  User.findByPk(id)
+    .then((deleteUser) => deleteUser.destroy())
+    .then((deleteUser) => res.send("Usuario eliminado con exito"))
+    .catch((err) => res.send(err));
+};
 
 module.exports = {
-  getUserAll,
-  getUserById,
-  editUser,
-  deleteUser,
+
   getEmpresaByUserId,
+  updateUser,
+  deleteUser,
+  getImageProfile
 };

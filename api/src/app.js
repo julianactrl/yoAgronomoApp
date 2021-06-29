@@ -1,17 +1,19 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
-const passport = require("./passport");
-
+const server = express();
 
 require("./db.js");
 
-const server = express();
+//=====passport ====
+const passport = require("./passport");
+//const session = require("express-session");
 
-server.name = "API";
-
+//===================================================================
+server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 server.use(bodyParser.json({ limit: "50mb" }));
 server.use(cookieParser());
@@ -23,11 +25,16 @@ server.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
   next();
 });
 
+// Middlewares
+server.use(express.json());
+server.use(express.urlencoded({ extended: false }));
+
 server.use(passport.initialize());
+
 
 server.all("*", function (req, res, next) {
   passport.authenticate("bearer", function (err, user) {
@@ -38,15 +45,15 @@ server.all("*", function (req, res, next) {
     return next();
   })(req, res, next);
 });
+//===================================================================
 
 server.use("/", routes);
 
 // Error catching endware.
 server.use((err, req, res, next) => {
-  // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
-  console.error(err);
+  console.error("soy el error en app.js", err);
   res.status(status).send(message);
 });
 

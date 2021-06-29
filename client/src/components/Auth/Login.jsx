@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import styles from '../LandingPage/styles.module.css'
 import { login } from '../../redux/actions/userActions';
 import {useHistory} from 'react-router-dom';
+
 
 
 export function validate(input) {
@@ -19,16 +20,19 @@ export function validate(input) {
     return errors;
   };
 
+
 const Login = () => {
 
 
     const dispatch = useDispatch();   
     let history= useHistory();
+    const logged = useSelector (state =>state.userReducer.isAuth)
 
     const [input,setInput] = useState({
         email:"",
         password: ""
     })
+    const [loading, setLoading] = useState(false)
 
     const [errors, setErrors] = useState({});
     const handleChange = function(e) {
@@ -47,15 +51,17 @@ const Login = () => {
      function handleSubmit(e){
          e.preventDefault();
          console.log(input)
-         dispatch(login(input)) 
-         history.push('/home')
+         dispatch(login(input))
+         setLoading(true) 
+         
+
      }
 
     return (
         <div className={styles.container}>
             <form action="" onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.inputGroup}>
-                <label  className={styles.labels} htmlFor="email">Email</label>
+                <label  className={styles.labels} htmlFor="email"></label>
                 <input 
                 placeholder='email@yoagronomo.com'
                 className={styles.loginInput} 
@@ -68,7 +74,7 @@ const Login = () => {
     )} 
             </div>
             <div className={styles.inputGroup}>
-                <label  className={styles.labels} htmlFor="password">Contraseña</label>
+                <label  className={styles.labels} htmlFor="password"></label>
                 <input 
                 placeholder='Contraseña'
                 className={styles.loginInput} 
@@ -81,9 +87,20 @@ const Login = () => {
     )} 
             </div>
             <div>
+              { input.password?
                 <button 
                 type= "submit"
-                className={styles.loginBtn}>Login</button>
+                className={styles.loginBtn}>Login</button> : <button type='button' className={styles.disabledLogin}>
+                  Login
+                </button>
+              }
+            </div>
+            <div>
+              {
+                loading? <div>
+                  <img className={styles.loader} src='http://www.hadecoration.gift/public/images/ajax-loader-green.gif' />
+                  </div> : <div></div>
+              } 
             </div>
             </form>
             

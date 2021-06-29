@@ -13,6 +13,7 @@ const News = (props) => {
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])
     const [actTopBar, setActTopBar] = useState(false);
+    const REACT_APP_NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY
 
     // const dispatch = useDispatch()
     // const news = useSelector(state => state.newsReducer.news)
@@ -21,7 +22,7 @@ const News = (props) => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 3500,
         pauseOnHover: true,
         className: "center",
         centerMode: true,
@@ -41,7 +42,7 @@ const News = (props) => {
       var startDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + (Add0(newDate.getDate() - 7))
     useEffect(() => {
         const apicall = async() => {
-            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=1d9780ccf33747c28202188431c63fb7&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
+            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=${REACT_APP_NEWS_API_KEY}&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
             setData(res.data)
             // await dispatch(getNews())
             if(props.news){
@@ -60,7 +61,7 @@ const News = (props) => {
         return (
           <div
             className='nextBtn'
-            style={style}
+            // style={style}
             onClick={onClick}
           />
         );
@@ -70,7 +71,7 @@ const News = (props) => {
         return (
           <div
           className='prevBtn'
-            style={style}
+            // style={style}
             onClick={onClick}
           />
         );
@@ -83,6 +84,8 @@ const News = (props) => {
                     <img src="https://media4.giphy.com/media/kHgUVJysYKJjzJf1XY/source.gif" alt="LoadingGif" className='loadingGif' /> 
                 </div> 
                         :
+                        <div className='carruselCont'>
+                        <h1 className='newsTitle parpadeo'>ULTIMAS NOTICIAS</h1>
                     <div className='containerDivArt'>
                         <Slider {...settings} className='slider'>
                             {data.articles.map((a) => {
@@ -102,6 +105,7 @@ const News = (props) => {
                                 )
                             })}
                         </Slider>
+                    </div>
                     </div>
                 }
             </div>

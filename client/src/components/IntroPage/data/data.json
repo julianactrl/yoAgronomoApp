@@ -1,0 +1,141 @@
+{
+    "Header": {
+
+        "title": "YoAgrónomo",
+        "paragraph": "Soluciones integrales para la gestion Agro"
+
+    },
+    "About": {
+        "paragraph": "Yo Agrónomo nace de la necesidad de quienes están en el sector, de una platafroma de herramientas integradas. Buscamos facilitar las tareas diarias de quienes se dedican a organizar y administrar empresas agrarias, para facilitar no solo las tareas del día a día, sino las más complejas que requieran almacenamiento y consulta de información",
+        "Why": [
+            "Plataforma rápida y moderna",
+            "Herramientas integradas de manejo",
+            "Consultas diarias actualizadas",
+            "Features en tiempo real"
+        ],
+        "Why2": [
+            "Actualizaciones permanentes",
+            "Pagina ordenada e intuitiva",
+            "Posibilidad de upgrade",
+            "Membresías con beneficios"
+        ]
+    },
+    "Services": [{
+            "icon": "fa fa-desktop",
+            "name": "Carga y gestión de empresas",
+            "text": "Carga de manera manual de empresas a administrar por el usuario. Se vinculan datos de ubicación y hectáreas totales"
+        },
+        {
+            "icon": "fa fa-map-marker",
+            "name": "Gestión de Lotes",
+            "text": "Carga de lotes dentro de una empresa con superficie y ubicación exacta"
+        },
+        {
+            "icon": "fa fa-line-chart",
+            "name": "Indices en tiempo real",
+            "text": "Detalle por lote de indices satelitales en tiempo real"
+        },
+        {
+            "icon": "fa fa-sun-o",
+            "name": "Clima actualizado",
+            "text": "Datos del clima y pronostico extendido para las ubicaciones de la empresa y cada uno de sus lotes"
+        },
+        {
+            "icon": "fa fa-newspaper-o",
+            "name": "Mercados y noticias",
+            "text": "Posibilidad de consultar noticias actualizadas relacionadas al agro. Además del acceso diario a la cotización del dolar y precio de commodities"
+        },
+        {
+            "icon": "fa fa-tasks",
+            "name": "Gestión comercial",
+            "text": "Carga de información relevante respecto a Transporte,stocks e insumos. Proyección mensual"
+        }
+
+
+    ],
+    "Testimonials": [{
+            "img": "img/testimonials/01.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/02.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/03.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/04.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        },
+        {
+            "img": "img/testimonials/05.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "John Doe"
+        },
+        {
+            "img": "img/testimonials/06.jpg",
+            "text": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at.\"",
+            "name": "Johnathan Doe"
+        }
+    ],
+    "Team": [{
+            "img": "https://media-exp3.licdn.com/dms/image/C4D03AQHgaTR2C5wwfw/profile-displayphoto-shrink_200_200/0/1606063077398?e=1628726400&v=beta&t=2VFennhd5XxnpChqa_XQRuwCQXp4lyG9ZTWmPunM-u4",
+            "name": "Dario Rodriguez",
+            "job": "Api Master"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t31.18172-8/27503638_358065284671897_3750853566213491229_o.jpg?_nc_cat=105&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=f_RJgcisrkcAX8YmJM-&_nc_ht=scontent.fsfn1-1.fna&oh=8b1013e009714cbd6e4302ee44432cbb&oe=60D94845",
+            "name": "Felipe Escalante",
+            "job": "Scrum Master"
+        }, {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/31271312_10214606832276508_7802104072265269248_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=htanddQ9aosAX_Jr4tX&_nc_ht=scontent.fsfn1-1.fna&oh=6dbd136f25170af0f7035c1eac0fa6aa&oe=60D84CB6",
+            "name": "Selene Bruno",
+            "job": "FrontEnd"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "name": "Gabriel Peiteado",
+            "job": "CSS leader"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "name": "Mauricio Di Pietro",
+            "job": "CSS leader"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/94962401_10220318979461361_7852322376078327808_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=jk6io4zFTxYAX8AnMyO&_nc_ht=scontent.fsfn1-1.fna&oh=6585dc85264cc783b1f7f42fcef7f40e&oe=60D841F4",
+            "name": "Leonardo Caraque",
+            "job": "CSS leader"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "name": "Martin Lolbell",
+            "job": "CSS leader"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "name": "Julieta Gonzalez",
+            "job": "CSS leader"
+        },
+        {
+            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "name": "Gonzalo Arancibia",
+            "job": "CSS leader"
+        }
+    ],
+    "Contact": {
+        "address": "Corrientes 367, Rafaela,Santa Fe, Argentina",
+        "phone": "+54 3492672847",
+        "email": "yoagronomo@gmail.com",
+        "github": "github.com",
+        "instagram": "instagram.com/soyhenry",
+        "twitter": "twitter.com"
+    }
+    
+}

@@ -11,6 +11,139 @@
 }
 
 
+@media (max-width:1920px){ 
+    .title  .logo{
+        margin: 2rem 1rem;
+        width:75px;
+        height: 75px;
+    }
+    
+    .btnGooglee{
+        position: relative;
+        /* top: 20px; */
+        left: -2vh;
+    }
+    .contenedorTittle{
+        /* background-color: violet; */
+        display: flex;
+        width: 50vh;
+        position: relative;
+        justify-content: space-around;
+        align-items: center;
+        top: 31vh;
+        left: 24.5vh;
+    }
+
+    .title{
+        color: white;
+        font-size: 28px;
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        position: absolute;
+        top: 22rem;
+        right: 13vh;
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+    
+    }
+    .title h2{
+        font-size: 50px;
+        font-weight: lighter !important;
+    }
+    
+.registro{
+    background-color: #5555559d;
+    text-decoration: none !important;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    width: 11.5rem;
+    font-size: 20px;
+    /* position: absolute; */
+    /* top:26.3%; */
+    /* left: 25.66%; */
+}
+.login{
+    background-color: #5555559d;
+    text-decoration: none !important;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2rem;
+    width: 11.6rem;
+    font-size: 20px;
+    /* position: absolute;
+    top:26.3%;
+    left: 12.7%; */
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+    margin: 32vh 0 0 26vh;
+    font-weight: 600;
+    background-color: rgba(255, 240, 240, 0.568);
+    border-radius: 10px;
+    padding: 3vh;
+    max-width: 47vh;
+    height: 40vh;
+    
+}
+.loginInput{
+    /* display: flex; */
+    margin-top: 10px;
+    text-align: left;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    max-width: 220px;
+    /* border: none; */
+    /* padding: 5px; */
+    height: 2rem;
+    border-radius: 4px;
+}
+.loginBtn{
+    width: 230px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    margin: 5vh 0;
+    color: rgb(0, 0, 0) ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.registerBtn{
+    width: 230px !important;
+    margin: 3vh 0 0 0;
+    font-size: 12px !important;
+    color: rgb(0, 0, 0) ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    padding: 10px !important;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.2s ease 0s;
+}
+.google{
+    max-width: 200px;
+    margin-left: 42vh;
+    margin-top: 3vh;
+}
+
+}
+
 
 
 @media (min-width:1920px){ 
@@ -19,6 +152,7 @@
         width:75px;
         height: 75px;
     }
+    
     
     
     .title{
@@ -284,7 +418,53 @@
 .login:active{
     background-color: #b1c49b;
 }
+.disabled{
+    width: 230px !important;
+    margin: 3vh 0 0 0;
+    font-size: 12px !important;
+    color: rgb(0, 0, 0) ;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #b1c49b !important;
+    padding: 10px !important;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    cursor: not-allowed;
+}
 
+.disabled:hover{
+    cursor: not-allowed;
+}
+
+.disabledLogin{
+    width: 230px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    margin: 3vh 0 1vh 0vh;
+    color: rgb(0, 0, 0) ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #b1c49b !important;
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+.disabledLogin:hover{
+    cursor: not-allowed;
+}
+
+.loader{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: auto 0;
+}
 
 .registerBtn:hover {
     cursor: pointer;

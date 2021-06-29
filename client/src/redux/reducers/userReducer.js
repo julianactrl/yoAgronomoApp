@@ -4,7 +4,10 @@ import {
   REGISTER_USER_SUCCESS,
   USER_LOGIN_SUCCESS,
   USER_LOGOUT,
-  USER_LOGOUT_ERROR
+  USER_LOGOUT_ERROR,
+  GET_USER,
+  LOADING_USER,
+  UPDATE_USER
 } from "./../constants";
 
 const initialState = {
@@ -21,6 +24,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         user: {},
+        userInfo: {},
         error: false,
         isLoading: true,
       };
@@ -29,6 +33,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+        userInfo: action.payload,
         isLoading: false,
         error: false,
       };
@@ -51,15 +56,39 @@ const userReducer = (state = initialState, action) => {
         isAuth: true,
       };
     }
+    case GET_USER: {
+      return{
+        ...state,
+        userInfo: action.payload,
+        isLoading: false,
+      }
+    }
+    case LOADING_USER:{
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
     case USER_LOGOUT:
       return {
         isAuth: false,
+        userInfo:{},
+        user:{}
       };
     case USER_LOGOUT_ERROR: {
       return {
         error: true
       }
     }
+    case UPDATE_USER: {
+      return {
+        ...state,
+        user: action.payload,
+        userInfo: action.payload,
+
+      };
+    }
+
     default:
       return state;
   }

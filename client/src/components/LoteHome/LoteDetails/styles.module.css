@@ -1,0 +1,919 @@
+.contMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    bottom: 5vh;
+}
+.contCard{
+    position: relative;
+    top: 5rem;
+    width: 150vh;
+    height: 70vh;
+    -webkit-perspective: 4000;
+
+}
+.card{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+}
+
+.cardAct{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: 0.6s;
+    transform: rotateY(180deg);
+}
+
+.loteDetails{
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px black;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.219);
+    box-shadow: 0 0 10px black;
+}
+.name{
+    font-size: 40px;
+    font-family: Roboto;
+    letter-spacing: 3px;
+    color: white;
+    position: relative;
+    text-align: center;
+    left: 25%;
+    /* border: 3px solid white; */
+}
+.inputName{
+    transition: 0.3s;
+    font-family: Roboto;
+    position: absolute;
+    bottom: -.3rem;
+    background: none;
+    border: none;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    width: 100%;
+    height: 4rem;
+    background-color: #fafafa28;
+    box-shadow: 0 0 10px rgb(17, 17, 17);
+}
+.inputNameBtn{
+    transition: 0.3s;
+    border: none;
+    color: rgb(44, 44, 44);
+    position: relative;
+    bottom: .8rem;
+    left: 0.5rem;;
+    border: none;
+    height: 3rem;
+    background: none;
+    background-color: #86caa68a;
+    width: 4rem;
+    box-shadow: 0 0 5px black;
+}
+.inputNameBtn:hover{
+    transition: 0.3s;
+    color: white;
+    box-shadow: 0 0 10px rgb(15, 15, 15);
+    background-color: #57db95ce;
+}
+.contenedorHeader{
+    /* background-color: rgba(255, 99, 71, 0.479); */
+    display: flex;
+    /* border: 2px solid wheat; */
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 4vh;
+    /* height: 15%; */
+}
+.obsRec {
+    position: relative;
+    display: flex;
+    bottom: 5%;
+    display: flex;
+    width: 80%;
+    height: 65%;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.slider{
+    position: relative;
+    left: 2%;
+    width: 50%;
+    height: 100%;
+    /* border: 4px solid white; */
+}
+
+.details{
+    color: white;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.contDataClima{
+    position: relative;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+
+}
+.contClima{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+.imgClima{
+    position: relative;
+    width: 100px;
+
+}
+
+.contClimaText{
+    position: relative;
+    left: 5%;
+}
+.contLogoDelEdit{
+    display: flex;
+    position: relative;
+    width: 15%;
+    justify-content: space-between;
+    top:34rem;
+    right: 37.5rem;
+    /* border: 2px solid wheat; */
+    /* cursor: pointer; */
+}
+.editLogo,
+.deleteLogo{
+    background-color: rgba(124, 124, 124, 0.24);
+    border: 2px solid rgba(129, 143, 151, 0.192);
+    border-radius: 5px;
+    /* border: 3px solid wheat; */
+    width: 45px;
+}
+.editLogo:hover,
+.deleteLogo:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid rgba(0, 225, 255, 0.26);
+    background-color: rgb(189, 189, 189);
+    box-shadow: 0 0 5px white;
+}
+
+.ghostDivHidden{
+    position: absolute;
+    width: 60vh;
+    height: 20vh;
+    transition: .1s;
+    opacity: 0;
+    bottom: 40%;
+}
+.ghostDiv{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 60vh;
+    height: 30vh;
+    transition: .1s;
+    opacity: 1;
+    bottom: 40%;
+}
+
+.dataText{
+    
+    font-size: 19px;
+}
+.cross{
+    position: relative;
+    left: 40%;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image: url('../../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
+
+}
+/* //////////////////////////////////////////////////////////////////////////////////////// */
+.nextBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 60px;
+    left: 23rem;
+    transform: rotate(-90deg);
+    top: 3rem;
+    height: 60px;
+    border-radius: 60px;
+    
+}
+.nextBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+}
+.nextBtn:active{
+    background-size: 50px;
+}
+.prevBtn{
+    background-image: url('../../../assets/arrow.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    top: 32rem;
+    left: 15rem;
+    transform: rotate(90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+
+}
+.prevBtn:hover{
+    transition: 0.3s;
+    background-size: 100px;
+    cursor: pointer;
+
+}
+.prevBtn:active{
+    background-size: 50px;
+}
+/* /////////////////////////////////////////////////////////////////////////// */
+.btnDetails{
+    border:none;
+    position: relative;
+    text-decoration: none;
+    height: 10%;
+    width: 25%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    background-color: #86caa68a;;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+}
+.btnDetails:hover{
+    background-color: #27963c;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+/* ((((((((((((((((((((((((((((((((((((BOTONES OBSERVACIONES Y TAREAS )))))))))))))))))))))))))))))))))))) */
+
+.contTitleManejo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 8vh;   
+}
+.manejoTitle{
+    font-size: 28px; 
+}
+.deleteLogoManejo,
+.editLogoManejo{
+    background-color: rgba(124, 124, 124, 0.24);
+    border: 2px solid rgba(129, 143, 151, 0.192);
+    border-radius: 5px;
+    /* border: 3px solid wheat; */
+    width: 30px;
+}
+.deleteLogoManejo:hover,
+.editLogoManejo:hover{
+    transition: 0.3s;
+    cursor: pointer;
+    border: 2px solid rgba(0, 225, 255, 0.26);
+    background-color: rgb(189, 189, 189);
+    box-shadow: 0 0 5px white;
+
+}
+.contEditBtns{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 15rem;
+    height: 2rem;
+    bottom: -1.8rem;
+}
+
+.editManejoBtnCancelar{
+    color: rgb(209, 250, 255);
+    font-size: 15px;
+    border: none;
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #6d2626c9;
+    box-shadow: 0 0 5px rgb(10, 10, 10);
+}
+.editManejoBtnCancelar:hover{
+    transition: 0.2s;
+    background-color: #c3254dce;
+    
+}
+
+.editManejoBtn{
+    color: rgb(209, 250, 255);
+    font-size: 15px;
+    border: none;
+    width: 45%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #86caa68a;
+    box-shadow: 0 0 5px rgb(10, 10, 10);
+}
+.editManejoBtn:hover{
+    transition: 0.2s;
+    background-color: #9ff6c8b4;
+    
+}
+.editManejo{
+    transition: 0.3s;
+    opacity: 1;
+    overflow: hidden;
+    border: none;
+    background: none;
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.157);
+    width: 100%;
+    height: 100%;
+}
+.manejoHeader{
+    position: relative;
+    top: -1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.contEditDelManejo{
+    display: flex;
+    justify-content:space-evenly;
+    width: 30%;
+}
+.obs,
+.rec{
+    width: 46%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 2.5rem;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.171);
+}
+.obs::-webkit-scrollbar,
+.rec::-webkit-scrollbar {
+    transition: 0.3s;
+    width: 0.1rem;
+    background: rgba(169, 217, 248, 0.185);
+    border-radius: 4px;
+}
+.segmentManejo{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    transition: 0.3s;
+    width: 100%;
+    height: 22.4rem;
+    object-fit:contain;
+    scroll-snap-align: center;
+}
+.dataManejo{
+    position: relative;
+    font-size: 26px;
+    display: flex;
+    text-align: start;
+    justify-content: space-around;
+    width: 100%;
+    height: 70%;
+}
+.contBtnsImg{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.btnImgManejoCerrar{
+    background:none;
+    border: none;
+    background-color: #6d2626c9;
+    color: white;
+    width: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 0 2px black;
+}
+.btnImgManejoCerrar:hover{
+    transition: 0.3s;
+    background-color:#eb5151e5;
+}
+.btnImgManejo{
+    font-size: 15px;
+    background:none;
+    border: none;
+    background-color:#86caa68a;
+    color: white;
+    width: 6rem;
+    border-radius: 8px;
+    box-shadow: 0 0 2px black;
+}
+.btnImgManejo:hover{
+    transition: 0.3s;
+    color: black;
+    background-color:#91d689e5;
+    
+
+}
+.deleteManejobtn{
+    position:relative;
+    top: -1rem;
+    left: -13rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vh;
+    height: 2vh;
+    color: rgb(255, 255, 255);
+    background-color: rgba(80, 0, 0, 0.767);
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+}
+.deleteManejobtn:hover{
+    transition: .3s;
+    background-color: red;
+    color: rgb(0, 247, 255);
+    box-shadow: 0 0 5px rgb(255, 0, 0);
+
+}
+.contObsActivated{
+    position: relative;
+    font-family: Roboto;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.294);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 30px black;
+    animation-name: agrandar;
+    animation-timing-function: ease;
+    animation-duration: 0.3s;
+    animation-iteration-count:inherit;
+    animation-direction: alternate;
+}
+.manejobar{
+    font-size: 30px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.manejobar:hover{
+    transition: 0.3s;
+    color: rgba(0, 0, 0, 0.794);
+    text-shadow: -0px 0px 10px rgb(255, 255, 255);
+}
+
+.contObsDesactivated{
+    position: relative;
+    top: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px black;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.294);
+    height: 8vh;
+    width: 100%;
+}
+.contObsDesactivated:hover{
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgb(179, 179, 179);
+    background-color: rgba(58, 58, 58, 0.431);
+
+}
+@keyframes agrandar {
+    from{
+        top:75%;
+        height: 0;
+    }
+    to{
+        top:0;
+        height: 100%;
+    }
+    
+}
+@keyframes achicar {
+    from{
+        top: 0;
+    }
+    to{
+        top: 85%;
+    }
+    
+}
+/* //////////////////////////////////////////////////////////////////////////////// */
+.nothingHere{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    flex-direction: column;
+}
+.nothingHereImg{
+    position: relative;
+    top: 5rem;
+    width: 10rem;
+    opacity: .5;
+}
+.nothingHereTitle{
+    position: relative;
+    top: 3rem;
+    font-style: oblique;
+    color: rgb(65, 65, 65);
+    font-size: 22px;
+}
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+.contOverflow{
+    width: 95%;
+    height: 95%;
+    background-color: rgba(255, 255, 255, 0.144);
+    overflow:scroll; 
+    overflow-x: hidden; 
+    scroll-snap-type: y mandatory;
+}
+
+.contOverflow::-webkit-scrollbar {
+    transition: 0.3s;
+    width: 0.5rem;
+    background: rgba(224, 224, 224, 0.185);
+    border-radius: 4px;
+}
+.contOverflow::-webkit-scrollbar:hover {
+    background: rgba(133, 133, 133, 0.89);
+}
+
+.img{
+    opacity: 0.8;
+    height: 43vh;
+}
+.imgLogo{
+    height: 25rem;
+    width: 5px;
+    opacity: 0.8;
+}
+/* //////////////////////////////      FORMULARIO         //////////////////////////////////////////// */
+.none{
+    display: none;
+}
+
+.loteForm{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.246)rgba(0, 10, 0, 0.363),rgba(0, 31, 7, 0.308), rgba(3, 14, 0, 0.445));
+    /* url('../../../assets/logo\ -\ copia.png'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    background-clip: border-box;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    box-shadow: 0 0 10px black;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.219);
+    display: flex;
+    color: white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contCargaText{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+
+}
+.formPrincipio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.titleLote{
+    position: relative;
+    top: 5%;
+    letter-spacing: 1.5px;
+    font-family: Roboto;
+    right: 30%;
+    font-size: 40px;
+}
+
+.choseenCont{
+    position: relative;
+    display: flex;
+    top: 5%;
+    width: 30%;
+    justify-content: space-between;
+}
+.btn{
+    border:none;
+    position: relative;
+    text-decoration: none;
+    background: rgb(128, 128, 128);
+    width: 20vh;
+    height: 5vh;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color:#536369 ;
+    color:rgb(3, 3, 3);
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+
+}
+.btn:hover{
+    border:1px solid white;
+    background-color:#5f828f ;
+}
+.btnAtras{
+    border:none;
+    color: white;
+    position: fixed;
+    right: 2%;
+    top: 3%;
+    font-size: 100%;
+    text-decoration: none;
+    background: rgb(128, 128, 128);
+    height: 8%;
+    width: 6%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color:#536369 ;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease 0s;
+}
+.btnAtras:hover{
+    background-color: #8a3831;
+    color: #000000;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.cargarImg{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    flex-direction: column;
+    width: 20vh;
+    height: 20vh;
+}
+.btnsPrevNext{
+    position: relative;
+    right: 6.5rem;
+    bottom: 5rem;
+    border: none;
+    width: 15vh;
+    height: 5vh;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgb(71, 71, 71);
+    background-color: #536369;
+}
+.btnsPrevNext:hover{
+    transition: 0.3s;
+    background-color: rgb(147, 202, 224);
+    box-shadow: 0 0 10px rgb(119, 119, 119);
+}
+.fileselect {    
+    background-image: url('../../../assets/adjuntarArchivo.png');      
+    background-color:#ffffff ;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: white;
+    display: flex;    
+    width: 100px;   
+    height: 100px;    
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    border:1px solid rgba(255, 255, 255, 0);
+  }
+  .fileselect:hover{
+      transition: 0.3s;
+      background-size: 90%;
+      background-color: rgba(0, 217, 255, 0.801);
+      border:1px solid rgba(0, 0, 0, 0.644);
+  }
+   
+  .fileselect input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    display: inline-block;            
+  }
+  .contTextarea{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 60%;
+  }
+  .contSubmit{
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 20vh;
+      height: 20vh;
+  }
+  .submit{
+      background: none;
+      border: none;
+      color: wheat;
+      position: relative;
+      left: 5vh;
+      width: 15vh;
+      height: 5vh;
+      font-size: large;
+      background-color: rgb(43, 133, 31);
+      box-shadow: 0 0 10px rgb(0, 0, 0);
+  }
+  .submit:hover{
+    transition: 0.3s;
+    background-color: rgb(70, 177, 56);
+    box-shadow: 0 0 10px rgb(63, 63, 63);
+    letter-spacing: .3px;
+    color: white;
+
+  }
+  .textatera{
+      border:none;
+      color: white;
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, 0.452);
+      box-shadow: 0 0 10px rgba(56, 56, 56, 0.596);
+}
+.textareatitle{
+    position: relative;
+    font-size: 25px;
+    bottom:3vh;
+}
+/* /////////////////// MEDIA QUERYS ////////////////////////////// */
+@media (max-width: 1450px) {
+    .contCard{
+        width: 130vh;
+    }
+    .contLogoDelEdit{
+        right: 32rem;
+    }
+}
+
+@media (max-height: 900px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: 1rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 26.45rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 28.5rem;
+        left: -25rem;
+    }
+}
+@media (max-height: 750px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: .7rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 24.45rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 26.5rem;
+        left: -24rem;
+    }
+}
+@media (max-height: 680px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+    .nextBtn{
+        top: .5rem;
+        left: 15rem;
+    }
+    .prevBtn{
+        top: 22rem;
+        left: 10rem;
+    }    
+    .contLogoDelEdit{
+        top: 23.5rem;
+        left: -22rem;
+    }
+}
+@media (max-width: 1200px) {
+    .contCard{
+        width: 120vh;
+    }
+    .contLogoDelEdit{
+        right: 30rem;
+    }
+}

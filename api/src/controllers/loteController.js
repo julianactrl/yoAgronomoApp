@@ -1,5 +1,7 @@
-const {Lote, Empresa} = require("../db");
+const {Lote, Empresa, ManejoDeLote, User} = require("../db");
 const { Op } = require("sequelize");
+const path = require("path");
+const fs = require("fs");
 
 const getAllLotes = async (req,res,next) => {
     const {id} = req.params
@@ -47,11 +49,8 @@ const getLoteById = async (req,res,next) => {
         })
         res.json(lote)
     } catch (error) {
-        if (!lote) {
-            return res.json({
-                messages: "Not found"
-            })
-        }
+        return next(error)
+        
     }
 }
 const deleteLote = async(req, res,next)=> {
@@ -74,31 +73,31 @@ const deleteLote = async(req, res,next)=> {
     }
 }
 const createLote = async(req,res,next) => {
-    const { name, superficie, ubicacion, imagen,empresaId} = req.body;
+    const { name, superficie, ubicacion, empresaId, idUser} = req.body;
 
+    if(req.file){
+        var Lot = req.file.filename
+    }
     try{
-        let newLote = await Lote.create({
+        var cantidad = await Lote.count({
+            where: {
+                empresaId: empresaId 
+            }
+          })
+          var user = await User.findByPk(idUser);
+            if(cantidad >= 2 && user.isPremium === false ){
+             return res.status(500).send("Debe hacerce premium")
+            }
+         await Lote.create({
             name,
             superficie,
             ubicacion,
-            imagen,
-            empresaId
-        }, {
-            fields: ['name', 'superficie', 'ubicacion', 'imagen','empresaId']
-        })
-        if (newLote) {
-            
-            res.status(200).json({
-                message: "Lote created succesfully",
-                data: newLote
-            })
-    }
-    }catch(error){
-        if(!newLote){
-            res.status(400).json({
-                message: "Somethings goes wrong"
-            })
-        }
+            empresaId,
+            imagen:Lot
+        });  res.status(200).json("fue  creada con exito");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(next);
     }
 }
 const updateLote = async(req,res,next) => {
@@ -126,6 +125,120 @@ const updateLote = async(req,res,next) => {
         })
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const createManejo = async (req,res,next) => {
+    const { loteId } = req.params
+    const { observaciones, recomendaciones, image } = req.body;
+
+    if(req.file){
+        var manejo = req.file.filename
+    }
+    try{
+        await ManejoDeLote.create({
+            loteId,
+            observaciones,
+            image,
+            recomendaciones,
+            image:manejo
+        });  res.status(200).json("fue  creado con exito");
+       
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(next);
+    }
+  };
+
+
+
+
+  const updateManejo = async(req,res,next) => {
+    const { id } = req.params;
+    const { observaciones,recomendaciones, description, image } = req.body;
+
+    let ManejoFind = await ManejoDeLote.findAll({
+        where: {
+            id
+        }
+    })
+    if (ManejoFind.length > 0) {
+        ManejoFind.map(async ManejoDeLote => {
+            await ManejoDeLote.update({
+                observaciones,
+                recomendaciones,
+                description,
+                image,
+            });
+        });
+        return res.json({
+            message: "Manejo updated",
+        })
+    }
+}
+
+const getAllManejo = async (req,res,next) => {
+    const {id} = req.params
+    try {
+        // const Manejo = await ManejoDeLote.count();
+        // if (Manejo !== 0) {
+          res.status(201).json(await ManejoDeLote.findAll({
+              include: {
+                  model: Lote,
+                  where :{
+                      id
+                  }
+              }
+          }));
+        // }
+      } catch (e) {
+        res.status(404).send(next);
+      }
+}
+  const deleteManejo = async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await ManejoDeLote.destroy({
+        where: {
+          id: id
+        },
+      });
+      res.json({ message: "Manejo Eliminado" });
+    } catch (e) {
+      res.status(500).send(next);
+    }
+  };
+/////////////////////////////////////////////////////////
+
+const getImageLote = (req, res) => {
+    let getImage;
+    const { name } = req.params;
+    let pathImage = path.join(__dirname, "../");
+    // console.log("soy el path ",pathImage)
+    try {
+      getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    } catch (error) {
+      getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+    }
+    res.set({ "Content-Type": "image/png" });
+    res.send(getImage);
+  };
+
+  const getImageManejoLote = (req, res) => {
+    let getImage;
+    const { name } = req.params;
+    let pathImage = path.join(__dirname, "../");
+    // console.log("soy el path ",pathImage)
+    try {
+      getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
+    } catch (error) {
+      getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
+    }
+    res.set({ "Content-Type": "image/png" });
+    res.send(getImage);
+  };
+
 
 module.exports = {
     getAllLotes,
@@ -133,5 +246,11 @@ module.exports = {
     getLoteById,
     deleteLote,
     createLote,
-    updateLote
+    updateLote,
+    createManejo,
+    updateManejo,
+    getAllManejo,
+    deleteManejo,
+    getImageLote,
+    getImageManejoLote
   }
