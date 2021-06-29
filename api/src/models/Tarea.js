@@ -13,6 +13,9 @@ module.exports = (sequelize) => {
       //   moment(getDataValue('DateTime')).format('DD.MM.YYYY')
       // }
     },
+    prioridad: {
+      type: DataTypes.STRING
+    }
 
   }); 
 };

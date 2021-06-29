@@ -5,15 +5,17 @@ const fs = require("fs");
 
 
 const createTarea = async(req, res, next) => {
-    const { tarea, fecha,empresaId } = req.body;
+    const { tarea, fecha, prioridad, empresaId } = req.body;
     try{
          await Tarea.create({
             tarea,
             fecha,
+            prioridad,
             empresaId,
         });  res.status(200).json({
             tarea,
             fecha,
+            prioridad,
             empresaId
           })
     } catch (error) {
@@ -105,7 +107,8 @@ const getAllTareasByEmpresa = async (req, res, next) => {
     const tareadb = {
       id: tarea.id,
       tarea: tarea.tarea,
-      fecha: tarea.fecha
+      fecha: tarea.fecha,
+      prioridad: tarea.prioridad
     };
     if (!tarea) {
       res.send("tarea no encontrada");

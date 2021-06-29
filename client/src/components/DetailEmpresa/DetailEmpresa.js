@@ -33,6 +33,9 @@ function DetailEmpresa ({id}) {
 
    function handleAgenda(e){
      e.preventDefault();
+     pBaja();
+     pMedia();
+     pAlta();
      dispatch(getAllTareas(idEmpresa))
    }
   
@@ -46,6 +49,28 @@ function DetailEmpresa ({id}) {
         
         
     }
+const [baja, setBaja] = useState([])
+function pBaja(){
+  let baja = tareas.filter((t)=>{
+    return t.prioridad.includes('Baja')
+  })
+  setBaja(baja)
+}
+const [media, setMedia] = useState([])
+function pMedia(){
+  let media = tareas.filter((t)=>{
+    return t.prioridad.includes('Media')
+  })
+  setMedia(media)
+}
+const [alta, setAlta] = useState([])
+function pAlta(){
+  let alta = tareas.filter((t)=>{
+    return t.prioridad.includes('Alta')
+  })
+  setAlta(alta)
+}
+ 
 
     return (
        <motion.div
@@ -98,9 +123,37 @@ function DetailEmpresa ({id}) {
            </div> 
               <Link className={styles.elLink} to ='/tareas'>
            <div className={styles.items}>
-           <h3> { tareas.length>0 && tareas.map(t=>(
-                           <p className={styles.eachTarea}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
-                           ))}</h3>
+           <h3>
+          
+          {/* //  (tareas.prioridad === 'Baja') ?
+          //  tareas.length>0 && tareas.map(t=>(
+          //                  <p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+          //                  )) :
+          //                  [
+          //           (tareas.prioridad === 'Media') ?
+          //         tareas.length>0 && tareas.map(t=>(
+          //           <p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+          //           )) :
+                    
+          //           tareas.length>0 && tareas.map(t=>(
+          //             <p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+          //             )) ] */}
+          {
+          alta.length>0 && alta.map(t=>(
+          <p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+          ))
+          }
+          {
+          media.length>0 && media.map(t=>(
+            <p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+            ))
+          }
+          {
+          baja.length>0 && baja.map(t=>(
+            <p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+          ))
+          }
+          </h3>
                            
            </div>
                            </Link>
