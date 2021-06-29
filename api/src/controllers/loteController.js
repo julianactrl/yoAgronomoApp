@@ -125,6 +125,28 @@ const updateLote = async(req,res,next) => {
         })
     }
 }
+const setPolyId = async(req,res) => {
+    const {id} = req.params;
+    const{polyId} = req.body;
+
+    let setPoly = await Lote.findAll({
+        where: {
+            id
+        }
+    })
+    if (setPoly.length > 0) {
+        setPoly.map(async Lote => {
+            await Lote.update({
+                polyId
+            });
+        });
+        return res.json({
+            message: "Poly Id seteado correctamente",
+            data: polyId
+        })
+    }
+
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,5 +274,6 @@ module.exports = {
     getAllManejo,
     deleteManejo,
     getImageLote,
-    getImageManejoLote
+    getImageManejoLote,
+    setPolyId
   }
