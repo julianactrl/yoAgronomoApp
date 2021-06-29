@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import ReactDOM from "react-dom";
 import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
 import { postPolyId } from "../../redux/actions/agroApiActions";
+import {Link} from 'react-router-dom'
 
 import './Map.css';
 
@@ -52,18 +53,18 @@ const Map = () => {
    }
  
    function handleSubmit(e){
-   e.preventDefault();
-   setCoordenadas({
-    coord1: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))],
-    coord2: [parseFloat(path[1].lng.toString().slice(0, 11)), parseFloat(path[1].lat.toString().slice(0, 11))],
-    coord3: [parseFloat(path[2].lng.toString().slice(0, 11)), parseFloat(path[2].lat.toString().slice(0, 11))],
-    coord4: [parseFloat(path[3].lng.toString().slice(0, 11)), parseFloat(path[3].lat.toString().slice(0, 11))],
-    coord5: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))]
-  })
-  console.log(coordenadas)
-
-   dispatch(postPolyId(aux))
-   }
+    e.preventDefault();
+      setCoordenadas({
+        coord1: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))],
+        coord2: [parseFloat(path[1].lng.toString().slice(0, 11)), parseFloat(path[1].lat.toString().slice(0, 11))],
+        coord3: [parseFloat(path[2].lng.toString().slice(0, 11)), parseFloat(path[2].lat.toString().slice(0, 11))],
+        coord4: [parseFloat(path[3].lng.toString().slice(0, 11)), parseFloat(path[3].lat.toString().slice(0, 11))],
+        coord5: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))]
+      })
+    console.log(coordenadas)
+    dispatch(postPolyId(aux))
+    
+  }
   
     // Define refs for Polygon instance and listeners
     const polygonRef = useRef(null);
@@ -138,7 +139,9 @@ const Map = () => {
           />
         </GoogleMap>
       </LoadScript>
+      <Link to={"/agroapi"}>
       <button onClick={handleSubmit}>Agregar coordenadas</button>
+      </Link>
     </div>
   );
 }
