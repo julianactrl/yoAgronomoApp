@@ -13,12 +13,12 @@ const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
   ssl: true,
   protocol: "postgres",
   logging: false,
-  dialectOptions: {
-    ssl: {
-      require: true,
+   dialectOptions: {
+     ssl: {
+       require: true,
       rejectUnauthorized: false,
     },
-  },
+   },
 });
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
 // //   logging: false, // set to console.log to see the raw SQL queries
