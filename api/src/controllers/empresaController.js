@@ -162,9 +162,9 @@ const getImageEmpresa = (req, res) => {
   let pathImage = path.join(__dirname, "../");
   // console.log("soy el path ",pathImage)
   try {
-    getImage = fs.readFileSync(`${pathImage}uploads/${name}`);
+    getImage = fs.readFileSync(`${pathImage}uploads\\${name}`);
   } catch (error) {
-    getImage = fs.readFileSync(`${pathImage}uploads/noImage.png`);
+    getImage = fs.readFileSync(`${pathImage}uploads\\noImage.png`);
   }
   res.set({ "Content-Type": "image/png" });
   res.send(getImage);

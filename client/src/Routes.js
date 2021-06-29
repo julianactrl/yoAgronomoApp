@@ -99,11 +99,11 @@ export default function Routes() {
       <Route exact path="/tareas">
         <Calendar/>
        </Route>
-      <Route exact path="/gestion_comercial/:id">
+      <Route exact path="/gestion_comercial">
         <GestionComercial/>
        </Route>
-      <Route exact path="/gestion_comercial/stock/:id" render={({ match }) =>
-        <Stock id={match.params.id}/>}>
+      <Route exact path="/gestion_comercial/stock">
+        <Stock/>
        </Route>
     </Switch>
     );

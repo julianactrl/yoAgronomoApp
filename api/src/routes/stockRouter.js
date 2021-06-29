@@ -7,6 +7,6 @@ const {editStock,getAllStock,postStock,getStockByEmpresa,deleteStock} = require(
 server.get("/",getAllStock)
 server.get("/empresa/:id",getStockByEmpresa)
 server.post("/create",postStock)
-server.put("/edit/:id",editStock)
+server.put("/edit",editStock)
 server.delete("/delete/:id", deleteStock)
 module.exports = server;

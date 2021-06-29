@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {connect} from 'react-redux';
-// import { Link } from 'react-router-dom';
+import {connect, useDispatch, useSelector} from 'react-redux';
+import { Link } from 'react-router-dom';
 import {getNews} from '../../redux/actions/newsActions';
 import './News.css';
 import "slick-carousel/slick/slick.css"; 
@@ -12,7 +12,7 @@ const News = (props) => {
     // const [, set] = useState(initialState)
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState([])
-    const [actTopBar] = useState(false);
+    const [actTopBar, setActTopBar] = useState(false);
     const REACT_APP_NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY
 
     // const dispatch = useDispatch()
@@ -40,32 +40,28 @@ const News = (props) => {
       var newDate = new Date()
       var endDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + Add0(newDate.getDate())
       var startDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + (Add0(newDate.getDate() - 7))
-      
     useEffect(() => {
         const apicall = async() => {
             const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=${REACT_APP_NEWS_API_KEY}&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
             setData(res.data)
             // await dispatch(getNews())
-            // console.log(data)
-            // console.log(startDate)
-            // console.log(endDate)
             if(props.news){
                 setLoading(false)
             }
         }
         apicall()
     },[])
-    // console.log(startDate)
-    // console.log(endDate)
+    console.log(startDate)
+    console.log(endDate)
     // console.log(news)
-    // console.log(loading)
+    console.log(loading)
 
     function SampleNextArrow(props) {
         const { style, onClick } = props;
         return (
           <div
             className='nextBtn'
-            style={style}
+            // style={style}
             onClick={onClick}
           />
         );
@@ -75,7 +71,7 @@ const News = (props) => {
         return (
           <div
           className='prevBtn'
-            style={style}
+            // style={style}
             onClick={onClick}
           />
         );
@@ -93,8 +89,7 @@ const News = (props) => {
                     <div className='containerDivArt'>
                         <Slider {...settings} className='slider'>
                             {data.articles.map((a) => {
-                                // console.log(a.category)
-
+                                console.log(a.category)
                                 return (
                                     <div className='cardNew'>
                                         <a href={a.sourceUrl} target='_blank' className='linkArt'>

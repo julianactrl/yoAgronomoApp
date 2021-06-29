@@ -1,55 +1,52 @@
-import {
-  GET_EMPRESA_ID,
-  POST_EMPRESA,
-  GET_EMPRESA,
-  UPDATE_EMPRESA,
-  DELETE_EMPRESA,
-} from "../constants";
-import axios from "axios";
-const { REACT_APP_API } = process.env;
-console.log(REACT_APP_API)
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, UPDATE_EMPRESA, DELETE_EMPRESA} from '../constants';
+import axios from 'axios';
+const { REACT_APP_API} = process.env
+
+
 
 export function getAllEmpresas(id) {
-  return function (dispatch) {
-    return fetch(`${REACT_APP_API}/empresa/user/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({
-          type: GET_EMPRESA,
-          payload: json,
-        });
-      });
-  };
+    return function(dispatch) {
+        return fetch(`${REACT_APP_API}/empresa/user/${id}`)
+        .then(response=>response.json())          
+            .then(json=>{
+                dispatch({          
+                type: GET_EMPRESA,
+                payload: json
+            })  
+        })
+    }
 }
 
 export function getEmpresa(id) {
-  return function (dispatch) {
-    return fetch(`${REACT_APP_API}/empresa/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        dispatch({
-          type: GET_EMPRESA_ID,
-          payload: json,
-        });
-      });
-  };
+    return function(dispatch) {
+        return fetch(`${REACT_APP_API}/empresa/${id}`)
+        .then(response=>response.json())          
+            .then(json=>{
+                dispatch({          
+                type: GET_EMPRESA_ID,
+                payload: json
+            })
+        })
+    }
 }
 
+
 export const postEmpresa = (payload) => async (dispatch) => {
-  console.log("POST EMPRESA", payload);
-  return axios
-    .post(`${REACT_APP_API}/empresa/create/`, payload.fd)
-    .then((update) => {
-      dispatch({
-        type: POST_EMPRESA,
-        payload: update,
-      });
-      // window.location.reload()
-    })
-    .catch((e) =>
-      console.log("soy e error en create empresa", e.response?.data?.status)
-    );
-};
+    console.log("POST EMPRESA",payload)
+    return axios
+        .post(`${REACT_APP_API}/empresa/create/`,payload.fd)
+        .then((update)=>{
+            dispatch({
+                type: POST_EMPRESA,
+                payload: update
+            })
+            window.location.reload()
+        })
+        .catch((e)=>
+        console.log("soy e error en create empresa", e.response?.data?.status)
+        )
+}
+
 
 export const updateEmpresa = (payload) => async (dispatch) => {
   return axios
@@ -62,20 +59,24 @@ export const updateEmpresa = (payload) => async (dispatch) => {
       window.location.reload();
     })
     .catch((e) =>
-      console.log("Soy el error en update empresa", e.response?.data?.status)
+      console.log("Soy el error en update user", e.response?.data?.status)
     );
 };
 
+
+
+
 export const deleteEmpresa = (id) => {
-  return (dispatch) => {
-    dispatch({ type: DELETE_EMPRESA });
-    axios({
-      method: "delete",
-      url: `${REACT_APP_API}/empresa/delete/${id}`,
-      payload: id,
-    }).catch((e) => dispatch(e));
-  };
-};
+
+    return (dispatch) => {
+        dispatch({ type: DELETE_EMPRESA });
+        axios({
+            method: 'delete',
+            url: `${REACT_APP_API}/empresa/delete/${id}`,
+            payload: id
+        }).catch(e => dispatch(e))
+    }
+}
 // export function deleteEmpresa(id){
 //     return {
 //         type: 'DELETE_EMPRESA',

@@ -1,5 +1,7 @@
 import { GET_WEATHER,CLEAR_WEATHER } from './../constants';
-
+const filtercity = (arr, name) => {
+    const filtrado = arr.filter(c => c.name === name)
+}
 const initialState = {
     weather: []
 };

@@ -10,21 +10,17 @@ import swal from "sweetalert";
 function NewEmpresa() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const currentUserId = useSelector(
-    (state) => state.userReducer.userInfo.user.id
-  );
+  const currentUserId = useSelector((state) => state.userReducer.userInfo.user.id);
   const numEmpresa = useSelector((state) => state.empresaReducer.allEmpresas);
-  const userInfo = useSelector(
-    (state) => state.userReducer.userInfo.user.isPremium
-  );
-
-  if (numEmpresa.length >= 2 && userInfo === false) {
-    swal({
-      title: "para seguir creando mas empresas pasarse a Premium",
-      icon: "error",
-      button: true,
-    });
-  }
+  const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
+      
+  if(numEmpresa.length >= 2 && userInfo === false){
+        swal({ 
+          title: "para seguir creando mas empresas pasarse a Premium",
+          icon: "error",
+          button: true,
+        })
+      }
 
   const [input, setInput] = useState({
     userId: currentUserId,
@@ -85,7 +81,7 @@ function NewEmpresa() {
       button: true,
     })
       .then(() => {
-        history.push("/home");
+        history.push("/home")
       })
       .catch((e) => console.log(e));
   }

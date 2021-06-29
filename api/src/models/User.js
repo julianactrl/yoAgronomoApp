@@ -1,9 +1,8 @@
 //'use strict';
 const { DataTypes } = require("sequelize");
-const bcrypt = require('bcrypt');
 
 module.exports = (sequelize) => {
-  const User = sequelize.define("user", {
+  sequelize.define("user", {
     fullName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -55,30 +54,28 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     order_status: {
-      type: DataTypes.ENUM("cancelled", "completed", "processing"),
+      type: DataTypes.ENUM(
+        "cancelled",
+        "completed",
+        "processing"
+      ),
       allowNull: false,
-      defaultValue: "processing",
-    },
-    reset_code: {
-      type: DataTypes.STRING,
-      set(value) {
-        if (value) {
-          const salt = bcrypt.genSaltSync(10);
-          const hash = bcrypt.hashSync(value, salt);
-          this.setDataValue("reset_code", hash);
-        }
-      },
+      defaultValue: "processing"
     },
   });
 
-  User.prototype.compare = function (password, isReset) {
-    //compares resetcode when isReset is true
-    if (this.password || this.reset_code)
-      return bcrypt.compareSync(
-        password.toString(),
-        isReset ? this.reset_code : this.password
-      );
-    else return false;
-  };
-  return User;
+  // User.associate = function(models) {
+  //   User.hasMany(models.Post, { as: "posts", foreignKey: "userId" });
+  //   User.belongsToMany(models.Role, { as: "roles", through: "user_role", foreignKey: "user_id" });
+  // };
+
+  // Comprueba que el usuario es administrador
+  // User.isAdmin = function(roles) {
+  //   let tmpArray = [];
+  //   roles.forEach(role => tmpArray.push(role.role));
+
+  //   return tmpArray.includes('admin');
+  // }
+
+  // return User;
 };
