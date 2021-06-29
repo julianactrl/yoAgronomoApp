@@ -15,5 +15,9 @@ module.exports = (sequelize) => {
     imagen: {
       type: DataTypes.STRING,
     },
+    poliId: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   });
 };

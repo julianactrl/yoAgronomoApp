@@ -40,6 +40,7 @@ export const GET_DOLAR = 'GET_DOLAR';
 export const GET_IMAGES= 'GET_IMAGES';
 export const GET_SOIL_DATA= 'GET_SOIL_DATA';
 export const POST_POLYID= 'POST_POLYID';
+export const PATCH_POLY_ID = 'PATCH_POLY_ID'
 
 
 

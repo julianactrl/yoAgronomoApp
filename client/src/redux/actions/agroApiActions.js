@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {
-   GET_IMAGES,GET_SOIL_DATA,POST_POLYID
+   GET_IMAGES,GET_SOIL_DATA,POST_POLYID,PATCH_POLY_ID
 } from '../constants';
 
-const { REACT_APP_AGRO_API_KEY } = process.env
+const { REACT_APP_AGRO_API_KEY , REACT_APP_API} = process.env
 
 
 
@@ -80,5 +80,18 @@ export const getSoilData = (polygonId) => {
                     payload: data
                 });
             });
+    }
+}
+export const setPoly = ({id,polygonId}) => {
+    return function(dispatch) {
+        axios
+        .patch(`${REACT_APP_API}/lote/setPoly/${id}`,polygonId)
+        .then((r) => r.data)
+        .then((data)=> {
+            dispatch({
+                type: PATCH_POLY_ID,
+                payload: data
+            });
+        });
     }
 }

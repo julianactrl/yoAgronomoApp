@@ -24,6 +24,7 @@ import DetailTransporte from "./components/Transporte/CardTransporte";
 import Calendar from './components/Calendar/Calendar'
 import GestionComercial from './components/GestionComercial/GestionComercial.js';
 import Stock from './components/GestionComercial/Stock.js';
+import AgroApi from "./components/AgroApi/AgroApi";
 
 
 
@@ -104,6 +105,9 @@ export default function Routes() {
        </Route>
       <Route exact path="/gestion_comercial/stock/:id" render={({ match }) =>
         <Stock id={match.params.id}/>}>
+       </Route>
+       <Route exact path="/agroapi">
+        <AgroApi/>
        </Route>
     </Switch>
     );
