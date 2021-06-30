@@ -2,7 +2,6 @@
   "name": "yoagronomoapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -12,6 +11,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
+    "bootstrap": "^5.0.2",
     "emailjs-com": "^3.1.0",
     "framer-motion": "^4.1.17",
     "js-cookie": "^2.2.1",

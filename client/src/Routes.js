@@ -17,6 +17,9 @@ import Cotizaciones from "./components/Cotizaciones/Cotizaciones";
 import MercadoPago from "./components/MercadoPago/MercadoPago.jsx";
 import PremiumPlus from "./components/MercadoPago/PremiumPlus.jsx";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
+import GestionGastos from "./components/GestionComercial/GestionGastos";
+
 import NewTransporte from "./components/Transporte/CreateTransporte";
 import UpdateTransporte from "./components/Transporte/UpdateTransporte";
 import DetailTransporte from "./components/Transporte/CardTransporte";
@@ -65,6 +68,10 @@ export default function Routes() {
         <LoteHome id={window.location.pathname.split("/")[2]} />
       </Route>
 
+      <Route exact path='/gestion_comercial/proyeccion'>
+        <GestionGastos />
+      </Route>
+  
       <PrivateRoute component={Weather} path="/weather" exact />
       <Route exact path="/news">
         <News />

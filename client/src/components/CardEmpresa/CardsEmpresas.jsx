@@ -15,6 +15,7 @@ export default function CardsEmpresas ({empresa}){
     function handleCookie () {
         const cookies = new Cookies();
         cookies.set('selectedEmpresa', empresa , {path:'/', expires: new Date(Date.now()+2592000)})
+        console.log('esta es la cookie', cookies.get('selecetedEmpresa'))
     }
 
     return (

@@ -1,0 +1,43 @@
+
+.contClasificacion{
+    display: flex;
+    align-items: center;
+    border: 1px solid green;
+    border-radius: 7px;
+}
+.btnCerrar{
+    /* position: relative; */
+    /* left: 4%; */
+    /* bottom: 1rem; */
+    height: 100%;
+    width: 20%;
+    border: 0.2px solid black;
+    border-radius: 0px 7px 7px 0px;
+}
+.btnCerrar:hover{
+    transition: 0.3s all;
+    background-color: rgba(255, 0, 0, 0.795);
+    color: white;
+    /* border: 0.2px solid white; */
+
+}
+.btnClasificacion{
+    cursor: pointer;
+    display: flex;
+    border: 0px solid #19875473;
+    color: green;
+    text-align: center;
+    border-radius: 7px 0px 0px 7px;
+    /* background-color: rgb(255, 255, 255); */
+    /* color: rgb(0, 0, 0); */
+    height: 100%;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+.btnClasificacion:hover{
+    transition: 0.3s all;
+    background-color: #198754;
+    color: white;
+}

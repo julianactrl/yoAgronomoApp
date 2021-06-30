@@ -22,6 +22,7 @@ router.use("/lote", loteRouter);
 router.use("/gastos", gastosRouter);
 router.use("/stock", stockRouter);
 router.use("/tareas", tareaRouter);
+router.use("/gastos", gastosRouter)
 router.use("/premium", premiumRouter); // Mercado pago
 
 module.exports = router;

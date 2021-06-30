@@ -1,7 +1,6 @@
 const { Empresa , Gastos, ClasificacionDeGastos} = require("../db");
 
 
-
 /////////////////////////// CLASIFICACIONES //////////////////////////
 
 const getAllClasificiones = async (req,res,next) => {

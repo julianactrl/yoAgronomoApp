@@ -40,6 +40,11 @@ export default function DashBoardProfile() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
+        {userInfo===true ? (
+          <h3>Premium</h3>
+          ) : (
+         <h3>cuenta free</h3>
+          )}
           {usuario.profile_pic ? (
             <img
             src={
