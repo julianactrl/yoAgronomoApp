@@ -15,7 +15,7 @@ const {
   updateLote,
   getImageLote,
   getImageManejoLote,
-  setPolyId
+ 
 } = require("../controllers/loteController");
 
 //////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ server.get("/:id", getLoteById);
 server.get("/name", getLoteByName);
 server.delete("/delete/:id",deleteLote);
 server.put("/:id", updateLote);
-server.patch("/setPoly/:id",setPolyId);
+
 
 /////// MANEJO DE LOTE ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -102,10 +102,10 @@ const createLote = async(req,res,next) => {
 }
 const updateLote = async(req,res,next) => {
     const { id } = req.params;
-    const { name, superficie, ubicacion, imagen} = req.body;
+    const { name, superficie, ubicacion, imagen,poliId} = req.body;
 
     const loteUpdated = await Lote.findAll({
-        atributes: ['id', 'name', 'superficie', 'ubicacion', 'imagen'],
+        atributes: ['id', 'name', 'superficie', 'ubicacion', 'imagen','poliId'],
         where: {
             id
         }
@@ -116,7 +116,8 @@ const updateLote = async(req,res,next) => {
                 name,
                 superficie,
                 ubicacion,
-                imagen
+                imagen,
+                poliId
             });
         });
         return res.json({
@@ -125,28 +126,28 @@ const updateLote = async(req,res,next) => {
         })
     }
 }
-const setPolyId = async(req,res) => {
-    const {id} = req.params;
-    const{polyId} = req.body;
+// const setPolyId = async(req,res) => {
+//     const {id} = req.params;
+//     const {poliId} = req.body;
 
-    let setPoly = await Lote.findAll({
-        where: {
-            id
-        }
-    })
-    if (setPoly.length > 0) {
-        setPoly.map(async Lote => {
-            await Lote.update({
-                polyId
-            });
-        });
-        return res.json({
-            message: "Poly Id seteado correctamente",
-            data: polyId
-        })
-    }
+//     let setPoly = await Lote.findAll({
+//         where: {
+//             id
+//         }
+//     })
+//     if (setPoly.length > 0) {
+//         setPoly.map(async Lote => {
+//             await Lote.update({
+//                 poliId
+//             });
+//         });
+//         return res.json({
+//             message: "Poly Id seteado correctamente",
+//             data: poliId
+//         })
+//     }
 
-}
+// }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////////// MANEJO DE LOTE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -275,5 +276,5 @@ module.exports = {
     deleteManejo,
     getImageLote,
     getImageManejoLote,
-    setPolyId
+    
   }

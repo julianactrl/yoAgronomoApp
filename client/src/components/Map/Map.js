@@ -3,17 +3,17 @@ import { useDispatch } from "react-redux";
 import ReactDOM from "react-dom";
 import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
 import { postPolyId } from "../../redux/actions/agroApiActions";
-import {Link} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 
 import './Map.css';
 
 const Map = () => {
     // Store Polygon path in state
     const [path, setPath] = useState([
-      {lat: -31.9154154794346, lng: -61.62687317297263},
-      {lat: -31.885592653239026, lng: -63.640462685833114},
-      {lat: -33.282863596063315, lng: -63.6511041300039},
-      {lat: -33.30123017809144, lng: -61.640950967083114}
+      {lat: -31.328535, lng: -61.530424},
+      {lat: -31.329063, lng: -61.527094},
+      {lat: -31.3337, lng: -61.528055},
+      {lat: -31.333113, lng: -61.531626}
     ]);
     const [middle, setMiddle] = useState([])
     const [coordenadas,setCoordenadas] = useState({
@@ -29,6 +29,7 @@ const Map = () => {
     
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const aux = {
       name:"gaby",
@@ -63,7 +64,7 @@ const Map = () => {
       })
     console.log(coordenadas)
     dispatch(postPolyId(aux))
-    
+    // history.push('/agroapi')
   }
   
     // Define refs for Polygon instance and listeners
@@ -121,7 +122,7 @@ const Map = () => {
         <GoogleMap
           mapContainerClassName="googleMaps"
           center={path[0]}
-          zoom={6}
+          zoom={15}
           version="weekly"
           on
         >
@@ -139,8 +140,10 @@ const Map = () => {
           />
         </GoogleMap>
       </LoadScript>
-      <Link to={"/agroapi"}>
+     
       <button onClick={handleSubmit}>Agregar coordenadas</button>
+      <Link to = '/agroapi'>
+        <button>Ver el detalle</button>
       </Link>
     </div>
   );
