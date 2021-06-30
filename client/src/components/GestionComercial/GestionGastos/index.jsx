@@ -62,13 +62,16 @@ export default function GestionGastos () {
                 <div className={styles.contenedorTable}>
                         <div className={styles.contenedorHeader}>
                             <div className={styles.contClasificacionesYtotal}>
+                                <div className={styles.contClasificaciones}>
                                 {
                                     clasificaciones&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
-                                <div className={styles.total}>
-                                    <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar Clasificación +' className={`btn btn-outline-success ${styles.btnTotal}`} />
-                                    <button onClick={crearClasificacion}>Crear !!</button>
+                                    <div className={styles.contCrearClasificacion}>
+                                        <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar Clasificación +' className={`btn btn-outline-success ${styles.btnTotal}`} />
+                                        <button onClick={crearClasificacion}>Crear !!</button>
+                                    </div>
                                 </div>
+
                                 <div className={styles.total}>
                                     <button onClick={()=>setTotalClasificaciones(true)} className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
                                 </div>
@@ -78,7 +81,7 @@ export default function GestionGastos () {
                                 <button className={styles.btnLupa}>
                                     <img className={styles.img} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM52Oe0Jm_tYAOj3OmCysuXypVFc3cR53MoM8U_NdsvM-p7OGLJiVRkvZBLnKjb4DRddc&usqp=CAU'/>
                                 </button>
-                                <input onBlur={(e)=>{e.target.value.length? dispatch(getGastoByInput(e.target.value)) : dispatch({type: 'GASTO_BY_INPUT',payload: []}) }} onChange={(e)=> {dispatch(getGastoByInput(e.target.value));console.log(gastoByInput)}} className={styles.input} placeholder='Buscar por palabra coincidente'/>
+                                <input onBlur={(e)=>{e.target.value.length? dispatch(getGastoByInput(e.target.value)) : dispatch({type: 'GASTO_BY_INPUT',payload: []}) }} onChange={(e)=> {dispatch(getGastoByInput(e.target.value));console.log(gastoByInput)}} className={styles.inputt} placeholder='Buscar por palabra coincidente'/>
                             </div>
                         </div>
                         { totalClasificaciones  ?
@@ -91,7 +94,6 @@ export default function GestionGastos () {
                                         <th>Descripcion</th>
                                         <th>Precio</th>
                                         <th>Fecha</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                             </table>
@@ -101,7 +103,7 @@ export default function GestionGastos () {
                                         <GastoItem />
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjaslfas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         {
                                             // gastoByInput[0] ?
