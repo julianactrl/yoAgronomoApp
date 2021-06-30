@@ -34,6 +34,10 @@
   }
 
 .ulSele{
+  background-color: rgba(255, 255, 255, 0.767);
+  padding: 10px;
+  border-radius: 13px;
+  box-shadow: 0 0 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,7 +64,8 @@ font-size: 25px;
   }
   
   .googleMaps {
-    height: 65rem;
+    height: 65%;
     border-radius: 13px;
-    width: 95rem;
+    width: 55%;
+    box-shadow: 0 0 25px;
   }
