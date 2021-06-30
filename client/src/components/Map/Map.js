@@ -145,6 +145,7 @@ const Map = () => {
           center={path[0]}
           zoom={15}
           version="weekly"
+          mapTypeId="satellite"
           on
         >
           <Polygon
