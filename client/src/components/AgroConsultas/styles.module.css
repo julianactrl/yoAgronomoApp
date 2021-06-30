@@ -4,6 +4,18 @@
     padding: 0;
 } */
 
+.input{
+    background-color: rgba(0, 128, 0, 0.425);
+    margin: 10px 10px 10px 0;
+    padding: 12px;
+    color: black;
+    font-size: 18px;
+}
+
+.input:hover{
+    background-color: rgba(151, 209, 65, 0.445);
+}
+
 .tituloCard {
     font-size: 25px;
     font-weight: 600;
@@ -62,7 +74,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .btn:hover {
@@ -82,18 +94,19 @@
     height: 50px;
 }
 
-.main {
+/* .main {
     max-width: 1000px;
     width: 90%;
-    margin: 40px auto;
-}
+    margin: auto;
+} */
 
 .titulo {
-    color: white;
+    color: rgb(32, 129, 45);
     font-weight: 700;
+    text-transform: uppercase;
     font-size: 50px;
     text-align: center;
-    margin: 60px 0;
+    margin: 90px 0 30px 0;
 }
 
 /* categorias */
@@ -108,8 +121,8 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 10vh;
-    top: 45vh;
+    right: 35vh;
+    top: 27vh;
 
 }
 
@@ -119,8 +132,8 @@
     align-content: flex-end !important;
     justify-content: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 255px;
-    height: 68px;
+    width: 180px;
+    height: 84px;
     padding: 20px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.37);
@@ -133,12 +146,12 @@
 }
 
 .categoria:hover {
-    background-color: #80cc28;
+    background-color: rgba(0, 128, 0, 0.425);
     color: black
 }
 
 .categoria:focus {
-    background-color: #7fcc28a2;
+    background-color: rgba(0, 128, 0, 0.425);
     border: solid #80cc28;
     color: black
 }
@@ -150,7 +163,7 @@
     border-radius: 13px;
     display: flex;
     position: relative;
-    right: 10px;
+    right: -5px;
     flex-direction: column;
     max-width: 400px;
     min-width: 400px;
