@@ -13,6 +13,7 @@ import { getAllEmpresas } from '../../redux/actions/empresaActions';
 import {clearWeather} from '../../redux/actions/weatherActions'
 import {motion} from 'framer-motion';
 import Cookies from 'universal-cookie';
+import { SliderGrid } from './DashBoardController';
 
 
 export default function DashBoard (){
@@ -60,9 +61,7 @@ export default function DashBoard (){
           />
         );
       }
-      
-
-    const settings = {
+      const settings = {
         dots: false,
         infinite: true,
         speed: 300,
@@ -70,9 +69,10 @@ export default function DashBoard (){
         slidesToScroll: 1,
         width: 100,
         classname: 'slides',
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />
       };
+      
+
+
       return (
         <motion.div
         initial='hidden'
@@ -99,23 +99,37 @@ export default function DashBoard (){
                     showNews?<News/>:null
                     } 
                 </div>
-                <h1 className={showNews?styles.newsTitleClosed:styles.newsTitle}>NEWS</h1>
-                <button className={showNews?styles.btnNewsOpen:styles.btnNews} onClick={news}></button> 
-                <div className={showNews?styles.bodyNone:styles.body}>
-                <h1 className={styles.title}>Mis Empresas</h1>
-                    <Slider {...settings}>
-                      <Link path to='/newempresa' className={styles.mainAdd}>
-                        <div  className={styles.cardContAdd} >
-                            <h1 className={styles.titleAdd}>Agregar Empresa</h1>
-                          <img src={add} alt="" className={styles.imgAdd}/>
+                <div className={styles.newsTitle} ></div>
+                <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button> 
+                <div className={styles.body}>
+                {/* <h1 className={styles.title}>Mis Empresas</h1> */}
+                <div className={styles.contSlider}>
+                  {
+                    SliderGrid(allEmpresas)
+                  }
+                    {/* <Slider {...settings}>
+                        <Link path to='/newempresa' className={styles.mainAdd}>
+                                  <div  className={styles.cardContAdd} >
+                                      <h1 className={styles.titleAdd}>Agregar Empresa</h1>
+                                  <img src={add} alt="" className={styles.imgAdd}/>
+                                  </div>
+                        </Link>
+                        <div className={styles.gridSlider}>
+                          {
+                            allEmpresas.map((d)=> {
+                              return (
+                                
+                                <CardsEmpresas empresa={d}/>
+                              )
+                            })
+                          }
                         </div>
-                      </Link>
-                      {
-                        allEmpresas.map((empresa)=> <CardsEmpresas empresa={empresa}/>)
-                      }
-                    </Slider>
+                
+                    </Slider> */}
                 </div>
+
             </div>
+        </div>
         </div>
         </motion.div>
       );

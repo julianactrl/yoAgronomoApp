@@ -1,10 +1,10 @@
-body{
-    margin: 0;
-    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
-    url('https://w.wallha.com/ws/5/ez5lK3xB.jpg');
-}
 
+.nombre{
+    margin-left: 550px;
+}
 .div {
+    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
+    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(5\).png');
     min-width: 100vw;
     min-height: 100vh;
     background-position: center center;
