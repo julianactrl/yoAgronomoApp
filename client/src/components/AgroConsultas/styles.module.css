@@ -36,7 +36,7 @@
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff5e;
+    background-color: #ffffff38;
     overflow:auto;
     
 }
@@ -94,11 +94,13 @@
     height: 50px;
 }
 
+
 /* .main {
     max-width: 1000px;
     width: 90%;
     margin: auto;
 } */
+
 
 .titulo {
     color: rgb(32, 129, 45);
@@ -137,6 +139,7 @@
     height: 88px;
     padding: 20px;
     border-radius: 10px;
+
     background-color: rgba(255, 255, 255, 0.37);
     font-weight: 500;
     border: 2px solid transparent;
@@ -148,10 +151,15 @@
 
 .categoria:hover {
     background-color: rgba(0, 128, 0, 0.425);
-    color: black
+
+    
+    background: linear-gradient(to bottom, rgba(8, 8, 8, 0.575), rgba(184, 172, 172, 0.753)),
+    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
+
 }
 
 .categoria:focus {
+
     background-color: rgba(0, 128, 0, 0.425);
     border: solid #80cc28;
     color: black
@@ -168,7 +176,7 @@
     flex-direction: column;
     max-width: 400px;
     min-width: 400px;
-    background-color: rgba(0, 0, 0, 0.344);
+    background-color: rgba(36, 34, 34, 0.815);
     color: white;
     margin: 10px auto;
     font-size: 15px;

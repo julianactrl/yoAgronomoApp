@@ -1,6 +1,5 @@
 .divtotal {
-    background-image:
-    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
+    background: url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
     min-width: 100vw;
     min-height: 100vh;
     background-position: center center;
@@ -8,6 +7,17 @@
     background-size: cover;
     overflow: hidden;
     
+}
+
+.form{
+       background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
+    url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
+    min-width: 100vw;
+    min-height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; 
 }
 
 
