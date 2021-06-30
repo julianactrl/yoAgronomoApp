@@ -36,6 +36,8 @@ export default function DashBoard (){
     console.log(allEmpresas);
 },[stateAux])
 
+
+
   function news(){
    if(!showNews){setShowNews(true)}else{setShowNews(false)}
   }
