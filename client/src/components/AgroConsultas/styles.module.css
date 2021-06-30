@@ -10,6 +10,7 @@
     padding: 12px;
     color: black;
     font-size: 18px;
+    box-shadow: 0 0 5px rgb(0, 0, 0)
 }
 
 .input:hover{
@@ -25,6 +26,7 @@
 }
 
 .contentOverflow {
+    box-shadow: 0 0 20px black;
     flex-direction:column;
     justify-content:center;
     border-radius: 8px;
@@ -42,8 +44,9 @@
 }
 
 .contentOverflow::-webkit-scrollbar {
-    background: rgba(41, 41, 41, 0.356);
+    background: rgba(122, 119, 119, 0.356);
     border-radius: 4px;
+    width: 10px;
 }
 
 .escalasImg {
@@ -130,6 +133,7 @@
 
 
 .categoria {
+    box-shadow: 0 0 10px;
     cursor: pointer;
     align-content: flex-end !important;
     justify-content: center;
@@ -171,7 +175,7 @@
     border-radius: 13px;
     display: flex;
     position: relative;
-    right: -5px;
+    right: 2px;
     flex-direction: column;
     max-width: 400px;
     min-width: 400px;
