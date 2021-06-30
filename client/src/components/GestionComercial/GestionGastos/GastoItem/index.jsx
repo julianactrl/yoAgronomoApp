@@ -36,7 +36,7 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, gastoI
                     <input name={'cost'} onChange={(e)=>setGasto({...gasto,[e.target.name]:e.target.value})} value={gasto.cost} className={styles.input} placeholder={precio}/>
                     <div className={styles.contenedorInput}>
                         <input name={'date'} onChange={(e)=>setGasto({...gasto,[e.target.name]:e.target.value})} value={gasto.date} className={styles.inputFecha} placeholder={fecha}/>
-                        <img onClick={crearGasto} className={styles.imgAgregar} src={'https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png'} />
+                        <img onClick={()=>{crearGasto();handleEdit()}} className={styles.imgAgregar} src={'https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png'} />
                     </div>
                 </div>
                 }

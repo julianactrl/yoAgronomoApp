@@ -107,6 +107,22 @@ export default function GestionGastos () {
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
                                         <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
+                                        
                                         {
                                             // gastoByInput[0] ?
                                             // gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)

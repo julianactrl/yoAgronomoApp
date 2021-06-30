@@ -169,6 +169,8 @@
 .contenedorGasto{
     /* background-color: rgba(177, 204, 27, 0.534); */
     width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
     height: 70%;
 } 
 .crearGasto{
