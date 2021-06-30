@@ -55,6 +55,7 @@ const LandingPage = () => {
 
         <Route exact path="/index/register" component={Register} />
         <Route exact path="/index" component={Login} />
+        
         <div className={styles.btnGooglee}>
             <GoogleBtn className={styles.btnGooglee}/>
         </div>
