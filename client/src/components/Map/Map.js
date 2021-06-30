@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
 import { postPolyId } from "../../redux/actions/agroApiActions";
 import {useHistory,Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 import './Map.css';
 
@@ -113,6 +114,23 @@ const Map = () => {
     const apiKey= process.env.REACT_APP_GOOGLE_API_KEY
 
   return (
+    <motion.div
+    initial='hidden'
+    animate='visible'
+    variants={{
+    hidden: {
+        scale: .8,
+        opacity: -1
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition:{
+            delay: .002
+        }
+    }
+    }}
+    >
     <div>
     <Header/>
     <div className="googleMapsCont">
@@ -161,6 +179,7 @@ Si obtiene buenos resultados, ya puede ver el detalle de su lote en 'Ver detalle
       </div>
     </div>
     </div> 
+    </motion.div>
   );
 }
 
