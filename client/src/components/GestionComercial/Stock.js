@@ -147,11 +147,16 @@ export const Stock = () => {
                         
                         stock && stock.map((s) => {
                             return (
+
+                                //{{s.tipo}="insumo"?{s.cantidad} unidades: {s.cantidad} toneladas}
                                 <tr>
                                     <th scope='row'>{stock.indexOf(s) + 1}</th>
                                     <td>{s.tipo}</td>
                                     <td>{s.nombreProducto}</td>
-                                    <td>{s.cantidad} unidades</td>
+                                    {s.tipo==="Semilla"? 
+                                    <td>{s.cantidad} toneladas</td>
+                                    : <td>{s.cantidad} unidades</td>
+                                    }
                                     <td ><button onClick={() => {EditarStock(s.id)}} className='btnEditarStock'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button onClick={() => DeleteStock(s.id)} className='btnEliminarStock'><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                                 </tr>
                             )
