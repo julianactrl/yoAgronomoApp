@@ -25,7 +25,7 @@ export const ResetPassword = () => {
       { once: true }
     );
   };
-  
+
 
   const handleSubmits = (input, _step) => {
     switch (_step) {
@@ -97,6 +97,7 @@ export const ResetPassword = () => {
             password: input,
           })
           .then((res) => {
+            console.log(res)
             if (res.data.ok) {
               swal("Password changed correctly", { icon: "Success" }).then(
                 () => {

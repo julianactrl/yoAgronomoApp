@@ -70,7 +70,7 @@ const Reset_steps = ({ handleSubmit, step, loading, buttonRef }) => {
         </div>
 
         <div className="">
-          <Link to="/index">Ya tenes una cuenta? Signin!</Link>
+          <Link to="/index">Inicia Sesión</Link>
         </div>
       </form>
     </div>
