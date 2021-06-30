@@ -102,7 +102,7 @@ function handleChange(e){
       >
         <div>
             <Header />
-            <main className={styles.main}>
+            
                 <h1 className={styles.titulo}>Agroconsultas</h1>
                 <form className={styles.form}>
                 <input className={styles.input} type="text"
@@ -117,22 +117,22 @@ function handleChange(e){
                 {/* <button onClick={e => handleFhi(e)} className={styles.categoria} >
                         F.H.I
                     </button> */}
-                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >Escalas Fenológicas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectEtapas(e)} className={styles.categoria} >Escalas Fenológicas <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
                         
                     </button>
-                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} > Funguicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectFunguicidas(e)} className={styles.categoria} > Funguicidas  <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
                     
                     </button>
-                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} > Insecticidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectInsecticidas(e)} className={styles.categoria} > Insecticidas  <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
                         
                     </button>
-                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >Herbicidas <img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectHerbicidas(e)} className={styles.categoria} >Herbicidas  <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
                        
                     </button>
-                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >Manejo Integrado<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectManejo(e)} className={styles.categoria} >Manejo Integrado  <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
                         
                     </button>
-                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} > Ver Todo<img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
+                    <button onClick={(e)=>selectAll(e)} className={styles.categoria} > Ver Todo  <br/><img className={styles.icon} src='https://static.thenounproject.com/png/2880952-200.png'/>
 
                     </button>
                    
@@ -140,7 +140,7 @@ function handleChange(e){
                    
                     
                 </div>
-            </main>
+           
             
             <ul className={styles.contentOverflow}>
                 {   filteredCategory.length?

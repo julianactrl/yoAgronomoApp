@@ -63,8 +63,6 @@ export default function GestionGastos () {
                         <div className={styles.contenedorHeader}>
                             <div className={styles.contClasificacionesYtotal}>
                                 <div className={styles.contClasificaciones}>
-                                <Clasificacion id={'1'} name={'Gastos Principales'} />
-                                <Clasificacion id={'1'} name={'Gastos Principales'} />
                                 {
                                     clasificaciones&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
@@ -89,7 +87,7 @@ export default function GestionGastos () {
                         { totalClasificaciones  ?
                         <RenderizarTotalClasificaciones clasificaciones={clasificaciones} />
                             : (<>
-                            <table className={` ${styles.table}`}>
+                            <table className={styles.table}>
                                 <thead className={styles.thead}>
                                     <tr className={styles.contenedorTHead}>
                                         <th>Nombre</th>
@@ -98,41 +96,15 @@ export default function GestionGastos () {
                                         <th>Fecha</th>
                                     </tr>
                                 </thead>
-                            </table>
-                                {/* <tbody className={styles.tbody} > */}
-                                    
+                            </table>   
                                     <div className={styles.contenedorGasto}>
                                         <GastoItem />
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfja'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionnsandaskfjas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        <GastoItem Nombre={'gonzalo'} Descripcion={'descripcionlas'} Precio={222} gastoId={1} fecha={'27/06'}/>
-                                        
                                         {
-                                            // gastoByInput[0] ?
-                                            // gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
-                                            // : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                            gastoByInput[0] ?
+                                            gastoByInput.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
+                                            : gastos && gastos.map(gasto=> <GastoItem Nombre={gasto.name} Descripcion={gasto.description} Precio={gasto.cost} gastoId={gasto.id} fecha={gasto.date}/>)
                                         }
-                                        
-                                    
                                     </div>
-                                    
-                                {/* </tbody> */}
                             <div className={styles.footer}>
                                 <h2>TOTAL</h2>
                                 <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>

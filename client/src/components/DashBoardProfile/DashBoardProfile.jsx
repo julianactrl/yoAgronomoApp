@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
+import imagen from '../../assets/a.png'
 
 const { REACT_APP_API } = process.env;
 
@@ -46,9 +47,10 @@ export default function DashBoardProfile() {
           )}
           {usuario.profile_pic ? (
             <img
-            src={`${REACT_APP_API}/user/picture/${usuario.profile_pic}`}
-            alt="https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
-            width={90}
+            src={
+              `${REACT_APP_API}/user/picture/${usuario.profile_pic}`
+            }
+            alt=""
             height={90}
             className={styles.perfilimg}
             onClick={() => (!active ? setActive(true) : setActive(false))}
@@ -58,7 +60,7 @@ export default function DashBoardProfile() {
               <img
               alt="perfil"
               src={
-                "https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
+                imagen
               }
               className={styles.perfilimg}
               onClick={() => (!active ? setActive(true) : setActive(false))}
@@ -103,7 +105,7 @@ export default function DashBoardProfile() {
           <img
             alt="icon"
             src={
-              "https://img.favpng.com/23/0/3/computer-icons-user-profile-clip-art-portable-network-graphics-png-favpng-YEj6NsJygkt6nFTNgiXg9fg9w.jpg"
+              imagen
             }
             className={styles.perfilimg}
             onClick={() => {

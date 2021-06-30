@@ -1,23 +1,41 @@
 import axios from 'axios';
 import {
-   GET_IMAGES,GET_SOIL_DATA,POST_POLYID
+    shallowEqual
+} from 'react-redux';
+import {
+    GET_IMAGES,
+    GET_SOIL_DATA,
+    POST_POLYID,
+    PATCH_POLY_ID
 } from '../constants';
+import swal from 'sweetalert'
 
-const { REACT_APP_AGRO_API_KEY } = process.env
+const {
+    REACT_APP_AGRO_API_KEY,
+    REACT_APP_API
+} = process.env
 
 
 
-export function postPolyId (data){
+export function postPolyId(data) {
     return async function (dispatch) {
         console.log(data)
         return await axios.post(`http://api.agromonitoring.com/agro/1.0/polygons?appid=0a1f8edec9b19466a0369055e53e1a95`, data)
-        .then(res => {
-            dispatch({
-                type: POST_POLYID,
-                payload: res.data,
+            .then(res => {
+                dispatch({
+                    type: POST_POLYID,
+                    payload: res.data,
+                })
+                swal('Coordenadas exitosas', {
+                    icon: 'success'
+                })
+                console.log(res.data)
             })
-            console.log(res.data)
-        })
+            .catch(error => {
+                swal('Por favor defina de manera mas específica su polígono', {
+                    icon: 'warning'
+                })
+            })
     }
 }
 
@@ -34,7 +52,7 @@ export function postPolyId (data){
 //                 geo_json:{
 //                    type:"Feature",
 //                    properties:{
-             
+
 //                    },
 //                    geometry:{
 //                       type:"Polygon",
@@ -56,11 +74,11 @@ export function postPolyId (data){
 
 
 export const getImages = (polygonId) => {
-    return function(dispatch) {
+    return function (dispatch) {
         axios
             .get(`http://api.agromonitoring.com/agro/1.0/image/search?start=1622943075&end=1624843875&polyid=${polygonId}&appid=0a1f8edec9b19466a0369055e53e1a95`)
             .then((r) => r.data)
-            .then((data)=> {
+            .then((data) => {
                 dispatch({
                     type: GET_IMAGES,
                     payload: data
@@ -70,15 +88,42 @@ export const getImages = (polygonId) => {
 }
 
 export const getSoilData = (polygonId) => {
-    return function(dispatch) {
+    return function (dispatch) {
         axios
             .get(`http://api.agromonitoring.com/agro/1.0/soil?polyid=${polygonId}&appid=0a1f8edec9b19466a0369055e53e1a95`)
             .then((r) => r.data)
-            .then((data)=> {
+            .then((data) => {
                 dispatch({
                     type: GET_SOIL_DATA,
                     payload: data
                 });
             });
+    }
+}
+// export const setPoly = (id,polygonId) => {
+//     console.log(id)
+//     return function(dispatch) {
+//         axios
+//         .put(`${REACT_APP_API}/lote/1`,"hola")
+//         .then((r) => r.data)
+//         .then((data)=> {
+//             dispatch({
+//                 type: PATCH_POLY_ID,
+//                 payload: data
+//             });
+//         });
+//     }
+// }
+
+export function setPoly(polygonId, id) {
+    return function (dispatch) {
+        return axios.put(`${REACT_APP_API}/lote/${id}`, {
+            poliId: polygonId
+        })
+            .then(response => dispatch({
+                type: PATCH_POLY_ID,
+                payload: response.data
+            }))
+            .catch(e => console.log(e))
     }
 }
