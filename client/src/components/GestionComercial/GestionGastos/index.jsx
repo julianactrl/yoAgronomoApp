@@ -107,7 +107,9 @@ export default function GestionGastos () {
                                     </div>
                             <div className={styles.footer}>
                                 <h2>TOTAL</h2>
-                                <h2 className={styles.numberTotal}> {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}</h2>
+                                <h2 className={styles.numberTotal}>
+                                    {gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)}
+                                </h2>
                             </div>
                             </>)
                         }
