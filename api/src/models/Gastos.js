@@ -1,23 +1,18 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("lote", {
+  sequelize.define("gastos", {
     name: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
-    superficie: {
+    cost: {
       type: DataTypes.STRING,
     },
-    ubicacion: {
+    description: {
       type: DataTypes.STRING,
     },
-    imagen: {
+    date: {
       type: DataTypes.STRING,
     },
-    poliId: {
-      type: DataTypes.STRING,
-      allowNull: true
-    }
   });
 };

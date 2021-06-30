@@ -8,23 +8,22 @@
     padding-left: 30px;
     padding-top: 30px;
     background-color: #ffffff;
-    border-radius: 0px 0px 0px 5px;
-    height: 320px;
-    width: 250px;
+    height: 450px;
+    width: 350px;
     right: 0px;
     top: 0px;
-    animation-duration: 0.2s;
+    border-radius: 0 0 0 10px;
+    animation-duration: 0.3s;
     animation-name: slidein;
+    animation-timing-function: ease;
+    animation-fill-mode: none;
 }
 @keyframes slidein {
     from {
-        width: 0;
-        height: 100px;
+        transform: scale(0);
     }
-
     to {
-        height: 320px;
-        width: 250px;
+        transform: scale(1);
     }
 }
 
@@ -59,15 +58,15 @@
 
 }
 .perfilimg{
-    cursor: pointer;
+     cursor: pointer;
     display: flex;
-    margin-top: -20px;
-    width: 90px;
-    border-radius: 60px;
+    margin-top: -20px; 
+    width: 100px;
+    border-radius: 90px;
     
 }
 .perfilimg:hover{
-    box-shadow: 0 0 20px rgba(152, 255, 152, 0.644);
+    box-shadow: 5px 5px 0 rgb(3, 3, 3);
 }
 
 .logo{
@@ -125,8 +124,7 @@
 }
 
 .settings{
-    margin-left: -10px;
-    margin-top: -40px;
+    width: 20px;
     color: rgb(0, 0, 0);
     
 }
@@ -141,8 +139,8 @@
 }
 .titleLogout{
     color: rgb(0, 0, 0);
-    height: 50%;
     margin-left: 25px;
+    margin-top: 32px;
 }
 .titleLogout:hover{
     cursor: pointer;
@@ -152,5 +150,9 @@
 
 .cuenta{
     display: flex;
-    margin-left: 310px;
+}
+.contenido{
+    display: flex;
+    margin-bottom: -30px;
+    margin-left: 23px;
 }

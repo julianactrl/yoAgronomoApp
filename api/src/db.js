@@ -62,6 +62,8 @@ const {
   Transporte,
   Stock,
   Tarea,
+  ClasificacionDeGastos,
+  Gastos,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -70,6 +72,10 @@ User.hasMany(Empresa);
 Empresa.belongsTo(User);
 Empresa.hasMany(Lote);
 Empresa.hasMany(Transporte);
+Empresa.hasMany(ClasificacionDeGastos);
+ClasificacionDeGastos.belongsTo(Empresa);
+ClasificacionDeGastos.hasMany(Gastos);
+Gastos.belongsTo(ClasificacionDeGastos);
 Lote.belongsTo(Empresa);
 Lote.hasMany(ManejoDeLote);
 ManejoDeLote.belongsTo(Lote);
