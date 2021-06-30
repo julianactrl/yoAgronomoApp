@@ -7,6 +7,11 @@
     font-size: 120%;
     border-bottom: 0.2px solid rgba(0, 0, 0, 0.171);
 }
+.contenedorGasto:hover{
+    background-color: #198754;
+    color: white;
+    cursor:default;
+}
 .contenedorGastoCrear{
     position: relative;
     /* right:0.5%; */
@@ -42,7 +47,18 @@
     /* background-color: red; */
 }
 .td{
-    display: block;
+    display: flex;
+    padding-left: 1%;
+    text-align: center;
+    /* border: 2px solid black; */
+    width: 100%;
+    font-size: 130%;
+    height: 160%;
+}
+.tdPrecio{
+    display: flex;
+    /* padding-left: 1%; */
+    justify-content: center;
     text-align: center;
     /* border: 2px solid black; */
     width: 100%;

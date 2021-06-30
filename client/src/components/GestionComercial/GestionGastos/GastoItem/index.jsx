@@ -23,7 +23,7 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, gastoI
                 {!edit ? <>
                     <td className={styles.td}>{nombre}</td>
                     <td className={styles.td}>{descripcion}</td>
-                    <td className={styles.td}>{precio}</td>
+                    <td className={styles.tdPrecio}>{precio}</td>
                     <div className={styles.contenedorFechaBtn}>
                         <td className={styles.tdFecha}>{fecha}</td>
                         <><img onClick={handleEdit} className={styles.img} src={'https://image.flaticon.com/icons/png/512/1159/1159633.png'} />

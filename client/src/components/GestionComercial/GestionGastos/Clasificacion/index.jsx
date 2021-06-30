@@ -13,10 +13,10 @@ export default function Clasificacion ({name, id}) {
 
     return (
         <div className={styles.contClasificacion}>
-            <buton onClick={clickClasificacion} className={`btn btn-outline-success ${styles.btnClasificacion}`}>
+            <buton onClick={clickClasificacion} className={`${styles.btnClasificacion}`}>
                 {name}
             </buton>
-                <button onClick={()=> dispatch(deleteClasificacion(id))} className={styles.btn}>X</button>
+            <button onClick={()=> dispatch(deleteClasificacion(id))} className={styles.btnCerrar}>X</button>
         </div>
     )
 }
