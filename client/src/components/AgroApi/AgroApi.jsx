@@ -27,8 +27,8 @@ const AgroApi = ()=> {
     let unix_timestamp = soilData.dt
 
     let date = new Date(unix_timestamp * 1000);
-    let dia = date.getDay()
-    let mes = date.getMonth()
+    let dia = date.getDate()
+    let mes = date.getMonth()+1;
     let año = date.getFullYear()
     let horas = date.getHours();
     let minutos = "0" + date.getMinutes();
