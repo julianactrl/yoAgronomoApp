@@ -7,6 +7,8 @@ import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
 import dataCiudades from '../../ciudades.json'
+import upload from '../../assets/upload.jpg'
+
 
 function NewEmpresa() {
   const history = useHistory();
@@ -35,7 +37,7 @@ function NewEmpresa() {
     imagen: "",
   });
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgUrl, setImgUrl] = useState(upload);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -157,12 +159,13 @@ function NewEmpresa() {
                 accept="image/png, image/jpeg"
                 onChange={handleFileInputChange}
                 required
+                placeholder="subir img"
               />
             </div>
             <img
               src={imgUrl}
               alt={imgUrl}
-              style={{ height: "200px", width: "250px" }}
+              style={ imgUrl===upload ? { height: "230px", width: "250px", padding:"40px" } : { height: "200px", width: "250px"}}
             />
             <br></br>
             <button
