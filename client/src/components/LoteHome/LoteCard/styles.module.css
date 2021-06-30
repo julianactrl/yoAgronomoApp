@@ -47,13 +47,13 @@
     border-radius: 7px;
 }
 .detail{
+    color: white !important;
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     bottom: 0;
-    color: wheat;
     width: 100%;
     box-shadow: 0 0 30px black;
     height: 25%;
@@ -64,6 +64,7 @@
     /* border: 3px solid white; */
     padding: 10px;
     opacity: 1;
+    font-size: 20px;
     animation-name: aparecer;
     animation-duration: 1s;
     height: 60%;
@@ -74,9 +75,11 @@
     animation-timing-function: ease;
     flex-direction: column;
     /* border: 2px solid white; */
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    /* justify-content: space-between; */
+    color: white !important;
+
+    justify-content: space-between;
 }
 @keyframes aparecer {
     from{
@@ -92,16 +95,21 @@
     display: flex;
     width: 100%;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: space-evenly;
     /* border: 2px solid wheat; */
 }
 .text{
     color: greenyellow;
     position: relative;
     top: 20%;
-    font-size: 25px;
+    font-family: Roboto;
+    font-size: 20px;
 }
 .clima,
 .hectareas{
-    font-size: 25px;
+    position: relative;
+    top: 25%;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
 }

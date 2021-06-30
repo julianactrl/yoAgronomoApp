@@ -30,11 +30,6 @@ export default function LoteCard ({lote}) {
                          // height={600}
                          className={styles.img}
                        />
-            
-            
-            
-            
-            
             <div className={styles.detail}>
                 <h1 className={styles.title}>{lote.name}</h1>
                 <div className={styles.detailOculto}>
@@ -42,7 +37,7 @@ export default function LoteCard ({lote}) {
                         <h2 className={styles.clima}>{lote.ubicacion}</h2>
                         <h2 className={styles.hectareas}>{lote.superficie}</h2>
                     </div>
-                    <h2 className={styles.text}>Click para ver detalles</h2>
+                    <h2 className={styles.text}>ver detalles</h2>
                 </div>
             </div>
         </div> 

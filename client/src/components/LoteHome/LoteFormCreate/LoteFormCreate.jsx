@@ -77,7 +77,7 @@ export default function LoteFormCreate({empresaId}){
         }
     }
     function handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
          if (selectedFile === null)
            return swal({
              title: "Image Field Cannot Be Empty",
