@@ -23,6 +23,7 @@ body {
     padding: 2rem;
     align-items: center;
     justify-content: center;
+    flex-direction: row-reverse;
 
 }
 
@@ -34,16 +35,46 @@ body {
     align-items: center;
     justify-items: center;
     align-content: center;
-    background-color: rgb(117, 129, 117);
-    box-shadow: 0 0 10px black;
+    backdrop-filter: blur(20px);
+    background: linear-gradient(rgba(83, 83, 83, 0.6), rgba(7, 20, 14, 0.52), rgba(84, 107, 85, 0.6));
+    box-shadow: 1px 0 15px black;
+    border: 2px solid rgba(54, 54, 54, 0.363);
     width: 70vw;
     height: 70vh;
     border-radius: 25px;
 }
+.cross{
+    position: relative;
+    left: 70%;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image:  url('../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
 
+}
 .malditoH2{
     color: black !important;
     font-weight: 400;
+}
+.elLink{
+    
+    height: 3vh;
+    width: 40rem;
+}
+.elLink:hover{
+    transition: 0.3s;
+    background-color: rgba(168, 202, 149, 0.144);
 }
 
 .agendita{
@@ -52,36 +83,95 @@ body {
     color: black !important;
     font-weight: 400;
 }
+.btnLote{
+    position: relative;
+    display: flex;
+    text-align: center;
+    bottom: 10rem;
+    height: 4.7vh;
+    left: 30rem;
+    width: 150px !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #80cc28 !important;
+    padding: 15px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+.btnLote:hover{
+    cursor: pointer;
+    font-size: 13px;
+    color: black !important;
+    background: #27963c !important;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+
+}
 
 .ubicacion {
     margin-left: 1rem;
 }
+.contTareas{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-evenly;
+    overflow: scroll;
+    overflow-x: hidden;
+    text-align: start;
+    position: absolute;
+    bottom: -15%;
+    left: 0%;
+    width: 80%;
+    height: 16vh;
+    background-color: rgba(170, 170, 170, 0.267);
+}
+.contTareas::-webkit-scrollbar {
+    transition: 0.3s;
+    width: 0.5rem;
+    background: rgba(224, 224, 224, 0.185);
+    border-radius: 4px;
+}
 
 
 .description { 
-   
+    display: flex;
+    flex-direction: column;
     color: black !important;
     position: relative;
-    top: 3rem;
+    top: -4rem;
+    left: 5rem;
     text-align: start;
-    right: 3rem;
-    align-content: center;
     width: 50%;
     height: 40vh;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-family: 'Segoe UI';
     /* background-color: red; */
 
 }
 
 .imgEmpresa {
+    transition: 1s;
     position: relative;
-    left: 3rem;
-    box-shadow: 0 0 10px black;
+    left: 0rem;
+    box-shadow: 0 0 10px rgba(77, 77, 77, 0.26);
     border-radius: 1.5rem;
-    width: 40%;
-    height: 80%;
+    width: 50%;
+    height: 90%;
+}
+.imgEmpresa:hover{
+    transition: 1s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.623);
 }
 
 .tareas {
@@ -104,27 +194,24 @@ body {
 }
 
 .nameTitle {
-    font-size: 5rem;
-    color: rgb(0, 0, 0);
+    position: relative;
+    left: -30%;
+    font-size: 10rem;
+    text-shadow: 0 0 30px rgb(54, 59, 65);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
-    background-color: rgba(255, 255, 255, 0.301);
-    padding: 10px;
-    border: black solid 2px;
     border-radius: 8px;
 }
 
 .btnsDelEdit {
+    position: relative;
+    left: -40%;
+    top: 5vh;
     display: flex;
-    width: 8rem;
-    justify-content: space-evenly;
+    width: 30rem;
+    justify-content: center;
     align-items: center;
-}
-
-.items {
-    float: left;
-    
-
-
 }
 
 .buttonEmpresa {
@@ -174,7 +261,7 @@ body {
 
 .agendaCont{
     display: flex;
-    flex-direction: row;
+    flex-direction: row;;
 }
 
 .agenda:hover {

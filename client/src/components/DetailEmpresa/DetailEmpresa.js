@@ -99,15 +99,14 @@ function pAlta(){
             <div className={styles.name}>
                 <div className={styles.itemsTop}>
             <h1 className={styles.nameTitle}>{empresa.name}</h1>
+            <Link to='/home' className={styles.cross}/>
             <div className={styles.btnsDelEdit}>
-            <Link to={`/update/${empresa.id}`}>
-            <button className={styles.buttonEmpresa}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-            </Link>
-            <div className={styles.items}>
-            <Link to={`/home`}>
-            <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
-            </Link>  
-            </div>
+              <Link to={`/update/${empresa.id}`}>
+                <button className={styles.buttonEmpresa}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+              </Link>
+              <Link to={`/home`}>
+                <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
+              </Link>
             </div>
             </div>
             </div>
@@ -116,47 +115,33 @@ function pAlta(){
             <h2 className={styles.malditoH2}><i class="fa fa-area-chart" aria-hidden="true"></i> Hectáreas totales: {empresa.hectareas}</h2>
             <h2 className={styles.malditoH2}><i class="fa fa-map-marker" aria-hidden="true"></i> Ubicación: {empresa.ubicacion}</h2>
             <h2 className={styles.agendita}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
+            <Link to={`/lote/${idEmpresa}`} className={styles.btnLote}>Lotes</Link>
             <div className={styles.tareas}>
             <div className={styles.items}>
             <div className={styles.items}>
           
            </div> 
-              <Link className={styles.elLink} to ='/tareas'>
+              
            <div className={styles.items}>
-           <h3>
-          
-          {/* //  (tareas.prioridad === 'Baja') ?
-          //  tareas.length>0 && tareas.map(t=>(
-          //                  <p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
-          //                  )) :
-          //                  [
-          //           (tareas.prioridad === 'Media') ?
-          //         tareas.length>0 && tareas.map(t=>(
-          //           <p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
-          //           )) :
-                    
-          //           tareas.length>0 && tareas.map(t=>(
-          //             <p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
-          //             )) ] */}
+           <div className={styles.contTareas}>
           {
           alta.length>0 && alta.map(t=>(
-          <p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
           ))
           }
           {
           media.length>0 && media.map(t=>(
-            <p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
             ))
           }
           {
           baja.length>0 && baja.map(t=>(
-            <p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p>
+            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
           ))
           }
-          </h3>
+          </div>
                            
            </div>
-                           </Link>
            </div>
             </div>
             </div>
