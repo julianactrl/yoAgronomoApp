@@ -6,16 +6,17 @@ import '../AgroApi/AgroApi.css'
 
 const AgroApi = ()=> {
     
-    const polyId = useSelector(state => state.agroApiReducer.polyId.id)
+    const poliId = useSelector(state => state.agroApiReducer.poliId.id)
+    const loteId= useSelector(state => state.loteReducer.detailLote.id)
     const soilData = useSelector(state => state.agroApiReducer.agroSoil)
     const images = useSelector(state => state.agroApiReducer.agroImages)
     
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(setPoly(polyId))
-        dispatch(getImages(polyId))
-        dispatch(getSoilData(polyId))
-    })
+        dispatch(setPoly(poliId,1))
+        dispatch(getImages(poliId))
+        dispatch(getSoilData(poliId))
+    },[])
     return(
         <div>
 
