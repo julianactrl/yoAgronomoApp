@@ -5,9 +5,62 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 19vh;
+    
+  }
+
+  .button{
+    width: 135px !important;
+    height: 80px;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    margin: 5vh 0;
+    color: rgb(0, 0, 0) ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #27963c !important;
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 15px;
+  }
+  .dosBotones{
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+  }
+
+.ulSele{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center ;
+  max-width: 250px;
+  margin-left: 20px;
+  color: #161616;
+  font-size: 17px;
+}
+
+.ulSele h4{
+font-size: 25px;
+}
+
+  .button:hover{
+    cursor: pointer;
+    background:#24b33e !important;
+    color:black !important;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
   }
   
   .googleMaps {
-    height: 45rem;
-    width: 45rem;
+    height: 65rem;
+    border-radius: 13px;
+    width: 95rem;
   }

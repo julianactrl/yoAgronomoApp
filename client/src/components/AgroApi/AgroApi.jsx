@@ -3,6 +3,8 @@ import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 import {getImages,getSoilData,setPoly} from '../../redux/actions/agroApiActions';
 import '../AgroApi/AgroApi.css'
+import Header from '../Header/Header'
+import { Link } from 'react-router-dom';
 
 const AgroApi = ()=> {
 
@@ -37,24 +39,31 @@ const AgroApi = ()=> {
     let temp0 = soilData.t0-273.15;
     return(
         <div>
+            <Header/>
+        <div>
+           <Link to= '/map'>
+           <button className='goBack'>Volver al mapa</button>
+           </Link>
+            <div className='allInfo'>
             { loading ? <h1>Loading...</h1> : 
-                <div className="conatiner-agroImages">
+                <div className="container-agroImages">
                     {
                         images && images.map(i => (
                             <div className="agro-images">
                                 <div className="indices-images">
-                                    <img src={i.image.truecolor} alt="" />
-                                    <img src={i.image.falsecolor} alt="" />
-                                    <img src={i.image.ndvi} alt="" />
-                                    <img src={i.image.evi} alt="" />
-                                    <img src={i.image.evi2} alt="" />
-                                    <img src={i.image.nri} alt="" />
-                                    <img src={i.image.dswi} alt="" />
-                                    <img src={i.image.ndwi} alt="" />
+                                   
+                                <h5 className='unoDos'><img className='cuadradito' src={i.image.truecolor}  alt="" />Indice TrueColor</h5>
+                                <h5 className='unoDos'>  <img className='cuadradito' src={i.image.falsecolor} alt="" />Indice FalseColor</h5>
+                                <h5 className='unoDos'>    <img className='cuadradito' src={i.image.ndvi} alt="" />Indice de verdor</h5>
+                                <h5 className='unoDos'>   <img className='cuadradito' src={i.image.evi} alt="" />Indice veg. mejorado</h5>
+                                <h5 className='unoDos'>  <img className='cuadradito' src={i.image.evi2} alt="" />Indice veg. mejorado 2</h5>
+                                <h5 className='unoDos'>  <img className='cuadradito' src={i.image.nri} alt="" />Indice nac. precipitación</h5>
+                                <h5 className='unoDos'>   <img className='cuadradito'  src={i.image.dswi} alt="" />Indice dif. agua</h5>
+                                <h5 className='unoDos'>   <img className='cuadradito' src={i.image.ndwi} alt="" />Indice agua normalizado</h5>
                                 </div>
                                 <div className="datos-solares">
                                     <p>Elevacion solar: {i.sun.elevation.toFixed(2)}°</p>
-                                    <p>Azimuth: {i.sun.azimuth.toFixed(2)}°</p>
+                                    <p>Angulo de orientación Solar: {i.sun.azimuth.toFixed(2)}°</p>
                                 </div>
                             </div>
                         ))
@@ -63,11 +72,16 @@ const AgroApi = ()=> {
             }
             <div className="container-soilData">
                 <h3>Detalles del Suelo</h3>
-                <p>Datos capturados el: {fechaAmostrar}</p>
-                <p>Temperatura a 10cm de profundidad: {temp10.toFixed(2)}°C</p>
-                <p>Temperatura de la superficie: {temp0.toFixed(2)}°C</p>
-                <p>Humedad por metro cuadrado: {soilData.moisture}%</p>
+                <ul className='ulSelesi'>
+                <li className='simpleP' ><i class="fa fa-check" aria-hidden="true"></i>Datos capturados el&nbsp;<b>{fechaAmostrar}</b></li>
+                <li> <i class="fa fa-check" aria-hidden="true"></i><strong>Temperatura a 10cm de profundidad:&nbsp;</strong>{temp10.toFixed(2)}°C</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i><strong>Temperatura de la superficie:&nbsp;</strong> {temp0.toFixed(2)}°C</li>
+                <li><i class="fa fa-check" aria-hidden="true"></i><b>Humedad por metro cuadrado:&nbsp;</b> {soilData.moisture}%</li>
+                </ul>
+               
             </div>
+            </div>
+        </div>
         </div>
     )
 }

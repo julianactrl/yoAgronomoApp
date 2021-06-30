@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import { useDispatch } from "react-redux";
+import Header from '../Header/Header'
 import ReactDOM from "react-dom";
 import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
 import { postPolyId } from "../../redux/actions/agroApiActions";
@@ -112,6 +113,8 @@ const Map = () => {
     const apiKey= process.env.REACT_APP_GOOGLE_API_KEY
 
   return (
+    <div>
+    <Header/>
     <div className="googleMapsCont">
       <LoadScript
         id="script-loader"
@@ -140,12 +143,24 @@ const Map = () => {
           />
         </GoogleMap>
       </LoadScript>
-     
-      <button onClick={handleSubmit}>Agregar coordenadas</button>
+
+      <ul  className='ulSele'>
+      <h4>Instrucciones:</h4>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Seleccione la porción de terreno sobre la cual desea obtener información.</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Presione el botón Agregar coordenadas.</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Si obtiene buenos resultados, ya puede ver el detalle de su lote en 'Ver detalle'. Sino vuelva a marcar el terreno con mayor precisión.</li>
+      </ul>
+      <div className='dosBotones'>
+      <button className='button' onClick={handleSubmit}>Agregar coordenadas</button>
       <Link to = '/agroapi'>
-        <button>Ver el detalle</button>
+        <button className='button'>Ver detalle</button>
       </Link>
+      </div>
     </div>
+    </div> 
   );
 }
 

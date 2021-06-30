@@ -1,0 +1,108 @@
+.allInfo{
+     margin: 20vh auto; 
+     
+     text-align: center;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     background-color: rgba(240, 255, 240, 0.637);
+     max-width: 950px;
+     height: 500px;
+     border-radius: 13px;
+     border: solid rgb(18, 119, 18);
+}
+
+.goBack{
+    position: absolute;
+    bottom:12rem;
+    right:38rem;
+    width: 120px !important;
+    height: 60px;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+    color: rgb(0, 0, 0) ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #27963c !important;
+    padding: 10px; 
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 15px;
+}
+
+.goBack:hover{
+    cursor: pointer;
+    background:#24b33e !important;
+    color:black !important;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+
+.unoDos{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.712);
+    max-width: 80px;
+    text-transform: capitalize;
+}
+
+
+.indices-images{
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    max-width: 350px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+}
+.indices-images img{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    margin-right: 15px;
+}
+
+.container-agroImages{
+    display: flex;
+    margin-right: 80px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.datos-solares{
+    color: black;
+    background-color: rgba(93, 184, 93, 0.322);
+    box-shadow: 0 0 10px;
+    padding: 10px;
+}
+
+.container-soilData{
+    display: flex;
+    flex-direction: column;
+    align-content:center;
+    justify-content: center;
+}
+
+
+li{
+    color: black;
+    font-size: 18px;
+    display: flex;
+    text-align: justify;
+    padding: 10px;
+}
+
+h3{
+    font-size: 35px;
+}

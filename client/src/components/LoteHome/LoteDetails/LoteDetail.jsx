@@ -12,6 +12,7 @@ import emptyIco from '../../../assets/emptyIco.png'
 import grass from '../../../assets/emptypng.png'
 import {motion} from 'framer-motion';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
@@ -309,7 +310,12 @@ export default function LoteDetails({lote}){
                                         </div>
                                     </div>
                             </div>
+                            <div className={styles.buttons2}>
                             <button onClick={card3d} className={styles.btnDetails}>Añadir Observación</button>
+                            <Link to= '/map'>
+                            <button className={styles.btnDetails}>Ver información satelital</button>
+                            </Link>
+                            </div>
                         </div>
 
                     </div>
