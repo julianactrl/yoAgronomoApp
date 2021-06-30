@@ -63,11 +63,12 @@ export default function GestionGastos () {
                         <div className={styles.contenedorHeader}>
                             <div className={styles.contClasificacionesYtotal}>
                                 <div className={styles.contClasificaciones}>
+                                <Clasificacion id={'1'} name={'Gastos Principales'} />
                                 {
                                     clasificaciones&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
                                     <div className={styles.contCrearClasificacion}>
-                                        <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar Clasificación +' className={`btn btn-outline-success ${styles.btnTotal}`} />
+                                        <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar clasificación..' className={styles.inputAgregar} />
                                         <button onClick={crearClasificacion}>Crear !!</button>
                                     </div>
                                 </div>

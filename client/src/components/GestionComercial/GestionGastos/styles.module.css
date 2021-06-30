@@ -28,8 +28,18 @@
     height: 50%;
 }
 .contCrearClasificacion{
+    background-color: chartreuse;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+}
+.contClasificaciones{
+    background-color: chartreuse;
+    display: flex;
+    /* width: 800px; */
+}
+.inputAgregar{
+    margin: 0;
+    width: 100%;
 }
 .total{
     display: flex;
