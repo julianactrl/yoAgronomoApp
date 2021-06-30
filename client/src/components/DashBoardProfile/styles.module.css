@@ -125,13 +125,16 @@
 
 .settings{
     width: 20px;
+    font-size: 28px;
+    margin-top:15px;
     color: rgb(0, 0, 0);
+    transition: all 0.4s ease 0s;
     
 }
 .settings:hover{
     color: rgb(69, 236, 27);
     cursor: pointer;
-    font-size:25px
+    font-size:29px
 }
 .perfilbtncont{
     width: 100%;
@@ -141,11 +144,17 @@
     color: rgb(0, 0, 0);
     margin-left: 25px;
     margin-top: 32px;
+    font-size: 20px;
+    transition: all 0.4s ease 0s;
+    font-family: sans-serif;
+    font-weight: 500;
 }
 .titleLogout:hover{
     cursor: pointer;
     color: rgb(69, 236, 27);
-    font-size: 19px;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+
 }
 
 .cuenta{

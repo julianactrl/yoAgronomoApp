@@ -17,6 +17,7 @@ import {getEmpresa} from '../../redux/actions/empresaActions';
 export const Stock = () => {
     const dispatch = useDispatch()
     const stock = useSelector(state => state.stockReducer.stockPorEmpresa)
+    const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)
     const empresaId = window.location.pathname.split('/')[3]
     console.log(empresaId)
     const [form, setForm] = useState(false)
@@ -92,7 +93,7 @@ export const Stock = () => {
                 icon: "success",
                 button: true,
               })
-              window.location.reload(true)
+              history.push(`/gestion_comercial/${idEmpresa}`)
               
         }
     }
@@ -113,13 +114,14 @@ export const Stock = () => {
                 button: true,
               })
               DeleteStock(IdStock)
-              window.location.reload(true)
+              history.push(`/gestion_comercial/${idEmpresa}`)
               
         }
     }
     const DeleteStock = (stockId) => {
         dispatch(deleteStock(stockId))
-        window.location.reload(true)
+        swal('Item eliminado',{icon:"success"})
+        history.push(`/gestion_comercial/${idEmpresa}`)
     }
     const EditarStock = (stockId) => {
         toggleFormEdit();
