@@ -6,6 +6,7 @@ import Header from "../Header/Header";
 import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
+import dataCiudades from '../../ciudades.json'
 
 function NewEmpresa() {
   const history = useHistory();
@@ -45,7 +46,9 @@ function NewEmpresa() {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
+      
     });
+    console.log(input);
   }
 
   function handleSubmit() {
@@ -80,7 +83,7 @@ function NewEmpresa() {
     dispatch(postEmpresa(infoSendDb, config));
     setInput(input);
     swal({
-      title: "Empresa created",
+      title: "Empresa creada",
       icon: "success",
       button: true,
     })
@@ -134,14 +137,15 @@ function NewEmpresa() {
               />
             </div>
             <div className={styles.inputsNewEmpresa}>
-              <label>Ubicación </label>
-              <input
-                type="text"
-                onChange={handleInputChange}
-                value={input.ubicacion}
-                placeholder="Santa Fe"
-                name="ubicacion"
-              />
+              <select className={styles.selectUbicacion} 
+              onChange={(e) => handleInputChange(e)}
+              name="ubicacion" 
+              >
+         <option  disabled selected> Seleccione Ubicación</option>
+          {dataCiudades.localidades.map((ciudad) => (
+            <option value={ciudad.nombre}>{ciudad.nombre}</option>
+          ))}
+        </select>
             </div>
 
             <div className={styles.fileImg}>
