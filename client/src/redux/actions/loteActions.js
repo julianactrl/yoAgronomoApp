@@ -38,7 +38,7 @@ export const crearLoteDB = (payload) => async (dispatch) => {
                 type: CREATE_LOTE,
                 payload: update
             })
-            window.location.reload()
+            // window.location.reload()
         })
         .catch((e)=>
         console.log("soy e error en create Lote", e.response?.data?.status)
