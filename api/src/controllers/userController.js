@@ -1,10 +1,8 @@
-const { Post, Empresa, User } = require("../db");
-const bcrypt = require("bcrypt");
-const authConfig = require("../config");
+const { Empresa, User } = require("../db");
 const path = require("path");
 const fs = require("fs");
-const nodemailer = require('nodemailer');
-const smtpTransport = require('nodemailer-smtp-transport');
+const nodemailer = require("nodemailer");
+const smtpTransport = require("nodemailer-smtp-transport");
 const { EMAIL_ACCOUNT, EMAIL_PASSWORD } = process.env;
 
 //==================================================//
@@ -21,8 +19,7 @@ const getEmpresaByUserId = (req, res) => {
       },
     ],
   })
-    .then((empresa) => {
-      console.log(" estoy aqui--------", empresa);
+    .then(() => {
       res.json({ message: "Empresa encontrada" }).status(200);
     })
     .catch((err) => {
@@ -31,24 +28,16 @@ const getEmpresaByUserId = (req, res) => {
 };
 const updateUser = async (req, res) => {
   const { id } = req.params;
-  const { fullName, email } = req.body;
-  let password = bcrypt.hashSync(
-    req.body.password,
-    Number.parseInt(authConfig.rounds)
-  );
+  const { fullName } = req.body;
   let userFind = await User.findAll({ where: { id: id } });
-  console.log(userFind);
 
   if (req.file) {
     var profile = req.file.filename;
-    console.log(profile);
   }
   if (userFind.length > 0) {
     userFind.map(async (user) => {
       await user.update({
         fullName,
-        email,
-        password,
         profile_pic: profile,
       });
     });
@@ -64,7 +53,6 @@ const getImageProfile = (req, res) => {
   let getImage;
   const { name } = req.params;
   let pathImage = path.join(__dirname, "../");
-  // console.log("soy el path ",pathImage)
   try {
     getImage = fs.readFileSync(`${pathImage}uploads/${name}`);
   } catch (error) {
@@ -79,7 +67,7 @@ const deleteUser = (req, res) => {
   const { id } = req.params;
   User.findByPk(id)
     .then((deleteUser) => deleteUser.destroy())
-    .then((deleteUser) => res.send("Usuario eliminado con exito"))
+    .then(() => res.send("Usuario eliminado con exito"))
     .catch((err) => res.send(err));
 };
 
