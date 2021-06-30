@@ -25,6 +25,7 @@ export const ResetPassword = () => {
       { once: true }
     );
   };
+  
 
   const handleSubmits = (input, _step) => {
     switch (_step) {
@@ -97,8 +98,7 @@ export const ResetPassword = () => {
           })
           .then((res) => {
             if (res.data.ok) {
-              swal( "Password changed correctly", { icon: "Success" })
-              .then(
+              swal("Password changed correctly", { icon: "Success" }).then(
                 () => {
                   history.push("/index");
                 }
