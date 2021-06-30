@@ -103,8 +103,8 @@ export default function LoteDetails({lote}){
         setImgUrl(URL.createObjectURL(event.target.files[0]));
         // console.log("---handleFileInputChange----", event.target.files[0]);
     }; 
-    async function postearManejo(){
-
+    async function postearManejo(e){
+        e.preventDefault();
         const config = {
             headers: {
               "Content-Type": "multipart/form-data",
