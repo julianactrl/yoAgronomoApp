@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { faUserTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import swal from "sweetalert";
+import upload from '../../assets/upload.jpg'
+
 
 const { REACT_APP_API } = process.env;
 
@@ -26,7 +28,7 @@ function UpdateProfile() {
   });
 
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgUrl, setImgUrl] = useState(upload);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -121,7 +123,7 @@ function UpdateProfile() {
             <img
               src={imgUrl}
               alt={imgUrl}
-              style={{ height: "200px", width: "250px" }}
+              style={ imgUrl===upload ? { height: "180px", width: "190px"} : { height: "200px", width: "250px", paddingBottom:"3px"}}
             />
 
             <br></br>
