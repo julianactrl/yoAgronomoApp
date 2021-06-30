@@ -7,7 +7,10 @@
     flex-direction: column;
     padding-left: 30px;
     padding-top: 30px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-color: #eeeeee;
+    border: 2px solid rgba(77, 77, 77, 0.13);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.068);
     height: 450px;
     width: 350px;
     right: 0px;

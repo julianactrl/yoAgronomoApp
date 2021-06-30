@@ -29,28 +29,27 @@ function DetailTransporte (props) {
            <Header />
 
            <div className={styles.page}>
-           <Link to={"/createtransporte"}>
-                 <div  className={styles.cardContAdd} >
+                <Link to={"/createtransporte"}>
+                        <div  className={styles.cardContAdd} >
                             <h1 className={styles.titleAdd}>Agregar Transporte</h1>
-                          <img src={add} alt="" className={styles.imgAdd}/>
-                 </div>
-           </Link>
-          <div className={styles.containerTransporte}>
-           {transporte && transporte.map(transport=>(
-             
-               <div className={styles.transporte}>
-                   <h3 className={styles.items} >Patente: {transport.patente}</h3>
-                   <h3 className={styles.items} >Conductor: {transport.conductor}</h3>
-                   <h3 className={styles.items} >Carga: {transport.carga}</h3>
-                   <h3 className={styles.items} >Fecha de entrada: {transport.fechaEntrada}</h3>
-                   <h3 className={styles.items} >Fecha de salida: {transport.fechaSalida}</h3>
-                   <h3 className={styles.items} >Observaciones: {transport.observaciones}</h3>
-                   <Link className={styles.editar} to={`/updatetransporte/${transport.id}`}>
-                       <FontAwesomeIcon icon={faEdit}/>
-                    </Link>
-               </div>
-           ))}
-           </div>
+                            <img src={add} alt="" className={styles.imgAdd}/>
+                        </div>
+                </Link>
+                <div className={styles.containerTransporte}>
+                {transporte && transporte.map(transport=>(
+                    <div className={styles.transporte}>
+                        <h3 className={styles.items} >Patente: {transport.patente}</h3>
+                        <h3 className={styles.items} >Conductor: {transport.conductor}</h3>
+                        <h3 className={styles.items} >Carga: {transport.carga}</h3>
+                        <h3 className={styles.items} >Fecha de entrada: {transport.fechaEntrada}</h3>
+                        <h3 className={styles.items} >Fecha de salida: {transport.fechaSalida}</h3>
+                        <h3 className={styles.items} >Observaciones: {transport.observaciones}</h3>
+                        <Link className={styles.editar} to={`/updatetransporte/${transport.id}`}>
+                            <FontAwesomeIcon icon={faEdit}/>
+                        </Link>
+                    </div>
+                ))}
+                </div>
            </div>
        </div>
     //   <div className={styles.background}>
