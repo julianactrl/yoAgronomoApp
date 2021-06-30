@@ -8,8 +8,8 @@ import styles from './styles.module.css'
 
 export function sidebar(verify){
     const empresaId = window.location.pathname.split('/')[2] //---> Id de la empresa que aparece en detalle
-    console.log(empresaId)
-    console.log('este es la cookoe',verify);
+
+
     if (!verify){
         return(
             <div className={styles.sidebarcont}>
@@ -36,7 +36,7 @@ export function sidebar(verify){
                 <Link to={`/gestion_comercial/${empresaId}`} className={styles.linktext}>
                 <h2 className={styles.text}>GESTIÓN COMERCIAL</h2>
                 </Link>
-                <Link to={`/lote/${empresaId}`} className={styles.linktext}>
+                <Link to={`/lote/${empresaId}`} className={styles.linktext} >
                 <h2 className={styles.text}>LOTES</h2>
                 </Link>
                 <Link to='/mercados' className={styles.linktext}>

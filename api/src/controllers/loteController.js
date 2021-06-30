@@ -86,7 +86,7 @@ const createLote = async(req,res,next) => {
           })
           var user = await User.findByPk(idUser);
             if(cantidad >= 2 && user.isPremium === false ){
-             return res.status(500).send("Debe hacerce premium")
+             return res.status(500).send("Debe hacerse premium")
             }
          await Lote.create({
             name,
