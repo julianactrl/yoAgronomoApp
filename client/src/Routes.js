@@ -24,7 +24,8 @@ import DetailTransporte from "./components/Transporte/CardTransporte";
 import Calendar from './components/Calendar/Calendar'
 import GestionComercial from './components/GestionComercial/GestionComercial.js';
 import Stock from './components/GestionComercial/Stock.js';
-
+// --------- PASSWORD RESET ---------------------------------------------
+import  {ResetPassword} from './components/PasswordReset'
 
 
 
@@ -38,6 +39,7 @@ export default function Routes() {
       <Route path="/index">
         <LandingPage/>
       </Route>
+      <Route exact path="/resetpassword" component={ResetPassword}/>
       {/* <Route exact path='/empresa'>
       <DetailEmpresa />
       </Route> */}
