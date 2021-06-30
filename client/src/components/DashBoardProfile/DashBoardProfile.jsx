@@ -73,7 +73,7 @@ export default function DashBoardProfile() {
           {userInfo===true ? (
             <h3>Premium</h3>
             ) : (
-           <h3>cuenta free</h3>
+           <h3>cuenta <strong>free</strong></h3>
            
            )}
            </div>

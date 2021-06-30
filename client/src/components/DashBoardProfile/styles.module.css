@@ -163,5 +163,6 @@
 .contenido{
     display: flex;
     margin-bottom: -30px;
+    text-transform: capitalize;
     margin-left: 23px;
 }

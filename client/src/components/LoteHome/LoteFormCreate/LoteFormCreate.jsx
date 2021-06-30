@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle , faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import {motion} from 'framer-motion';
 import swal from "sweetalert";
+import { useHistory } from 'react-router';
 
 export default function LoteFormCreate({empresaId}){
 
     const numLotes = useSelector((state) => state.loteReducer.allLotes);
     const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
+    const history = useHistory()
         
     if(numLotes.length >= 2 && userInfo === false){
           swal({ 
@@ -77,7 +79,7 @@ export default function LoteFormCreate({empresaId}){
         }
     }
     function handleSubmit(e) {
-        // e.preventDefault();
+        e.preventDefault();
          if (selectedFile === null)
            return swal({
              title: "Image Field Cannot Be Empty",
@@ -116,7 +118,7 @@ export default function LoteFormCreate({empresaId}){
            button: true,
          })
            .then(() => {
-            //  history.reload();
+             history.push(`/lote/${empresaId}`);
            })
            .catch((e) => console.log(e));
          // alert("¿Seguro desea modificar estos datos?");
