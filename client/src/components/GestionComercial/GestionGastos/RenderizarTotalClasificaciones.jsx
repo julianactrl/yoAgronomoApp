@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+
 import React , { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTotal } from '../../../redux/actions/gestionGastosActions'
@@ -12,7 +12,7 @@ export default function RenderizarTotalClasificaciones ({clasificaciones}) {
     const total = useSelector(state=>state.gestionGastosReducer.total)
 
     useEffect(()=>{
-        dispatch(getTotal(cookie.get('selectedEmpresa').id))
+        cookie.get('selectedEmpresa').id && dispatch(getTotal(cookie.get('selectedEmpresa').id))
     },[])
 
     function sumaTotal () {

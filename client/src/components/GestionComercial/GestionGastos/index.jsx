@@ -1,6 +1,5 @@
 import Header from "../../Header/Header"
 import styles from './styles.module.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import Clasificacion from "./Clasificacion"
 import GastoItem from "./GastoItem"
 import { useEffect, useState } from "react"
@@ -73,7 +72,7 @@ export default function GestionGastos () {
                                 </div>
 
                                 <div className={styles.total}>
-                                    <button onClick={()=>setTotalClasificaciones(true)} className={`btn btn-outline-success ${styles.btnTotal}`}>Total</button>
+                                    <button onClick={()=>setTotalClasificaciones(true)} className={styles.btnTotal}>Total</button>
                                 </div>
                             </div>
 

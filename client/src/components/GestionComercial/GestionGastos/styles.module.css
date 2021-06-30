@@ -120,6 +120,22 @@
     align-items: center;
     letter-spacing: 1px;
 }
+.btnTotal{
+    cursor: pointer;
+    display: flex;
+    border: 0.2px solid #19875473;
+    color: green;
+    text-align: center;
+    border-radius:  7px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+.btnTotal:hover{
+    transition: 0.3s all;
+    color: white;
+    background-color: #198754;
+}
 .btnCrear:hover{
     transition: 0.3s all;
     color: white;
