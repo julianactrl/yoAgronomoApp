@@ -11,9 +11,10 @@ import { clearWeather, getWeather } from '../../../redux/actions/weatherActions'
 import emptyIco from '../../../assets/emptyIco.png'
 import grass from '../../../assets/emptypng.png'
 import {motion} from 'framer-motion';
+import Cookies from "universal-cookie";
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
-import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
+import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot, getAllLotes } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
 
@@ -36,7 +37,7 @@ export default function LoteDetails({lote}){
         recomendaciones: null,
     });
     const [editManejoAux, setEditManejoAux] = useState(false)
-    
+    const cookies = new Cookies()
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -134,9 +135,10 @@ export default function LoteDetails({lote}){
     }
 
 
-    function deleteLote(){
+    async function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
+        await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
         swal("Lote eliminado",{icon:"success"})
 
         
