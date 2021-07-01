@@ -107,8 +107,8 @@ return (
     <br></br>
     <div >
         {/* <label>Prioridad: </label> */}
-        <select name='prioridad' onChange={(e)=>handleInputChange(e)}>
-            <option value=''>-- Selecciona Prioridad --</option>
+        <select className={styles.select} name='prioridad' onChange={(e)=>handleInputChange(e)}>
+            <option value=''> Selecciona Prioridad </option>
             <option value='Alta'>Alta</option>
             <option value='Media'>Media</option>
             <option value='Baja'>Baja</option>
