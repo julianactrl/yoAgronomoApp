@@ -169,7 +169,7 @@ function AgroConsultas() {
                     <p className={styles.sub}>{e.title}</p>
                     <p>{e.subetapa}</p>
                     <p>{e.Descripcion}</p>
-                    <img className={styles.escalasImg} alt="not found" src={e.imagen} />
+                    {/* <img className={styles.escalasImg} alt="not found" src={e.imagen} /> */}
 
                     {/* FUNG/HERB/INSECT */}
                     <p className={styles.tituloCard}>{e.type}</p>
@@ -202,7 +202,7 @@ function AgroConsultas() {
                     <p className={styles.sub}>{e.title}</p>
                     <p>{e.subetapa}</p>
                     <p>{e.Descripcion}</p>
-                    <img className={styles.escalasImg} alt="not found" src={e.imagen} />
+                    {/* <img className={styles.escalasImg} alt="not found" src={e.imagen} /> */}
 
                     {/* FUNG/HERB/INSECT */}
                     <p className={styles.tituloCard}>{e.type}</p>

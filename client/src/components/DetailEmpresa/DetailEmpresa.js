@@ -21,7 +21,7 @@ function DetailEmpresa ({id}) {
     
     useEffect(()=> {
       dispatch(getEmpresa(id));
-      dispatch(getAllTareas(idEmpresa))
+      // dispatch(getAllTareas(idEmpresa))
       console.log(empresa)
       dispatch(resetTareas())
     }, []);

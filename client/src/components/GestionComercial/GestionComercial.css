@@ -106,15 +106,15 @@
     background-color: transparent;
     font-weight: bold;
 }
-.membresiaPremium:hover .masInfoBtnGestion{
+.controlDeStock:hover .masInfoBtnGestion{
     background-color: #009945;
     border: 2px solid rgb(0, 59, 27);
 }
-.membresiaPremiumPlus:hover .masInfoBtnGestion{
+.tansporteCont:hover .masInfoBtnGestion{
     background-color: #009945;
     border: 2px solid rgb(0, 59, 27);
 }
-.membresiaPremiumPro:hover .masInfoBtnGestion{
+.proyeccionMenCont:hover .masInfoBtnGestion{
     background-color: #009945;
     border: 2px solid rgb(0, 59, 27);
 }
