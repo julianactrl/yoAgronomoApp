@@ -84,7 +84,7 @@ const deleteGasto = async(req,res,next) => {
         });
         res.json({
             message: "Gasto deleted succesfully",
-            data: deletedGasto
+            data: id
         })
     } catch (error) {
         res.json({

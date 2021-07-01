@@ -7,7 +7,7 @@ import { getAllClasificiones , createClasificacion, getAllGastos, getGastoByInpu
 import { useDispatch, useSelector } from "react-redux"
 import Cookies from 'universal-cookie'
 import  RenderizarTotalClasificaciones  from "./RenderizarTotalClasificaciones.jsx"
-
+import {renderClasificaciones} from './controller'
 
 export default function GestionGastos () {
     const dispatch = useDispatch();
@@ -27,6 +27,9 @@ export default function GestionGastos () {
         await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
     },[])
 
+    // useEffect(async ()=>{
+    //     await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    // },[clasificaciones])
     useEffect(async ()=>{
         await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
         setTotalClasificaciones(false)
@@ -36,12 +39,13 @@ export default function GestionGastos () {
 
     // si se crea un gasto o se elimina con este useefect se actualiza
     useEffect(()=>{
-        selectedClasificacion && dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
+        console.log('se creo un gasto ahora los traigo');
+        dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[createdGasto])
 
-
     useEffect(async ()=>{
-        await dispatch(getAllClasificiones(await cookies.get('selectedEmpresa').id))
+        console.log('useefect de traer las clasificaciones cuando se crea una',);
+        await dispatch(getAllClasificiones( cookies.get('selectedEmpresa').id))
     },[createdClasificacion])
 
     async function crearClasificacion () {
@@ -52,7 +56,7 @@ export default function GestionGastos () {
             setClasificacion({name:''}) 
         }
     }
-
+   
 
     return (
          <>
@@ -63,7 +67,8 @@ export default function GestionGastos () {
                             <div className={styles.contClasificacionesYtotal}>
                                 <div className={styles.contClasificaciones}>
                                 {
-                                    clasificaciones&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
+                                    renderClasificaciones(clasificaciones, createdClasificacion)
+                                    // clasificaciones[0]&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
                                     <div className={styles.contCrearClasificacion}>
                                         <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar clasificación..' className={styles.inputAgregar} />

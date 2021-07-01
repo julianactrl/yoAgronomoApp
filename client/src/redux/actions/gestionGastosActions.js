@@ -1,4 +1,4 @@
-import { GET_ALL_CLASIFICACIONES , CREATED_CLASIFICACION , GET_ALL_GASTOS , CREATED_GASTO , GET_TOTAL , GASTO_BY_INPUT} from '../constants/index'
+import { GET_ALL_CLASIFICACIONES , CREATED_CLASIFICACION , GET_ALL_GASTOS , CREATED_GASTO , GET_TOTAL , GASTO_BY_INPUT , DELETE_CLASIFICACION} from '../constants/index'
 import axios from 'axios'
 const { REACT_APP_API} = process.env
 
@@ -27,7 +27,7 @@ export function createClasificacion (data) {
             .then(response => {
                 dispatch({
                     type: CREATED_CLASIFICACION,
-                    payload: response
+                    payload: response.data
                 })
             })
             .catch(e=>console.log(e))
@@ -39,7 +39,7 @@ export function deleteClasificacion (id) {
         return axios.delete(`${REACT_APP_API}/gastos/deleteClasificacion/${id}`)
             .then(response => {
                 dispatch({
-                    type: CREATED_CLASIFICACION,
+                    type: DELETE_CLASIFICACION,
                     payload: response
                 })
             })
