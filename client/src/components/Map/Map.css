@@ -10,12 +10,12 @@
   }
 
   .button{
-    width: 135px !important;
+    width: 150px !important;
     height: 80px;
     font-size: 15px !important;
     font-weight: 300 !important;
     margin: 5vh 0;
-    color: rgb(0, 0, 0) ;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     text-decoration: none;
@@ -25,7 +25,7 @@
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    box-shadow: 0 0 15px;
+    box-shadow: 0 0 15px black;
   }
   .dosBotones{
     display: flex;
@@ -43,7 +43,9 @@
   justify-content: center;
   align-items:center ;
   max-width: 250px;
-  margin-left: 20px;
+  height: 65%;
+  margin-left: 0px;
+  margin-top: 6px;
   color: #161616;
   font-size: 17px;
 }
@@ -55,7 +57,8 @@ font-size: 25px;
   .button:hover{
     cursor: pointer;
     background:#24b33e !important;
-    color:black !important;
+    color:white !important;
+    letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     box-shadow: 5px 40px -10px rgba(0,0,0,0.57);

@@ -65,11 +65,14 @@
     display: flex;
     margin-top: -20px; 
     width: 100px;
-    border-radius: 90px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
     
 }
 .perfilimg:hover{
-    box-shadow: 5px 5px 0 rgb(3, 3, 3);
+    box-shadow: 0 0 10px rgb(148, 148, 148);
+    transition: all 0.3s;
 }
 
 .logo{
