@@ -60,6 +60,8 @@
 
 .contenedor{
     background-color: rgba(128, 128, 128, 0.226);
+    /* border: 5px solid green; */
+    /* padding-top: 1%; */
     display: flex;
     justify-content: center;
     align-items: center;

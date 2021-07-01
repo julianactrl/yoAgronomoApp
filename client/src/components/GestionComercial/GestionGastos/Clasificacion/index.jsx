@@ -7,16 +7,24 @@ export default function Clasificacion ({name, id}) {
     const clasificacionSeleccionada= {name:name, clasificacionDeGastoId: id}
 
     function clickClasificacion () {
+        console.log('clasificacion seleccionada --->', name ,id);
         dispatch({type:'SELECTED_CLASIFICACION', payload: clasificacionSeleccionada})
         dispatch({type: 'GASTO_BY_INPUT',payload: []})
     }
 
+    function handleDelete () {
+        console.log('estoy borrando la clasificacion cn este id y nombre', id, name);
+        return dispatch(deleteClasificacion(id))
+    }
+
     return (
         <div className={styles.contClasificacion}>
-            <buton onClick={clickClasificacion} className={`${styles.btnClasificacion}`}>
+            
+            <buton onClick={clickClasificacion} className={styles.btnClasificacion}>
                 {name}
             </buton>
-            <button onClick={()=> dispatch(deleteClasificacion(id))} className={styles.btnCerrar}>X</button>
+
+            <button onClick={handleDelete} className={styles.btnCerrar}>X</button>
         </div>
     )
 }
