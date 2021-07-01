@@ -24,7 +24,7 @@ import agroApiReducer from './reducers/agroApiReducer'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['userReducer'],
+    whitelist: ['userReducer','empresaReducer'],
     blacklist: ['userReducer.logout']
 }
 

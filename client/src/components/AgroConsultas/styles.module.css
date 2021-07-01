@@ -6,7 +6,7 @@
 
 .input{
     background-color: rgba(0, 128, 0, 0.425);
-    margin: 10px 10px 10px 0;
+    margin: -100px 10px 10px 0;
     padding: 12px;
     color: black;
     font-size: 18px;
@@ -107,11 +107,12 @@
 
 .titulo {
     color: rgb(32, 129, 45);
-    font-weight: 700;
+    font-weight: 300;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 60px;
     text-align: center;
-    margin: 90px 0 30px 0;
+    margin: 0 0 30px 0;
+    padding: 90px;
 }
 
 /* categorias */
@@ -127,7 +128,7 @@
     flex-direction: column;
     position: absolute;
     right: 35vh;
-    top: 23vh;
+    top: 32vh;
 
 }
 

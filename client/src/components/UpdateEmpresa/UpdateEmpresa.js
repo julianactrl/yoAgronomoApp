@@ -7,6 +7,7 @@ import axios from 'axios';
 import Weather from '../Weather/Weather'
 import Header from '../Header/Header';
 import { useHistory } from 'react-router';
+import upload from '../../assets/upload.jpg'
 
 import swal from "sweetalert";
 const { REACT_APP_API } = process.env;
@@ -26,7 +27,7 @@ function UpdateEmpresa ({id}) {
 })
 
 const [selectedFile, setSelectedFile] = useState(null);
-const [imgUrl, setImgUrl] = useState(null);
+const [imgUrl, setImgUrl] = useState(upload);
 
 const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -136,7 +137,7 @@ function handleSubmit(e) {
                 name='ubicacion'/>
             </div>
            
-            <div>
+            <div className={styles.fileImg}>
                 <label className={styles.labelCrear}>Imagen: </label>
                 <input 
                 className={styles.inputCrear}
@@ -150,7 +151,7 @@ function handleSubmit(e) {
             <img
             src={imgUrl}
             alt={imgUrl}
-            style={{ height: "200px", width: "250px" }}
+            style={ imgUrl===upload ? { height: "220px", width: "240px", padding:"35px"} : { height: "200px", width: "250px", paddingBottom:"3px"}}
           />
 
                 <br></br>

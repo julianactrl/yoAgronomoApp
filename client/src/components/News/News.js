@@ -89,12 +89,10 @@ const News = (props) => {
                 </div> 
                         :
                         <div className='carruselCont'>
-                        <h1 className='newsTitle parpadeo'>ULTIMAS NOTICIAS</h1>
                     <div className='containerDivArt'>
                         <Slider {...settings} className='slider'>
                             {data.articles.map((a) => {
                                 // console.log(a.category)
-
                                 return (
                                     <div className='cardNew'>
                                         <a href={a.sourceUrl} target='_blank' className='linkArt'>

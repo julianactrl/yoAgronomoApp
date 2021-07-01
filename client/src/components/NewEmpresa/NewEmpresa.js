@@ -9,6 +9,8 @@ import swal from "sweetalert";
 import {Link} from 'react-router-dom'
 
 import dataCiudades from '../../ciudades.json'
+import upload from '../../assets/upload.jpg'
+
 
 function NewEmpresa() {
   const history = useHistory();
@@ -37,7 +39,7 @@ function NewEmpresa() {
     imagen: "",
   });
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgUrl, setImgUrl] = useState(upload);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -161,6 +163,7 @@ function NewEmpresa() {
                 accept="image/png, image/jpeg"
                 onChange={handleFileInputChange}
                 required
+                placeholder="subir img"
               />
             </div>
             <img
