@@ -14,6 +14,7 @@ const { REACT_APP_API } = process.env;
 function DetailEmpresa ({id}) {
 
   const history= useHistory();
+  
   const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)  
     const dispatch = useDispatch();
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
@@ -21,10 +22,12 @@ function DetailEmpresa ({id}) {
     
     useEffect(()=> {
       dispatch(getEmpresa(id));
-      // dispatch(getAllTareas(idEmpresa))
+      if(idEmpresa){
+        dispatch(getAllTareas(idEmpresa))
+      }
       console.log(empresa)
       dispatch(resetTareas())
-    }, []);
+    }, [idEmpresa]);
 
     function handleAgenda(e){
       e.preventDefault();
@@ -120,6 +123,7 @@ function DetailEmpresa ({id}) {
           ))
           }
           {
+            !alta && !media && !baja ? <p>No hay tareas</p> :
           media.length>0 && media.map(t=>(
             <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
             ))
