@@ -6,6 +6,8 @@ import Header from "../Header/Header";
 import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
+import {Link} from 'react-router-dom'
+
 import dataCiudades from '../../ciudades.json'
 import upload from '../../assets/upload.jpg'
 
@@ -45,6 +47,7 @@ function NewEmpresa() {
   };
 
   function handleInputChange(e) {
+    e.preventDefault()
     setInput({
       ...input,
       [e.target.name]: e.target.value,
@@ -90,7 +93,7 @@ function NewEmpresa() {
       button: true,
     })
       .then(() => {
-        history.push("/home");
+        window.push("/home");
       })
       .catch((e) => console.log(e));
   }
@@ -117,41 +120,42 @@ function NewEmpresa() {
         <Header />
         <div className={styles.caja}>
           <h2 className={styles.alineado}>Nueva Empresa</h2>
+          <Link to='/home' className={styles.cross}/>
           <form className={styles.estilosForm} onSubmit={handleSubmit}>
             <div className={styles.inputsNewEmpresa}>
-              <label>Nombre </label>
-              <input
-                type="text"
-                onChange={(e) => handleInputChange(e)}
-                value={input.name}
-                placeholder="Estancia YoAgronomo"
-                name="name"
-              />
+              <div className={styles.inputCont}>
+                <h4>Nombre</h4>
+                <input
+                  type="text"
+                  onChange={(e) => handleInputChange(e)}
+                  value={input.name}
+                  placeholder="Estancia YoAgronomo"
+                  name="name"
+                />
+              </div>
+              <div className={styles.inputCont}>
+                <h4>Hectáreas </h4>
+                <input
+                  type="text"
+                  onChange={handleInputChange}
+                  value={input.hectareas}
+                  placeholder="600"
+                  name="hectareas"
+                />
+              </div>
+              <div className={styles.inputCont}>
+                <select className={styles.selectUbicacion} 
+                  onChange={(e) => handleInputChange(e)}
+                  name="ubicacion">
+                  <option  disabled selected> Seleccione Ubicación</option>
+                  {dataCiudades.localidades.map((ciudad) => (
+                    <option value={ciudad.nombre}>{ciudad.nombre}</option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div className={styles.inputsNewEmpresa}>
-              <label>Hectáreas </label>
-              <input
-                type="text"
-                onChange={handleInputChange}
-                value={input.hectareas}
-                placeholder="600"
-                name="hectareas"
-              />
-            </div>
-            <div className={styles.inputsNewEmpresa}>
-              <select className={styles.selectUbicacion} 
-              onChange={(e) => handleInputChange(e)}
-              name="ubicacion" 
-              >
-         <option  disabled selected> Seleccione Ubicación</option>
-          {dataCiudades.localidades.map((ciudad) => (
-            <option value={ciudad.nombre}>{ciudad.nombre}</option>
-          ))}
-        </select>
-            </div>
-
             <div className={styles.fileImg}>
-              <label className={styles.labelCrear}>Imagen </label>
+              <h4>Imagen</h4>
               <input
                 className={styles.inputCrear}
                 type="file"
@@ -163,19 +167,19 @@ function NewEmpresa() {
               />
             </div>
             <img
+              className={styles.img}
               src={imgUrl}
               alt={imgUrl}
-              style={ imgUrl===upload ? { height: "230px", width: "250px", padding:"40px" } : { height: "200px", width: "250px"}}
             />
             <br></br>
-            <button
-              className={styles.buttonCrearEmpresa}
-              type="submit"
-              value="Crear empresa"
-              name="Enviar"
-            >
-              Crear Empresa
-            </button>
+              <button
+                className={styles.buttonCrearEmpresa}
+                type="submit"
+                value="Crear empresa"
+                name="Enviar"
+              >
+                Crear Empresa
+              </button>
           </form>
         </div>
       </div>

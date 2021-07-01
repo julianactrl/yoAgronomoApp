@@ -166,8 +166,8 @@ body {
     left: 0rem;
     box-shadow: 0 0 10px rgba(77, 77, 77, 0.26);
     border-radius: 1.5rem;
-    width: 50%;
-    height: 90%;
+    width: 30vw;
+    height: 40vh;
 }
 .imgEmpresa:hover{
     transition: 1s;
