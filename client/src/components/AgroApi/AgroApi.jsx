@@ -9,21 +9,20 @@ import { Link } from 'react-router-dom';
 const AgroApi = ()=> {
 
     const[loading, setLoading] = useState(true)
-    
+    const poliId1 = useSelector(state => state.loteReducer.detailLote.poliId)
     const poliId = useSelector(state => state.agroApiReducer.poliId.id)
     const loteId= useSelector(state => state.loteReducer.detailLote.id)
     const soilData = useSelector(state => state.agroApiReducer.agroSoil)
     const images = useSelector(state => state.agroApiReducer.agroImages)
-    
     const dispatch = useDispatch()
     useEffect(() => {
-        if(poliId){
-            dispatch(setPoly(poliId,1))
-            dispatch(getImages(poliId))
-            dispatch(getSoilData(poliId))
+        if(poliId || poliId1){
+            dispatch(setPoly(poliId,loteId))
+            dispatch(getImages(poliId1))
+            dispatch(getSoilData(poliId1))
             setLoading(false)
         }
-    },[])
+    },[poliId])
     let unix_timestamp = soilData.dt
 
     let date = new Date(unix_timestamp * 1000);
