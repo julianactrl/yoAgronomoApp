@@ -8,9 +8,6 @@ const server = express();
 
 require("./db.js");
 
-//=====passport ====
-const passport = require("./passport");
-//const session = require("express-session");
 
 //===================================================================
 server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
@@ -25,7 +22,10 @@ server.use((req, res, next) => {
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  );
   next();
 });
 
@@ -33,18 +33,6 @@ server.use((req, res, next) => {
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-server.use(passport.initialize());
-
-
-server.all("*", function (req, res, next) {
-  passport.authenticate("bearer", function (err, user) {
-    if (err) return res.status(400).json({ message: "malformed JSON" });
-    if (user) {
-      req.user = user;
-    }
-    return next();
-  })(req, res, next);
-});
 //===================================================================
 
 server.use("/", routes);
