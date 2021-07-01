@@ -12,7 +12,8 @@ const {
 
 server.post('/create', createTarea);
 server.delete("/delete/:id", deleteTarea);
-server.put("/:id", updateTarea);
+// server.put("/:id", updateTarea);
+server.patch('/:id', updateTarea);
 server.get("/:id", getAllTareasByEmpresa)
 
 server.get("/tarea/:id", getTareaById);

@@ -29,6 +29,7 @@ import Stock from "./components/GestionComercial/Stock.js";
 // --------- PASSWORD RESET ---------------------------------------------
 import { ResetPassword } from "./components/PasswordReset";
 import AgroApi from "./components/AgroApi/AgroApi";
+import DetailTarea from './components/Calendar/DetailTarea'
 
 export default function Routes() {
   return (
@@ -106,6 +107,7 @@ export default function Routes() {
       <Route exact path="/tareas">
         <Calendar />
       </Route>
+     
       <Route exact path="/gestion_comercial/:id">
         <GestionComercial />
       </Route>
@@ -117,6 +119,11 @@ export default function Routes() {
       <Route exact path="/agroapi">
         <AgroApi />
       </Route>
+
+      <Route
+        exact path="/tareas/:id"
+        render={({ match }) => <DetailTarea
+         id={match.params.id} />}/>
     </Switch>
   );
 }
