@@ -105,30 +105,11 @@ export default function DashBoard (){
                 <div className={styles.newsTitle} ></div>
                 <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button> 
                 <div className={styles.body}>
-                {/* <h1 className={styles.title}>Mis Empresas</h1> */}
+                <h1 className={styles.title}>Mis Empresas</h1>
                 <div className={styles.contSlider}>
                   {
                     SliderGrid(allEmpresas)
                   }
-                    {/* <Slider {...settings}>
-                        <Link path to='/newempresa' className={styles.mainAdd}>
-                                  <div  className={styles.cardContAdd} >
-                                      <h1 className={styles.titleAdd}>Agregar Empresa</h1>
-                                  <img src={add} alt="" className={styles.imgAdd}/>
-                                  </div>
-                        </Link>
-                        <div className={styles.gridSlider}>
-                          {
-                            allEmpresas.map((d)=> {
-                              return (
-                                
-                                <CardsEmpresas empresa={d}/>
-                              )
-                            })
-                          }
-                        </div>
-                
-                    </Slider> */}
                 </div>
 
             </div>

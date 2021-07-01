@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import strings from "./strings";
+import errosManager from "./passCheck";
 
 const Reset_steps = ({ handleSubmit, step, loading, buttonRef }) => {
   const [input, setInput] = useState("");
@@ -10,9 +11,10 @@ const Reset_steps = ({ handleSubmit, step, loading, buttonRef }) => {
   const s = strings;
 
   const handleInputChange = (e) => {
-    setInput(e.target.value);
+    const inputManager = e.target.value;
+    setInput(inputManager);
     if (step === 3) {
-      setError(e.target.value);
+      setError(errosManager(inputManager));
     }
   };
 
@@ -55,7 +57,7 @@ const Reset_steps = ({ handleSubmit, step, loading, buttonRef }) => {
           />
         </div>
 
-        <button ref={buttonRef} className="btn btn-success text-dark">
+        <button ref={buttonRef} type="submit"  className="btn btn-success text-dark">
           {loading ? (
             <div className="spinner-border text-dark" role="status">
               <span className="sr-only">Loading...</span>
@@ -65,13 +67,12 @@ const Reset_steps = ({ handleSubmit, step, loading, buttonRef }) => {
           )}
         </button>
         <hr />
-        <div className="">
-          <Link to="/index/register">Registrate!</Link>
-        </div>
-
-        <div className="">
-          <Link to="/index">Inicia Sesión</Link>
-        </div>
+        <Link to="/index/register">
+          <h4 className="text-dark">Registrate!</h4>
+        </Link>
+        <Link to="/index">
+          <h4 className="text-dark">Inicia Sesión</h4>
+        </Link>
       </form>
     </div>
   );
