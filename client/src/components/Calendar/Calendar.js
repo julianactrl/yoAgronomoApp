@@ -33,7 +33,6 @@ function Calendar() {
       ...tarea,
       [e.target.name]: e.target.value,
     });
-    console.log(tarea);
   }
 
   function handleSubmit(e) {
@@ -72,7 +71,6 @@ function Calendar() {
       <div>
         <Header />
         <h1 className={styles.tareas}>Tareas a realizar</h1>
-
         <form className={styles.estilosForm} onSubmit={handleSubmit}>
           <div>
             <label>Tarea: </label>

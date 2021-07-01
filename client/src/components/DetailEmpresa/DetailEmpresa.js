@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom'
-import {getEmpresa, deleteEmpresa} from '../../redux/actions/empresaActions';
+import {getEmpresa} from '../../redux/actions/empresaActions';
 import { getAllTareas,resetTareas } from '../../redux/actions/calendarActions';
 import styles from './styles.module.css'
 import Header from '../Header/Header';
-import data from './data.json';
 import {Link} from 'react-router-dom';
-import campo from './campo.jpg'
 import axios from 'axios'
 import { useHistory} from 'react-router';
 import { motion } from 'framer-motion';
@@ -19,57 +16,50 @@ function DetailEmpresa ({id}) {
   const history= useHistory();
   const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)  
     const dispatch = useDispatch();
-    // const {id} = props.match.params;
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
     const tareas = useSelector(state=>state.calendarReducer.tareas);
     
     useEffect(()=> {
       dispatch(getEmpresa(id));
+      dispatch(getAllTareas(idEmpresa))
       console.log(empresa)
       dispatch(resetTareas())
-      
-  }, []);
+    }, []);
 
-
-   function handleAgenda(e){
-     e.preventDefault();
-     pBaja();
-     pMedia();
-     pAlta();
-     dispatch(getAllTareas(idEmpresa))
-   }
+    function handleAgenda(e){
+      e.preventDefault();
+      pBaja();
+      pMedia();
+      pAlta();
+    }
   
     function deleteEmpresa(id) {
-        
-        // dispatch(deleteEmpresa(id));
         axios.delete(`${REACT_APP_API}/empresa/delete/${id}`)
         .then(response => console.log(response.data)) 
         .catch(error  => console.log(error))
         alert('Su empresa fue eliminada!')
-        
-        
     }
-const [baja, setBaja] = useState([])
-function pBaja(){
-  let baja = tareas.length>0 && tareas.filter((t)=>{
-    return t.prioridad.includes('Baja')
-  })
-  setBaja(baja)
-}
-const [media, setMedia] = useState([])
-function pMedia(){
-  let media = tareas.length>0 && tareas.filter((t)=>{
-    return t.prioridad.includes('Media')
-  })
-  setMedia(media)
-}
-const [alta, setAlta] = useState([])
-function pAlta(){
-  let alta = tareas.length>0 && tareas.filter((t)=>{
-    return t.prioridad.includes('Alta')
-  })
-  setAlta(alta)
-}
+    const [baja, setBaja] = useState([])
+    function pBaja(){
+      let baja = tareas.length>0 && tareas.filter((t)=>{
+        return t.prioridad.includes('Baja')
+      })
+      setBaja(baja)
+    }
+    const [media, setMedia] = useState([])
+    function pMedia(){
+      let media = tareas.length>0 && tareas.filter((t)=>{
+        return t.prioridad.includes('Media')
+      })
+      setMedia(media)
+    }
+    const [alta, setAlta] = useState([])
+    function pAlta(){
+      let alta = tareas.length>0 && tareas.filter((t)=>{
+        return t.prioridad.includes('Alta')
+      })
+      setAlta(alta)
+    }
  
 
     return (
