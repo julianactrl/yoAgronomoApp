@@ -1,4 +1,3 @@
-//import 'bootstrap/dist/css/bootstrap.min.css'
 import React , { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTotal } from '../../../redux/actions/gestionGastosActions'
@@ -12,38 +11,43 @@ export default function RenderizarTotalClasificaciones ({clasificaciones}) {
     const total = useSelector(state=>state.gestionGastosReducer.total)
 
     useEffect(()=>{
-        dispatch(getTotal(cookie.get('selectedEmpresa').id))
+        cookie.get('selectedEmpresa').id && dispatch(getTotal(cookie.get('selectedEmpresa').id))
     },[])
+
+    function sumaTotal () {
+        if(total.gastos > 0) return total.gastos;
+        if(total[0]){
+            let arrayTotal = total.map(item=> (item.gastos ? item.gastos : 0) ) 
+            return arrayTotal.reduce( (acc,next) => acc + next )
+        }
+        return 0
+    }
 
     return (
         <>
-            <table className={`table table-hover ${styles.table}`}>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
+            <table className={styles.table}>
+                <thead className={styles.thead}>
+                    <tr className={styles.contenedorTHeadTotal}>
+                        <th>Clasificaciones</th>
                         <th>Precio</th>
-                        <th></th>
                     </tr>
                 </thead>
-                <tbody >
-
+            </table>  
+            <div className={styles.contenedorClasificaciones}>
                     {
                         total.map(item=> <>
-                                <tr>
-                                    <td>{item.clasificacion}</td>
-                                    <td>{item.gastos}</td>
-                                </tr>
+                                <div className={styles.contenedorItemClasificacion}>
+                                    <td className={styles.td}>{item.clasificacion}</td>
+                                    <td className={styles.tdPrecio}>{item.gastos}</td>
+                                </div>
                             </>
                         )
                     }
-
-                        
-                </tbody>
-            </table>
+            </div>
             <div className={styles.footer}>
                 <h2>TOTAL</h2>
                 <h2 className={styles.numberTotal}>
-                    {total.length ? total.reduce( (acc,next)=> acc.gastos + next.gastos) : null}
+                    { sumaTotal() }
                 </h2>
             </div>
         </>

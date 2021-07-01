@@ -11,8 +11,10 @@ import { clearWeather, getWeather } from '../../../redux/actions/weatherActions'
 import emptyIco from '../../../assets/emptyIco.png'
 import grass from '../../../assets/emptypng.png'
 import {motion} from 'framer-motion';
+import Cookies from "universal-cookie";
 import swal from 'sweetalert';
-import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot } from '../../../redux/actions/loteActions';
+import { Link } from 'react-router-dom';
+import { borrarLote, getManejo, crearLoteManejo, deleteManejo, updateLot, updateManejoLot, getAllLotes } from '../../../redux/actions/loteActions';
 const { REACT_APP_API } = process.env;
 
 
@@ -35,7 +37,7 @@ export default function LoteDetails({lote}){
         recomendaciones: null,
     });
     const [editManejoAux, setEditManejoAux] = useState(false)
-    
+    const cookies = new Cookies()
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -103,8 +105,8 @@ export default function LoteDetails({lote}){
         setImgUrl(URL.createObjectURL(event.target.files[0]));
         // console.log("---handleFileInputChange----", event.target.files[0]);
     }; 
-    async function postearManejo(){
-
+    async function postearManejo(e){
+        e.preventDefault();
         const config = {
             headers: {
               "Content-Type": "multipart/form-data",
@@ -133,9 +135,10 @@ export default function LoteDetails({lote}){
     }
 
 
-    function deleteLote(){
+    async function deleteLote(){
         borrarLote(lote.id);
         dispatch({type:'SET_VERIFY',payload:''})
+        await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
         swal("Lote eliminado",{icon:"success"})
 
         
@@ -309,7 +312,12 @@ export default function LoteDetails({lote}){
                                         </div>
                                     </div>
                             </div>
+                            <div className={styles.buttons2}>
                             <button onClick={card3d} className={styles.btnDetails}>Añadir Observación</button>
+                            <Link to= '/map'>
+                            <button className={styles.btnDetails}>Ver información satelital</button>
+                            </Link>
+                            </div>
                         </div>
 
                     </div>

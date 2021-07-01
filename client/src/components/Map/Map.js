@@ -1,9 +1,11 @@
 import React, { useState, useRef, useCallback } from "react";
 import { useDispatch } from "react-redux";
+import Header from '../Header/Header'
 import ReactDOM from "react-dom";
 import { LoadScript, GoogleMap, Polygon } from "@react-google-maps/api";
 import { postPolyId } from "../../redux/actions/agroApiActions";
 import {useHistory,Link} from 'react-router-dom'
+import {motion} from 'framer-motion'
 
 import './Map.css';
 
@@ -25,7 +27,7 @@ const Map = () => {
     })
 
 
-    console.log(coordenadas)
+    
     
 
     const dispatch = useDispatch()
@@ -42,27 +44,20 @@ const Map = () => {
            type:"Polygon",
             coordinates:[
               [
-                coordenadas.coord1,
-                  coordenadas.coord2,
-                  coordenadas.coord3,
-                  coordenadas.coord4,
-                  coordenadas.coord5
+                [path[0].lng,path[0].lat],
+                [path[1].lng,path[1].lat],
+                [path[2].lng,path[2].lat],
+                [path[3].lng,path[3].lat],
+                [path[0].lng,path[0].lat]
                 ]
               ]
          }
         }
    }
+   
  
    function handleSubmit(e){
     e.preventDefault();
-      setCoordenadas({
-        coord1: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))],
-        coord2: [parseFloat(path[1].lng.toString().slice(0, 11)), parseFloat(path[1].lat.toString().slice(0, 11))],
-        coord3: [parseFloat(path[2].lng.toString().slice(0, 11)), parseFloat(path[2].lat.toString().slice(0, 11))],
-        coord4: [parseFloat(path[3].lng.toString().slice(0, 11)), parseFloat(path[3].lat.toString().slice(0, 11))],
-        coord5: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))]
-      })
-    console.log(coordenadas)
     dispatch(postPolyId(aux))
     // history.push('/agroapi')
   }
@@ -78,10 +73,9 @@ const Map = () => {
           .getPath()
           .getArray()
           .map(latLng => {
-            return { lat: latLng.lat(), lng: latLng.lng() };
+            return { lng: parseFloat(latLng.lng().toString().slice(0,11)) , lat: parseFloat(latLng.lat().toString().slice(0,11))  };
           });
         setPath(nextPath);
-        setMiddle({lat: ((path[0].lat + path[1].lat) / 2), lng:((path[0].lng + path[3].lng) / 2)})
       }
     }, [setPath]);
   
@@ -104,14 +98,29 @@ const Map = () => {
       listenersRef.current.forEach(lis => lis.remove());
       polygonRef.current = null;
     }, []);
-  
-    console.log("The path state is", path);
-    console.log('hola')
-    console.log('The middle is', middle)
-
+ 
     const apiKey= process.env.REACT_APP_GOOGLE_API_KEY
 
   return (
+    <motion.div
+    initial='hidden'
+    animate='visible'
+    variants={{
+    hidden: {
+        scale: .8,
+        opacity: -1
+    },
+    visible: {
+        scale: 1,
+        opacity: 1,
+        transition:{
+            delay: .002
+        }
+    }
+    }}
+    >
+    <div>
+    <Header/>
     <div className="googleMapsCont">
       <LoadScript
         id="script-loader"
@@ -121,9 +130,10 @@ const Map = () => {
       >
         <GoogleMap
           mapContainerClassName="googleMaps"
-          center={path[0]}
+          center={{lat: -31.328535, lng: -61.530424}}
           zoom={15}
           version="weekly"
+          mapTypeId="satellite"
           on
         >
           <Polygon
@@ -140,12 +150,25 @@ const Map = () => {
           />
         </GoogleMap>
       </LoadScript>
-     
-      <button onClick={handleSubmit}>Agregar coordenadas</button>
+
+      <ul  className='ulSele'>
+      <h4>Instrucciones:</h4>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Seleccione la porción de terreno sobre la cual desea obtener información.</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Presione el botón Agregar coordenadas.</li>
+        <li><i class="fa fa-check" aria-hidden="true"></i>
+Si obtiene buenos resultados, ya puede ver el detalle de su lote en 'Ver detalle'. Sino vuelva a marcar el terreno con mayor precisión.</li>
+      </ul>
+      <div className='dosBotones'>
+      <button className='button' onClick={handleSubmit}>Agregar coordenadas</button>
       <Link to = '/agroapi'>
-        <button>Ver el detalle</button>
+        <button className='button'>Ver detalle</button>
       </Link>
+      </div>
     </div>
+    </div> 
+    </motion.div>
   );
 }
 

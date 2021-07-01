@@ -11,19 +11,19 @@ export const GestionComercial = () => {
                 <div className='controlDeStock'>
                     <h2 className='h2Gestion'>Contol de Stock</h2>
                     <Link to={`/gestion_comercial/stock/${empresaId}`}>
-                        <button className='masInfoBtnGestion'>Ver mas información</button>
+                        <button className='masInfoBtnGestion'>Ver más información</button>
                     </Link>
                 </div>
                 <div className='tansporteCont'>
                     <h2 className='h2Gestion'>Transporte</h2>
                     <Link to='/transporte'>
-                        <button className='masInfoBtnGestion'>Ver mas información</button>
+                        <button className='masInfoBtnGestion'>Ver más información</button>
                     </Link>
                 </div>
                 <div className='proyeccionMenCont'>
-                    <h2 className='h2Gestion'>Proyeccion Mensual</h2>
+                    <h2 className='h2Gestion'>Proyección Mensual</h2>
                     <Link to='/gestion_comercial/proyeccion'>
-                        <button className='masInfoBtnGestion'>Ver mas información</button>
+                        <button className='masInfoBtnGestion'>Ver más información</button>
                     </Link>
                 </div>
             </div>

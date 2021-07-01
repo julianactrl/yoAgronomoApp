@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styles from './styles.module.css'
-import { crearLoteDB } from '../../../redux/actions/loteActions'
+import { crearLoteDB, getAllLotes } from '../../../redux/actions/loteActions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle , faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import {motion} from 'framer-motion';
 import swal from "sweetalert";
+import Cookies from "universal-cookie";
+
 import { useHistory } from 'react-router';
 
 export default function LoteFormCreate({empresaId}){
@@ -13,6 +15,10 @@ export default function LoteFormCreate({empresaId}){
     const numLotes = useSelector((state) => state.loteReducer.allLotes);
     const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
     const history = useHistory()
+    const cookies = new Cookies()
+
+    const verifyRender = useSelector(state=>state.loteReducer.verifyRender) // estado global que segun el tipo renderiza todos los lotes o el formLote o el detailLote
+
         
     if(numLotes.length >= 2 && userInfo === false){
           swal({ 
@@ -117,8 +123,10 @@ export default function LoteFormCreate({empresaId}){
            icon: "success",
            button: true,
          })
-           .then(() => {
+           .then(async () => {
              history.push(`/lote/${empresaId}`);
+            await dispatch({type:'SET_VERIFY',payload:'default'})
+            await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
            })
            .catch((e) => console.log(e));
          // alert("¿Seguro desea modificar estos datos?");

@@ -6,6 +6,9 @@ import Header from "../Header/Header";
 import { useHistory } from "react-router";
 import { postEmpresa } from "../../redux/actions/empresaActions";
 import swal from "sweetalert";
+import dataCiudades from '../../ciudades.json'
+import upload from '../../assets/upload.jpg'
+
 
 function NewEmpresa() {
   const history = useHistory();
@@ -34,7 +37,7 @@ function NewEmpresa() {
     imagen: "",
   });
   const [selectedFile, setSelectedFile] = useState(null);
-  const [imgUrl, setImgUrl] = useState(null);
+  const [imgUrl, setImgUrl] = useState(upload);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -45,7 +48,9 @@ function NewEmpresa() {
     setInput({
       ...input,
       [e.target.name]: e.target.value,
+      
     });
+    console.log(input);
   }
 
   function handleSubmit() {
@@ -80,7 +85,7 @@ function NewEmpresa() {
     dispatch(postEmpresa(infoSendDb, config));
     setInput(input);
     swal({
-      title: "Empresa created",
+      title: "Empresa creada",
       icon: "success",
       button: true,
     })
@@ -134,14 +139,15 @@ function NewEmpresa() {
               />
             </div>
             <div className={styles.inputsNewEmpresa}>
-              <label>Ubicación </label>
-              <input
-                type="text"
-                onChange={handleInputChange}
-                value={input.ubicacion}
-                placeholder="Santa Fe"
-                name="ubicacion"
-              />
+              <select className={styles.selectUbicacion} 
+              onChange={(e) => handleInputChange(e)}
+              name="ubicacion" 
+              >
+         <option  disabled selected> Seleccione Ubicación</option>
+          {dataCiudades.localidades.map((ciudad) => (
+            <option value={ciudad.nombre}>{ciudad.nombre}</option>
+          ))}
+        </select>
             </div>
 
             <div className={styles.fileImg}>
@@ -153,12 +159,13 @@ function NewEmpresa() {
                 accept="image/png, image/jpeg"
                 onChange={handleFileInputChange}
                 required
+                placeholder="subir img"
               />
             </div>
             <img
               src={imgUrl}
               alt={imgUrl}
-              style={{ height: "200px", width: "250px" }}
+              style={ imgUrl===upload ? { height: "230px", width: "250px", padding:"40px" } : { height: "200px", width: "250px"}}
             />
             <br></br>
             <button

@@ -1,5 +1,5 @@
 const { Empresa , Gastos, ClasificacionDeGastos} = require("../db");
-
+const { Op } = require("sequelize");
 
 /////////////////////////// CLASIFICACIONES //////////////////////////
 
@@ -16,7 +16,7 @@ const getAllClasificiones = async (req,res,next) => {
                   }
               }
           }));
-          CRUD
+        //   CRUD
         }
       } catch (e) {
         res.status(404).send(next);
@@ -136,6 +136,97 @@ const getAllGastos = async (req,res,next) => {
         res.status(404).send(next);
       }
 }
+
+const getGastosByInput = async (req,res,next) => {
+    const { input } = req.params;
+    try {
+        const gastos = await Gastos.count();
+        if (gastos !== 0) {
+          let allGastos = await Gastos.findAll({
+                    where: {
+                        [Op.or]: {
+                            name: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                            description: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            }
+                            ,
+                            cost: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                            date: {
+                                [Op.or]:{
+                                    [Op.like]: input,
+                                    [Op.startsWith]: input,
+                                    [Op.substring]: input
+                                }
+                            },
+                        }
+
+                    }
+          })
+          res.json(allGastos)
+        }
+      } catch (e) {
+        res.status(404).send('algo esta mal');
+      }
+}
+
+/////////////// TOTAL ///////////////////
+
+const getTotal = async (req,res,next) => {
+    const { empresaId } = req.params
+    // console.log('estoy trayendo el total ', empresaId);
+    try {
+        const gastos = await Gastos.count();
+        const arrayGastos = [];
+        if (gastos !== 0) {
+        const selectedClasificacion = await ClasificacionDeGastos.findAll({
+            where:{
+                empresaId: empresaId
+            }
+        })
+        selectedClasificacion.map(d=> {
+            arrayGastos.push({clasificacion:d.name, clasificacionId:d.id})
+            // console.log(arrayGastos);
+        })
+        for (let i = 0; i < arrayGastos.length; i++) {
+            let gastosAux = await Gastos.findAll({
+                include: {
+                    model: ClasificacionDeGastos,
+                    where :{
+                        id: arrayGastos[i].clasificacionId
+                    }
+                }
+             })
+             arrayGastos[i].gastos = gastosAux.map(gasto=> Number(gasto.cost))
+        }
+        // console.log('en el final del total');
+        arrayGastos.map((a,index)=>{
+            // console.log(a, index);
+            
+            return arrayGastos[index].gastos = a.gastos[0] ? a.gastos.reduce( (acc,next) => acc + next) : (a.gastos[0] ? a.gastos[0] : 0)
+        })
+        res.json(arrayGastos)
+        }
+      } catch (e) {
+        res.status(404).send('esta mal');
+      }
+}
+
 module.exports = {
     getAllClasificiones,
     createClasificacion,
@@ -144,5 +235,8 @@ module.exports = {
     createGasto,
     deleteGasto,
     updateGasto,
-    getAllGastos
+    getAllGastos,
+    getGastosByInput,
+    ////// TOTAL //////
+    getTotal
 }

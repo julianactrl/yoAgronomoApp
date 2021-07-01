@@ -1,3 +1,62 @@
+/* Componente RenderizarTotalClasificaciones.jsx */
+.contenedorClasificaciones{
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: 70%;
+}
+.contenedorItemClasificacion{
+    padding: 10px;
+    display: flex;
+    /* background-color: violet; */
+    justify-content: space-around;
+    font-size: 120%;
+    border-bottom: 0.2px solid rgba(0, 0, 0, 0.171);
+}
+.contenedorItemClasificacion:hover{
+    background-color: #198754;
+    color: white;
+    cursor:default;
+}
+.td{
+    display: flex;
+    padding-left: 1%;
+    text-align: center;
+    /* border: 2px solid black; */
+    width: 100%;
+    font-size: 130%;
+    height: 160%;
+}
+.tdPrecio{
+    display: flex;
+    padding-right: 4%;
+    text-align: center;
+    justify-content: center;
+    /* border: 2px solid black; */
+    width: 100%;
+    font-size: 130%;
+    height: 160%;
+}
+.contenedorTHeadTotal{
+        /* padding-top: 1%; */
+        display: flex;
+        margin-left: 4%;
+        width: 70%;
+        justify-content: space-between;
+        /* background-color: rgba(0, 0, 255, 0.418); */
+        height: 2.8rem;
+}
+
+/* <--   --> */
+
+
+
+
+
+
+
+
+
 
 .contenedor{
     background-color: rgba(128, 128, 128, 0.226);
@@ -60,6 +119,22 @@
     justify-content: center;
     align-items: center;
     letter-spacing: 1px;
+}
+.btnTotal{
+    cursor: pointer;
+    display: flex;
+    border: 0.2px solid #19875473;
+    color: green;
+    text-align: center;
+    border-radius:  7px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1px;
+}
+.btnTotal:hover{
+    transition: 0.3s all;
+    color: white;
+    background-color: #198754;
 }
 .btnCrear:hover{
     transition: 0.3s all;
