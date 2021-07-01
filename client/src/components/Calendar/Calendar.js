@@ -38,7 +38,7 @@ function Calendar() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(createTarea(tarea));
-    history.push(`/empresa/${idEmpresa}`);
+    history.push(`/home`)
   }
   function deleteTarea(id) {
     axios
@@ -75,6 +75,7 @@ function Calendar() {
           <div>
             <label>Tarea: </label>
             <input
+              className={styles.otroInput}
               type="text"
               onChange={(e) => handleInputChange(e)}
               value={tarea["tarea"]}
@@ -85,6 +86,7 @@ function Calendar() {
           <div>
             <label>Fecha: </label>
             <input
+              className={styles.otroInput}
               type="date"
               onChange={(e) => handleInputChange(e)}
               value={tarea["fecha"]}

@@ -6,7 +6,8 @@ import {
     GET_IMAGES,
     GET_SOIL_DATA,
     POST_POLYID,
-    PATCH_POLY_ID
+    PATCH_POLY_ID,
+    CLEAR_AGRO
 } from '../constants';
 import swal from 'sweetalert'
 
@@ -20,7 +21,7 @@ const {
 export function postPolyId(data) {
     return async function (dispatch) {
         console.log(data)
-        return await axios.post(`https://api.agromonitoring.com/agro/1.0/polygons?appid=558ea3c3b82fc89830b8ae91ababae40`, data)
+        return await axios.post(`https://api.agromonitoring.com/agro/1.0/polygons?appid=8241c8a58ad6993ec9a9fb6196842818`, data)
             .then(res => {
                 dispatch({
                     type: POST_POLYID,
@@ -76,7 +77,7 @@ export function postPolyId(data) {
 export const getImages = (polygonId) => {
     return function (dispatch) {
         axios
-            .get(`https://api.agromonitoring.com/agro/1.0/image/search?start=1622943075&end=1624843875&polyid=${polygonId}&appid=558ea3c3b82fc89830b8ae91ababae40`)
+            .get(`https://api.agromonitoring.com/agro/1.0/image/search?start=1622943075&end=1624843875&polyid=${polygonId}&appid=8241c8a58ad6993ec9a9fb6196842818`)
             .then((r) => r.data)
             .then((data) => {
                 dispatch({
@@ -90,7 +91,7 @@ export const getImages = (polygonId) => {
 export const getSoilData = (polygonId) => {
     return function (dispatch) {
         axios
-            .get(`https://api.agromonitoring.com/agro/1.0/soil?polyid=${polygonId}&appid=558ea3c3b82fc89830b8ae91ababae40`)
+            .get(`https://api.agromonitoring.com/agro/1.0/soil?polyid=${polygonId}&appid=8241c8a58ad6993ec9a9fb6196842818`)
             .then((r) => r.data)
             .then((data) => {
                 dispatch({
@@ -125,5 +126,11 @@ export function setPoly(polygonId, id) {
                 payload: response.data
             }))
             .catch(e => console.log(e))
+    }
+}
+
+export const clearAgroData = () => {
+    return{
+        type: CLEAR_AGRO
     }
 }
