@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getWeather } from "../../redux/actions/weatherActions";
+import { getWeather,clearWeather } from "../../redux/actions/weatherActions";
 import "../Weather/Weather.css";
 import Header from "../Header/Header";
 
@@ -13,6 +13,7 @@ const Weather = (props) => {
     (state) => state.empresaReducer.empresaForId.ubicacion
   );
   useEffect(() => {
+    dispatch(clearWeather())
     dispatch(getWeather(ubication));
     if (weather !== null) {
       setLoading(false);
