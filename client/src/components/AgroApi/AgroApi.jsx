@@ -14,10 +14,9 @@ const AgroApi = ()=> {
     const loteId= useSelector(state => state.loteReducer.detailLote.id)
     const soilData = useSelector(state => state.agroApiReducer.agroSoil)
     const images = useSelector(state => state.agroApiReducer.agroImages)
-    console.log("aa",poliId)
     const dispatch = useDispatch()
     useEffect(() => {
-        if(poliId){
+        if(poliId || poliId1){
             dispatch(setPoly(poliId,loteId))
             dispatch(getImages(poliId1))
             dispatch(getSoilData(poliId1))
