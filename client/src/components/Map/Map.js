@@ -130,7 +130,7 @@ const Map = () => {
       >
         <GoogleMap
           mapContainerClassName="googleMaps"
-          center={{lat: -31.328535, lng: -61.530424}}
+          center= {path[0]}
           zoom={15}
           version="weekly"
           mapTypeId="satellite"
