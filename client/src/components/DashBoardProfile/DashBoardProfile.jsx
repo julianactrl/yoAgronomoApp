@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./styles.module.css";
 import { logout } from "../../redux/actions/userActions";
+import { clearAllEmpresa } from "../../redux/actions/empresaActions";
 import jwt_decode from "jwt-decode";
 import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,6 +22,7 @@ export default function DashBoardProfile() {
   
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(clearAllEmpresa())
     history.push("/index");
   };
 

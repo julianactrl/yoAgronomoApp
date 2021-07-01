@@ -4,6 +4,8 @@ import {
   GET_EMPRESA,
   UPDATE_EMPRESA,
   DELETE_EMPRESA,
+  CLEAR_EMPRESA,
+  CLEAR_ALL_EMPRESA
 } from "../constants";
 import axios from "axios";
 const { REACT_APP_API } = process.env;
@@ -82,3 +84,15 @@ export const deleteEmpresa = (id) => {
 //         payload: id
 //     }
 // }
+
+export const clearEmpresa = () => {
+  return{
+      type: CLEAR_EMPRESA
+  }
+}
+
+export const clearAllEmpresa = () => {
+  return{
+      type: CLEAR_ALL_EMPRESA
+  }
+}

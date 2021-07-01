@@ -9,7 +9,7 @@ import Slider from 'react-slick'
 import styles from './styles.module.css'
 import News from '../News/News.js'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllEmpresas } from '../../redux/actions/empresaActions';
+import { getAllEmpresas,clearEmpresa } from '../../redux/actions/empresaActions';
 import {clearWeather} from '../../redux/actions/weatherActions'
 import {motion} from 'framer-motion';
 import Cookies from 'universal-cookie';
@@ -28,6 +28,7 @@ export default function DashBoard (){
   
   useEffect(()=>{   
       dispatch(clearWeather()) 
+      dispatch(clearEmpresa())
       dispatch(getAllEmpresas(userId))
       setStateAux(true)
       cookies.set('selectedEmpresa', '', {path:'/', expires: new Date(Date.now()+2592000)})

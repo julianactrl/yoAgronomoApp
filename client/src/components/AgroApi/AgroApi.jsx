@@ -40,7 +40,16 @@ const AgroApi = ()=> {
     return(
         <div>
             <Header/>
-        <div>
+            <br></br>    
+    <br></br>    
+    <br></br>    
+    <br></br>  
+    <br></br>    
+    <br></br>  
+    <br></br>    
+    <br></br> 
+        <div className='containerAgro'>
+        
            <Link to= '/map'>
            <button className='goBack'>Volver al mapa</button>
            </Link>

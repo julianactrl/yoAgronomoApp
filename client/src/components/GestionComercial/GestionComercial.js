@@ -10,7 +10,7 @@ export const GestionComercial = () => {
             <Header />
             <div className='gestionComercialCont'>
                 <div className='controlDeStock'>
-                    <h2 className='h2Gestion'>Contol de Stock</h2>
+                    <h2 className='h2Gestion'>Control de Stock</h2>
                     <Link to={`/gestion_comercial/stock/${empresaId}`}>
                         <button className='masInfoBtnGestion'>Ver más información</button>
                     </Link>

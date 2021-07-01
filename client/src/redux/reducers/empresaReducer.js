@@ -1,4 +1,4 @@
-import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, DELETE_EMPRESA} from './../constants';
+import {GET_EMPRESA_ID, POST_EMPRESA, GET_EMPRESA, DELETE_EMPRESA,CLEAR_EMPRESA,CLEAR_ALL_EMPRESA} from './../constants';
 
 const initialState = {
     allEmpresas: [],
@@ -28,6 +28,18 @@ const empresaReducer = (state = initialState, action) => {
             return {
                 ...state,
                 empresaForId: action.payload
+            }
+            case CLEAR_EMPRESA:
+            return {
+                ...state,
+                empresaForId: []
+            }
+            case CLEAR_ALL_EMPRESA:
+            return {
+                ...state,
+                empresaForId: [],
+                allEmpresas: [],
+                empresas: []
             }
             default: return state;
         }

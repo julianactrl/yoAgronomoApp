@@ -180,9 +180,10 @@
     flex-direction: column;
     max-width: 400px;
     min-width: 400px;
-    background-color: rgba(36, 34, 34, 0.815);
-    color: white;
+    background-color: rgba(255, 255, 255, 0.678);
+    color: rgba(0, 0, 0, 0.609);
     margin: 10px auto;
     font-size: 15px;
+    box-shadow: 0 0 15px;
 
 }
