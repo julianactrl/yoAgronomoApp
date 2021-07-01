@@ -85,18 +85,18 @@
         }
     ],
     "Team": [{
-            "img": "https://media-exp3.licdn.com/dms/image/C4D03AQHgaTR2C5wwfw/profile-displayphoto-shrink_200_200/0/1606063077398?e=1628726400&v=beta&t=2VFennhd5XxnpChqa_XQRuwCQXp4lyG9ZTWmPunM-u4",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159525/removal.ai__tmp-60ddf6fc69985_kjsqnu.png",
             "name": "Dario Rodriguez",
-            "job": "Api Master"
+            "job": "Api expert"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t31.18172-8/27503638_358065284671897_3750853566213491229_o.jpg?_nc_cat=105&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=f_RJgcisrkcAX8YmJM-&_nc_ht=scontent.fsfn1-1.fna&oh=8b1013e009714cbd6e4302ee44432cbb&oe=60D94845",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159118/removal.ai__tmp-60ddf4c6b1ae9_msc5fm.png",
             "name": "Felipe Escalante",
             "job": "Scrum Master"
         }, {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/31271312_10214606832276508_7802104072265269248_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=htanddQ9aosAX_Jr4tX&_nc_ht=scontent.fsfn1-1.fna&oh=6dbd136f25170af0f7035c1eac0fa6aa&oe=60D84CB6",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625158705/IMG_6563_kt3dcj.jpg",
             "name": "Selene Bruno",
-            "job": "FrontEnd"
+            "job": "Bug finder"
         },
         {
             "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
@@ -104,29 +104,29 @@
             "job": "CSS leader"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159117/removal.ai__tmp-60ddf4d772680_rftfls.png",
             "name": "Mauricio Di Pietro",
-            "job": "CSS leader"
+            "job": "SQL expert"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/94962401_10220318979461361_7852322376078327808_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=jk6io4zFTxYAX8AnMyO&_nc_ht=scontent.fsfn1-1.fna&oh=6585dc85264cc783b1f7f42fcef7f40e&oe=60D841F4",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159183/removal.ai__tmp-60ddf4ee134d0_cjjkm1.png",
             "name": "Leonardo Caraque",
-            "job": "CSS leader"
+            "job": "Back end guru"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625160069/removal.ai__tmp-60ddf71a05882_tunv42.png",
             "name": "Martin Lolbell",
-            "job": "CSS leader"
+            "job": "Animation specialist"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
-            "name": "Julieta Gonzalez",
-            "job": "CSS leader"
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159969/Removal-299_aevc0j.png",
+            "name": "Juliana Gonzalez",
+            "job": "Deployment and auth"
         },
         {
-            "img": "https://scontent.fsfn1-1.fna.fbcdn.net/v/t1.6435-9/118286945_10214230081865611_5142966056542250327_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=hlTczFLN3xUAX8dwtYu&_nc_ht=scontent.fsfn1-1.fna&oh=355ecd22345780085de99cb102690c25&oe=60D96916",
+            "img": "https://res.cloudinary.com/dbduj98i3/image/upload/v1625159497/removal.ai__tmp-60ddf70c72fd5_ogm7ao.png",
             "name": "Gonzalo Arancibia",
-            "job": "CSS leader"
+            "job": "Front end"
         }
     ],
     "Contact": {

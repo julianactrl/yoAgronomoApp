@@ -128,8 +128,8 @@
     justify-content: center;
 }
 .colorTable{
-    height: 50rem !important;
-    width: 50rem !important;
+    height: 60rem !important;
+    width: 80rem !important;
     font-weight: bold;
     border-radius: 10px;
     background-color: #ffffff81;
@@ -178,7 +178,7 @@
     color: black;
     font-weight: bold !important;
     border:none;
-    background-color: #708857;
+    background-color:#7fcc28bd;
     margin: 10px !important;
 }
 .btnAddStock{
@@ -187,11 +187,11 @@
     border: none;
     font-weight: bold;
     border-radius: 5px;
-    background-color: #708857;
+    background-color: #7fcc28bd;
     color: black;
 }
 .btnAddStock:hover{
-    background-color: #27963c;
+    background-color: #76bd26;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -200,7 +200,7 @@
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
 .submitStock:hover{
-    background-color: #27963c;
+    background-color: #76bd26;
     letter-spacing: 1px;
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);

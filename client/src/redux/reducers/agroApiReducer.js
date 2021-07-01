@@ -1,4 +1,4 @@
-import { GET_IMAGES,GET_SOIL_DATA,POST_POLYID } from './../constants';
+import { GET_IMAGES,GET_SOIL_DATA,POST_POLYID,CLEAR_AGRO } from './../constants';
 
 const initialState = {
     agroImages: [],
@@ -22,6 +22,13 @@ const agroApiReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     poliId: action.payload
+                }
+                case CLEAR_AGRO:
+                return {
+                    ...state,
+                    agroImages: [],
+                    agroSoil:[],
+                    poliId:[]
                 }
         default:
             return state;
