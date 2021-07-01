@@ -38,7 +38,7 @@ function Calendar() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(createTarea(tarea));
-    history.push(`/empresa/${idEmpresa}`);
+    history.push(`/home`)
   }
   function deleteTarea(id) {
     axios
