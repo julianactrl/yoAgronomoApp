@@ -5,6 +5,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import swal from 'sweetalert';
+import { motion } from "framer-motion";
+import {Link} from 'react-router-dom'
 const { REACT_APP_API} = process.env
 
 
@@ -32,11 +34,9 @@ function NewTransporte () {
         console.log("Vamo carahoy", input)
     }
     const history = useHistory()
-    function handleSubmit(e){
-        console.log("esto enviamos al post",input);
+    async function handleSubmit(e){
+        await dispatch(postTransporte(input));
         e.preventDefault();
-        dispatch(postTransporte(input));
-        //history.push(`/empresa/${empresaId}`)
         swal("El transport fue creado",{icon:"success"})
         history.push("/transporte")
     }
@@ -49,12 +49,29 @@ function NewTransporte () {
     }
 
     return (
-        <di>
+        <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: {
+          scale: 0.8,
+          opacity: -1,
+        },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          transition: {
+            delay: 0.002,
+          },
+        },
+      }}
+    >
+        <div className={styles.formCont}>
+            <Link to='/transporte' className={styles.cross}></Link>
             <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.box}>
-
                     <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4 className={styles.labels}>Patente</h4> 
                         <input
                         placeholder = 'patente'  
                         onChange={handleInputChange}
@@ -65,7 +82,7 @@ function NewTransporte () {
                         </input>
                      </div>
                      <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4 className={styles.labels}>Conductor</h4> 
                         <input
                         placeholder = 'conductor'  
                         onChange={handleInputChange}
@@ -76,7 +93,7 @@ function NewTransporte () {
                         </input>
                      </div>
                      <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4  className={styles.labels} >Carga</h4> 
                         <input
                         placeholder = 'carga'  
                         onChange={handleInputChange}
@@ -87,7 +104,7 @@ function NewTransporte () {
                         </input>
                      </div>
                      <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4 className={styles.labels}>Fecha De Entrada</h4> 
                         <input
                         placeholder = 'fechaEntrada'  
                         onChange={handleInputChange}
@@ -98,7 +115,7 @@ function NewTransporte () {
                         </input>
                      </div>
                      <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4  className={styles.labels} >Fecha De Salida</h4> 
                         <input
                         placeholder = 'fechaSalida'  
                         onChange={handleInputChange}
@@ -109,7 +126,7 @@ function NewTransporte () {
                         </input>
                      </div>
                      <div className={styles.inputs}>
-                        <label  className={styles.labels} ></label> 
+                        <h4  className={styles.labels}>Observación</h4> 
                         <input
                         placeholder = 'observaciones'  
                         onChange={handleInputChange}
@@ -120,12 +137,15 @@ function NewTransporte () {
                         </input>
                      </div>
                      <button
+                     className={styles.btnRegistrar}
                      type='submit'>
                          Registrar transporte
                      </button>
                 </div>
             </form>
-        </di>
+        </div>
+    </motion.div>
+        
     )
 }
 
