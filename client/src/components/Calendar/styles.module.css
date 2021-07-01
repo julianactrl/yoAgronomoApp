@@ -79,7 +79,7 @@ padding: 12 12px ;
     position: relative;
     box-shadow: 0 0 15px;
 }
-input{
+.otroInput{
     border: none;
     display: block;
     align-items: center;
