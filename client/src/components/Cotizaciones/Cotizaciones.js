@@ -10,6 +10,7 @@ function Cotizaciones() {
     
 const dispatch = useDispatch()
 const cotizaciones = useSelector(state => state.cotizacionesReducer.cotizaciones)
+const empresaName = useSelector(state => state.empresaReducer.empresaForId.name)
 
 useEffect(() => {
     dispatch(getDolar())
@@ -22,16 +23,17 @@ const fecha = new Date()
         <div className={styles.componentetotal}>
         <div className={styles.totcomponent}>
             <Header/>
-            <h1 className={styles.dolarHoy}>Cotizaciones al {fecha.toLocaleDateString()}</h1>
+            <h1 className={styles.dolarHoy}>{empresaName} <br/>Cotizaciones al {fecha.toLocaleDateString()} </h1>
+       
         <div className={styles.datatableContainer}>
                    
             <table className={styles.datatable}>
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Moneda</th>
-                        <th>Compra</th>
-                        <th>Venta</th>
+                        <th className={styles.th}>Moneda</th>
+                        <th className={styles.th}>Compra</th>
+                        <th className={styles.th}>Venta</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -198,10 +198,10 @@ body {
     left: -25%;
     font-size: 7rem;
     text-shadow: 0 0 30px rgb(54, 59, 65);
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     border-radius: 8px;
+    font-weight: 700 !important;
 }
 
 .btnsDelEdit {

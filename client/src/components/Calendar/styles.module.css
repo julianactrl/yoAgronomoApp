@@ -1,3 +1,8 @@
+.all{
+    margin:0 auto;
+    overflow: hidden;
+}
+
 .datatableContainer{
     display: flex;
     align-content: center !important;
@@ -9,9 +14,9 @@
     overflow: scroll;
     overflow-x: hidden;
     max-height: 390px;
-    width: 700px;
-    height: 370px;
-    margin: 6rem 0 0 60rem !important;
+    width: 40%;
+    height: 320px;
+    margin: 1rem 0 0 57.7rem !important;
     font-size: 12px;
     padding: 20px;
     margin: 0 auto;
@@ -26,12 +31,12 @@
 }
 
 .tareas{
-    color: rgb(0, 0, 0);
+    color: rgba(0, 75, 0, 0.774);
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    font-weight: 400;
+    font-weight: 700;
     padding: 90px;
     text-transform: uppercase;
 }
@@ -76,6 +81,7 @@ padding: 12 12px ;
     padding: 30px;
     border-radius: 8px;
     font-size: 18px;
+    margin-top: -7rem;
     position: relative;
     box-shadow: 0 0 15px;
 }

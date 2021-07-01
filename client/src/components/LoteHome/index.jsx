@@ -30,7 +30,7 @@ export default function LoteHome ({id}) {
     // const createdLote = useSelector(state=>state.loteReducer.createdLote) // lote creado
 
     const verifyRender = useSelector(state=>state.loteReducer.verifyRender) // estado global que segun el tipo renderiza todos los lotes o el formLote o el detailLote
-
+    const nameEmpresa = useSelector(state=> state.empresaReducer.empresaForId.name)
 
     useEffect(async()=>{
         await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
@@ -87,6 +87,7 @@ export default function LoteHome ({id}) {
         <div className={styles.contenedor}>
             <Header />
             <div className={styles.body}>
+              <h4 className={styles.titleh5}>Lotes {nameEmpresa}</h4>
               {switcher(verifyRender)}
               {auxiliar(verifyRender)}
             </div>
