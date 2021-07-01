@@ -49,6 +49,7 @@ function Calendar() {
   }
 
   const tareasEmpresa = useSelector((state) => state.calendarReducer.tareas);
+  const empresaName = useSelector((state) => state.empresaReducer.empresaForId.name);
 
   return (
     <motion.div
@@ -68,9 +69,9 @@ function Calendar() {
         },
       }}
     >
-      <div>
+      <div className={styles.all}>
         <Header />
-        <h1 className={styles.tareas}>Tareas a realizar</h1>
+        <h1 className={styles.tareas}>{empresaName} <br/>Tareas a realizar</h1>
         <form className={styles.estilosForm} onSubmit={handleSubmit}>
           <div>
             <label>Tarea: </label>

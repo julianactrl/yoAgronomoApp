@@ -63,15 +63,6 @@ export default function GastoItem ({ Nombre, Descripcion, Precio , fecha, gastoI
                     renderizarItemOinput(Nombre, Descripcion, Precio , fecha, edit)
                 :   renderizarItemOinput('Nombre..','Descripcion..','Precio..','Fecha..',true)
                 }
-                
-                {/* <td className={styles.contBtn}> */}
-                    {/* { Nombre ? 
-                        (<><img onClick={handleEdit} className={styles.img} src={'https://image.flaticon.com/icons/png/512/1159/1159633.png'} />
-                        <img onClick={handleDelete} className={styles.imgTacho} src='https://img2.freepng.es/20180410/wjq/kisspng-computer-icons-encapsulated-postscript-font-blueberry-5acd87c1840346.2188309115234190735407.jpg' /></>)
-                    :   <><img onClick={crearGasto} className={styles.imgAgregar} src={'https://www.freeiconspng.com/uploads/add-list-icon--icon-search-engine-26.png'} /> 
-                        <img className={styles.imgTachoF} src='https://img2.freepng.es/20180410/wjq/kisspng-computer-icons-encapsulated-postscript-font-blueberry-5acd87c1840346.2188309115234190735407.jpg' /> </>
-                    } */}
-                {/* </td> */}
             
         </>
     )

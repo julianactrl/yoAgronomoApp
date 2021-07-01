@@ -1,5 +1,5 @@
 
-import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, GET_ALL_GASTOS, CREATED_GASTO, GET_TOTAL, GASTO_BY_INPUT} from './../constants';
+import { GET_ALL_CLASIFICACIONES, CREATED_CLASIFICACION, DELETE_CLASIFICACION, GET_ALL_GASTOS, CREATED_GASTO, GET_TOTAL, GASTO_BY_INPUT} from './../constants';
 
 const initialState = {
     clasificaciones: [],
@@ -17,13 +17,20 @@ const gestionGastosReducer = (state = initialState, action) => {
         case GET_ALL_CLASIFICACIONES:
             return {
                 ...state,
-                clasificaciones: action.payload,
+                clasificaciones: state.clasificaciones.length ? state.clasificaciones.filter(item => {
+                    return !!action.payload.find(item)
+                }) : action.payload,
             };
         case CREATED_CLASIFICACION:
             return {
                 ...state,
-                createdClasificacion: action.payload,
+                createdClasificacion:  [...state.createdClasificacion,action.payload],
             };
+        case DELETE_CLASIFICACION:
+            return {
+                ...state,
+                clasificaciones: state.clasificaciones.filter(item => item.id != action.payload.data.data)
+            }
         case GET_ALL_GASTOS:
             return {
                 ...state,
