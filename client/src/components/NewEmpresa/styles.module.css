@@ -13,55 +13,93 @@
     position: relative;
     
 }
+.cross{
+    position: absolute;
+    z-index: 4;
+    top: 15rem;
+    right: 55rem;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image:  url('../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
+
+}
 .selectUbicacion{
+    position: relative;
+    top: 2rem;
     font-size: 20px;
-    height: 40px;
-    width: 350px;
-    margin: 15px 0 15px 0;
-    font-weight: 400;
+    width: 360px;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: sans-serif;
-    padding: 6px;
     cursor: pointer;
     background: #80cc28;
+    text-align: center;
     border-radius: 5px;
-	display: inline-block;
-    box-shadow: 0 0 10px;
+    box-shadow: 0 0 1px;
 	border: none;
 }
 
 .selectUbicacion:hover{
-    background: #80cc28;
+    background: #5a9c0e;
     cursor: pointer;
 	letter-spacing: 0.5px;
 	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
 	transition: all 0.5s ease 0s;
     box-shadow: 0 0 5pt 0.5pt #161616;
 }
 
 .fileImg{
+    position: relative;
+    top: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.img{
+    position: relative;
+    top: 1rem;
+    margin: 20px;
+    width: 360px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px;
+    height: 20%;
+    background-color: rgba(255, 255, 255, 0.226);
+}
 .estilosForm{
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 30%;
+    width: 50%;
     color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 0;
-    background-color: #ffffff71;
-    padding: 30px;
-    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    background: rgba(250, 250, 250, 0.37);
+    box-shadow: 1px 0 15px black;
+    border: 2px solid rgba(54, 54, 54, 0.363);
+    width: 50vw;
+    height: 70vh;
+    border-radius: 25px;
     font-size: 18px;
     position: relative;
-    height: 90vh;
+    height: 80vh;
 }
 input{
     border: none;
@@ -79,7 +117,22 @@ label {
     
 }
 .inputsNewEmpresa{
-    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 40%;
+    align-items: flex-start;
+    text-align: center;
+    /* background-color: burlywood; */
+}
+.inputCont{
+    text-align: center;
+    /* background-color: blueviolet; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
