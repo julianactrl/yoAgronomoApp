@@ -45,20 +45,20 @@ const Weather = (props) => {
     const nombreDia = dias[numeroDia];
     return nombreDia;
   };
-
+  
   return (
     <>
       <Header />
       <div className="body-weather">
-        <h1 style={{ color: "white" }}>{new Date().toLocaleDateString()}</h1>
-        <div className="container-weather">
+        <div className="tiemporeal">
+        {/* <h1 style={{ color: "white" }}>{new Date().toLocaleDateString()}</h1> */}
           {loading ? (
             <h1>Cargando</h1>
           ) : (
-            <div>
+            <div className="contendor2">
               {weather &&
                 weather.map((w) => (
-                  <div>
+                  <div className="contendortiempo">
                     <div className="current-weather">
                       <h1>{w.location.name}</h1>
                       <img
@@ -76,18 +76,22 @@ const Weather = (props) => {
                         <p>Direccion del viento: {w.current.wind_dir}°</p>
                         <p>Indice UV: {w.current.uv}uv</p>
                       </div>
-                      <img src={w.current.condition.icon} alt="" />
+                      <img className="iconoweather" src={w.current.condition.icon} alt="" />
                     </div>
-                    <p className="forecast-extended">Prónostico Extendido</p>
                     <div className="forecast">
                       {w.forecast.forecastday.map((p) => (
                         <div className="forecast-day">
+                          <div className="date">
                           <h3 className="day-week">{getDayWeek(p.date)}</h3>
+                          </div>
+                          <div className="restinfo">
+
                           <div className="temperatures">
                             <p>Max: {p.day.maxtemp_c}c°</p>
                             <p>Min: {p.day.mintemp_c}c°</p>
                           </div>
                           <img src={p.day.condition.icon} alt="" />
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -95,6 +99,9 @@ const Weather = (props) => {
                 ))}
             </div>
           )}
+        
+
+
         </div>
       </div>
     </>

@@ -31,6 +31,8 @@ export default function LoteDetails({lote}){
 
     const weather = useSelector(state => state.weatherReducer.weather)
     const manejoLote = useSelector(state => state.loteReducer.manejoLote)
+    const poliId = useSelector(state => state.loteReducer.detailLote.poliId)
+    
     
     const [editManejo, setEditManejo] = useState({
         observaciones: null,
@@ -314,9 +316,17 @@ export default function LoteDetails({lote}){
                             </div>
                             <div className={styles.buttons2}>
                             <button onClick={card3d} className={styles.btnDetails}>Añadir Observación</button>
-                            <Link to= '/map'>
+                            {
+                                poliId ? 
+                                <Link to= '/agroApi'>
                             <button className={styles.btnDetails}>Ver información satelital</button>
-                            </Link>
+                            </Link> :
+
+                              <Link to= '/map'>
+                            <button className={styles.btnDetails}>Ver información satelital</button>
+                            </Link>  
+                            }
+                            
                             </div>
                         </div>
 

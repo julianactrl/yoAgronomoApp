@@ -19,14 +19,19 @@ function DetailEmpresa ({id}) {
     const dispatch = useDispatch();
     const empresa = useSelector(state=>state.empresaReducer.empresaForId);
     const tareas = useSelector(state=>state.calendarReducer.tareas);
+
+    const [loading, setLoading] = useState(true)
     
     useEffect(()=> {
       dispatch(getEmpresa(id));
       if(idEmpresa){
         dispatch(getAllTareas(idEmpresa))
       }
-      console.log(empresa)
+      
       dispatch(resetTareas())
+      if(tareas){
+        setLoading(false)
+    }
     }, [idEmpresa]);
 
     function handleAgenda(e){
@@ -117,18 +122,26 @@ function DetailEmpresa ({id}) {
               
            <div className={styles.items}>
            <div className={styles.contTareas}>
+             
           {
+          // !alta && !media && !baja ?
+          //   <Link className={styles.elLink} to ='/tareas'>
+          //     <p>No hay tareas</p>
+          //     </Link> :
+            loading ? <p>Loading...</p> :
           alta.length>0 && alta.map(t=>(
             <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
           ))
           }
           {
-            !alta && !media && !baja ? <p>No hay tareas</p> :
+            // !alta && !media && !baja ? <p>No hay tareas</p> :
+            loading ? <p>Loading...</p> :
           media.length>0 && media.map(t=>(
             <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
             ))
           }
           {
+            loading ? <p>Loading...</p> :
           baja.length>0 && baja.map(t=>(
             <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
           ))
