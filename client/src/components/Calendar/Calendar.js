@@ -139,6 +139,10 @@ function Calendar() {
                 <th>
                   <h2 className={styles.tablita}>Prioridad</h2>
                 </th>
+                <th>
+                    <h2 className={styles.tablita}>Estado</h2>
+                </th>
+                <th></th>
                 <th></th>
               </tr>
             </thead>
@@ -156,6 +160,9 @@ function Calendar() {
                       <p className={styles.cadaTarea}>{t.prioridad}</p>
                     </td>
                     <td>
+                        <p className={styles.cadaTarea}>{t.estado}</p>
+                    </td>
+                    <td>
                       {" "}
                       <Link to={`/empresa/${idEmpresa}`}>
                         <button
@@ -166,6 +173,11 @@ function Calendar() {
                         </button>
                       </Link>{" "}
                     </td>
+                    <td>
+                                <Link to={`/tareas/${t.id}`}>
+                                   <button className={styles.actualizar}><i class="fa fa-refresh" aria-hidden="true"></i> </button>
+                                </Link>
+                            </td>
                   </tr>
                 ))}
             </tbody>

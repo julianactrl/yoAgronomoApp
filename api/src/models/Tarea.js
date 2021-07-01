@@ -15,6 +15,9 @@ module.exports = (sequelize) => {
     },
     prioridad: {
       type: DataTypes.STRING
+    },
+    estado: {
+      type: DataTypes.STRING
     }
 
   }); 

@@ -123,7 +123,9 @@ export function getAllTareas(id) {
 export const updateTarea = ({
     id,
     tarea,
-    fecha
+    fecha,
+    estado,
+    empresaId
 }) => {
 
     return (dispatch) => {
@@ -131,12 +133,29 @@ export const updateTarea = ({
             type: UPDATE_TAREA
         });
         axios({
-            method: 'put',
+            method: 'patch',
             url: `${REACT_APP_API}/tareas/${id}`,
             data: {
+                id,
                 tarea,
-                fecha
+                fecha,
+                estado,
+                empresaId
             },
         }).catch(e => dispatch(e))
     }
 }
+// export const updateTarea = (id) => async (dispatch) => {
+//     return axios
+//       .patch(`${REACT_APP_API}/tareas/${id}`)
+//       .then((updated) => {
+//         dispatch({
+//           type: UPDATE_TAREA,
+         
+//         });
+//         window.location.reload();
+//       })
+//       .catch((e) =>
+//         console.log(e)
+//       );
+//   };

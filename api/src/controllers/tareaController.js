@@ -67,19 +67,37 @@ const deleteTarea = async(req, res)=> {
 //         })
 //     }
 // }
-const updateTarea = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    await Tarea.update(req.body, {
-      where: {
-        id,
-      },
-    });
-    res.status(200).json({ message: "tarea modificada" });
-  } catch (e) {
-    res.status(400).send(next);
-  }
+const updateTarea = async (req, res) => {
+ const {id} =req.params;
+    const { tarea, fecha, prioridad, estado } = req.body;
+    let tareaFind = await Tarea.findAll({where:{id:id}})
+    if (tareaFind.length > 0){
+      tareaFind.map(async t=> {
+        await t.update({
+          tarea,
+          fecha,
+          prioridad,
+          estado
+        })
+      })
+       return res.json({
+        message: "Tarea updated",
+        date: tareaFind
+    })
+    }
+  //   await Tarea.update(req.body, {
+  //     where: {
+  //       tarea,
+  //     },
+  //   });
+  //   res.status(200).json({ message: "tarea modificada" });
+  // } catch (e) {
+  //   res.status(400).send(next);
+  // }
 };
+
+
+
 
 const getAllTareasByEmpresa = async (req, res, next) => {
     const {id} = req.params
@@ -108,7 +126,8 @@ const getAllTareasByEmpresa = async (req, res, next) => {
       id: tarea.id,
       tarea: tarea.tarea,
       fecha: tarea.fecha,
-      prioridad: tarea.prioridad
+      prioridad: tarea.prioridad,
+      estado: tarea.estado
     };
     if (!tarea) {
       res.send("tarea no encontrada");
