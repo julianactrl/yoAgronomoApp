@@ -65,13 +65,13 @@ function handleSubmit(e) {
     return (
         <div className={styles.divtotal}>
             <Header />
-         <h2 className={styles.alineado} >Actualizar Transporte</h2>
-        <div className={styles.caja}>
-        <form className={styles.estilosForm} 
+        <div className={styles.formCont}>
+        <Link to='/transporte' className={styles.cross}></Link>
+        <form className={styles.form} 
         onSubmit={handleSubmit} 
         > 
-            <div>
-                <label className={styles.labelCrear}>Patente: </label>
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Patente </h4>
                 <input className={styles.inputCrear}
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
@@ -80,8 +80,8 @@ function handleSubmit(e) {
                 name='patente' 
                 />
             </div>
-            <div>
-                <label className={styles.labelCrear}>Conductor: </label>
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Conductor </h4>
                 <input className={styles.inputCrear}
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
@@ -89,8 +89,8 @@ function handleSubmit(e) {
                 placeholder={transporte.conductor}
                 name='conductor'/>
             </div>
-            <div>
-                <label className={styles.labelCrear}>Carga: </label>
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Carga</h4>
                 <input className={styles.inputCrear}
                 type='text'
                 onChange={(e)=>handleInputChange(e)} 
@@ -99,8 +99,8 @@ function handleSubmit(e) {
                 name='carga'/>
             </div>
            
-            <div>
-                <label className={styles.labelCrear}>Fecha de Entrada: </label>
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Fecha de Entrada </h4>
                 <input className={styles.inputCrear}
                 type='date'
                 onChange={handleInputChange} 
@@ -108,17 +108,17 @@ function handleSubmit(e) {
                 placeholder={transporte.fechaEntrada}
                 name='fechaEntrada'/>
             </div>
-            <div>
-                <label className={styles.labelCrear}>Fecha de Salida: </label>
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Fecha de Salida</h4>
                 <input className={styles.inputCrear}
                 type='date'
                 onChange={handleInputChange} 
                 value={input['fechaSalida']}
                 placeholder={transporte.fechaSalida}
                 name='fechaSalida'/>
-            </div>
-            <div>
-                <label className={styles.labelCrear}>Observaciones: </label>
+            </div >
+            <div className={styles.inputs}>
+                <h4 className={styles.labelCrear}>Observaciones: </h4>
                 <input className={styles.inputCrear}
                 type='text'
                 onChange={handleInputChange} 
@@ -127,13 +127,14 @@ function handleSubmit(e) {
                 name='observaciones'/>
             </div>
                 <br></br>
-            <button className={styles.buttonCrearEmpresa} type='submit' value='Crear empresa' name="Enviar">Actualizar transporte</button>
-            
-            <Link to={"/transporte"}>
-                <h3 onClick={()=> deleteTransporte(id)}>
-                <FontAwesomeIcon icon={faTrashAlt} />
-                </h3>
-            </Link>
+                <div className={styles.contActDel}>
+                    <button className={styles.btnActualizar} type='submit' value='Crear empresa' name="Enviar">Actualizar </button>
+                    <Link to={"/transporte"} className={styles.delete}>
+                        <h3 onClick={()=> deleteTransporte(id)}>
+                        <FontAwesomeIcon icon={faTrashAlt} />
+                        </h3>
+                    </Link>
+                </div>
             </form>
             </div>
             

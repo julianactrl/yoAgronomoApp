@@ -5,26 +5,159 @@
     background-size: cover;
     
 }
-
-.form{
-       background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
+.formCont{
+    background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
     url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(7\).png');
-    min-width: 100vw;
-    min-height: 100vh;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.contActDel{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 4rem;
+}
+
+.btnActualizar{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    background-color:#80cc28 ;
+    color:rgb(22, 22, 22);
+    border: none;
+    font-size: 20px;
+    align-items: center;
+    width: 60%;
+    height: 4rem;
+    cursor: pointer;
+    box-shadow: 0 0 5px;
+    position: relative;
+    transition: all 0.2s ease 0s;
+
+}
+.btnActualizar:hover{
+    background-color: #27963c;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(70, 66, 66, 0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.btnRegistrar{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    background-color:#80cc28 ;
+    color:rgb(22, 22, 22);
+    border: none;
+    font-size: 20px;
+    align-items: center;
+    width: 40%;
+    cursor: pointer;
+    box-shadow: 0 0 5px;
+    position: relative;
+    top: 2rem;
+    transition: all 0.2s ease 0s;
+}
+.btnRegistrar:hover{
+    background-color: #27963c;
+    color: #0a0a0a;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(70, 66, 66, 0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.2s ease 0s;
+    box-shadow: 0 0 5pt 0.5pt #161616;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+}
+.cross{
+    position: absolute;
+    z-index: 4;
+    top: 15rem;
+    right: 55rem;
+    border: none;
+    background: none;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)),
+    url('../../assets/cross.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:6vh;
+    height:6vh;
+    border-radius: 10vh;
+}
+.cross:hover{
+    background-image:  url('../../assets/cross.png');
+    background-size: 90%;
+    cursor: pointer;
+
+}
+.form{
+    width: 50%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    background: rgba(250, 250, 250, 0.37);
+    box-shadow: 1px 0 15px black;
+    border: 2px solid rgba(54, 54, 54, 0.363);
+    width: 50vw;
+    height: 70vh;
+    border-radius: 25px;
+    font-size: 18px;
+    height: 80vh;
 }
 
 
 .page{
     display: flex;
+    align-items: center;
     height: 100vh;
+    justify-content: center;
     width: 100vw;
+
+}
+.cont{
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
-}  
+    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.226);
+    box-shadow: 1px 0 15px black;
+    border: 2px solid rgba(54, 54, 54, 0.363);
+    width: 70vw;
+    height: 70vh;
+
+}
 .transporte {
     scroll-snap-align: center;
     flex-shrink: 0;
@@ -32,7 +165,8 @@
     height: 90%;
     margin: 30px;
     border-radius: 10px;
-    background: rgb(93, 143, 104);
+    background: rgb(148, 148, 148);
+    box-shadow: 0 0 10px black;
     transform-origin: center center;
     transform: scale(1);
     transition: transform 0.5s;
@@ -41,46 +175,27 @@
     justify-content: center;
     align-items: center;
     font-size: 80px;
-    /* //////////////// */
-    /* display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 18%;
-    left: 180px;
-    background-position:center;
-    background-repeat: no-repeat;
-    background-clip:padding-box;
-    background-size: 650px;
-    padding: 20px;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    color: rgb(19, 13, 13);
-    border-radius: 10px;
-    align-items: center;
-    object-fit: cover;
-    width: 550px;
-    height: 300px;
-    background-color: #05050548;
-    border:none;
-    box-shadow: 0px 0px 30px black; */
+
 }
 
 .items{
     color: white;
     display: flex;
+    text-align: start;
+    align-items: flex-start;
     justify-content: space-between;
 }
 
 .containerTransporte{
     display: flex;
     align-items: center;
-    background-color: rgb(96, 98, 100);
+    background-color: rgba(133, 133, 133, 0.774);
     flex-direction: row;
-    height: 60%;
+    border-radius: 10px;
+    height: 80%;
     overflow: scroll;
     overflow-y: hidden;
-    width: 35%;
+    width: 50%;
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory; 
@@ -92,7 +207,7 @@
     height: 10px;
 }
   .containerTransporte::-webkit-scrollbar-thumb {
-    background: black;
+    background: rgb(8, 54, 56);
     border-radius: 10px;
 }
   .containerTransporte::-webkit-scrollbar-track {
@@ -109,30 +224,26 @@
 
 .titleAdd{
     /* display: none; */
-    opacity: 0;
-    font-size: 35px;
-    color: black;
-    transition: 0.9s;
-    /* left: 80px;
-    position: relative; */
+    opacity: .7;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.596);
+    transition: 0.3s;
+    position: relative;
+    bottom: 2rem;
+    font-weight: 600;
     text-align: center;
 }
 .cardContAdd:hover .titleAdd{
-    display: inline;
+    /* display: inline; */
     opacity: 1;
-    font-size: 35px;
-    color: #ffffff;
-    transition: 0.9s;
+    color: #ffffff9f;
+    transition: 0.3s;
 
 }
 
 .cardContAdd{
+    transition: .3s;
     display: flex;
-    background-image: url('../../assets/cicle.png');
-    background-position:center;
-    background-repeat: no-repeat;
-    background-clip:padding-box;
-    background-size: 650px;
     padding: 20px;
     flex-direction: column;
     justify-content: space-evenly;
@@ -141,32 +252,36 @@
     border-radius: 10px;
     align-items: center;
     object-fit: cover;
-    width: 280px;
-    height: 280px;
-    background-color: #05050548;
-    border:none;
-    box-shadow: 0px 0px 30px black;
+    width: 20rem;
+    height: 20rem;
+    background-color: #82aa9248;
+    border:3px solid rgba(70, 70, 70, 0.109);
+    box-shadow: 0px 0px 10px black;
     
 }
 .cardContAdd:hover{
-    transition: 0.9s;
+    transition: 0.3s;
     background-size: 900px;
     border:none;
     background-color: #43748a46;
-    box-shadow: 5px 5px 40px black;
+    box-shadow: 0px 0px 10px black;
+    border:3px solid rgba(3, 3, 3, 0.363);
+
+}
+.cardContAdd:hover .imgAdd{
+    transition: 0.3s;
+    opacity: 1;
+    background-color: #00f7ff18;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
 }
 
 .imgAdd{
     position: relative;
-    bottom: 18px;
+    bottom: 1rem;
     background-color: rgba(0, 0, 0, 0.096);
     border-radius: 900px;
     border: 2px solid rgba(0, 189, 13, 0.075);
-    width: 100px;
+    width: 80px;
+    opacity: .7;
 } 
-.imgAdd:hover{
-    transition: 1s;
-    background-color: #80cc28;
-    box-shadow: 0 0 10px rgb(0, 0, 0);
-    border: 2px solid rgba(0, 104, 189, 0.226);
-}
+
