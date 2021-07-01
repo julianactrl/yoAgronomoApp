@@ -2,17 +2,21 @@
     display: flex;
     align-content: center !important;
     justify-content: center !important;
-    background-color: #0e0e0e73;
-    color: white;
+    background-color: #cfcccc73;
+    color: black;
     border-radius: 10px;
-    width: 700px;
-    height: 500px;
-    margin: -2rem 0 0 60rem;
-    font-size: 12px;
+    width: 1000px;
+    height: 600px;
+    margin: -9rem 0 0 43.5rem;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
     padding: 10px;
-    border: solid rgba(0, 0, 0, 0.575) 0.5px;
+    border: solid rgba(165, 163, 163, 0.575) 0.5px;
     box-shadow: 0 0 15px black;
 }
+
+
 /* 
 .componentetotal{
     width: 100%;
@@ -20,15 +24,15 @@
 } */
 
 .dolarHoy{
-    color: green;
+    color: rgba(0, 77, 0, 0.596);
     display: flex;
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: uppercase;
     margin-top: 0rem;
-    padding: 90px;
+    padding: 120px;
 }
 .datatable{
     border-collapse: collapse;
@@ -49,5 +53,5 @@ padding: 12 12px ;
 
 .datatableContainer .datatable td{
     font-size: 17px;
-    border-bottom: solid 1px #ffffffb6;
+    border-bottom: solid 1px #406a11b6;
 }

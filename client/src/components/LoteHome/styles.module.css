@@ -1,5 +1,14 @@
 
-
+.titleh5{
+    color: rgba(0, 77, 0, 0.596);
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 45px;
+    justify-content: center;
+    font-weight: 400;
+    text-transform: uppercase;
+}
 
 .tittle{
     color: white;

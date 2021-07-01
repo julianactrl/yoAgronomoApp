@@ -167,15 +167,15 @@ function AgroConsultas() {
                     {/* ESCALAS FENOLOGICAS */}
                     <p className={styles.tituloCard}>{e.cereal}</p>
                     <p className={styles.sub}>{e.title}</p>
-                    <p>{e.subetapa}</p>
-                    <p>{e.Descripcion}</p>
+                    <p className={styles.body}>{e.subetapa}</p>
+                    <p className={styles.body}>{e.Descripcion}</p>
                     {/* <img className={styles.escalasImg} alt="not found" src={e.imagen} /> */}
 
                     {/* FUNG/HERB/INSECT */}
                     <p className={styles.tituloCard}>{e.type}</p>
                     <p className={styles.sub}>{e.subtype}</p>
-                    <p>{e.subtype2}</p>
-                    <p>{e.props}</p>
+                    <p className={styles.body}>{e.subtype2}</p>
+                    <p className={styles.body}>{e.props}</p>
                   </div>
                 ))
             : allRes
@@ -200,15 +200,15 @@ function AgroConsultas() {
                     {/* ESCALAS FENOLOGICAS */}
                     <p className={styles.tituloCard}>{e.cereal}</p>
                     <p className={styles.sub}>{e.title}</p>
-                    <p>{e.subetapa}</p>
-                    <p>{e.Descripcion}</p>
+                    <p className={styles.body}>{e.subetapa}</p>
+                    <p className={styles.body}>{e.Descripcion}</p>
                     {/* <img className={styles.escalasImg} alt="not found" src={e.imagen} /> */}
 
                     {/* FUNG/HERB/INSECT */}
                     <p className={styles.tituloCard}>{e.type}</p>
                     <p className={styles.sub}>{e.subtype}</p>
-                    <p>{e.subtype2}</p>
-                    <p>{e.props}</p>
+                    <p className={styles.body}>{e.subtype2}</p>
+                    <p className={styles.body}>{e.props}</p>
                   </div>
                 ))}
         </ul>
