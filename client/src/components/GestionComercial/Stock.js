@@ -18,20 +18,20 @@ export const Stock = () => {
     const dispatch = useDispatch()
     const stock = useSelector(state => state.stockReducer.stockPorEmpresa)
     const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)
-    const empresaId = window.location.pathname.split('/')[3]
-    console.log(empresaId)
+    // const empresaId = window.location.pathname.split('/')[3]
+    
     const [form, setForm] = useState(false)
     const [formEdit, setFormEdit] = useState(false)
     const [input, setInput] = useState({
         tipo: '',
         cantidad: null,
         nombreProducto: '',
-        empresaId,
+        idEmpresa,
     })
     const [IdStock,setIdStock] = useState(null)
     useEffect(() => {
-        dispatch(getEmpresa(empresaId))
-        dispatch(getStockById(empresaId))
+        dispatch(getEmpresa(idEmpresa))
+        dispatch(getStockById(idEmpresa))
     }, [])
     // useEffect(() => {
     // },[])

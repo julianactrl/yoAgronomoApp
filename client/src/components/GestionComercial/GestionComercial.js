@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import '../GestionComercial/GestionComercial.css';
 import Header from '../Header/Header';
 export const GestionComercial = () => {
-    const empresaId = window.location.pathname.split('/')[2]
+    const empresaId = useSelector(state => state.empresaReducer.empresaForId.id)
     return (
              <>
             <Header />

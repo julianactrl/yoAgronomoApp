@@ -34,12 +34,12 @@ const premium = async (req, res) => {
             },
           ],
           back_urls: {
-            success: `${BACK_URL}/premium/mercadoPagoRedirect`,
-            failure: `${BACK_URL}/premium/mercadoPagoRedirect`,
-            pending: `${BACK_URL}/premium/mercadoPagoRedirect`,
+            success: `${BACK}/premium/mercadoPagoRedirect`,
+            failure: `${BACK}/premium/mercadoPagoRedirect`,
+            pending: `${BACK}/premium/mercadoPagoRedirect`,
           },
           auto_return: "approved",
-          notification_url: `${BACK_URL}/premium/mercadoPagoNotifications`,
+          notification_url: `${BACK}/premium/mercadoPagoNotifications`,
         };
 
         const resp = await mercadopago.preferences.create(preference);

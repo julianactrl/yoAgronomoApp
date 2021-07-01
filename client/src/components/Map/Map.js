@@ -27,7 +27,7 @@ const Map = () => {
     })
 
 
-    console.log(coordenadas)
+    
     
 
     const dispatch = useDispatch()
@@ -44,27 +44,20 @@ const Map = () => {
            type:"Polygon",
             coordinates:[
               [
-                coordenadas.coord1,
-                  coordenadas.coord2,
-                  coordenadas.coord3,
-                  coordenadas.coord4,
-                  coordenadas.coord5
+                [path[0].lng,path[0].lat],
+                [path[1].lng,path[1].lat],
+                [path[2].lng,path[2].lat],
+                [path[3].lng,path[3].lat],
+                [path[0].lng,path[0].lat]
                 ]
               ]
          }
         }
    }
+   
  
    function handleSubmit(e){
     e.preventDefault();
-      setCoordenadas({
-        coord1: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))],
-        coord2: [parseFloat(path[1].lng.toString().slice(0, 11)), parseFloat(path[1].lat.toString().slice(0, 11))],
-        coord3: [parseFloat(path[2].lng.toString().slice(0, 11)), parseFloat(path[2].lat.toString().slice(0, 11))],
-        coord4: [parseFloat(path[3].lng.toString().slice(0, 11)), parseFloat(path[3].lat.toString().slice(0, 11))],
-        coord5: [parseFloat(path[0].lng.toString().slice(0, 11)), parseFloat(path[0].lat.toString().slice(0, 11))]
-      })
-    console.log(coordenadas)
     dispatch(postPolyId(aux))
     // history.push('/agroapi')
   }
@@ -80,10 +73,9 @@ const Map = () => {
           .getPath()
           .getArray()
           .map(latLng => {
-            return { lat: latLng.lat(), lng: latLng.lng() };
+            return { lng: parseFloat(latLng.lng().toString().slice(0,11)) , lat: parseFloat(latLng.lat().toString().slice(0,11))  };
           });
         setPath(nextPath);
-        setMiddle({lat: ((path[0].lat + path[1].lat) / 2), lng:((path[0].lng + path[3].lng) / 2)})
       }
     }, [setPath]);
   
@@ -106,11 +98,7 @@ const Map = () => {
       listenersRef.current.forEach(lis => lis.remove());
       polygonRef.current = null;
     }, []);
-  
-    console.log("The path state is", path);
-    console.log('hola')
-    console.log('The middle is', middle)
-
+ 
     const apiKey= process.env.REACT_APP_GOOGLE_API_KEY
 
   return (
@@ -142,7 +130,7 @@ const Map = () => {
       >
         <GoogleMap
           mapContainerClassName="googleMaps"
-          center={path[0]}
+          center= {path[0]}
           zoom={15}
           version="weekly"
           mapTypeId="satellite"

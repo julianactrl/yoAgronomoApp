@@ -22,7 +22,7 @@ const fecha = new Date()
         <div className={styles.componentetotal}>
         <div className={styles.totcomponent}>
             <Header/>
-            <h1 className={styles.dolarHoy}>Dolar hoy {fecha.toLocaleDateString()}</h1>
+            <h1 className={styles.dolarHoy}>Cotizaciones al {fecha.toLocaleDateString()}</h1>
         <div className={styles.datatableContainer}>
                    
             <table className={styles.datatable}>

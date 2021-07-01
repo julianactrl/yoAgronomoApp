@@ -26,11 +26,11 @@
     .contenedorTittle{
         /* background-color: violet; */
         display: flex;
-        width: 50vh;
+        width: 120vh;
         position: relative;
         justify-content: space-around;
         align-items: center;
-        top: 31vh;
+        top: 26vh;
         left: 24.5vh;
     }
 
