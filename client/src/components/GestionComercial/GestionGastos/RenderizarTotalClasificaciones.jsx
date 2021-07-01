@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'bootstrap/dist/css/bootstrap.min.css'
 import React , { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTotal } from '../../../redux/actions/gestionGastosActions'
@@ -13,7 +13,6 @@ export default function RenderizarTotalClasificaciones ({clasificaciones}) {
 
     useEffect(()=>{
         dispatch(getTotal(cookie.get('selectedEmpresa').id))
-        console.log('totalllllllllllll', total);
     },[])
 
     return (

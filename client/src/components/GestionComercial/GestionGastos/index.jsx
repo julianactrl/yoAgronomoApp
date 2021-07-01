@@ -1,6 +1,6 @@
 import Header from "../../Header/Header"
 import styles from './styles.module.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
+//import 'bootstrap/dist/css/bootstrap.min.css'
 import Clasificacion from "./Clasificacion"
 import GastoItem from "./GastoItem"
 import { useEffect, useState } from "react"
