@@ -13,6 +13,7 @@ import add from '../../assets/añadir.png';
 import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLotes } from "../../redux/actions/loteActions";
+import {clearWeather} from "../../redux/actions/weatherActions"
 import Cookies from "universal-cookie";
 import {motion} from 'framer-motion';
 
@@ -33,6 +34,7 @@ export default function LoteHome ({id}) {
 
     useEffect(async()=>{
         await dispatch(getAllLotes(cookies.get('selectedEmpresa').id))
+        dispatch(clearWeather())
     },[])
       // funcion switch renderizar
       function switcher (type) {
