@@ -1,5 +1,5 @@
 const { User } = require("../db");
-const { FRONT, BACK, BACK_URL, ACCESS_TOKEN_PROD } = process.env;
+const { FRONT, BACK, ACCESS_TOKEN_PROD } = process.env;
 const mercadopago = require("mercadopago");
 const { mailPaymentCompleted, mailPaymentInProcess } = require("../mails/mensaje");
 

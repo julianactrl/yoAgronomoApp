@@ -23,7 +23,6 @@ export default function MercadoPago() {
         "totalPrice": 499,
         "title": "YoAgronomo Premium"
     } ).then((order) => {
-        console.log("dddd",order)  
     setPreferenceId(order.data.preferenceId);
     setLinkMp(order.data)
       
