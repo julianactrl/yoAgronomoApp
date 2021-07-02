@@ -1,5 +1,6 @@
 import { GET_ALL_CLASIFICACIONES , CREATED_CLASIFICACION , GET_ALL_GASTOS , CREATED_GASTO , GET_TOTAL , GASTO_BY_INPUT , DELETE_CLASIFICACION} from '../constants/index'
 import axios from 'axios'
+import swal from 'sweetalert';
 const { REACT_APP_API} = process.env
 
 
@@ -66,6 +67,7 @@ export function createGastos (data) {
         return axios.post(`${REACT_APP_API}/gastos/createGasto`, data)
         .then(response => {
             console.log('gasto creadoooo', response);
+            swal('Gasto creado correctamente',{icon:'success'})
             dispatch({
                 type: CREATED_GASTO,
                 payload: response

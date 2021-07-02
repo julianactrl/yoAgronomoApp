@@ -103,9 +103,7 @@ const Login = () => {
           )}
         </div>
         <Link to="/resetpassword">
-          <button type="submit" className={styles.loginBtn}>
-            ¿Olvidó su contraseña?
-          </button>
+         
         </Link>
       </form>
     </div>

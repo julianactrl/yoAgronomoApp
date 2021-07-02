@@ -11,18 +11,7 @@
 }
 
 
-@media (max-width:1920px){ 
-    .title  .logo{
-        margin: 2rem 1rem;
-        width:75px;
-        height: 75px;
-    }
-    
-    .btnGooglee{
-        position: relative;
-        /* top: 20px; */
-        left: -2vh;
-    }
+
     .contenedorTittle{
         /* background-color: violet; */
         display: flex;
@@ -30,244 +19,16 @@
         position: relative;
         justify-content: space-around;
         align-items: center;
-        top: 26vh;
-        left: 24.5vh;
+        top: 25vh;
+        left: 24.5vh; 
     }
 
-    .title{
-        color: white;
-        font-size: 28px;
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        position: absolute;
-        top: 22rem;
-        right: 13vh;
-        display: flex;
-        flex-direction: row !important;
-        align-items: center;
-    
-    }
-    .title h2{
-        font-size: 50px;
-        font-weight: lighter !important;
-    }
-    
-.registro{
-    background-color: #5555559d;
-    text-decoration: none !important;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 2rem;
-    width: 11.5rem;
-    font-size: 20px;
-    /* position: absolute; */
-    /* top:26.3%; */
-    /* left: 25.66%; */
-}
-.login{
-    background-color: #5555559d;
-    text-decoration: none !important;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 2rem;
-    width: 11.6rem;
-    font-size: 20px;
-    /* position: absolute;
-    top:26.3%;
-    left: 12.7%; */
-}
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center !important;
-    margin: 32vh 0 0 26vh;
-    font-weight: 600;
-    background-color: rgba(255, 240, 240, 0.568);
-    border-radius: 10px;
-    padding: 3vh;
-    max-width: 47vh;
-    height: 40vh;
-    
-}
-.loginInput{
-    /* display: flex; */
-    margin-top: 10px;
-    text-align: left;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    max-width: 220px;
-    /* border: none; */
-    /* padding: 5px; */
-    height: 2rem;
-    border-radius: 4px;
-}
-.loginBtn{
-    width: 230px !important;
-    font-size: 12px !important;
-    font-weight: 300 !important;
-    margin: 5vh 0;
-    color: rgb(0, 0, 0) ;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    padding: 10px; 
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-}
-.registerBtn{
-    width: 230px !important;
-    margin: 3vh 0 0 0;
-    font-size: 12px !important;
-    color: rgb(0, 0, 0) ;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    padding: 10px !important;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.2s ease 0s;
-}
-.google{
-    max-width: 200px;
-    margin-left: 42vh;
-    margin-top: 3vh;
-}
-
-}
 
 
-
-@media (min-width:1920px){ 
-    .title  .logo{
-        margin: 2rem 1rem;
-        width:75px;
-        height: 75px;
-    }
-    
-    
-    
-    .title{
-        color: white;
-        font-size: 28px;
-        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        position: absolute;
-        top: 22rem;
-        right: 13vh;
-        display: flex;
-        flex-direction: row !important;
-    
-    }
-    .title h2{
-        font-size: 50px;
-        font-weight: lighter !important;
-    }
-    
-.registro{
-    background-color: #5555559d;
-    text-decoration: none !important;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 2rem;
-    width: 11.5rem;
-    font-size: 20px;
-    position: absolute;
-    top:26.3%;
-    left: 25.66%;
-}
-.login{
-    background-color: #5555559d;
-    text-decoration: none !important;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 2rem;
-    width: 11.6rem;
-    font-size: 20px;
-    position: absolute;
-    top:26.3%;
-    left: 12.7%;
-}
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center !important;
-    margin: 32vh 0 0 26vh;
-    font-weight: 600;
-    background-color: rgba(255, 240, 240, 0.568);
-    border-radius: 10px;
-    padding: 3vh;
-    max-width: 47vh;
-    height: 40vh;
-    
-}
-.loginInput{
-    /* display: flex; */
-    margin-top: 10px;
-    text-align: left;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    max-width: 220px;
-    /* border: none; */
-    /* padding: 5px; */
-    height: 2rem;
-    border-radius: 4px;
-}
-.loginBtn{
-    width: 230px !important;
-    font-size: 12px !important;
-    margin: 5vh 0;
-    color: rgb(0, 0, 0) ;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    padding: 10px; 
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-}
-.registerBtn{
-    width: 230px !important;
-    margin: 3vh 0 0 0;
-    font-size: 12px !important;
-    color: rgb(0, 0, 0) ;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    padding: 10px !important;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.2s ease 0s;
-}
-.google{
-    max-width: 200px;
-    margin-left: 42vh;
-    margin-top: 3vh;
-}
-
-}
-
-@media (max-width:1300px){ 
 
     .google{
-        max-width: 200px;
-        margin-left: 37vh;
+        width: 230px;
+        margin-left: 37.35vh;
         margin-top: 4vh;
     }
     
@@ -277,9 +38,10 @@
         margin-left: 3vh;
     }
     .loginBtn{
-        width: 230px !important;
+        width: 220px !important;
         font-size: 12px !important;
-        margin: 5vh 0 1vh 3.3vh;
+        letter-spacing: 1px;
+        margin: 3vh 0 1vh 1vh;
         color: rgb(0, 0, 0) ;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-transform: uppercase;
@@ -291,26 +53,23 @@
         border: none;
         transition: all 0.4s ease 0s;
     }
-    .title  .logo{
-        margin: 2rem 1rem;
-        width:55px;
-        height: 55px;
-    }
+    
     .loginInput{
         display: flex;
-        margin: 0 0 0 19px;
+        margin: 45px 0 0 19px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        max-width: 220px;
+        max-width: 270px;
         border: none;
-        padding: 5px;
+        padding: 8px;
         border-radius: 4px;
     }
     .form{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         margin: 32vh 0 0 26vh;
         font-weight: 600;
         background-color: rgba(255, 240, 240, 0.568);
@@ -320,27 +79,46 @@
         height: 35vh;
         
     }
-    .title  .logo{
-        margin: 2rem 1rem;
-        width:75px;
-        height: 75px;
-    }
     
     
+    /* h2{
+        color: white;
+        font-size: 75px;
+        font-weight:400;
+        position: absolute;
+        top: 39rem;
+        right: 25vh;
+        
+    } */
     .title{
         color: white;
         font-size: 25px;
         font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        position: absolute;
-        top: 11rem;
-        right: 8vh;
-        display: flex;
-        flex-direction: row !important;
+        
     
     }
-    .title h2{
-        font-size: 45px;
-        font-weight: lighter !important;
+
+    .logo{
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 38.5rem;
+        right: 15vh;
+    }
+    
+    .olvido{
+        background-color: transparent;
+        border: none;
+        font-size: 17px;
+        color:rgb(4, 119, 4);
+        font-weight: 600;
+        margin: 10px 0 5px 3px;
+    }
+
+    .olvido:hover{
+        color: rgb(86, 128, 24);
+        letter-spacing: 1px;
+        transition: all 1s;
     }
     
 
@@ -350,11 +128,11 @@
         border-radius: 3px;
         color: black;
         padding: 8px 9px 14px 63px;
-        max-width: 79px;
+        width: 218px;
         font-size: 20px;
         position: absolute;
         top:21.5%;
-        left: 23.4%;
+        left: 20.9%;
     }   
     .login{
         background-color: #0000001a;
@@ -362,16 +140,16 @@
         border-radius: 3px;
         color: black;
         padding: 8px 8px 14px 92px;
-        max-width: 79px;
+        width: 218px;
         font-size: 20px;
         position: absolute;
         top:21.5%;
-        left: 11.5%;
+        left: 1.5%;
 
     }
     .registerBtn{
         width: 230px !important;
-        margin: 3vh 0 1vh 3vh;
+        margin: 3vh 0 1vh 4vh;
         font-size: 12px !important;
         color: rgb(0, 0, 0) ;
         text-transform: uppercase;
@@ -383,7 +161,7 @@
         border: none;
         transition: all 0.2s ease 0s;
 }
-}
+
 
 
 .labels{
@@ -420,7 +198,7 @@
 }
 .disabled{
     width: 230px !important;
-    margin: 3vh 0 0 0;
+    margin: 3vh 0 0 4vh;
     font-size: 12px !important;
     color: rgb(0, 0, 0) ;
     text-transform: uppercase;
@@ -482,21 +260,7 @@
     background-color: rgb(0, 138, 0);
 }
 
-/* .loginBtn{
-    max-width: 120px !important;
-    font-size: 12px !important;
-    margin: 5vh 0 1vh 16.6vh;
-    color: rgb(0, 0, 0) ;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #80cc28 !important;
-    padding: 10px 20px 10px 20px !important;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-} */
+
 .loginBtn:hover {
 cursor: pointer;
 font-size: 13px;
@@ -515,16 +279,16 @@ background-color: rgb(8, 117, 57);
 }
 
 .goBack{
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     top:25px;
     left: 25px;
 }
 
 .goBack:hover{
-    width: 28px;
-    height: 28px;
+    width: 37px;
+    height: 37px;
 }
 
 .error{

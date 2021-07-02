@@ -5,13 +5,13 @@ import GastoItem from "./GastoItem"
 import { useEffect, useState } from "react"
 import { getAllClasificiones , createClasificacion, getAllGastos, getGastoByInput} from "../../../redux/actions/gestionGastosActions"
 import { useDispatch, useSelector } from "react-redux"
-import Cookies from 'universal-cookie'
+
 import  RenderizarTotalClasificaciones  from "./RenderizarTotalClasificaciones.jsx"
 import {renderClasificaciones} from './controller'
 
 export default function GestionGastos () {
     const dispatch = useDispatch();
-    const cookies = new Cookies();
+    
     const [clasificacion, setClasificacion] = useState({name:''})
     const [totalClasificaciones, setTotalClasificaciones] = useState() // Estado para mostrar el total de gasto de todas las clasificaciones
     // const [empresaId, setEmpresaId] = useState();
@@ -21,10 +21,11 @@ export default function GestionGastos () {
     const gastos = useSelector(state=>state.gestionGastosReducer.gastos) // todos los gastos
     const gastoByInput = useSelector(state=>state.gestionGastosReducer.gastoByInput) // gastos buscados por el input
     const createdGasto = useSelector(state=>state.gestionGastosReducer.createdGasto)
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id)
 
 
     useEffect( ()=>{
-         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+         dispatch(getAllClasificiones(empresaId))
     },[])
 
     useEffect( ()=>{
@@ -42,15 +43,15 @@ export default function GestionGastos () {
     
     
     useEffect( ()=>{
-         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+         dispatch(getAllClasificiones(empresaId))
     },[createdClasificacion])
     
       function crearClasificacion () {
         const crearClasificacion = clasificacion;
-        crearClasificacion.empresaId =  cookies.get('selectedEmpresa').id
+        crearClasificacion.empresaId =  empresaId
          dispatch(createClasificacion(crearClasificacion))
         setClasificacion({name:''}) 
-         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+         dispatch(getAllClasificiones(empresaId))
     }
     // useEffect( ()=>{
     // },[])
