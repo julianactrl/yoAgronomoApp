@@ -9,7 +9,8 @@ import {
     getStock,
     createStock,
     getStockById,
-    deleteStock
+    deleteStock,
+    updateStock
 } from '../../redux/actions/stockActions';
 import {getEmpresa} from '../../redux/actions/empresaActions';
 // import { editStock } from '../../../../api/src/controllers/stockController';
@@ -17,22 +18,27 @@ import {getEmpresa} from '../../redux/actions/empresaActions';
 export const Stock = () => {
     const dispatch = useDispatch()
     const stock = useSelector(state => state.stockReducer.stockPorEmpresa)
-    const idEmpresa = useSelector(state => state.empresaReducer.empresaForId.id)
+    const empresaId = useSelector(state => state.empresaReducer.empresaForId.id)
     // const empresaId = window.location.pathname.split('/')[3]
     
     const [form, setForm] = useState(false)
+    const [load, setLoad] = useState(false)
     const [formEdit, setFormEdit] = useState(false)
     const [input, setInput] = useState({
         tipo: '',
         cantidad: null,
         nombreProducto: '',
-        idEmpresa,
+        empresaId
     })
     const [IdStock,setIdStock] = useState(null)
+    console.log(empresaId)
     useEffect(() => {
-        dispatch(getEmpresa(idEmpresa))
-        dispatch(getStockById(idEmpresa))
+        dispatch(getStockById(empresaId))
     }, [])
+    useEffect(async() => {
+        await dispatch(getStockById(empresaId))
+        setLoad(false)
+    }, [load])
     // useEffect(() => {
     // },[])
     const toggleForm = () => {
@@ -42,12 +48,13 @@ export const Stock = () => {
             setForm(true);
         }
     }
-    const toggleFormEdit = () => {
+    const toggleFormEdit = (stockId) => {
         if (formEdit === true) {
             setFormEdit(false)
         } else {
             setFormEdit(true);
         }
+        setIdStock(stockId)
     }
     const handleInputChangeTipo = async (e) => {
         if (e.target.value === "Tipo" || e.target.value === "") {
@@ -77,6 +84,11 @@ export const Stock = () => {
         console.log(input)
     }
     const history = useHistory();
+    const dispatchCall = async () => {
+        await dispatch(createStock(input))
+        await dispatch(getStockById(empresaId))
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (input.tipo === undefined || input.cantidad === null || input.nombreProducto === undefined ) {
@@ -87,18 +99,18 @@ export const Stock = () => {
                 dangerMode: true,
               });
         } else {
-            await dispatch(createStock(input))
+            dispatchCall();
+            setLoad(true);
             swal({
                 title: "Stock creado!",
                 icon: "success",
                 button: true,
               })
-              history.push(`/gestion_comercial/${idEmpresa}`)
-              
+              toggleForm();
         }
     }
     const handleSubmitEdit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         if (input.tipo === undefined || input.cantidad === null || input.nombreProducto === undefined ) {
             return swal({
                 title: "Debes completar todos los campos!",
@@ -107,27 +119,27 @@ export const Stock = () => {
                 dangerMode: true,
               });
         } else {
-            await dispatch(createStock(input))
+            console.log(input)
+            console.log(IdStock)
+            dispatch(updateStock(input, IdStock))
+            dispatch(getStockById(empresaId))
+            await setLoad(true)
             swal({
-                title: "Stock creado!",
+                title: "Stock actualizado!",
                 icon: "success",
                 button: true,
-              })
-              DeleteStock(IdStock)
-              history.push(`/gestion_comercial/${idEmpresa}`)
-              
+            })
+            
+            toggleFormEdit();
+            
         }
     }
     const DeleteStock = (stockId) => {
         dispatch(deleteStock(stockId))
         swal('Item eliminado',{icon:"success"})
-        history.push(`/gestion_comercial/${idEmpresa}`)
+        setLoad(true)
     }
-    const EditarStock = (stockId) => {
-        toggleFormEdit();
-        setIdStock(stockId)
-    }
-    console.log(IdStock)
+    console.log(stock)
     return (
         <>
         <Header />
@@ -144,7 +156,6 @@ export const Stock = () => {
                 </thead>
                 <tbody>
                     {
-                        
                         stock && stock.map((s) => {
                             return (
 
@@ -157,7 +168,7 @@ export const Stock = () => {
                                     <td>{s.cantidad} toneladas</td>
                                     : <td>{s.cantidad} unidades</td>
                                     }
-                                    <td ><button onClick={() => {EditarStock(s.id)}} className='btnEditarStock'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button onClick={() => DeleteStock(s.id)} className='btnEliminarStock'><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+                                    <td ><button onClick={() => {toggleFormEdit(s.id)}} className='btnEditarStock'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><button onClick={() => DeleteStock(s.id)} className='btnEliminarStock'><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
                                 </tr>
                             )
                         })

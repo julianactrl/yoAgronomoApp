@@ -27,8 +27,19 @@ const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, { //?sslmode=
 // const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}`, {
 //   // ssl: true,
 //   protocol: "postgres",
-//   logging: false
-// })
+//   logging: false,
+//   dialectOptions: {
+//     ssl: {
+//       require: true,
+//       rejectUnauthorized: false,
+//     },
+//   },
+// });
+const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}`, {
+  // ssl: true,
+  protocol: "postgres",
+  logging: false
+})
 
 const basename = path.basename(__filename);
 

@@ -1,8 +1,11 @@
 import styles from './styles.module.css'
-import { deleteClasificacion } from '../../../../redux/actions/gestionGastosActions';
+import { deleteClasificacion, getAllClasificiones } from '../../../../redux/actions/gestionGastosActions';
 import { useDispatch } from 'react-redux';
+import Cookies from 'universal-cookie'
+
 
 export default function Clasificacion ({name, id}) {
+    const cookies = new Cookies();
     const dispatch = useDispatch()
     const clasificacionSeleccionada= {name:name, clasificacionDeGastoId: id}
 
@@ -11,6 +14,17 @@ export default function Clasificacion ({name, id}) {
         dispatch({type:'SELECTED_CLASIFICACION', payload: clasificacionSeleccionada})
         dispatch({type: 'GASTO_BY_INPUT',payload: []})
     }
+    function deleteClasificaciones () {
+        dispatch(deleteClasificacion(id))
+        dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    }
+
+
+
+
+
+
+
 
     function handleDelete () {
         console.log('estoy borrando la clasificacion cn este id y nombre', id, name);
@@ -23,8 +37,7 @@ export default function Clasificacion ({name, id}) {
             <buton onClick={clickClasificacion} className={styles.btnClasificacion}>
                 {name}
             </buton>
-
-            <button onClick={handleDelete} className={styles.btnCerrar}>X</button>
+            <button onClick={deleteClasificaciones} className={styles.btnCerrar}>X</button>
         </div>
     )
 }

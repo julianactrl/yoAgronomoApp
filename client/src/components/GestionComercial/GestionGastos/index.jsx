@@ -23,40 +23,38 @@ export default function GestionGastos () {
     const createdGasto = useSelector(state=>state.gestionGastosReducer.createdGasto)
 
 
-    useEffect(async ()=>{
-        await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    useEffect( ()=>{
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
     },[])
 
-    // useEffect(async ()=>{
-    //     await dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
-    // },[clasificaciones])
-    useEffect(async ()=>{
-        await dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
+    useEffect( ()=>{
+        dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
         setTotalClasificaciones(false)
         console.log('estos son los gastos',gastos);
         let gastosAuxiliar = gastos.length && gastos.map(e=> Number(e.cost)).reduce((acc,next)=> acc + next)
     },[selectedClasificacion])
-
+    
     // si se crea un gasto o se elimina con este useefect se actualiza
     useEffect(()=>{
         console.log('se creo un gasto ahora los traigo');
         dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
     },[createdGasto])
-
-    useEffect(async ()=>{
-        console.log('useefect de traer las clasificaciones cuando se crea una',);
-        await dispatch(getAllClasificiones( cookies.get('selectedEmpresa').id))
+    
+    
+    useEffect( ()=>{
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
     },[createdClasificacion])
-
-    async function crearClasificacion () {
-        if(clasificacion.name.length){
-            const crearClasificacion = clasificacion;
-            crearClasificacion.empresaId = await cookies.get('selectedEmpresa').id
-            await dispatch(createClasificacion(crearClasificacion))
-            setClasificacion({name:''}) 
-        }
+    
+      function crearClasificacion () {
+        const crearClasificacion = clasificacion;
+        crearClasificacion.empresaId =  cookies.get('selectedEmpresa').id
+         dispatch(createClasificacion(crearClasificacion))
+        setClasificacion({name:''}) 
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
     }
-   
+    // useEffect( ()=>{
+    // },[])
+
 
     return (
          <>
@@ -67,8 +65,8 @@ export default function GestionGastos () {
                             <div className={styles.contClasificacionesYtotal}>
                                 <div className={styles.contClasificaciones}>
                                 {
-                                    renderClasificaciones(clasificaciones, createdClasificacion)
-                                    // clasificaciones[0]&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
+                                    // renderClasificaciones(clasificaciones, createdClasificacion)
+                                    clasificaciones[0]&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
                                     <div className={styles.contCrearClasificacion}>
                                         <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar clasificación..' className={styles.inputAgregar} />

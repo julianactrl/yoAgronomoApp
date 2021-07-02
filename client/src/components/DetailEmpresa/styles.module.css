@@ -201,7 +201,7 @@ body {
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     border-radius: 8px;
-    font-weight: 700 !important;
+    font-weight: 200 !important;
 }
 
 .btnsDelEdit {
