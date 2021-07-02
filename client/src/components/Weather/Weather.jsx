@@ -51,7 +51,7 @@ const Weather = (props) => {
     <>
       <Header />
       <div className="body-weather">
-        <h4>CLIMA EN {empresaName}</h4>
+        
         <div className="tiemporeal">
         {/* <h1 style={{ color: "white" }}>{new Date().toLocaleDateString()}</h1> */}
           {loading ? (
