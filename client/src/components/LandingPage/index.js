@@ -36,7 +36,7 @@ const LandingPage = () => {
             <img className={styles.goBack} alt="not found" src='https://www.seekpng.com/png/full/18-187048_left-arrow-png-free-download-flecha-hacia-arriba.png'/>  
             </Link>
             <div className={styles.title}>
-            <h2><strong>YO</strong>AGRONOMO</h2>
+            <h3 className={styles.seleSoy}><strong>YO</strong>AGRONOMO</h3>
 
             <img className={styles.logo} alt="not found" src={leaf}/>
 
