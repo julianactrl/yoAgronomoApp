@@ -22,7 +22,7 @@ function DetailTransporte (props) {
     
     useEffect(()=> {
         dispatch(getTransporte(empresaId));
-    }, []);
+    }, [dispatch, empresaId]);
 
     return (
        <div className={styles.divtotal}>

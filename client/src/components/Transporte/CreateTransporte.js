@@ -34,18 +34,11 @@ function NewTransporte () {
         console.log("Vamo carahoy", input)
     }
     const history = useHistory()
-    async function handleSubmit(e){
-        await dispatch(postTransporte(input));
+    function handleSubmit(e){
+        dispatch(postTransporte(input));
         e.preventDefault();
         swal("El transport fue creado",{icon:"success"})
         history.push("/transporte")
-    }
-
-    function deleteTransporte(transporteId) {
-            axios.delete(`${REACT_APP_API}/transporte/delete/${transporteId}`)
-            .then(response => console.log(response.data)) 
-            .catch(error  => console.log(error))
-            alert('Su transporte fue eliminado!')  
     }
 
     return (
