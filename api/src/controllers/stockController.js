@@ -3,6 +3,7 @@ const { Op } = require("sequelize");
 
 const postStock = async(req, res) => {
     const {tipo, cantidad, empresaId, nombreProducto} = req.body;
+    // console.log(idEmpresa)
     try{
         await Stock.create({
             tipo,
