@@ -13,7 +13,7 @@ const {
 } = process.env;
 dbRDS = false;
 
-const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
+const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, { //?sslmode=require
   ssl: true,
   protocol: "postgres",
   logging: false,

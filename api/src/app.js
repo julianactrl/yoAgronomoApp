@@ -8,7 +8,9 @@ const server = express();
 
 require("./db.js");
 
-
+//=====passport ====
+const passport = require("./passport");
+//const session = require("express-session");
 //===================================================================
 server.use(cors()); //{ origin: process.env.REACT_APP_FRONT, credentials: true }
 server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
@@ -33,7 +35,20 @@ server.use((req, res, next) => {
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-//===================================================================
+
+
+server.use(passport.initialize());
+
+
+server.all("*", function (req, res, next) {
+  passport.authenticate("bearer", function (err, user) {
+    if (err) return res.status(400).json({ message: "malformed JSON" });
+    if (user) {
+      req.user = user;
+    }
+    return next();
+  })(req, res, next);
+});
 
 server.use("/", routes);
 
