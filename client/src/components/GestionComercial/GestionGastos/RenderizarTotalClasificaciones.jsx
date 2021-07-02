@@ -2,16 +2,17 @@ import React , { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTotal } from '../../../redux/actions/gestionGastosActions'
 import styles from './styles.module.css'
-import Cookies from 'universal-cookie'
+
 
 
 export default function RenderizarTotalClasificaciones ({clasificaciones}) {
     const dispatch = useDispatch()
-    const cookie = new Cookies()
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id)
+
     const total = useSelector(state=>state.gestionGastosReducer.total)
 
     useEffect(()=>{
-        cookie.get('selectedEmpresa').id && dispatch(getTotal(cookie.get('selectedEmpresa').id))
+        empresaId && dispatch(getTotal(empresaId))
     },[])
 
     function sumaTotal () {

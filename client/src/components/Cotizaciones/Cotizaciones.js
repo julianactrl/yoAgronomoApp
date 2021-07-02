@@ -44,7 +44,7 @@ const fecha = new Date()
                         
                         <td>{i.casa.nombre}</td>
                         <td>{i.casa.compra}</td>
-                        <td>{i.casa.venta}</td>
+                        <td>{i.casa.venta.length >0 && i.casa.venta}</td>
                     </tr>
                     ))
                 } 

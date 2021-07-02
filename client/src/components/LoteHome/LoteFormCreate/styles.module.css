@@ -178,9 +178,9 @@
     position: absolute;
     /* right: 10px; */
     /* bottom: 14px; */
-    top: 1.5rem;
+    top: 1.7rem;
     color: #27963c;
-    left: 26.5rem;
+    left: 44.2rem;
     font-size: 25px;
     z-index: 100;
     /* opacity: 0; */
@@ -189,9 +189,9 @@
     position: absolute;
     /* right: 10px; */
     /* bottom: 14px; */
-    top: 1.5rem;
+    top: 1.7rem;
     color: rgb(255, 0, 0);
-    left: 26.5rem;
+    left: 44.2rem;
     font-size: 25px;
     z-index: 100;
 }

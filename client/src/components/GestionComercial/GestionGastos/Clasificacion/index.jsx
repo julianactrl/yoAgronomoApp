@@ -1,13 +1,14 @@
 import styles from './styles.module.css'
 import { deleteClasificacion, getAllClasificiones } from '../../../../redux/actions/gestionGastosActions';
-import { useDispatch } from 'react-redux';
-import Cookies from 'universal-cookie'
+import { useDispatch,useSelector } from 'react-redux';
+
 
 
 export default function Clasificacion ({name, id}) {
-    const cookies = new Cookies();
+ 
     const dispatch = useDispatch()
     const clasificacionSeleccionada= {name:name, clasificacionDeGastoId: id}
+    const empresaId = useSelector(state=>state.empresaReducer.empresaForId.id)
 
     function clickClasificacion () {
         console.log('clasificacion seleccionada --->', name ,id);
@@ -16,7 +17,7 @@ export default function Clasificacion ({name, id}) {
     }
     function deleteClasificaciones () {
         dispatch(deleteClasificacion(id))
-        dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+        dispatch(getAllClasificiones(empresaId))
     }
 
 
