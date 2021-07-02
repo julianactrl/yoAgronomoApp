@@ -37,22 +37,30 @@ const News = (props) => {
               return fecha
           } else return fecha
       }
+      const sumarDias = (fecha, dias) => {
+          if (dias) {
+              fecha.setDate(fecha.getDate() + dias);
+              return fecha;
+          } else return fecha;
+      }
       var newDate = new Date()
-      var endDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + Add0(newDate.getDate())
-      var startDate = '' + newDate.getFullYear() + '-' + (Add0(newDate.getMonth() + 1))  + '-' + (Add0(newDate.getDate() - 7))
+    //   var hola = sumarDias(newDate, -7)
+      var endDate = sumarDias(newDate).toJSON().split('T');
+      var startDate = sumarDias(newDate, -7).toJSON().split('T');
       
     useEffect(() => {
         const apicall = async() => {
-            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=${REACT_APP_NEWS_API_KEY}&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate}&endDate=${endDate}`)
+            const res= await axios.get(`https://api.jornalia.net/api/v1/articles?apiKey=${REACT_APP_NEWS_API_KEY}&search=campo+agroindustria+agronomia+soja+exportacion&providers=Clarin%2CPagina12%2CLaNacion%2CCronista%2CDiarioPopular%2CTelam%2CTN%2CLaVozCB&categories=POLITICA%2CECONOMIA&startDate=${startDate[0]}&endDate=${endDate[0]}`)
             setData(res.data)
+            console.log(data)
             // await dispatch(getNews())
             // console.log(data)
-            // console.log(startDate)
-            // console.log(endDate)
             if(props.news){
                 setLoading(false)
             }
         }
+        console.log(startDate[0])
+        console.log(endDate[0])
         apicall()
     },[])
     // console.log(startDate)

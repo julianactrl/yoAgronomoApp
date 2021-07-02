@@ -14,6 +14,6 @@ module.exports = (sequelize) => {
             nombreProducto: {
                 type: DataTypes.STRING,
                 allowNull: false,
-            }
+            },
         })
 }

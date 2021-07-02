@@ -16,12 +16,13 @@ export function getStock (){
 }
 export function getStockById (id){
     return async function (dispatch){
-        return await axios.get(`${REACT_APP_API}/stock/empresa/${id}`)
+        return axios.get(`${REACT_APP_API}/stock/empresa/${id}`)
         .then(res => {
             dispatch({
                 type: GET_STOCK_BY_ID,
                 payload: res.data
             })
+            console.log(res.data)
         })
     }
 }
@@ -45,12 +46,14 @@ export function deleteStock (id) {
 }
 export function updateStock(data, id) {
     return async function (dispatch) {
-        return await axios.post(`${REACT_APP_API}/stock/edit/${id}`, data)
-        .then(res => {
-            dispatch({
-                type:UPDATE_STOCK,
-                payload:res.data
-            })
-        })
+        console.log('entroo')
+        return await axios.put(`${REACT_APP_API}/stock/edit/${id}`, data)
+        // .then(res => {
+        //     dispatch({
+        //         type:UPDATE_STOCK,
+        //         payload:res.data
+        //     })
+        //     console.log('joyaaa', res.data)
+        // })
     }
 }
