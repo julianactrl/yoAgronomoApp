@@ -23,7 +23,10 @@ export default function GestionGastos () {
     const createdGasto = useSelector(state=>state.gestionGastosReducer.createdGasto)
 
 
-    
+    useEffect( ()=>{
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    },[])
+
     useEffect( ()=>{
         dispatch(getAllGastos(selectedClasificacion.clasificacionDeGastoId))
         setTotalClasificaciones(false)
@@ -38,15 +41,16 @@ export default function GestionGastos () {
     },[createdGasto])
     
     
-    // useEffect( ()=>{
-    // },[createdClasificacion])
+    useEffect( ()=>{
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+    },[createdClasificacion])
     
-     function crearClasificacion () {
+      function crearClasificacion () {
         const crearClasificacion = clasificacion;
         crearClasificacion.empresaId =  cookies.get('selectedEmpresa').id
-        dispatch(createClasificacion(crearClasificacion))
+         dispatch(createClasificacion(crearClasificacion))
         setClasificacion({name:''}) 
-        dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
+         dispatch(getAllClasificiones(cookies.get('selectedEmpresa').id))
     }
     // useEffect( ()=>{
     // },[])
@@ -61,8 +65,8 @@ export default function GestionGastos () {
                             <div className={styles.contClasificacionesYtotal}>
                                 <div className={styles.contClasificaciones}>
                                 {
-                                    renderClasificaciones(clasificaciones, createdClasificacion)
-                                    // clasificaciones[0]&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
+                                    // renderClasificaciones(clasificaciones, createdClasificacion)
+                                    clasificaciones[0]&&clasificaciones.map(item=> <Clasificacion id={item.id} name={item.name} />)
                                 }
                                     <div className={styles.contCrearClasificacion}>
                                         <input value={clasificacion.name} onChange={(e)=>setClasificacion({name:e.target.value})} placeholder='Agregar clasificación..' className={styles.inputAgregar} />

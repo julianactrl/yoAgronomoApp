@@ -17,19 +17,17 @@ const gestionGastosReducer = (state = initialState, action) => {
         case GET_ALL_CLASIFICACIONES:
             return {
                 ...state,
-                clasificaciones: state.clasificaciones.length ? state.clasificaciones.filter(item => {
-                    return !!action.payload.find(item)
-                }) : action.payload,
+                clasificaciones: action.payload
             };
         case CREATED_CLASIFICACION:
             return {
                 ...state,
-                createdClasificacion:  [...state.createdClasificacion,action.payload],
+                createdClasificacion:  action.payload,
             };
         case DELETE_CLASIFICACION:
             return {
                 ...state,
-                clasificaciones: state.clasificaciones.filter(item => item.id != action.payload.data.data)
+                createdClasificacion:  action.payload,
             }
         case GET_ALL_GASTOS:
             return {
