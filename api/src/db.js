@@ -25,7 +25,6 @@ const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, { //?sslmode=
   },
 });
 
-
 const basename = path.basename(__filename);
 
 const modelDefiners = [];

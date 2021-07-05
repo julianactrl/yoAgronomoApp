@@ -69,9 +69,6 @@ export default function Routes() {
         <LoteHome id={window.location.pathname.split("/")[2]} />
       </Route>
 
-      <Route exact path='/gestion_comercial/proyeccion'>
-        <GestionGastos />
-      </Route>
   
       <PrivateRoute component={Weather} path="/weather" exact />
       <Route exact path="/news">

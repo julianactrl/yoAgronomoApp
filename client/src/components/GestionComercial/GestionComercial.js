@@ -21,12 +21,6 @@ export const GestionComercial = () => {
                         <button className='masInfoBtnGestion'>Ver más información</button>
                     </Link>
                 </div>
-                <div className='proyeccionMenCont'>
-                    <h2 className='h2Gestion'>Proyección Mensual</h2>
-                    <Link to='/gestion_comercial/proyeccion'>
-                        <button className='masInfoBtnGestion'>Ver más información</button>
-                    </Link>
-                </div>
             </div>
             </>
     )

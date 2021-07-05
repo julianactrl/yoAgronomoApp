@@ -10,6 +10,78 @@
     overflow: hidden;
 }
 
+@media only screen 
+    and (min-device-width : 375px) 
+    and (max-device-width : 667px) {
+    .seleSoy{
+        font-size: 50px !important;
+        margin: 0 auto;
+        position: absolute;
+        top: 23rem !important;
+        right: 4vh !important;
+    }
+    .logo{
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto !important;
+        position: absolute;
+        top: 30rem !important;
+        right: 15rem !important;
+    }
+    .form{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 62.5vh 0 0 4vh !important;
+    font-weight: 600;
+    background-color: rgba(255, 240, 240, 0.568);
+    border-radius: 8px;
+    padding: 3vh;
+    max-width: 47vh !important;
+    height: 30vh !important;
+    }
+    .login{
+        background-color: #1c7c2cc2 !important;
+        text-decoration: none !important;
+        border-radius: 3px;
+        color: black;
+        padding: 8px 8px 14px 92px;
+        width: 180px !important;
+        height: 4rem;
+        font-size: 20px;
+        position: absolute;
+        top:30vh !important;
+        left: -20.5vh !important;
+
+    }
+    .registro{
+        background-color: #1c7c2cc2 !important;
+        text-decoration: none !important;
+        border-radius: 3px;
+        color: black;
+        padding: 8px 9px 14px 63px;
+        width: 180px !important;
+        height: 4rem;
+        font-size: 20px;
+        position: absolute;
+        top:30vh !important;
+        left: 3.05vh !important;
+    }   
+    .google{
+        width: 200px !important;
+        margin-left: 14.7vh !important;
+        margin-bottom: 2vh !important;
+    }
+    .goBack{
+        width: 25px !important;
+        height: 25px !important;
+    }
+    }
+
+
+
+
 
 
     .contenedorTittle{
@@ -46,6 +118,7 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         text-transform: uppercase;
         text-decoration: none;
+        font-weight: 300;
         background: #80cc28 !important;
         padding: 10px; 
         border-radius: 5px;
