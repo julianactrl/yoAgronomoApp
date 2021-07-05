@@ -42,17 +42,12 @@ export default function DashBoardProfile() {
     return (
       <div className={styles.perfilDeploy}>
         <button className={styles.perfilbtn}>
-        {/* {userInfo===true ? (
-          <h3>Premium</h3>
-          ) : (
-         <h3>cuenta free</h3>
-          )} */}
           {usuario.profile_pic ? (
             <img
             src={
               `${REACT_APP_API}/user/picture/${usuario.profile_pic}`
             }
-            alt=""
+            alt="not found"
             height={90}
             className={styles.perfilimg}
             onClick={() => (!active ? setActive(true) : setActive(false))}

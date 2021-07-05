@@ -131,8 +131,9 @@ const resetVerificaction = async (req, res) => {
         }
       case "2":
         if (match) {
-          if (!password)
+          if (!password){
             return res.status(400).json({ message: "Bad request" });
+          }
 
           let updateRes = await user.update({ password, reset_code: null });
           if (updateRes) {

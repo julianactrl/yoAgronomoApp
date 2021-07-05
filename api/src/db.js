@@ -13,7 +13,7 @@ const {
 } = process.env;
 dbRDS = false;
 
-const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
+const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, { //?sslmode=require
   ssl: true,
   protocol: "postgres",
   logging: false,
@@ -24,11 +24,6 @@ const sequelize = new Sequelize(`${DATABASE_URL}?sslmode=require`, {
     },
   },
 });
-// const sequelize = new Sequelize(`${DATABASE_URL_LOCAL}`, {
-//   // ssl: true,
-//   protocol: "postgres",
-//   logging: false
-// })
 
 const basename = path.basename(__filename);
 

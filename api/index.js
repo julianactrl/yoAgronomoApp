@@ -12,3 +12,4 @@ conn.sync({ force: false }).then(() => { //cada vez que esta en false, se borra 
 // "node index.js"
 // "forever": "forever index.js",
 // "start": "nodemon -L",  
+//heroku pg:killall --app
