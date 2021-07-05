@@ -29,11 +29,7 @@ export default function Header (verify){
                     open?sidebar(cookies.get('selectedEmpresa')):null
                 }          
                 <img src={logo} className={btnlogo?styles.logoAct:styles.logo} onClick={activateLogo} alt="not found"/>    
-                {userInfo===true ? (
-                <h3 className={styles.premium}>Premium</h3>
-                ) : (
-                <h3></h3>
-                )} 
+                 
             </div>
             <div>
                 <DashBoardProfile />
