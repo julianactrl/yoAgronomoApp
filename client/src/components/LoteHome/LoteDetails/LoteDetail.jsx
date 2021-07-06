@@ -209,7 +209,7 @@ export default function LoteDetails({lote}){
                                     <img onClick={()=>{setAuxState(true)}}src={logoEdit} alt="" className={styles.editLogo} />
                                 </div> 
                             </div>
-                            <Slider className={imgManejoVerify?null:styles.none} {...settings} >
+                            <Slider className={imgManejoVerify?styles.slick:styles.none} {...settings} >
                                 <img
                                     src={`${REACT_APP_API}/lote/image/${imgManejo}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
@@ -217,7 +217,7 @@ export default function LoteDetails({lote}){
                                 />
                                 <img className={styles.imgLogo} src={grass} alt="" />
                             </Slider>
-                            <Slider className={imgManejoVerify?styles.none:null} {...settings} >
+                            <Slider className={imgManejoVerify?styles.none:styles.slick} {...settings} >
                                 <img
                                     src={`${REACT_APP_API}/lote/imagen/${lote.imagen}`}
                                     alt="https://i.stack.imgur.com/y9DpT.jpg"
@@ -312,12 +312,12 @@ export default function LoteDetails({lote}){
                                         </div>
                                     </div>
                             </div>
-                            <div className={styles.buttons2}>
+                            {/* <div className={styles.buttons2}> */}
                             <button onClick={card3d} className={styles.btnDetails}>Añadir Observación</button>
-                            <Link to= '/map'>
+                            {/* <Link to= '/map'>
                             <button className={styles.btnDetails}>Ver información satelital</button>
-                            </Link>
-                            </div>
+                            </Link> */}
+                            {/* </div> */}
                         </div>
 
                     </div>
