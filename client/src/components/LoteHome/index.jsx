@@ -48,7 +48,7 @@ export default function LoteHome ({id}) {
               <div className={styles.contSecundario}>
                 {renderizarLotes(allLotes,LoteCard,Slider,settings)}
                 <div className={styles.celular}>
-                  {renderizarLotesCelular(allLotes,LoteCard,Slider,settings)}
+                  {renderizarLotesCelular(allLotes,LoteCard,Slider,settingsCelu)}
                 </div>
               </div>
               )
@@ -72,6 +72,37 @@ export default function LoteHome ({id}) {
         slidesToScroll: 1,
         width: 100,
         classname: 'slides',
+      };
+      function SampleNextArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+            className={styles.arrowNext}
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+      function SamplePrevArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+          className={styles.arrowPrev}
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+      const settingsCelu = {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        width: 100,
+        classname: 'slides',
+        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow />
       };
     return (
       <motion.div
