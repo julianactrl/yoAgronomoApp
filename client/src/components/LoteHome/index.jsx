@@ -8,7 +8,7 @@ import Header from '../Header/Header';
 import LoteCard from "./LoteCard";
 import LoteDetails from "./LoteDetails/LoteDetail";
 import LoteFormCreate from './LoteFormCreate/LoteFormCreate'
-import {renderizarLotes} from './controller'
+import {renderizarLotes, renderizarLotesCelular} from './controller'
 import add from '../../assets/añadir.png';
 import fondo from '../../assets/fondo2.jpg'
 import { useDispatch, useSelector } from "react-redux";
@@ -46,8 +46,10 @@ export default function LoteHome ({id}) {
           default:
             return (
               <div className={styles.contSecundario}>
-              {/* <h1 className={styles.tittle}>{cookies.get('selectedEmpresa').name}</h1> */}
-              {renderizarLotes(allLotes,LoteCard,Slider,settings)}
+                {renderizarLotes(allLotes,LoteCard,Slider,settings)}
+                <div className={styles.celular}>
+                  {renderizarLotesCelular(allLotes,LoteCard,Slider,settings)}
+                </div>
               </div>
               )
         }
