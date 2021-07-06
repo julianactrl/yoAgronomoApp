@@ -71,3 +71,20 @@
     box-shadow: 0 0 10px rgb(0, 0, 0);
     border: 2px solid rgba(0, 104, 189, 0.226);
 }
+@media (max-width: 425px){
+    .cardContAdd{
+        box-shadow: 0 0 0;
+        position: relative;
+        left: 10%;
+        background-image:url('../../../assets/cicle.png');
+        background-blend-mode: normal;
+        background-color: #6f7e6dfd;
+        background-size: 400px;
+        border:none;
+        box-shadow: 0 0 5px black;
+    }
+    .imgAdd{
+        width: 30%;
+        bottom: 25%;
+    }
+}
