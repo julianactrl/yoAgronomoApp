@@ -215,3 +215,22 @@
 .btnEditarStock{
     margin: 0 10px;
 }
+
+@media screen and (max-width: 400px){
+   .table-responsive{
+       margin-top: 40%
+   }
+
+   .controlDeStock{
+   
+    /* height: 20%; */
+    width: 45%;
+    
+   }
+   .tansporteCont{
+       width: 45%
+   }
+   .h2Gestion{
+       font-size: 120% 
+   }
+}
