@@ -49,3 +49,19 @@ export function renderizarLotes(allLotes,LoteCard, Slider, settings) {
     )
 
 }
+export function renderizarLotesCelular(allLotes,LoteCard, Slider, settings) {
+    return (
+        <Slider {...settings}>
+            <LoteCardCreate />
+            {
+                allLotes.map((lote, index) => {
+                    return (
+                        <div className={styles.contenedorCardsCelular}>
+                            <LoteCard lote={lote} />
+                        </div>
+                    )
+                })
+            }
+        </Slider>
+    )
+}

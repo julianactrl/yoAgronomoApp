@@ -13,6 +13,7 @@ const { REACT_APP_API } = process.env;
 
 
 export default function DashBoardProfile() {
+  const [verify, setVerify] = useState(false)
   const userInfo = useSelector((state) => state.userReducer.userInfo.user.isPremium);
 
   let history = useHistory();
@@ -41,7 +42,7 @@ export default function DashBoardProfile() {
   function renderPerfil() {
     return (
       <div className={styles.perfilDeploy}>
-        <button className={styles.perfilbtn}>
+        <button className={styles.perfilbtnDeploy}>
           {usuario.profile_pic ? (
             <img
             src={
@@ -52,7 +53,6 @@ export default function DashBoardProfile() {
             className={styles.perfilimg}
             onClick={() => (!active ? setActive(true) : setActive(false))}
             />
-            
             ) : (
               <img
               alt="perfil"
@@ -65,14 +65,14 @@ export default function DashBoardProfile() {
               )}
         </button>
         {usuario ? (
-          <>
+          <div className={styles.contenedorDeploy}>
             <div className={styles.contenido}>
-          {userInfo===true ? (
-            <h3>Premium</h3>
-            ) : (
-           <h3>cuenta <strong>free</strong></h3>
-           
-           )}
+              {userInfo===true ? (
+                <h3>Premium</h3>
+                ) : (
+              <h3>cuenta <strong>free</strong></h3>
+              
+              )}
            </div>
             <h3 className={styles.title}>{usuario.fullName}</h3>
             <h3 className={styles.email}>{usuario.email}</h3>
@@ -84,7 +84,7 @@ export default function DashBoardProfile() {
                 <FontAwesomeIcon icon={faUserCog} />
               </h3>
             </Link>{" "}
-          </>
+          </div>
         ) : (
           <h1>Loading...</h1>
         )}
@@ -96,12 +96,6 @@ export default function DashBoardProfile() {
     return (
       
             <button className={styles.perfilbtn}>
-      
-            {/* {userInfo===true ? (
-              <h3>Premium</h3>
-              ) : (
-             <h3>cuenta free</h3>
-              )} */}
               {usuario.profile_pic ? (
                 <img
                 src={
@@ -130,13 +124,12 @@ export default function DashBoardProfile() {
 }
 
   return (
-    <div className={styles.perfilbtncont}>
+    <>
       {active ? (
         renderPerfil()
       ) : (
         imgUser()
-        
       )}
-    </div>
+    </>
   );
 }

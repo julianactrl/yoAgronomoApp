@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
+
 .perfilDeploy{
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
     padding-top: 30px;
     /* background-color: #ffffff; */
     background-color: #eeeeee;
     border: 2px solid rgba(77, 77, 77, 0.13);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.068);
     height: 450px;
-    width: 350px;
+    width: 400px;
     right: 0px;
     top: 0px;
     border-radius: 0 0 0 10px;
@@ -30,90 +30,68 @@
     }
 }
 
-.header{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    background: linear-gradient(to bottom, #2f4f39, rgba(0, 0, 0, 0));
-}
 
 .perfilbtn{
     display: flex;
     justify-content: center;
     align-items: center;
     justify-items: center;
-    padding: 20px;
-    width:90px;
-    height: 90px;
+    width:80px;
+    height: 80px;
     border: none;
-    border-radius: 100%;
-    background-color: rgba(34, 119, 25, 0);
-    margin-right: 100px;
-    margin-top: 30px;
+    border-radius: 80px;
     position: relative;
+    background-color: rgba(0, 0, 0, 0.424);
+    box-shadow: 0 0 10px rgba(5, 27, 5, 0.397);
+    right: 5rem;
+    top: 2rem;
 }
 .perfilbtn:hover{
     transition: 0.3s;
-    background-size:48px;
-    box-shadow: 0 0 10px rgba(84, 85, 84, 0);
-    background-color: rgba(68, 255, 68, 0);
-
-
+    /* background-size:48px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.753);
+    background-color: rgba(204, 204, 204, 0.698);
+}
+.perfilbtnDeploy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    width:80px;
+    height: 80px;
+    border: none;
+    border-radius: 80px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.424);
+    box-shadow: 0 0 10px rgba(5, 27, 5, 0.397);
+    top: 2rem;
+    right: 5rem;
+}
+.perfilbtnDeploy:hover{
+    transition: 0.3s;
+    /* background-size:48px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.753);
+    background-color: rgba(204, 204, 204, 0.698);
 }
 .perfilimg{
-     cursor: pointer;
-    display: flex;
-    margin-top: -20px; 
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
     object-fit: cover;
     border: none;
-    box-shadow:0 0 15px black ;
     
 }
-.perfilimg:hover{
-    box-shadow: 0 0 30px rgb(0, 0, 0);
-    transition: all 0.3s;
-}
-
-.logo{
+.contenedorDeploy{
     display: flex;
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-    border-radius: 10px;    
-    transition: 0.2s;
-    animation-duration: 0.2s;
-    animation-name: logoanimation;
-    animation-timing-function: ease;
-    -moz-transform: rotate(-20deg);
-    -o-transform: rotate(-20deg);
-    -webkit-transform: rotate(-20deg);
-    transform:rotateY(0deg); 
-
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    top: 20%;
+    height: 70%;
 }
-
-.logoAct{
-    display: flex;
-    position: absolute;
-    margin-top: 20px;
-    margin-left: 30px;
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: 0.2s;
-    animation-duration: 0.2s;
-    -moz-transform: rotate(-20deg);
-    -o-transform: rotate(-20deg);
-    -webkit-transform: rotate(-20deg);
-    transform:rotateY(150deg); 
-}
-
 
 .title{
     cursor: default;
@@ -144,10 +122,7 @@
     cursor: pointer;
     font-size:29px
 }
-.perfilbtncont{
-    width: 100%;
-    padding-left: 80px;
-}
+
 .titleLogout{
     color: rgb(0, 0, 0);
     margin-left: 25px;
@@ -164,13 +139,16 @@
     letter-spacing: 0.5px;
 
 }
-
-.cuenta{
-    display: flex;
-}
 .contenido{
     display: flex;
-    margin-bottom: -30px;
     text-transform: capitalize;
-    margin-left: 23px;
+}
+@media (max-width: 425px){
+    .perfilbtn{
+        position: relative;
+        right: 15%;
+        top: 40%;
+        width: 55px;
+        height: 55px;
+    }
 }
