@@ -3,7 +3,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    
+    min-width:250px;
 }
 .formCont{
     background: linear-gradient(to bottom, rgba(31, 31, 31, 0.575), rgba(0, 0, 0, 0.753)),
@@ -144,6 +144,7 @@
     height: 100vh;
     justify-content: center;
     width: 100vw;
+   margin-bottom: 0px;
 
 }
 .cont{
@@ -156,6 +157,7 @@
     border: 2px solid rgba(54, 54, 54, 0.363);
     width: 70vw;
     height: 70vh;
+    
 
 }
 .transporte {
@@ -258,6 +260,7 @@
     border:3px solid rgba(70, 70, 70, 0.109);
     box-shadow: 0px 0px 10px black;
     
+    
 }
 .cardContAdd:hover{
     transition: 0.3s;
@@ -284,4 +287,50 @@
     width: 80px;
     opacity: .7;
 } 
+
+@media screen and (max-width: 400px){
+    
+    .page{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .cont{
+       width: 100%;
+       flex-direction: column;
+ 
+    
+    }
+    .cardContAdd{
+        width: 80%;
+        
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 5%;
+        margin-left: 10%;
+        margin-bottom: 5%;
+        margin-top: 20px
+    }
+    .containerTransporte{
+        width: 100%;
+        flex-direction: column;
+        height: 100%;
+    }
+    .transporte{
+        width: 100%;
+        flex-direction: column;
+        margin-top: 3px;
+        padding: 1%;
+        margin-bottom: 1%;
+        height: 100%;
+    }
+    .items{
+        font-size: 20%;
+        padding: 0px;
+        margin-bottom: 1%;
+        margin-top: 1%
+    }
+}
 
