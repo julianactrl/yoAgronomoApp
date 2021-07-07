@@ -31,6 +31,7 @@
 
 .sliderGrid{
     position: relative;
+    /* background-color: blue; */
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -269,4 +270,35 @@
 
 @media (max-width: 1000px) {
     
+}
+
+/* /////////// Phone ////////////////// */
+.contSliderCelular{
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .contSlider{
+        display: none;
+    }
+    .contSliderCelular{
+        display: flex;
+    }
+    .title{
+        position:static;
+        text-align: center;
+        left: 0%;
+        padding-top: 8%;
+        /* top:110px; */
+        /* font-size: 55px; */
+        font-weight: 400;
+        color: rgba(0, 75, 0, 0.753);
+        text-transform: uppercase;
+        /* background-color: crimson; */
+    }
+    .contSliderCelular{
+        background-color: cyan;
+        width: 100%;
+        height: 40rem;
+    }
 }

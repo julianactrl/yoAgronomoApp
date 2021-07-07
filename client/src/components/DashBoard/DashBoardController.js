@@ -66,3 +66,35 @@ export function SliderGrid(allEmpresas){
       )
 
 }
+
+export function SliderGridCelular (allEmpresas) {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        width: 100,
+        classname: 'slides',
+    };
+
+    return (
+        <Slider {...settings} className={styles.slider}>
+            <div className={styles.sliderGrid}>
+                              <Link path to='/newempresa' className={styles.mainAdd}>
+                                  <div  className={styles.cardContAdd} >
+                                      <h1 className={styles.titleAdd}>Agregar Empresa</h1>
+                                  <img src={add} alt="" className={styles.imgAdd}/>
+                                  </div>
+                              </Link>
+            </div> 
+          {allEmpresas.map((empresa, index) => {
+              <CardsEmpresas empresa={empresa} />
+          })}
+           
+        
+        </Slider>
+    )
+}
+
+

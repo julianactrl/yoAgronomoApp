@@ -151,4 +151,8 @@
         width: 55px;
         height: 55px;
     }
+    .perfilDeploy{
+        width: 35rem;
+        /* background-color: blueviolet; */
+    }
 }

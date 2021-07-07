@@ -13,7 +13,7 @@ import { getAllEmpresas,clearEmpresa } from '../../redux/actions/empresaActions'
 import {clearWeather} from '../../redux/actions/weatherActions'
 import {motion} from 'framer-motion';
 import Cookies from 'universal-cookie';
-import { SliderGrid } from './DashBoardController';
+import { SliderGrid , SliderGridCelular} from './DashBoardController';
 
 
 export default function DashBoard (){
@@ -95,7 +95,7 @@ export default function DashBoard (){
         }}
         >
         <div className={showNews?styles.mainContNews:styles.main}>
-            <div className={styles.mainCont}>
+          <div className={styles.mainCont}>
                 {Header('dashboard')}
                 <div className={showNews?styles.newsContainer:styles.newsContainerAct}>
                     {
@@ -103,17 +103,22 @@ export default function DashBoard (){
                     } 
                 </div>
                 <div className={styles.newsTitle} ></div>
-                <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button> 
+                {/* <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button>  */}
                 <div className={styles.body}>
                 <h1 className={styles.title}>Mis Empresas</h1>
-                <div className={styles.contSlider}>
+                {/* <div className={styles.contSlider}>
                   {
                     SliderGrid(allEmpresas)
                   }
+                </div> */}
+                <div className={styles.contSliderCelular}>
+                  {
+                    SliderGridCelular(allEmpresas)
+                  }
                 </div>
 
-            </div>
-        </div>
+                </div>
+          </div>
         </div>
         </motion.div>
       );
