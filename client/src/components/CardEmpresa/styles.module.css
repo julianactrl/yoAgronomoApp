@@ -71,3 +71,20 @@
 a{
     text-decoration: none;
 }
+
+
+/* ///////////// Phone /////// */
+@media (max-width: 425px) {
+    .cardContMain{
+        width: 45%;
+    }
+    .cardContMain{
+        width: 95%;
+    }
+    .main{
+        width: 100%;
+    }
+    .cardCont{
+        width: 100%;
+    }
+}

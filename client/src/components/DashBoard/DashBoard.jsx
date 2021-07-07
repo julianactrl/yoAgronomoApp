@@ -105,17 +105,17 @@ export default function DashBoard (){
                 <div className={styles.newsTitle} ></div>
                 {/* <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button>  */}
                 <div className={styles.body}>
-                <h1 className={styles.title}>Mis Empresas</h1>
-                {/* <div className={styles.contSlider}>
-                  {
-                    SliderGrid(allEmpresas)
-                  }
-                </div> */}
-                <div className={styles.contSliderCelular}>
-                  {
-                    SliderGridCelular(allEmpresas)
-                  }
-                </div>
+                  <h1 className={styles.title}>Mis Empresas</h1>
+                  <div className={styles.contSlider}>
+                    {
+                      SliderGrid(allEmpresas)
+                    }
+                  </div>
+                  <div className={styles.contSliderCelular}>
+                    {
+                      SliderGridCelular(allEmpresas)
+                    }
+                  </div>
 
                 </div>
           </div>
