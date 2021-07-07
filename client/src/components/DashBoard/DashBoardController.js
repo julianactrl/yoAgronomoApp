@@ -66,3 +66,76 @@ export function SliderGrid(allEmpresas){
       )
 
 }
+
+export function SliderGridCelular (allEmpresas) {
+    const settings = {
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        width: 100,
+        classname: 'slides',
+    };
+
+    function SampleNextArrow(props) {
+        const { style, onClick } = props;
+        return (
+          <div
+            className={styles.arrowNext}
+            style={style}
+            onClick={onClick}
+          />
+        );
+      }
+    function SamplePrevArrow(props) {
+    const { style, onClick } = props;
+    return (
+        <div
+        className={styles.arrowPrev}
+        style={style}
+        onClick={onClick}
+        />
+    );
+    }
+    const settingsCelu = {
+    dots: false,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    width: 100,
+    classname: 'slides',
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />
+    };
+
+
+
+    console.log('las empresas ghe', allEmpresas);
+    return (
+        <Slider {...settingsCelu} className={styles.sliderCelular}>
+
+            <Link path to='/newempresa' className={styles.link}>
+                <div className={styles.mainCelular}>
+                    <div  className={styles.cardContAdd} >
+                        <h1 className={styles.titleAdd}>Agregar Empresa</h1>
+                    <img src={add} alt="" className={styles.imgAdd}/>
+                    </div>
+                </div>
+            </Link>
+
+            {allEmpresas.map((empresa, index) =>{
+                return  <div className={styles.mainCelular}>
+                            <div className={styles.contenedorEmpresa}>
+                                <CardsEmpresas empresa={empresa} />
+                            </div>
+                        </div>
+                })
+            } 
+        
+        </Slider>
+    )
+}
+
+

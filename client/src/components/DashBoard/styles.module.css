@@ -31,6 +31,7 @@
 
 .sliderGrid{
     position: relative;
+    /* background-color: blue; */
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -269,4 +270,138 @@
 
 @media (max-width: 1000px) {
     
+}
+.body{
+    /* background-color: brown; */
+    height: 100%;
+}
+
+/* /////////// Phone ////////////////// */
+.contSliderCelular{
+    display: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* background-color: brown; */
+}
+.sliderCelular{
+    /* background-color: blueviolet; */
+    width: 60%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+}
+.mainCelular{
+    /* padding-top: 10%; */
+    width: 100%;
+    /* background-color: chartreuse; */
+    /* height: 80%; */
+    /* display: block; */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.contenedorEmpresa{
+    /* background-color: red; */
+    /* height: 130; */
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (max-width: 425px) {
+    .contSlider{
+        display: none;
+    }
+    .contSliderCelular{
+        display: flex;
+    }
+    .sliderCelular{
+        /* background-color: blueviolet; */
+        width: 100%;
+        height: 90%;
+        display: flex;
+        align-items: center;
+    }
+    .mainCelular{
+        width: 95%;
+        display: flex;
+        justify-content: center;
+    }
+    .cardContAdd{
+        display: flex;
+        background-image: url('../../assets/cicle.png');
+        background-position:center;
+        background-repeat: no-repeat;
+        background-clip:padding-box;
+        background-size: 60rem;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        color: rgb(19, 13, 13);
+        border-radius: 10px;
+        width: 100%;
+        height: 25rem;
+        background-color: #a8b9a7;
+        border:none;
+        box-shadow: 0px 0px 15px black;
+        
+    }
+    .link{
+        padding-left: 5%;
+    }
+    .titleAdd{
+        font-size: 250%;
+    }
+    .title{
+        position:static;
+        text-align: center;
+        left: 0%;
+        /* margin-top: 10%; */
+        padding-top: 8%;
+        /* top:110px; */
+        /* font-size: 55px; */
+        font-weight: 400;
+        color: rgba(0, 75, 0, 0.753);
+        text-transform: uppercase;
+        /* background-color: crimson; */
+    }
+    .contSliderCelular{
+        /* background-color: rgba(0, 255, 255, 0.192); */
+        width: 100%;
+        height: 40rem;
+    }
+    /* .sliderCelular{
+        background-color: rgba(0, 0, 0, 0.418);
+    } */
+    /* //// flechas slider //// */
+    .arrowNext,
+    .arrowPrev{
+        position: absolute;
+        top: 90%;
+        width: 50px;
+        height: 50px;
+    }
+    .arrowNext{
+        background-image: url('../../assets/arrow.png');
+        background-position: center;
+        background-size: cover;
+        transform: rotate(270deg);
+        left: 55%;
+    }
+    .arrowPrev{
+        background-image: url('../../assets/arrow.png');
+        background-position: center;
+        background-size: cover;
+        transform: rotate(90deg);
+        right: 55%;
+    }
+    .arrowNext:active,
+    .arrowPrev:active{
+        background-size: 90%;
+    }
+
+
 }
