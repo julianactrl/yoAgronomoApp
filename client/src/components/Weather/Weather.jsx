@@ -69,7 +69,7 @@ const Weather = (props) => {
                         alt=""
                       />
                       <h4>{interval()}</h4>
-                      <h1>{w.current.temp_c}C°</h1>
+                      <h1 className="actual-temp">{w.current.temp_c}C°</h1>
                       <div className="wind_humidity">
                         <p>Vel. del Viento: {w.current.wind_kph}km/h</p>
                         <p>Humedad: {w.current.humidity}%</p>
@@ -79,6 +79,9 @@ const Weather = (props) => {
                         <p>Indice UV: {w.current.uv}uv</p>
                       </div>
                       <img className="iconoweather" src={w.current.condition.icon} alt="" />
+                    </div>
+                    <div className="leyenda" >
+                      <h5>Pronostico Extendido</h5>
                     </div>
                     <div className="forecast">
                       {w.forecast.forecastday.map((p) => (
