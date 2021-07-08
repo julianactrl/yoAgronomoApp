@@ -247,12 +247,27 @@
   /* /////////////////////////// PHONE //////////////////////////////// */
 
   @media (max-width: 425px){
+      .contCard{
+          position: absolute;
+          width: 100vw;
+          height: 100vh;
+        top: 0%;
+      }
     .formCont{
-        position: relative;
-        left: 33%;
-        top: -10%;
-        width: 90vw;
-        height: 80vh;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.548);
+        border-radius: 0;
+        box-shadow: 0 0 0;
+        backdrop-filter: blur(2px);
+        top: 0%;
+        width: 100%;
+        height: 100%;
     }
     .fomularioTitle{
         display: none;
@@ -273,14 +288,13 @@
     }
     .fomularioInputs{
         position: relative;
-        top: 2%;
+        top: 8%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        /* background-color: rgb(22, 194, 200); */
         width: 100%;
-        height: 80%;
+        height: 75%;
     }
     .contIconoError{
         top: 10%;
@@ -301,6 +315,7 @@
         align-items: center;
         width: 100%;
         height: 100%;
+        top: 0;
         /* background-color: rgb(251, 6, 6); */
     }
     .contenedorInputs{

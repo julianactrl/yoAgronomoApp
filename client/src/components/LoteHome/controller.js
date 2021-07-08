@@ -52,7 +52,10 @@ export function renderizarLotes(allLotes,LoteCard, Slider, settings) {
 export function renderizarLotesCelular(allLotes,LoteCard, Slider, settings) {
     return (
         <Slider {...settings} className={styles.sliderCelular}>
-            <LoteCardCreate />
+            <div  className={styles.divContAdd}>
+               <LoteCardCreate/> 
+            </div>
+            
             {
                 allLotes.map((lote, index) => {
                     return (

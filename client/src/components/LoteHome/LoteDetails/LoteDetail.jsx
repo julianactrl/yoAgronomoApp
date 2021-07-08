@@ -266,6 +266,7 @@ export default function LoteDetails({lote}){
                                         <h4 className={styles.manejoTitle}>Observaciones</h4>
                                         <h4 className={styles.manejoTitle}>Recomendaciones</h4>
                                     </div>
+                                    <button onClick={card3d} className={botonera?styles.btnDetailsCel:styles.none}>+</button>
                                     <div ref={ovflow} className={botonera?styles.contOverflow:styles.none}>
                                             <div className={styles.cardManejo}>
                                                 <div className={styles.obsData}>

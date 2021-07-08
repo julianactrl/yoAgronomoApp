@@ -194,24 +194,43 @@
   /* /////////////////////////// PHONE //////////////////////////////// */
 
   @media (max-width: 425px){
+    .body{
+        background: none;
+    }
     .contenedorCards{
         display: none;
     }
     .contSecundario{
+        position: absolute;
         display: flex;
+        top: -10vh;
         justify-content: center;
         align-items: center;
         justify-items: center;
         align-content: center;
         align-items: center;
-        /* background: none; */
-        width: 80%;
-        height: 60%;
+        background: rgba(0, 0, 0, 0.205);
+        border-radius: 0;
+        box-shadow: 0 0 0;
+        width: 100vw;
+        height: 110vh;
     }
     .titleh5{
         position: absolute;
-        font-size: 25px;
-        top: 10%;
+        z-index: 2;
+        font-size: 30px;
+        top: 20%;
+        opacity: 0;
+        animation: apraecerYdesaparecer 5s ease;
+    }
+    @keyframes apraecerYdesaparecer {
+        from{
+            opacity: 1;
+        }
+        to{
+            opacity: 0;
+
+        }     
     }
     .celular{
         visibility: visible;
@@ -224,22 +243,29 @@
         width: 100%;
         height: 100%;
     }
+    .divContAdd{
+        width: 100%;
+        height: 50vh;
+        /* background-color: black; */
+    }
     .sliderCelular{
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
         justify-items: center;
+        top: 30%;
         width: 100%;
-        height: 100%;
+        height: 60%;
         /* background-color: antiquewhite; */
     }
     .arrowNext,
     .arrowPrev{
         position: absolute;
-        top: 80%;
+        top: 85%;
         width: 50px;
         height: 50px;
+        z-index: 2;
     }
     .arrowNext{
         background-image: url('../../assets/arrow.png');
