@@ -576,21 +576,21 @@
 }
 @keyframes agrandarCelular {
     from{
-        top:75%;
+        top:100%;
         height: 0;
     }
     to{
-        top:20%;
-        height: 70%;
+        top:10%;
+        height: 85%;
     }
     
 }
-@keyframes achicar {
+@keyframes achicarCelular {
     from{
         top: 0;
     }
     to{
-        top: 85%;
+        top: 100%;
     }
     
 }
@@ -959,18 +959,80 @@
 }
 /* ///////////////////////////// PHONE ///////////////////////////////// */
 @media (max-width: 425px) {
+
     .contCard{
-        width: 95vw;
-        height: 80vh;
+        top: 5vh;
+        width: 100vw;
+        height: 100vh;
     }
-    .ghostDiv{
-        width: 40%;
-        bottom: 40%;
+    .card{
+        width:100vw;
+        height: 100vh;
     }
-    .obsRec{
+    .loteDetails{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.548);
+        border-radius: 0;
+        box-shadow: 0 0 0;
+        backdrop-filter: blur(2px);
+        width: 100%;
         height: 100%;
     }
+    .slider{
+        position: absolute;
+        left: 0;
+        top: -10vh;
+        width: 100%;
+        height: 80%;
+        /* background-color: burlywood; */
+    }
+    .ghostDiv{
+        /* display: none; */
+        width: 100%;
+        top: 60%;
+        right: 0vw;
+    }
+    .contDataClima{
+        width: 90%;
+    }
+    .ghostDivHidden{
+        display: none;
+
+    }
+    .editLogo,
+    .deleteLogo{
+        width: 30%;
+    }
+    .obsRec{
+        position: absolute;
+        height: 100%;
+        top: 0;
+        width: 100%;
+        left: 0;
+    }
+    .contObsDesactivated{
+        position: absolute;
+        top: 90%;
+        z-index: 20;
+    }
+    .contObsActivated{
+        position: absolute;
+        z-index: 20;
+        flex-direction: column-reverse;
+        top: 10%;
+        height: 85%;
+        background-color: rgba(36, 36, 36, 0.808);
+        backdrop-filter: blur(100px);
+        animation-name: agrandarCelular;
+    }
     .btnDetails{
+        display: none;
         position: relative;
         bottom: 1%;
         left: -45%;
@@ -980,8 +1042,8 @@
         height: 10%;
     }
     .img{
-        width: 100%;
-        height: 10pc;
+        background-color: rgba(42, 42, 42, 0.602);
+        height: 18pc;
     }
     .nextBtn{
         visibility: hidden;
@@ -990,38 +1052,69 @@
     .rec{
         width: 98%;
         margin: 1px;
+        font-size: 30px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.424);
     }
     .btnImgManejo{
-        height: 60%;
-        width: 80%;
+        height: 6vh;
+        width: 50%;
         display: flex;
         align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     .contEditDelManejo{
+        position: relative;
+        justify-content: center;
+        left: 0vw;
         width: 50%;
         height: 60%;
     }
+    .deleteLogoManejo,
+    .editLogoManejo{
+        margin:0 0 0 10px;
+    }
     .manejoHeader{
         position: relative;
-        top: 2%;
+        top: .1%;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 20%;
+        height: 10%;
         width: 100%;
+        /* background-color: aqua; */
+    }
+    .btnDetailsCel{
+        color: white;
+        font-size: 22px;
+        position: absolute;
+        width: 95vw;
+        border: none;
+        height: 5vh;
+        background-color: rgb(116, 134, 119);
+        box-shadow: 0 0 5px rgba(32, 32, 32, 0.438);
+        top: 86%;
+        z-index: 4;
     }
     .segmentManejo{
+        position: relative;
+        top: 10vh;
         display: flex;
         justify-content: space-between;
-        height: 41vh;
+        height: 75vh;
+        border: none;
+        /* background-color: antiquewhite; */
     }
     .contLogoDelEdit{
         display: flex;
-        justify-content: center;
+        justify-content: start;
+        align-items: center;
         position: relative;
-        width: 100%;
-        left: -5%;
-        top: 38rem;
+        width: 30%;
+        height: 4vh;
+        left: 1%;
+        top:60vh;
+        opacity: 0.7;
         z-index: 10;
     }
     .prevBtn{
@@ -1029,8 +1122,23 @@
     }
     .name{
         position: absolute;
-        left: 5%;
-        font-size: 53px;
+        left: 40vw;
+        top: 16vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+    }
+    .contTitleManejo{
+        position: absolute;
+        top: 93%;
+        box-shadow: 0 0 10px black;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(112, 112, 112);
+        height: 8vh;
+        z-index: 20;
     }
     .manejoTitle{
         display: none;
@@ -1039,24 +1147,23 @@
         height: 30vh;
     }
     .nothingHereTitle{
+        color: rgb(197, 197, 197);
         width: 100%;
         font-size: 20px;
         line-height: 30px;
         text-align: center;
         height: 80%;
     }
-    .contObsActivated{
-        top: 20%;
-        height: 70%;
-        animation-name: agrandarCelular;
-    }
     .cross{
-        top: 1%;
-        left: 28%;
+        position: absolute;
+        top: 18%;
+        left:85%;
         width:5vh;
-        height:6vh;
+        height:5vh;
         border-radius: 6vh;
         z-index: 10;
+        opacity: 1;
+        background-color: white;
     }
 
     .slick{
@@ -1066,21 +1173,39 @@
     }
 
     .dataManejo{
-        flex-direction: column;
         width: 100%;
-        height: 80%;
+        height: 90%;
     }
     /* ///////// BACK CARD /////////// */
+    .loteForm{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.548);
+        border-radius: 0;
+        box-shadow: 0 0 0;
+        width: 100%;
+        height: 100%;
+    }
     .titleLote{
         position: absolute;
-        top: 0;
+        top: 15vh;
         left: 5%;
         width: 50%;
-        font-size: 40px;
+        font-size: 30px;
     }
     .btnAtras{
+        position: absolute;
         width: 20%;
+        height: 5vh;
+        top: 20vh;
+        background-color: rgba(144, 40, 40, 0.685);
         right: 5%;
+        z-index: 5;
     }
     .textareatitle{
         font-size: 15px;

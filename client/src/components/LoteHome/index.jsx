@@ -120,7 +120,7 @@ export default function LoteHome ({id}) {
         <div className={styles.contenedor}>
             <Header />
             <div className={styles.body}>
-              <h4 className={styles.titleh5}>Lotes {nameEmpresa}</h4>
+              <h4 className={styles.titleh5}>Lotes{nameEmpresa}</h4>
               {switcher(verifyRender)}
               {auxiliar(verifyRender)}
             </div>

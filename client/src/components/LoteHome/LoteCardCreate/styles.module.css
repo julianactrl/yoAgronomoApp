@@ -75,16 +75,20 @@
     .cardContAdd{
         box-shadow: 0 0 0;
         position: relative;
-        left: 10%;
+        width: 90%;
+        top: 10%;
+        left: 5%;
+        height: 38vh;
         background-image:url('../../../assets/cicle.png');
-        background-blend-mode: normal;
-        background-color: #6f7e6dfd;
-        background-size: 400px;
+        background-blend-mode: darken;
+        background-color: #aab6bbfd;
+        background-size: 180%;
         border:none;
         box-shadow: 0 0 5px black;
     }
     .imgAdd{
-        width: 30%;
-        bottom: 25%;
+        width: 40%;
+        opacity: .8;
+        bottom: 12%;
     }
 }

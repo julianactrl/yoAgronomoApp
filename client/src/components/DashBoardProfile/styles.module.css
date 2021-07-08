@@ -44,7 +44,7 @@
     background-color: rgba(0, 0, 0, 0.424);
     box-shadow: 0 0 10px rgba(5, 27, 5, 0.397);
     right: 5rem;
-    top: 2rem;
+    top: 1rem;
 }
 .perfilbtn:hover{
     transition: 0.3s;
@@ -147,9 +147,12 @@
     .perfilbtn{
         position: relative;
         right: 15%;
-        top: 40%;
+        top: 20%;
         width: 55px;
         height: 55px;
+    }
+    .perfilbtnDeploy{
+        left: 50%;
     }
     .perfilDeploy{
         width: 35rem;
