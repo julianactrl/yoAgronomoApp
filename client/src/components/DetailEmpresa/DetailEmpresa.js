@@ -94,82 +94,79 @@ function DetailEmpresa ({id}) {
                 
             { <div className={styles.div}>
             <li className={styles.liContenedor}>
-            <div className={styles.name}>
-                <div className={styles.itemsTop}>
-            <h1 className={styles.nameTitle}>{empresa.name}</h1>
-            <Link to='/home' className={styles.cross}/>
-            <div className={styles.btnsDelEdit}>
-              <Link to={`/update/${empresa.id}`}>
-                <button className={styles.buttonEmpresa}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-              </Link>
-              <Link to={`/home`}>
-                <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
-              </Link>
-            </div>
-            </div>
-            </div>
-            <div className={styles.caja}>
-            <div className={styles.description}>
-            <h2 className={styles.malditoH2}>Hectáreas totales: {empresa.hectareas}</h2>
-            <h2 className={styles.malditoH2}>Ubicación: {empresa.ubicacion}</h2>
-            <h2 className={styles.agendita}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
-            <Link to={`/lote/${idEmpresa}`} className={styles.btnLote}>Lotes</Link>
-            <div className={styles.tareas}>
-            <div className={styles.items}>
-            <div className={styles.items}>
-          
-           </div> 
-              
-           <div className={styles.items}>
-           <div className={styles.contTareas}>
-             
-          {
-          // !alta && !media && !baja ?
-          //   <Link className={styles.elLink} to ='/tareas'>
-          //     <p>No hay tareas</p>
-          //     </Link> :
-            loading ? <p>Loading...</p> :
-          alta.length>0 && alta.map(t=>(
-            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
-          ))
-          }
-          {
-            // !alta && !media && !baja ? <p>No hay tareas</p> :
-            loading ? <p>Loading...</p> :
-          media.length>0 && media.map(t=>(
-            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
-            ))
-          }
-          {
-            loading ? <p>Loading...</p> :
-          baja.length>0 && baja.map(t=>(
-            <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
-          ))
-          }
-          </div>
-                           
-           </div>
-           </div>
-            </div>
-            </div>
-            {empresa.imagen ? (
-              <img
-              src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
-              alt="https://i.stack.imgur.com/y9DpT.jpg"
-              width={500}
-              height={350}
-              className={styles.imgEmpresa}
-            />
-          ) : (
-            <img
-              alt="perfil"
-              src={
-                "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
-              }
-              className={styles.imgEmpresa}
-            />
-          )}
-            </div>
+
+              <div className={styles.name}>
+                        <div className={styles.itemsTop}>
+                            <h1 className={styles.nameTitle}>{empresa.name}</h1>
+                            <Link to='/home' className={styles.cross}/>
+                            <div className={styles.btnsDelEdit}>
+                              <Link to={`/update/${empresa.id}`}>
+                                <button className={styles.buttonEmpresa}><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                              </Link>
+                              <Link to={`/home`}>
+                                <button onClick={()=>deleteEmpresa(id)} className={styles.eliminarEmpresa}><i class="fa fa-trash-o" aria-hidden="true"></i></button> 
+                              </Link>
+                            </div>
+                        </div>
+              </div>
+
+              <div className={styles.caja}>
+                  <div className={styles.description}>
+                        <h2 className={styles.malditoH2}>Hectáreas totales: {empresa.hectareas}</h2>
+                        <h2 className={styles.malditoH2}>Ubicación: {empresa.ubicacion}</h2>
+                        <h2 className={styles.agendita}><i class="fa fa-calendar" aria-hidden="true"></i> <button className={styles.agenda} onClick={e=> handleAgenda(e)}>Ver Agenda</button> </h2>
+                        <Link to={`/lote/${idEmpresa}`} className={styles.btnLote}>Lotes</Link>
+                        <div className={styles.tareas}>
+                              <div className={styles.items}>
+                              <div className={styles.items}>
+                            
+                              </div> 
+                                
+                              <div className={styles.items}>
+                              <div className={styles.contTareas}>
+                              
+                              {
+                              loading ? <p>Loading...</p> :
+                              alta.length>0 && alta.map(t=>(
+                              <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaAlta}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
+                              ))
+                              }
+                              {
+                              loading ? <p>Loading...</p> :
+                              media.length>0 && media.map(t=>(
+                              <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaMedia}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
+                              ))
+                              }
+                              {
+                              loading ? <p>Loading...</p> :
+                              baja.length>0 && baja.map(t=>(
+                              <Link className={styles.elLink} to ='/tareas'><p className={styles.eachTareaBaja}><i class="fa fa-check" aria-hidden="true"></i>{t.tarea}</p></Link>
+                              ))
+                              }
+                              </div>
+                                            
+                              </div>
+                              </div>
+                        </div>
+                  </div>
+                  {empresa.imagen ? (
+                    <img
+                    src={`${REACT_APP_API}/empresa/imagen/${empresa.imagen}`}
+                    alt="https://i.stack.imgur.com/y9DpT.jpg"
+                    width={500}
+                    height={350}
+                    className={styles.imgEmpresa}
+                  />
+                  ) : (
+                  <img
+                    alt="perfil"
+                    src={
+                      "https://blog.nutri-tech.com.au/content/images/2021/04/Crop---soybeans.jpg"
+                    }
+                    className={styles.imgEmpresa}
+                  />
+                  )}
+              </div>
             </li>
 
             </div> }

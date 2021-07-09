@@ -182,3 +182,130 @@ label {
     /* width: 40%; */
     /* left: 30%; */
 }
+
+.imgPhone{
+    display: none;
+}
+@media (max-width: 425px) {
+
+    .cross{
+        display: none;
+    }
+    .div{
+        /* background-color: red; */
+        height: 100vh;
+        width: 100%;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    }
+
+    .caja{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding-top: 18%;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        height: 100vh;
+        /* background-color: black; */
+    }
+    .alineado{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 4.5rem;
+        padding-left: 1%;
+        padding-right: 1%;
+        position:static;
+        font-weight: 400;
+        color: rgba(0, 75, 0, 0.753);
+        text-transform: uppercase;
+        /* background-color: crimson; */
+    }
+    
+
+    .estilosForm{
+        /* background-color: black; */
+        font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: black;
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        backdrop-filter: blur(20px);
+        background: rgba(250, 250, 250, 0.37);
+        box-shadow: 1px 0 15px black;
+        border: 2px solid rgba(54, 54, 54, 0.363);
+        width: 100%;
+        border-radius: 0px;
+        font-size: 18px;
+        position: relative;
+        height: 70%;
+    }
+
+    .inputsNewEmpresa{
+        /* background-color: rgba(0, 0, 0, 0.548); */
+        /* border: 3px solid black; */
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: none;
+        height: 40%;
+        align-items: flex-start;
+        text-align: center;
+    }
+    .inputCont{
+        text-align: center;
+        /* background-color: blueviolet; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .selectUbicacion{
+        width: 70%;
+    }
+    
+    input{
+        border: 1px solid rgb(3, 87, 3);
+        outline: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        margin: 0;
+    }
+    .inputCrear{
+        border: none;
+        width: 18.3rem;
+    }
+    .fileImg{
+        /* background-color: rgba(0, 0, 255, 0.418); */
+        /* border: 0.5px solid black; */
+        padding-top: 10%;
+        padding-bottom: 5%;
+    }
+
+    .img{
+        display: none;
+    }
+
+    .contPhoneAux{
+        /* background-color: rgba(0, 0, 255, 0.623); */
+        display: flex;
+        justify-content: space-around;
+    }
+    .imgPhone{
+        display:block;
+        width: 25%;
+        height: 50%;
+    }
+
+    .buttonCrearEmpresa{
+        width: 100%;
+    }
+}

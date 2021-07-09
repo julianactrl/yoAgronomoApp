@@ -6,8 +6,8 @@
 .mainCont{
     width: 100vw;
     height: 100vh;
-    background-image:url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(5\).png'),
-    linear-gradient( rgba(170, 189, 168, 0.3), rgb(188, 212, 188,0.3), rgb(110, 143, 116,0.3));
+    /* background-image:url('../../assets/Black\ Flat\ &\ Minimalist\ Accounting\ Business\ Website\ \(5\).png'), */
+    /* linear-gradient( rgba(170, 189, 168, 0.3), rgb(188, 212, 188,0.3), rgb(110, 143, 116,0.3)); */
    background-size: contain;
    background-clip: border-box;
    background-blend-mode:darken;
@@ -312,14 +312,30 @@
 
 
 @media (max-width: 425px) {
+
+    .btnNews{
+        display: none;
+    }
+
+    .body{
+        /* background-color: brown; */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
     .contSlider{
         display: none;
     }
     .contSliderCelular{
         display: flex;
+        background-color: rgba(0, 0, 255, 0);
     }
     .sliderCelular{
-        /* background-color: blueviolet; */
+        background-color: rgba(137, 43, 226, 0);
         width: 100%;
         height: 90%;
         display: flex;
@@ -351,6 +367,8 @@
     }
     .link{
         padding-left: 5%;
+        /* background-color: blue; */
+
     }
     .titleAdd{
         font-size: 250%;
@@ -360,7 +378,7 @@
         text-align: center;
         left: 0%;
         /* margin-top: 10%; */
-        padding-top: 8%;
+        /* padding-top: 8%; */
         /* top:110px; */
         /* font-size: 55px; */
         font-weight: 400;
@@ -371,7 +389,7 @@
     .contSliderCelular{
         /* background-color: rgba(0, 255, 255, 0.192); */
         width: 100%;
-        height: 40rem;
+        height: 36rem;
     }
     /* .sliderCelular{
         background-color: rgba(0, 0, 0, 0.418);
