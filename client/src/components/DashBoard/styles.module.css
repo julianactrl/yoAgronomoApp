@@ -313,6 +313,10 @@
 
 @media (max-width: 425px) {
 
+    .btnNews{
+        display: none;
+    }
+
     .body{
         /* background-color: brown; */
         height: 100%;

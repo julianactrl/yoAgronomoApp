@@ -118,6 +118,8 @@ function NewEmpresa() {
     >
       <div className={styles.div}>
         <Header />
+        <div className={styles.auxPhone}>
+
         <div className={styles.caja}>
           <h2 className={styles.alineado}>Nueva Empresa</h2>
           <Link to='/home' className={styles.cross}/>
@@ -131,7 +133,7 @@ function NewEmpresa() {
                   value={input.name}
                   placeholder="Estancia YoAgronomo"
                   name="name"
-                />
+                  />
               </div>
               <div className={styles.inputCont}>
                 <h4>Hectáreas </h4>
@@ -141,7 +143,7 @@ function NewEmpresa() {
                   value={input.hectareas}
                   placeholder="600"
                   name="hectareas"
-                />
+                  />
               </div>
               <div className={styles.inputCont}>
                 <select className={styles.selectUbicacion} 
@@ -150,37 +152,46 @@ function NewEmpresa() {
                   <option  disabled selected> Seleccione Ubicación</option>
                   {dataCiudades.localidades.map((ciudad) => (
                     <option value={ciudad.nombre}>{ciudad.nombre}</option>
-                  ))}
+                    ))}
                 </select>
+               
               </div>
             </div>
             <div className={styles.fileImg}>
               <h4>Imagen</h4>
-              <input
-                className={styles.inputCrear}
-                type="file"
-                name="imagen"
-                accept="image/png, image/jpeg"
-                onChange={handleFileInputChange}
-                required
-                placeholder="subir img"
-              />
+              <div className={styles.contPhoneAux}>
+                  <input
+                    className={styles.inputCrear}
+                    type="file"
+                    name="imagen"
+                    accept="image/png, image/jpeg"
+                    onChange={handleFileInputChange}
+                    required
+                    placeholder="subir img"
+                    />
+                  <img
+                  className={styles.imgPhone}
+                  src={imgUrl}
+                  alt={imgUrl}
+                  />
+              </div>
             </div>
             <img
               className={styles.img}
               src={imgUrl}
               alt={imgUrl}
-            />
+              />
             <br></br>
               <button
                 className={styles.buttonCrearEmpresa}
                 type="submit"
                 value="Crear empresa"
                 name="Enviar"
-              >
+                >
                 Crear Empresa
               </button>
           </form>
+        </div>
         </div>
       </div>
     </motion.div>

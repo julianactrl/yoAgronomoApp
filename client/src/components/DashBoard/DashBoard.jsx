@@ -103,7 +103,7 @@ export default function DashBoard (){
                     } 
                 </div>
                 <div className={styles.newsTitle} ></div>
-                {/* <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button>  */}
+                <button className={showNews?styles.btnNewsOpen:styles.btnNews} data-tooltip='News!' onClick={news}></button> 
                 <div className={styles.body}>
                   <h1 className={styles.title}>Mis Empresas</h1>
                   <div className={styles.contSlider}>
