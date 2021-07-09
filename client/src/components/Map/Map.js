@@ -150,21 +150,22 @@ const Map = () => {
           />
         </GoogleMap>
       </LoadScript>
-
-      <ul  className='ulSele'>
-      <h4>Instrucciones:</h4>
-        <li><i class="fa fa-check" aria-hidden="true"></i>
-Seleccione la porción de terreno sobre la cual desea obtener información.</li>
-        <li><i class="fa fa-check" aria-hidden="true"></i>
-Presione el botón Agregar coordenadas.</li>
-        <li><i class="fa fa-check" aria-hidden="true"></i>
-Si obtiene buenos resultados, ya puede ver el detalle de su lote en 'Ver detalle'. Sino vuelva a marcar el terreno con mayor precisión.</li>
-      </ul>
-      <div className='dosBotones'>
-      <button className='button' onClick={handleSubmit}>Agregar coordenadas</button>
-      <Link to = '/agroapi'>
-        <button className='button'>Ver detalle</button>
-      </Link>
+      <div className='contenedorInfoMap'>
+        <ul  className='ulSele'>
+          <h4>Instrucciones:</h4>
+          <li><i class="fa fa-check" aria-hidden="true"></i>
+            Seleccione la porción de terreno sobre la cual desea obtener información.</li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>
+            Presione el botón Agregar coordenadas.</li>
+          <li><i class="fa fa-check" aria-hidden="true"></i>
+            Si obtiene buenos resultados, ya puede ver el detalle de su lote en 'Ver detalle'. De lo contrario, vuelva a marcar el terreno con mayor precisión.</li>
+        </ul>
+        <div className='dosBotones'>
+          <button className='button' onClick={handleSubmit}>Agregar coordenadas</button>
+          <Link to = '/agroapi'>
+            <button className='button'>Ver detalle</button>
+          </Link>
+        </div>
       </div>
     </div>
     </div> 
