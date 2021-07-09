@@ -15,6 +15,9 @@
     -webkit-perspective: 4000;
 
 }
+.btnDetailsCel{
+    display: none;
+}
 
 .buttons2{
     display: flex;
@@ -1085,6 +1088,9 @@
         /* background-color: aqua; */
     }
     .btnDetailsCel{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: white;
         font-size: 22px;
         position: absolute;
@@ -1147,6 +1153,7 @@
         height: 30vh;
     }
     .nothingHereTitle{
+        
         color: rgb(197, 197, 197);
         width: 100%;
         font-size: 20px;

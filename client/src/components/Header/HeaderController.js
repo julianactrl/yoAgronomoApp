@@ -23,6 +23,9 @@ export function sidebar(verify){
                     <Link to='/agroconsultas' className={styles.linktext}>
                     <h2 className={styles.text}>AGRO CONSULTAS</h2>
                     </Link>
+                    <Link to='/map' className={styles.linktext}>
+                    <h2 className={styles.text}>INFORMACIÓN SATELITAL</h2>
+                    </Link>
                 </div>    
             </div>
         )
@@ -53,6 +56,9 @@ export function sidebar(verify){
                 </Link>
                 <Link to='/agroconsultas'className={styles.linktext}>
                 <h2 className={styles.text}>AGRO CONSULTAS</h2>
+                </Link>
+                <Link to='/map' className={styles.linktext}>
+                    <h2 className={styles.text}>INFORMACIÓN SATELITAL</h2>
                 </Link>
             </div>
 
